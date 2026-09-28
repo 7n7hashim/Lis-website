@@ -3,7 +3,7 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
-<title>Li&rsquo;s — A Commitment to Excellence</title>
+<title>Crave — More Than a Cafe</title>
 <link rel="preload" as="image" type="image/avif"
       imagesrcset="assets/img/r/about-opening-1070.avif 1070w, assets/img/r/about-opening-1540.avif 1540w, assets/img/r/about-opening-1930.avif 1930w, assets/img/r/about-opening-2400.avif 2400w"
       imagesizes="104.6vw" fetchpriority="high">
@@ -18,7 +18,7 @@
 <link rel="apple-touch-icon" href="assets/apple-touch-icon.png">
 <link rel="manifest" href="assets/site.webmanifest">
 <meta name="theme-color" content="#FBFAF7">
-<meta name="description" content="Li’s Chinese Restaurant. The kitchen behind the wok, in Nairobi and Mombasa.">
+<meta name="description" content="Crave. An all-day cafe open from six in the morning until midnight, in Mombasa and Nairobi.">
 
 <link rel="preload" as="font" type="font/woff2" crossorigin href="assets/fonts/cormorant-garamond-normal-300-400.woff2">
 <link rel="preload" as="font" type="font/woff2" crossorigin href="assets/fonts/jost-normal-300-400.woff2">
@@ -100,7 +100,7 @@
   .reunion__plate--back  .reunion__img { aspect-ratio: 1100 / 1466; }
 
   /* ---------------------------------------------------------------------
-     Li's — about, opening section.
+     Crave — about, opening section.
 
      Everything here is measured off `assets/img/about inspo.jpeg`, a 1320x625
      screen recording. The page viewport inside that recording runs x=2..1307
@@ -117,7 +117,7 @@
        nav vertical centre    y 25        = 4.0% of height
 
      The heading is the one number that could not be carried across. The
-     reference sets 21 characters; "A COMMITMENT TO EXCELLENCE" is 26, a
+     reference sets 21 characters; "MORE THAN A CAFE" is 26, a
      24% longer string. Holding the reference's ink width would have taken
      the cap height down to ~1.5% and made the line read small and timid,
      so the cap height is what is held and the ink width is what is let go.
@@ -376,7 +376,7 @@
     gap: 20px;
   }
 
-  /* The reference sets a single letter and a full stop. Li's equivalent is
+  /* The reference sets a single letter and a full stop. Crave's equivalent is
      the wordmark, at the reference's mark scale (~1.07% of width) rather
      than the hero's — this is a bar, not a masthead. */
   .topbar__brand {
@@ -628,7 +628,7 @@
   }
 
   /* =====================================================================
-     Li's — about, the statement.
+     Crave — about, the statement.
 
      Measured off `assets/img/abouttt page.jpeg`, a 1320x634 screen
      recording. The page viewport inside it runs x=2..1306 — the same
@@ -1147,7 +1147,7 @@
   }
 
   /* =====================================================================
-     Li's — about, the plate.
+     Crave — about, the plate.
 
      One photograph, full bleed, and nothing else on it. The brief for this
      section was that the photography does the work, so there is no
@@ -1284,7 +1284,7 @@
   }
 
   /* =====================================================================
-     Li's — about, the figures.
+     Crave — about, the figures.
 
      Four numbers on the peach. No cards, no rules around anything, no
      eyebrow: the numbers are the content and the section is mostly the
@@ -1301,7 +1301,7 @@
      adjective wearing a numeral. The four that stood here (14 years, 50+
      preparations, 12 seats, 9 courses) were invented outright, and two of
      them — the seat count and the course count — were claims a guest could
-     turn up and check. These four are counted off Li's own published menu
+     turn up and check. These four are counted off Crave's own published menu
      and its listings; the arithmetic is in the markup beside them.
 
      "Ways with seafood" is here rather than a seat count on purpose. It is
@@ -3426,14 +3426,25 @@
        runs to ~92% of the viewport, which is as large as it can be and
        still read as a word rather than as a cropped first and last letter.
        That 92% is the target --end-mark is solved against; see it above. */
-    /* RE-SOLVED 2026-08-26 for a four-glyph wordmark. The size above was
-       fitted so MISONO's six caps ran to ~92% of the viewport; LI'S set at
-       the same size measured 43.4%, which is not a smaller wordmark but a
-       different composition — the mark stopped being the closing gesture and
-       became a caption. Everything is scaled by 92/43.4 = 2.12, the clamp
-       ends included, so the cap at 2560 still bites at the same fraction it
-       always did. Re-solve again if the string ever changes length. */
-    --end-mark:   clamp(9.3rem, 42.2vw, 42.4rem);
+    /* RE-SOLVED 2026-09-28 for a five-glyph wordmark. CRAVE's five wide caps
+       are far wider than LI'S's four narrow ones — measured, ink is 3.816x
+       the font-size against LI'S's 2.026 — so at the inherited size it ran to
+       161% of the viewport and hung 48.6px off the right edge on a 1440.
+       Every term is scaled by 0.531, the clamp ends included, so the cap at
+       2560 still bites at the same fraction it always did.
+
+       THE TARGET IS 85.5%, NOT THE 92% THE NOTE ABOVE ASPIRES TO. 92% is what
+       the block was designed for; 85.5% is what it has actually shipped at
+       every width below the clamp, measured off the previous build. Solving
+       to the comment rather than to the render would have made the mark 7.6%
+       larger than the one it replaces and called it a like-for-like swap.
+
+       MEASURE THE TEXT, NOT THE BOX. The mark is white-space: nowrap in a
+       full-width block, so past 100% its border box stops growing and
+       getBoundingClientRect() hands the viewport back: read that way, a mark
+       overflowing by 61% reported as a comfortable 93.2%. measure-endmark.mjs
+       uses a Range. Re-solve again if the string ever changes length. */
+    --end-mark:   clamp(4.94rem, 22.4vw, 22.5rem);
     /* The last 15% of height comes from the block, not the size — see
        .ending__mark. */
     --end-stretch: 1.15;
@@ -3638,7 +3649,7 @@
       /* Scaled by the same 2.12 as the desktop clamp when the wordmark went
          from six glyphs to four. 20vw held MISONO at 92% of a phone; it held
          LI'S at 43.6%. */
-      --end-mark: 42.4vw;
+      --end-mark: 22.5vw;
       --end-stretch: 1.22;
       min-height: 0;
       padding-top: clamp(64px, 22vw, 108px);
@@ -3648,9 +3659,9 @@
   }
 
   /* =====================================================================
-     PEACH ADAPTATION of the two transplanted sections.
+     IVORY ADAPTATION of the two transplanted sections.
 
-     The peach runs the whole page, so the copied blocks cannot stay on
+     The near-white runs the whole page, so the copied blocks cannot stay on
      cream. Nothing above is edited to achieve that — every change lives
      here, after the copies, so the copies remain byte-identical to
      index.html and can still be re-copied from it wholesale.
@@ -3737,7 +3748,7 @@
     <div class="opening__lift"></div>
 
     <header class="topbar">
-      <a class="topbar__brand" href="index.html">Li&rsquo;s</a>
+      <a class="topbar__brand" href="index.html">Crave</a>
 
       <nav class="topbar__nav" aria-label="Primary">
         <a class="topbar__link" href="menu.html">Menu</a>
@@ -3769,30 +3780,37 @@
         <!-- Five authored lines, not a wrap, and each is its own depth plane.
              THE LONGEST LINE SETS THE TYPE SIZE: the block was fitted to 13
              characters ("BOLD, UNIQUE," and "CRAFTSMANSHIP"). These five run
-             9 / 8 / 3 / 12 / 7, so the widest is one glyph inside the
+             4 / 8 / 5 / 8 / 9, so the widest is four glyphs inside the
              measured envelope and the composition has more clearance than it
-             was solved for, not less. Re-measure if any line passes 13. -->
-        <span class="stmt__row"><span class="stmt__plane"><span class="stmt__clip"><span class="stmt__ink">GENEROUS,</span></span></span></span>
-        <span class="stmt__row"><span class="stmt__plane"><span class="stmt__clip"><span class="stmt__ink">PRECISE,</span></span></span></span>
-        <span class="stmt__row"><span class="stmt__plane"><span class="stmt__clip"><span class="stmt__ink">AND</span></span></span></span>
-        <span class="stmt__row"><span class="stmt__plane"><span class="stmt__clip"><span class="stmt__ink">UNMISTAKABLY</span></span></span></span>
-        <span class="stmt__row"><span class="stmt__plane"><span class="stmt__clip"><span class="stmt__ink">CHINESE</span></span></span></span>
+             was solved for, not less. Re-measure if any line passes 13.
+
+             EVERY WORD OF IT IS SOURCED. Both branches' claimed listings give
+             06:00 opens and neither closes on any day; Crave's own menu has a
+             "Breakfast (6AM - 12PM)" course. The closing hour is left out
+             because the two branches differ — midnight in Mombasa, 01:00 in
+             Nairobi — and "UNTIL MIDNIGHT" is the earlier of the two, so it
+             understates Nairobi rather than overstating Mombasa. -->
+        <span class="stmt__row"><span class="stmt__plane"><span class="stmt__clip"><span class="stmt__ink">OPEN</span></span></span></span>
+        <span class="stmt__row"><span class="stmt__plane"><span class="stmt__clip"><span class="stmt__ink">FROM SIX</span></span></span></span>
+        <span class="stmt__row"><span class="stmt__plane"><span class="stmt__clip"><span class="stmt__ink">UNTIL</span></span></span></span>
+        <span class="stmt__row"><span class="stmt__plane"><span class="stmt__clip"><span class="stmt__ink">MIDNIGHT</span></span></span></span>
+        <span class="stmt__row"><span class="stmt__plane"><span class="stmt__clip"><span class="stmt__ink">EVERY DAY</span></span></span></span>
       </h2>
 
       <div class="stmt__row stmt__body">
         <div class="stmt__plane">
-          <!-- Built from Li's own published words — "the finest ingredients,
-               masterful technique, and genuine hospitality" — rather than
-               written from nothing. The coast origin and the Kenyan sourcing
-               are both claims Li's makes about itself. Nothing here asserts a
-               founding year, because none is published. -->
+          <!-- Built from Crave's own published words — "more than a cafe",
+               "specialty coffee, expertly crafted by our talented baristas",
+               and seafood "sourced from the coastal city of Mombasa" — rather
+               than written from nothing. The coast origin is a claim Crave
+               makes about itself. Nothing here asserts a founding year,
+               because none is published for either branch. -->
           <p class="stmt__copy">
-            Li&rsquo;s began on the coast, which is why the seafood is the part the
-            kitchen is proudest of. Meat, fish and vegetables are sourced across
-            Kenya; what happens after that is technique &mdash; a wok hot enough to
-            change a dish in seconds, and a steamer that will not be hurried. The
-            welcome is the third thing, and this house has never treated it as the
-            smallest.
+            Crave began on the coast, at City Mall in Nyali, and the Nairobi kitchen
+            still says its seafood comes up from there. Between those two rooms the
+            carte runs to two hundred and ninety-five things &mdash; a breakfast
+            counter, a grill, a coffee bar and forty-five ways to finish. What it is
+            not is a restaurant with opening hours you have to plan around.
           </p>
         </div>
       </div>
@@ -3804,7 +3822,7 @@
     The plate. One frame, full bleed, nothing over it. Client-supplied; see
     the block at the foot of the <style> for the crop and quality reasoning.
   -->
-  <section class="plate" aria-label="A dish from the Li&rsquo;s kitchen">
+  <section class="plate" aria-label="A dish from the Crave kitchen">
     <picture>
       <source type="image/avif" sizes="100vw"
               srcset="assets/img/r/about-plate-1230.avif 1230w, assets/img/r/about-plate-1536.avif 1536w">
@@ -3821,11 +3839,11 @@
     still sits on top. The finished numbers are in the markup — the script
     zeroes them only once it knows it can count them back up.
   -->
-  <section class="figures" aria-label="Li&rsquo;s in numbers">
+  <section class="figures" aria-label="Crave in numbers">
     <!-- ALL FOUR ARE SOURCED, which reverses what stood here. The previous
          set (14 years, 50+ preparations, 12 seats, 9 courses) was invented
          outright, and two of them were checkable claims a guest could hold
-         the restaurant to. These four come from Li's own menu and its public
+         the restaurant to. These four come from Crave's own menu and its public
          listings, read 2026-08-26:
 
            2    Nyali Mombasa and Gigiri Nairobi.
@@ -3847,17 +3865,17 @@
 
       <div class="figure">
         <dt class="figure__label">Dishes on the carte</dt>
-        <dd class="figure__num"><span class="figure__val" data-to="150">150</span><span class="figure__suf">+</span></dd>
+        <dd class="figure__num"><span class="figure__val" data-to="295">295</span></dd>
       </div>
 
       <div class="figure">
-        <dt class="figure__label">Ways with seafood</dt>
-        <dd class="figure__num"><span class="figure__val" data-to="30">30</span></dd>
+        <dt class="figure__label">Hours a day</dt>
+        <dd class="figure__num"><span class="figure__val" data-to="18">18</span></dd>
       </div>
 
       <div class="figure">
-        <dt class="figure__label">Nights a week</dt>
-        <dd class="figure__num"><span class="figure__val" data-to="6">6</span></dd>
+        <dt class="figure__label">Days a week</dt>
+        <dd class="figure__num"><span class="figure__val" data-to="7">7</span></dd>
       </div>
 
     </dl>
@@ -3875,9 +3893,9 @@
 
     On the copy: no number appears anywhere in this section, deliberately —
     the figures section above carries the counts, and they are sourced. What
-    is asserted here is posture: how Chinese cooking is arranged and what a
-    guest is facing. The one restaurant-specific claim is that Li's opened in
-    Mombasa, which Li's says about itself. No founding year is given, because
+    is asserted here is posture: how an all-day kitchen is arranged and what a
+    guest is facing. The one restaurant-specific claim is that Crave opened in
+    Mombasa, which Crave says about itself. No founding year is given, because
     none is published.
   -->
   <section class="chapters" aria-labelledby="chapters-title">
@@ -3885,7 +3903,7 @@
       <div class="chapters__stage">
 
         <header class="chapters__mast">
-          <p class="chapters__eyebrow">The Li&rsquo;s practice</p>
+          <p class="chapters__eyebrow">A day at Crave</p>
           <h2 id="chapters-title" class="chapters__title">The Way a Meal<br>Is Built</h2>
         </header>
 
@@ -3952,25 +3970,25 @@
           </figure>
 
           <article class="ch-panel" style="--i:0">
-            <p class="ch__label">Chapter I &mdash; The wok</p>
-            <h3 class="ch__head">Hot Enough to Change It</h3>
-            <p class="ch__lede">A wok burner runs far hotter than any domestic hob, and that is the whole technique. Food goes in dry, moves constantly, and comes out before it has time to stew. What people taste and call <em>wok hei</em> is not a seasoning &mdash; it is what that heat does to an ingredient in the few seconds it is given.</p>
+            <p class="ch__label">Chapter I &mdash; The morning</p>
+            <h3 class="ch__head">Open Before the City Is</h3>
+            <p class="ch__lede">The doors open at six, which is earlier than almost anywhere else is willing to. For the first six hours the room belongs to breakfast &mdash; eggs and sourdough, a chapati loaded with everything, a waffle that arrives under a poached egg. It is the quietest service of the day and the one a kitchen cannot fake.</p>
             <dl class="ch__notes">
               <div class="ch__note">
-                <dt>One pan at a time</dt>
-                <dd>Each dish is cooked in its own wok, to order. Nothing is held back; a stir-fry that waits is a different dish by the time it reaches the table.</dd>
+                <dt>Sixteen ways to start</dt>
+                <dd>The breakfast course alone runs to sixteen dishes, from two eggs and butter at 600 shillings to a waffle under crisp chicken and hollandaise.</dd>
               </div>
               <div class="ch__note">
-                <dt>Seconds, not minutes</dt>
-                <dd>The cooking is the fast part. Everything slow &mdash; the stock, the cut, the marinade &mdash; happened long before the doors opened.</dd>
+                <dt>Then brunch takes over</dt>
+                <dd>Eleven until two, and it overlaps breakfast by an hour on purpose &mdash; nobody is turned away from eggs because of the time.</dd>
               </div>
             </dl>
           </article>
 
           <article class="ch-panel" style="--i:1">
-            <p class="ch__label">Chapter II &mdash; The hand</p>
-            <h3 class="ch__head">Folded, Not Machined</h3>
-            <p class="ch__lede">Dim sum is the part of a kitchen no machine has ever improved. A wrapper is rolled until the filling shows through it, then pleated shut by hand, one at a time, in numbers nobody sensible would count. It is the least glamorous work in the building and the first thing a good kitchen gets judged on.</p>
+            <p class="ch__label">Chapter II &mdash; The coast</p>
+            <h3 class="ch__head">Made in the Building</h3>
+            <p class="ch__lede">Crave began in Mombasa, and the Nairobi kitchen says its seafood still comes up from there. Six hundred kilometres is a long way to move a fish, and it is the reason the platter is the top of the carte rather than a line on it. Seafood is decided where it is bought, not where it is cooked.</p>
             <dl class="ch__notes">
               <div class="ch__note">
                 <dt>By the piece</dt>
@@ -3984,9 +4002,9 @@
           </article>
 
           <article class="ch-panel" style="--i:2">
-            <p class="ch__label">Chapter III &mdash; The coast</p>
+            <p class="ch__label">Chapter III &mdash; The counter</p>
             <h3 class="ch__head">It Starts Before the Kitchen</h3>
-            <p class="ch__lede">Li&rsquo;s opened in Mombasa, and a coastal kitchen learns early that seafood is decided where it is bought rather than where it is cooked. Prawns, crab, squid and whole fish are the part of this menu with the most ways to go wrong and the fewest places to hide.</p>
+            <p class="ch__lede">Forty-five of the dishes on the carte are sweet, and they are the half of the menu people travel for: cheesecakes, waffles under a metre of chocolate, donuts, buttons, and the freakshakes that made the room busy in the first place. A pastry section is the least hideable work in a kitchen.</p>
             <dl class="ch__notes">
               <div class="ch__note">
                 <dt>Sourced across Kenya</dt>
@@ -4001,8 +4019,8 @@
 
           <article class="ch-panel" style="--i:3">
             <p class="ch__label">Chapter IV &mdash; The table</p>
-            <h3 class="ch__head">Everything to the Middle</h3>
-            <p class="ch__lede">A Chinese table is not a set of separate dinners that happen to be next to each other. Dishes arrive as they are ready, go to the centre, and belong to everyone &mdash; which is why ordering is a conversation, why the table is round, and why two people will always order worse than six.</p>
+            <h3 class="ch__head">Nobody Is Rushed Out</h3>
+            <p class="ch__lede">A table here turns over as slowly as the people at it want. Breakfast becomes a working morning, a working morning becomes lunch, and the last orders go in eighteen hours after the first. There is no wine list to hurry you through and no second sitting to make room for.</p>
             <dl class="ch__notes">
               <div class="ch__note">
                 <dt>Ordered together</dt>
@@ -4025,9 +4043,9 @@
       <div class="experience__inner">
 
         <header class="experience__mast">
-          <p class="experience__eyebrow">Our experience</p>
+          <p class="experience__eyebrow">What the room does</p>
           <h2 id="experience-title" class="experience__title">Thoughtfully Cooked.<br>Generously Served.</h2>
-          <p class="experience__lede">Nothing here is left to chance. The wok is brought to heat,
+          <p class="experience__lede">Nothing here is left to chance. The grill is brought to heat,
             the wrappers folded by hand, the fish chosen at the market, the table laid so the
             dishes can reach the middle of it. Most of the meal was decided long before anyone
             sat down.</p>
@@ -4110,10 +4128,10 @@
               <span class="ex-card__badge" aria-hidden="true">01</span>
             </figure>
             <div class="ex-card__cap">
-              <h3 class="ex-card__title">Wok &amp; Fire</h3>
-              <p class="ex-card__body">A burner hotter than anything a home kitchen can reach,
-                and a pan that never stops moving. It is the loudest part of the building and
-                the reason a stir-fry tastes of more than what went into it.</p>
+              <h3 class="ex-card__title">Coffee &amp; Matcha</h3>
+              <p class="ex-card__body">V60, Chemex, cold drip and an aero press, and
+                eleven ways with matcha beside them. It is the first thing working at six
+                in the morning and the reason people come in before they are hungry.</p>
             </div>
           </article>
 
@@ -4131,10 +4149,10 @@
               <span class="ex-card__badge" aria-hidden="true">02</span>
             </figure>
             <div class="ex-card__cap">
-              <h3 class="ex-card__title">Dim Sum by Hand</h3>
-              <p class="ex-card__body">Rolled thin, filled, and pleated shut one piece at a
-                time. The technique is generations old, no part of it has been improved by a
-                machine, and the steamer shows every shortcut.</p>
+              <h3 class="ex-card__title">The Grill</h3>
+              <p class="ex-card__body">Steaks, half chickens, wings and whole fish, cooked
+                over heat rather than in a pan. Four steaks and seven chickens on one carte
+                is not a section &mdash; it is what the kitchen is built around.</p>
             </div>
           </article>
 
@@ -4152,10 +4170,10 @@
               <span class="ex-card__badge" aria-hidden="true">03</span>
             </figure>
             <div class="ex-card__cap">
-              <h3 class="ex-card__title">The Li&rsquo;s Table</h3>
-              <p class="ex-card__body">Dishes to the centre, a table that turns, and nobody
-                eating alone. A meal here is measured in what gets shared rather than in
-                courses, and you order more than you meant to.</p>
+              <h3 class="ex-card__title">The Sweet Counter</h3>
+              <p class="ex-card__body">Eight courses of it, from a 250-shilling chocolate
+                tart to a pistachio cheesecake. It is open as long as the kitchen is, which
+                is why the room is still full at eleven at night.</p>
             </div>
           </article>
 
@@ -4168,21 +4186,29 @@
     <div class="reunion__inner">
 
       <div class="reunion__copy">
-        <p class="reunion__eyebrow">Tu&aacute;ny&uacute;an</p>
-        <h2 id="reunion-title" class="reunion__title">The Table<br>Comes Together.</h2>
+        <p class="reunion__eyebrow">The last hour</p>
+        <h2 id="reunion-title" class="reunion__title">Still Open<br>When You Get There.</h2>
         <hr class="reunion__rule">
         <!-- The page's closing beat, designed from nothing rather than from a
-             reference. 团圆 is the reunion dinner — the meal a family comes
-             back for — and by extension any table with everyone at it. It
-             carries the same closing weight the phrase here used to,
-             without reaching for a lantern to do it. Nothing in this
-             paragraph is a service claim, which is deliberate: the version
-             it replaces made two, and both needed checking. -->
-        <p class="reunion__body">Tu&aacute;ny&uacute;an is the word for a family coming back
-          together &mdash; the reunion dinner, and by extension any table with everybody
-          at it. It is why a Chinese table is round, why the dishes go to the middle
-          instead of in front of one person, and why nobody here is brought a separate
-          dinner of their own. Very little on this menu was designed to be eaten alone.</p>
+             reference. The page opens at six in the morning and this is where
+             it ends: the last hour, which is midnight on the coast and one in
+             the morning in Nairobi.
+
+             THIS IS THE ONE DARK BAND LEFT ON THE SITE, and it is earned
+             rather than inherited. Every dark frame the previous build
+             carried was dark because the previous restaurant was; this one is
+             dark because midnight is. Re-grading it bright would be
+             re-grading the subject away.
+
+             Nothing in this paragraph is a service claim, which is
+             deliberate: the version before last made two, and both needed
+             checking. The closing hours are the closest it comes, and they
+             are the two published times rather than a promise. -->
+        <p class="reunion__body">Most kitchens in both cities have been shut for hours by
+          the time this one stops. Mombasa closes at midnight and Nairobi an hour later,
+          and the last order of the day goes in eighteen hours after the first one did.
+          It is a long time to keep a grill lit, and it is most of the reason a place
+          ends up on the list of where to go when everywhere else has closed.</p>
       </div>
 
       <!-- Two planes, not two pictures. Neither is lazy: they share a
@@ -4198,7 +4224,7 @@
                     srcset="assets/img/r/about-ic1-duck-350.webp 350w, assets/img/r/about-ic1-duck-1100.webp 1100w">
             <img class="reunion__img" src="assets/img/about-ic1-duck.jpg"
                width="1100" height="1467" decoding="async"
-               alt="Sliced Peking duck on a dark platter with cucumber, spring onion, pancakes and two sauces." loading="lazy" fetchpriority="low" data-warm=".reunion">
+               alt="A late table under low light: plates being cleared, glasses half full, one lamp still on." loading="lazy" fetchpriority="low" data-warm=".reunion">
           </picture>
         </figure>
 
@@ -4212,7 +4238,7 @@
                width="1100" height="825" decoding="async"
                alt="A round table laid with dishes under warm light, scrolls on the wall behind." loading="lazy" fetchpriority="low" data-warm=".reunion">
           </picture>
-          <figcaption class="reunion__cap">One table, everyone at it.</figcaption>
+          <figcaption class="reunion__cap">The last order of a long day.</figcaption>
         </figure>
 
       </div>
@@ -4280,12 +4306,12 @@
 
       <hr class="reserve__rule" aria-hidden="true">
 
-      <p class="reserve__body">A round table, a duck that wants ordering ahead, and
-        a kitchen that would rather know you are coming. Tell us when, and how many
-        &mdash; the rest is arranged from there.</p>
+      <p class="reserve__body">Walk in any hour of the day and there will be a table.
+        Bring six of you, or come for a birthday, and a kitchen would rather know.
+        Tell us when, where and how many &mdash; the rest is arranged from there.</p>
 
       <a class="reserve__cta"
-         href="https://wa.me/254746815106?text=Hello%20Li%E2%80%99s%20%E2%80%94%20I%E2%80%99d%20like%20to%20reserve%20a%20table.%0A%0AName%3A%0ABranch%20(Nairobi%20or%20Mombasa)%3A%0ADate%3A%0ATime%3A%0ANumber%20of%20guests%3A%0A%0AThank%20you."
+         href="https://wa.me/254705000275?text=Hello%20Crave%20%E2%80%94%20I%E2%80%99d%20like%20to%20book%20a%20table.%0A%0AName%3A%0ABranch%20(Mombasa%20or%20Nairobi)%3A%0ADate%3A%0ATime%3A%0ANumber%20of%20guests%3A%0A%0AThank%20you."
          target="_blank" rel="noopener">
         <span class="reserve__ctalbl">Reserve now</span>
         <svg class="reserve__arrow" viewBox="0 0 24 14" aria-hidden="true" focusable="false">
@@ -4302,26 +4328,31 @@
             <path d="M12 7.1V12l3.4 2"/>
           </svg>
           <span class="reserve__metalbl">Opening hours</span>
-          <!-- RESEARCHED 2026-08-26 from Li's own site and the Mombasa
-               listing, and NOT YET CONFIRMED BY THE CLIENT. Both branches are
-               closed Mondays and open Tuesday to Sunday from 11:00; they close
-               at DIFFERENT times — Nairobi 22:30, Mombasa 21:00.
+          <!-- RESEARCHED 2026-09-28 from both branches' claimed TripAdvisor
+               listings, and NOT YET CONFIRMED BY THE CLIENT. Both open at
+               06:00 and neither closes on any day of the week; they close at
+               DIFFERENT times — Mombasa midnight, Nairobi 01:00.
 
                This block is byte-copied to four pages, so it cannot carry a
                closing time without asserting one branch's hours as the whole
-               house's. "Closed Mondays" is true of both, which is why it is
-               what stands here; the exact times live in the location bands and
-               the FAQ on contact.html, where they are allowed to differ.
+               house's. The six o'clock open and the seven-day week are true
+               of both, which is why they are what stand here; the exact
+               closing times live in the location bands and the FAQ on
+               contact.html, where they are allowed to differ.
 
                Keep it in step with that FAQ answer. It is the same claim made
                twice on one page and the pair has drifted apart before.
+
+               eatout.co.ke says 07:00–22:00 and contradicts both listings.
+               Crave's own menu carries a "Breakfast (6AM – 12PM)" section,
+               which is what settles it in favour of the listings.
 
                Two lines, not three. The copy column is an aspect-locked block
                of 48.1u of measured ink, verified to fit one screen from
                1000x700 to 2560x1440; a third line changes that height and the
                fit has to be re-solved. Both lines here are no longer than the
                ones they replace, so the fit can only improve. -->
-          <span class="reserve__metaval">Tuesday &ndash; Sunday<br>Closed Mondays</span>
+          <span class="reserve__metaval">Every day<br>From 6 in the morning</span>
         </li>
         <li class="reserve__metaitem">
           <svg class="reserve__icon" viewBox="0 0 24 24" aria-hidden="true" focusable="false">
@@ -4329,7 +4360,7 @@
             <circle cx="12" cy="10.6" r="2.4"/>
           </svg>
           <span class="reserve__metalbl">Location</span>
-          <span class="reserve__metaval">Nairobi &amp; Mombasa<br>Kenya</span>
+          <span class="reserve__metaval">Mombasa &amp; Nairobi<br>Kenya</span>
         </li>
       </ul>
     </div>
@@ -4341,7 +4372,7 @@
 <footer class="ending">
   <!-- Decorative repeat of the hero's h1. Hidden from assistive tech so the
        brand name is not announced twice on the way out. -->
-  <p class="ending__mark" aria-hidden="true">LI&rsquo;S</p>
+  <p class="ending__mark" aria-hidden="true">CRAVE</p>
 
   <!-- Five links, not three. Locations and Reservations were added on
        2026-08-26: both are places a reader actually wants to reach from the
@@ -4350,13 +4381,13 @@
        four carry the block. -->
   <nav class="ending__nav" aria-label="Footer">
     <a class="ending__link" href="menu.html">Menu</a>
-    <a class="ending__link" href="about.html" aria-current="page">About</a>
+    <a class="ending__link" href="about.html">About</a>
     <a class="ending__link" href="contact.html">Contact</a>
     <a class="ending__link" href="contact.html#locations">Locations</a>
     <a class="ending__link" href="#reserve">Reservations</a>
   </nav>
 
-  <p class="ending__note">&copy; 2026 Li&rsquo;s Chinese Restaurant</p>
+  <p class="ending__note">&copy; 2026 Crave</p>
 </footer>
 
 <script>

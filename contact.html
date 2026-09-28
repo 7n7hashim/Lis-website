@@ -3,7 +3,7 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
-<title>Li&rsquo;s — We Are at Your Service</title>
+<title>Crave — We Are at Your Service</title>
 <link rel="preload" as="image" type="image/avif"
       imagesrcset="assets/img/r/contact-hero-1090.avif 1090w, assets/img/r/contact-hero-1310.avif 1310w, assets/img/r/contact-hero-1570.avif 1570w, assets/img/r/contact-hero-2000.avif 2000w"
       imagesizes="106.7vw" fetchpriority="high">
@@ -18,7 +18,7 @@
 <link rel="apple-touch-icon" href="assets/apple-touch-icon.png">
 <link rel="manifest" href="assets/site.webmanifest">
 <meta name="theme-color" content="#FBFAF7">
-<meta name="description" content="Contact Li’s Chinese Restaurant — Gigiri Nairobi and Nyali Mombasa. Reservations, private dining and enquiries.">
+<meta name="description" content="Contact Crave — City Mall Nyali in Mombasa and Ring Road Kilimani in Nairobi. Both branches open six in the morning, seven days a week.">
 
 <link rel="preload" as="font" type="font/woff2" crossorigin href="assets/fonts/cormorant-garamond-normal-300-400.woff2">
 <link rel="preload" as="font" type="font/woff2" crossorigin href="assets/fonts/jost-normal-300-400.woff2">
@@ -78,7 +78,7 @@
   picture { display: contents; }
 
   /* ---------------------------------------------------------------------
-     Li's — contact, opening hero.
+     Crave — contact, opening hero.
 
      This section continues about.html's opening: same layer stack
      (media / warm / wash / bed / grain / lift), same topbar, same entrance
@@ -867,27 +867,24 @@
     bottom: 9%;
   }
 
-  /* NO CJK WEBFONT IS LOADED ON THIS SITE, deliberately: loading a CJK face
-     for four decorative glyphs is not a trade worth making. These render in
-     whatever the visitor's OS supplies — Songti or PingFang on Apple, YaHei
-     or SimSun on Windows, Noto on Android, and tofu on a Linux box with no
-     CJK fonts at all. At this alpha a tofu fallback is close to invisible
-     either way.
+  /* NO EXTRA FACE IS LOADED FOR THIS MARK. It was four Simplified-Chinese
+     glyphs set in whatever the visitor's OS supplied, and the whole stack —
+     Songti, PingFang, YaHei, SimSun, Noto — went with the Chinese restaurant
+     this page was built for. KARIBU is Latin, so it takes Cormorant, which
+     the page already carries, and the tofu-on-Linux case disappears with it.
 
-     THE STACK IS SIMPLIFIED-CHINESE FIRST, and that is not cosmetic. The
-     Japanese faces this used to name (Hiragino Mincho, Yu Mincho, Noto Serif
-     JP) all carry 联/系/我/们, so nothing would have looked broken — but the
-     Japanese regional forms of several of these characters differ from the
-     Chinese ones, and a Chinese restaurant setting Chinese in Japanese glyph
-     shapes is the kind of error only the people it matters to would notice.
-     The JP faces are kept at the tail as a last resort before serif. */
+     WHAT DOES NOT CARRY ACROSS IS THE SIZE. A CJK glyph is a full em square;
+     a Latin cap is about 0.65 of one, and there are six of them here rather
+     than four. Set at the old 9.5tu the column ran past the window, and
+     `vertical-rl` puts the overflow in a SECOND column to the LEFT, so the
+     word reads UBIRAK. The size below is solved against the window, not
+     scaled from the value it replaces. */
   .touch__kanji {
     display: block;
     margin: 0;
-    font-family: "Songti SC", "Noto Serif SC", "Source Han Serif SC",
-                 "PingFang SC", "Microsoft YaHei", "SimSun",
-                 "Noto Serif JP", serif;
-    font-size: calc(var(--tu) * 9.5);
+    font-family: "Cormorant Garamond", Cormorant, 'Cormorant Fallback', Georgia, serif;
+    font-size: calc(var(--tu) * 6.0);
+    letter-spacing: 0.02em;
     font-weight: 300;
     line-height: 1;
     writing-mode: vertical-rl;
@@ -896,7 +893,7 @@
     /* NOWRAP IS LOAD-BEARING, not tidiness. Glyphs at this size can be
        taller than the window, so vertical-rl breaks them into a SECOND
        column — and rl means that column lands to the LEFT, so the phrase
-       reads out of order: 我们 / 联系 instead of 联系我们. It looks like a
+       reads out of order: UBIRAK instead of KARIBU. It looks like a
        decorative texture rather than like broken type, which is exactly why
        it survived the first build. Four glyphs clear the window at every
        size tested, so this is a guard rather than a fix — keep it. */
@@ -1838,19 +1835,20 @@
 
     /* The pair is already stacked at every width, so all this block used to
        do was let the section be as tall as its contents instead of holding
-       48svh. It now also has to deal with the email.
+       48svh.
 
-       AT 45 CHARACTERS THE EMAIL NO LONGER FITS A PHONE. --tu's 8.6px floor
-       lands it at ~23px, which was fine for the 26-character address this
-       was solved against and is 94px past the content box for Li's. The base
-       rule's `white-space: nowrap` then turned that overflow into horizontal
-       scroll for the entire document — verify-touch.mjs reports it as
-       `hscroll YES`.
+       IT USED TO HAVE TO DEAL WITH A 45-CHARACTER EMAIL, and no longer does.
+       reservations@lischineserestaurantnairobi.co.ke ran 94px past the
+       content box on a 390px phone, and the base rule's `white-space: nowrap`
+       turned that overflow into horizontal scroll for the entire document —
+       verify-touch.mjs reported it as `hscroll YES`. Crave publishes no email
+       address at all, so both cells now carry a phone number and the longest
+       string here is fifteen characters.
 
-       Wrapping is the fix rather than shrinking alone: an address this long
-       set small enough to hold one line would be smaller than the body text
-       under it. `anywhere` rather than `break-word` because there is no
-       space in an email to break at, and the domain has no hyphens. */
+       THE WRAPPING RULE STAYS ANYWAY. It costs nothing at this length, and
+       the next long string will not announce itself either. `anywhere` rather
+       than `break-word` because the class of string this guards against —
+       an address, a long URL — has no space to break at. */
     .details { min-height: 0; padding: clamp(64px, 18vw, 104px) 7.18%; }
     .details__value {
       white-space: normal;
@@ -3086,14 +3084,25 @@
        runs to ~92% of the viewport, which is as large as it can be and
        still read as a word rather than as a cropped first and last letter.
        That 92% is the target --end-mark is solved against; see it above. */
-    /* RE-SOLVED 2026-08-26 for a four-glyph wordmark. The size above was
-       fitted so MISONO's six caps ran to ~92% of the viewport; LI'S set at
-       the same size measured 43.4%, which is not a smaller wordmark but a
-       different composition — the mark stopped being the closing gesture and
-       became a caption. Everything is scaled by 92/43.4 = 2.12, the clamp
-       ends included, so the cap at 2560 still bites at the same fraction it
-       always did. Re-solve again if the string ever changes length. */
-    --end-mark:   clamp(9.3rem, 42.2vw, 42.4rem);
+    /* RE-SOLVED 2026-09-28 for a five-glyph wordmark. CRAVE's five wide caps
+       are far wider than LI'S's four narrow ones — measured, ink is 3.816x
+       the font-size against LI'S's 2.026 — so at the inherited size it ran to
+       161% of the viewport and hung 48.6px off the right edge on a 1440.
+       Every term is scaled by 0.531, the clamp ends included, so the cap at
+       2560 still bites at the same fraction it always did.
+
+       THE TARGET IS 85.5%, NOT THE 92% THE NOTE ABOVE ASPIRES TO. 92% is what
+       the block was designed for; 85.5% is what it has actually shipped at
+       every width below the clamp, measured off the previous build. Solving
+       to the comment rather than to the render would have made the mark 7.6%
+       larger than the one it replaces and called it a like-for-like swap.
+
+       MEASURE THE TEXT, NOT THE BOX. The mark is white-space: nowrap in a
+       full-width block, so past 100% its border box stops growing and
+       getBoundingClientRect() hands the viewport back: read that way, a mark
+       overflowing by 61% reported as a comfortable 93.2%. measure-endmark.mjs
+       uses a Range. Re-solve again if the string ever changes length. */
+    --end-mark:   clamp(4.94rem, 22.4vw, 22.5rem);
     /* The last 15% of height comes from the block, not the size — see
        .ending__mark. */
     --end-stretch: 1.15;
@@ -3298,7 +3307,7 @@
       /* Scaled by the same 2.12 as the desktop clamp when the wordmark went
          from six glyphs to four. 20vw held MISONO at 92% of a phone; it held
          LI'S at 43.6%. */
-      --end-mark: 42.4vw;
+      --end-mark: 22.5vw;
       --end-stretch: 1.22;
       min-height: 0;
       padding-top: clamp(64px, 22vw, 108px);
@@ -3306,185 +3315,6 @@
     }
     .ending__nav { --end-gap: clamp(20px, 6.4vw, 34px); }
   }
-
-  /* =====================================================================
-     MEASURED — what this file was verified against, and with what.
-
-     Reproduce all of it with `node shoot-contact.mjs [w] [h] [p,p,...]`.
-     Every luminance below is PAINTED — filters, blend modes, wash and bed
-     composited, read back through a canvas — and taken with .hero__type
-     hidden, so it is the bed being measured and not the letters. Rec.601,
-     matching PIL's `L` and therefore the bake scripts.
-
-                     whole   band    top  bottom  pendant   eyebrow
-       1440x900       32.9   36.8   20.8    8.1     43.6     5.56:1
-       1280x800       32.9   36.8   21.3    8.2     43.6     5.61:1
-       1512x820       34.0   37.2   22.0    8.8     47.1     5.75:1
-        820x1180      28.1   41.2   16.0    9.6     33.0     6.23:1
-        390x844       36.6   45.0   25.3   11.4     43.6     7.17:1
-
-       about.html's opening, for comparison   34     43     12     15
-
-     Reading it: `band` sits 6 points under that file's 43 and `bottom` at
-     roughly half its 15. The first is deliberate — see .hero__bed, where the
-     eyebrow and not the heading is what sets the floor. The second is the
-     photograph, not the wash; the note on .hero__wash has the measurement
-     that settled it.
-
-     THE EYEBROW IS THE BINDING CONSTRAINT ON THIS PAGE and it clears at every
-     viewport, worst case 5.56:1 against the 4.5:1 that 12.4px type is held
-     to. --res-hair is documented decorative-only, so this is a new role for
-     the token and the reason the reading is recorded per viewport rather
-     than once. The heading has 16:1 where it needs 3:1 and never binds.
-
-     Type, from a pixel scan of the render rather than a font metric:
-
-       cap height   1.875% of viewport width at 1440 and 1280, 1.918% at 1512
-                    (about.html's reference: 1.877%)
-       ink width    43.3%  (that reference: 49.5% — see .hero__title for why
-                    this is correct rather than short)
-
-     Motion, all verified rather than asserted:
-
-       · every rest state is a true identity transform, and there are ZERO
-         running animations once the entrance is over. Nothing on this page
-         loops forever, unlike `drift` on index/about and `reserve-drift` in
-         the reservation block — so an unscoped getAnimations().finish()
-         sweep cannot be taken down by this section the way CLAUDE.md records
-         it being taken down by that one.
-       · parallax: --par runs 0 -> 1 linearly and .hero__media translates
-         0 -> 108px at 1440x900, which is exactly the 12svh of --par-travel.
-         It has to be driven by a temporary spacer to be seen at all, because
-         the page is one viewport tall and therefore does not scroll; the
-         self-test at the foot of shoot-contact.mjs does that and removes it.
-       · reduced motion: the loop never starts, no inline --par is ever
-         written, .hero__media reports top 0 / height 100% / transform none,
-         and getAnimations() is empty.
-
-     ---------------------------------------------------------------------
-     THE PARALLAX IS NO LONGER DORMANT. Everything above was measured when
-     this page was one viewport tall and therefore never scrolled — --par
-     sat at 0 forever and had to be driven by a temporary spacer to be seen
-     at all. Since .touch and .details were added on 2026-08-17 the document
-     scrolls and the loop runs for real. Driven by actual scrolling at
-     1440x900:
-
-       scrollY     0    225    450    675    900
-       --par    0.0000 0.2500 0.5000 0.7500 1.0000
-       media y     0     27     54     81    108 px
-
-     108px is exactly the 12svh of --par-travel, and the media box covers
-     .hero's own box at every one of them. NOTE THE TEST: the media must
-     cover THE HERO'S rect, not the viewport's. Checked against the viewport
-     it reports a gap at every position past the first — which is not a gap,
-     it is .touch coming into view, i.e. the page working. That false
-     positive cost a round of chasing.
-     ---------------------------------------------------------------------
-
-     .touch and .details, 2026-08-17. Reproduce the motion with
-     `node shoot-touch.mjs [w] [h] [ms,...]` and the rest with
-     `node verify-touch.mjs`.
-
-     ENTRANCE, at 1440x900. `projects` is p/(p-z), what the depth should
-     produce; `t=0` is what it measured:
-
-                      z      projects    t=0     t=2400
-       eyebrow       -80      0.932     0.932    1.000
-       GET IN       -210      0.840     0.842    1.000
-       TOUCH        -240      0.821     0.823    1.000
-       body          -60      0.948     0.948    1.000
-       name         -150      0.889     0.889    1.000
-       email        -170      0.876     0.876    1.000
-       phone        -190      0.863     0.863    1.000
-       message      -210      0.851     0.851    1.000
-       send         -120      0.909     0.909    1.000
-
-     Every arrival lands on its own projection, which is the proof the
-     perspective is on the right parents — a line reading 1.000 at t=0 is
-     the grandchild bug, not a subtle animation. At t=2400 all ten report
-     scale 1.000 and offset 0.0, 0.0: a true identity transform.
-
-     The two display lines peak at scale 1.012 around t=1100 — that is
-     --ease-pop's overshoot, and it is the only place on this page where
-     anything goes past its mark and comes back.
-
-     CONTRAST, computed against each element's own ground:
-
-       field rule    3.26:1   (UI boundary, WCAG 1.4.11, needs 3)
-       field label   4.78:1
-       typed value  13.60:1
-       body          6.32:1
-       send border   3.26:1   (UI boundary)
-       details value 13.25:1  against #F2EFE8, the gradient's foot
-       details label  4.66:1  against #F2EFE8
-
-     All four field rules paint rgb(172, 118, 52) at lum 124.7 — sampled
-     from the render, because at four different y they read as two
-     different colours to the eye and that turned out to be subpixel
-     coverage rather than anything real.
-
-     FIT. `inner` is the copy block, tested as a rect against the section's
-     rather than by scrollHeight > clientHeight, which lies here for the
-     same reason it lies on the reserve section. `deco` is the painted
-     clearance of the kanji from the form and of the mon from the masthead.
-
-     RE-MEASURED 2026-08-18, after the composition was rebuilt. `pair` is
-     .touch's top to .details' bottom — what a reader sees having scrolled the
-     form to the top of the window — and it is asserted in verify-touch.mjs
-     rather than re-checked by eye.
-
-     The history is worth keeping because each step was a different kind of
-     fix. It began at a flat 1.49 screens with .touch pinned to 100svh; that
-     pin went and it became 1.10; 88px was then squeezed out of five places to
-     reach 0.92. The rebuild below did NOT squeeze anything — merging the two
-     blocks onto one grid removed the ~150px their meeting paddings were
-     spending on nothing, which paid for a heading at 4.8tu instead of 3.9 and
-     a form gap back at 3.2tu instead of 2.6, and STILL fits with more room
-     than the squeezed version had.
-
-                    section  inner  details      pair        deco
-       1440x900       597     525    222       819/900  +81   87 / 14
-       1280x800       538     474    198       735/800  +65   78 / 12
-       1512x820       552     485    205       757/820  +63  172 / 104
-       1366x768       ---     ---    ---       720/768  +48    -
-       1280x720       ---     ---    ---       687/720  +33    -   <- tightest
-       2560x1440      969     853    360      1329/1440 +111  255 / 136
-       1000x700       459     409    157       616/700  +84   61 /  9
-        820x1180      816     679    215      1031/1180 +149  -23 / -64
-        390x844       771     643    328      1099/844        -13 / -117
-
-     The last two are stacked and are not meant to fit one screen: below
-     1000px the columns stack and a phone cannot show a four-field form and
-     the contact details at once. The assertion is scoped to desktop for that
-     reason — a check that fires where the design is correct is the kind that
-     hides a real regression, which this file has now proved three times over.
-
-     THE GRID, above 1000px. The invariant is that the contact details start
-     on the SAME grid lines as the row above: PHONE on the masthead's line,
-     EMAIL on the form's. Measured dx at every viewport: -0.0 / -0.0.
-
-     That is the third invariant verify-touch.mjs has asserted here, and the
-     first two are instructive. "Every item's centre sits on the page axis"
-     was true of a stack. "The two ink centres balance about the axis" was
-     true of two centred cells. Both encoded an ARRANGEMENT rather than a
-     RULE, and both fired at nearly every viewport the day the arrangement
-     changed. Grid agreement is a property of the composition itself, so it
-     survives re-proportioning the columns and fails only if the two rows
-     genuinely stop agreeing.
-
-     CONTRAST, re-derived after the closing gradient was removed. #F2EFE8
-     was this page's binding ground and it is now --ground #FBFAF7, which is
-     lighter, so everything measured against it gained:
-
-       field rule    3.26:1   (UI boundary, WCAG 1.4.11, needs 3)
-       field label   4.78:1
-       details value 13.60:1  (was 13.25 against #F2EFE8)
-       details label  4.80:1  (was 4.66)
-
-     REDUCED MOTION: nothing is left transformed or faded, no inline --drift
-     or --par is ever written, .hero__media reports transform none, and
-     getAnimations() is empty.
-     ===================================================================== */
 
   /* =====================================================================
      THE PEACH, for the two transplanted blocks.
@@ -3593,7 +3423,7 @@
   <div class="hero__lift"></div>
 
   <header class="topbar">
-    <a class="topbar__brand" href="index.html">Li&rsquo;s</a>
+    <a class="topbar__brand" href="index.html">Crave</a>
 
     <nav class="topbar__nav" aria-label="Primary">
       <a class="topbar__link" href="menu.html">Menu</a>
@@ -3635,39 +3465,34 @@
        top of the composition. -->
   <div class="touch__deco" aria-hidden="true">
     <div class="touch__plane touch__plane--kanji">
-      <!-- 联系我们, "contact us". FOUR glyphs where the Japanese it replaces
-           had six, which matters: `vertical-rl` breaks a column that is
-           taller than the window into a SECOND column and puts it to the
-           LEFT, so the characters read out of order. Four is comfortably
-           inside one column at every size tested — but the nowrap below
-           stays, because the failure is silent: at whisper alpha a broken
-           column looks like decorative texture rather than like broken type,
-           which is how it survived a build once already. -->
-      <p class="touch__kanji" lang="zh-Hans">联系我们</p>
+      <!-- KARIBU — Swahili for welcome, and what is on the door of most
+           businesses in both of Crave's cities. It replaces 联系我们, which
+           belonged to the Chinese restaurant this page was built for and has
+           no business on a Kenyan cafe.
+
+           SIX LATIN CAPS WHERE THERE WERE FOUR CJK GLYPHS, and they are not
+           interchangeable: stacked upright, a cap is roughly its own cap
+           height tall where a CJK glyph is a full em square, but six of
+           anything is what broke this element the last time. `vertical-rl`
+           breaks a column taller than the window into a SECOND column and
+           puts it to the LEFT, so the word reads UBIRAK. The size below is
+           solved against that, and the nowrap is the guard. -->
+      <p class="touch__kanji" lang="sw">KARIBU</p>
     </div>
 
     <div class="touch__plane touch__plane--mon">
-    <!-- brand_assets/lis-mark.svg, inlined. Redrawn from the official
-         150x150 logo.jpg — ring and chopsticks are measured geometry, the
-         Li's wedges are least-squares fits of the source edges. It is a
-         RECONSTRUCTION: check it against real artwork before launch.
+    <!-- brand_assets/crave-mark.svg, inlined. The plaque, redrawn from the
+         official 320x320 logo — a least-squares Bezier fit of one traced
+         quadrant, mirrored twice, mean boundary error 0.88px at the source's
+         own resolution. It is a RECONSTRUCTION: check it against real
+         artwork before launch.
 
-         No <defs> and no <use> here, unlike the mark this replaces: every
-         path is written out. That mark carried its defs with it because
+         No <defs> and no <use>, unlike the mark this replaces: the one path
+         is written out. That mark carried its defs with it because
          about.html once referenced #mm-petal without defining it and drew
          nothing at all; a self-contained mark cannot fail that way. -->
     <svg class="touch__mon" viewBox="0 0 100 100" focusable="false" aria-hidden="true">
-      <g fill="currentColor">
-        <path d="M-0.4,-6 L4.9,-6 L27.9,106 L25.4,106 Z"/>
-        <path d="M19.6,-6 L25.6,-6 L23.7,106 L21.9,106 Z"/>
-      </g>
-      <circle cx="50" cy="50" r="46.2" fill="none" stroke="currentColor" stroke-width="7.1"/>
-      <g fill="currentColor" transform="translate(52 50) scale(1.12) translate(-53.97 -33.9)">
-        <path d="M35.92,17.33 L42.13,17.33 L39.68,47.6 L38.44,47.6 Z"/>
-        <path d="M35.33,48.35 L53.89,46.85 L53.70,50.50 L35.40,49.25 Z"/>
-        <path d="M54.17,30.0 L60.10,30.0 L57.84,49.67 L56.53,49.67 Z"/>
-        <path d="M55.78,22.0 L57.0,22.11 L57.44,23.22 L59.78,25.56 L61.11,29.0 L59.56,28.44 L54.11,24.33 L54.11,22.89Z"/>
-      </g>
+      <path d="M50.6 23.25C61.685 23.25,69.313 30.174,70.395 30.498C71.116 30.714,74.014 30.295,75.542 30.569C78.598 31.118,80.955 33.433,81.282 33.909C83.327 36.886,82.432 37.407,84.252 40.02C84.582 40.495,85.703 40.767,86.231 41.157C90.06 43.982,90.19 47.046,90.19 49.4C90.19 51.754,90.06 54.818,86.231 57.643C85.703 58.033,84.582 58.305,84.252 58.78C82.432 61.393,83.327 61.914,81.282 64.891C80.955 65.367,78.598 67.682,75.542 68.231C74.014 68.505,71.116 68.086,70.395 68.302C69.313 68.626,61.685 75.55,50.6 75.55C39.515 75.55,31.887 68.626,30.805 68.302C30.084 68.086,27.186 68.505,25.658 68.231C22.602 67.682,20.245 65.367,19.918 64.891C17.873 61.914,18.768 61.393,16.949 58.78C16.618 58.305,15.497 58.033,14.969 57.643C11.14 54.818,11.01 51.754,11.01 49.4C11.01 47.046,11.14 43.982,14.969 41.157C15.497 40.767,16.618 40.495,16.949 40.02C18.768 37.407,17.873 36.886,19.918 33.909C20.245 33.433,22.602 31.118,25.658 30.569C27.186 30.295,30.084 30.714,30.805 30.498C31.887 30.174,39.515 23.25,50.6 23.25Z" fill="none" stroke="currentColor" stroke-width="5.2" stroke-linejoin="round"/>
     </svg>
     </div>
   </div>
@@ -3682,9 +3507,9 @@
 
       <hr class="touch__rule" aria-hidden="true">
 
-      <p class="touch__body">A table, a private room, a duck ordered ahead, or a
-        question about either branch. Tell us what you have in mind and which city
-        you are in, and we will take it from there.</p>
+      <p class="touch__body">A table for six, a birthday, a question about
+          either branch, or something you want to know before you come. Tell us what
+          you need and which city, and the right room will answer.</p>
     </div>
 
     <form class="touch__form" novalidate>
@@ -3729,17 +3554,22 @@
 </section>
 
 <!-- ================================================ contact details ====
-     RESEARCHED 2026-08-26, NOT CONFIRMED BY THE CLIENT. Both come from Li's
-     own site: +254 746 815 106 is the Nairobi line it publishes, and
-     reservations@ is the address it gives for bookings. It also publishes
-     info@, orders@ and careers@ on the same domain.
+     RESEARCHED 2026-09-28, NOT CONFIRMED BY THE CLIENT. Both numbers come
+     from Crave's own Instagram bio and from each branch's claimed
+     TripAdvisor listing.
 
-     THE MOMBASA NUMBER IS DELIBERATELY NOT HERE. Li's Mombasa lists its own
-     line, +254 799 402101, and it is a different number. This block has two
-     cells and always has; the fix is not to cram two numbers into one, it is
-     that each branch carries its own number in its own location band below,
-     where there is a card to put it on. What stands here is the booking
-     route Li's itself presents.
+     BOTH NUMBERS ARE HERE, ONE PER CELL, which is a reversal. The cells used
+     to be Reservations and Email, and the email was the reason only one
+     phone number fitted. Crave publishes NO email address anywhere — the one
+     that turns up in search belongs to an agency's demo site, not to Crave —
+     so the second cell was free, and two branches with two different numbers
+     is exactly what it should hold.
+
+     That also retires this block's oldest layout constraint. The 45-character
+     address used to run 94px past the content box on a 390px phone and turn
+     the whole document into a horizontal scroll. A Kenyan number is fifteen
+     characters. The overflow-wrap rule below is kept, because it costs
+     nothing and the next long string will not announce itself.
 
      That also settles the claim the previous version of this comment flagged.
      The reservation block on all four pages says "Nairobi & Mombasa"; this
@@ -3750,12 +3580,12 @@
 
   <ul class="details__list">
     <li class="details__item">
-      <span class="details__label">Reservations</span>
-      <a class="details__value" href="tel:+254746815106">+254 746 815 106</a>
+      <span class="details__label">Mombasa</span>
+      <a class="details__value" href="tel:+254705000275">+254 705 000275</a>
     </li>
     <li class="details__item">
-      <span class="details__label">Email</span>
-      <a class="details__value" href="mailto:reservations@lischineserestaurantnairobi.co.ke">reservations@lischineserestaurantnairobi.co.ke</a>
+      <span class="details__label">Nairobi</span>
+      <a class="details__value" href="tel:+254756600600">+254 756 600600</a>
     </li>
   </ul>
 </section>
@@ -3776,33 +3606,42 @@
      listing instead. If real figures arrive, they drop into the same third
      line without any other change.
 
-     THE TWO ADDRESSES ARE RESEARCHED, 2026-08-26. Mombasa: Petrocity Plaza,
-     first floor, Links Road, Nyali, from its TripAdvisor listing. Nairobi:
-     Petrocity, Limuru Road, Gigiri (plus code QR74+JR2), from Li's own site.
-     Both branches happening to sit in a building called Petrocity looks like
-     a copy-paste error and is not one — check it before "fixing" it.
+     THE TWO ADDRESSES ARE RESEARCHED, 2026-09-28, both from the branches'
+     own claimed TripAdvisor listings. Mombasa: Malindi Road, City Mall,
+     Nyali, 80100. Nairobi: Ring Road Kilimani, Zarafa Towers, ground floor.
+
+     THE FLOOR IN MOMBASA IS NOT SETTLED and is therefore not asserted.
+     eatout.co.ke says rooftop level, a Facebook post says second floor, and
+     the TripAdvisor listing gives no floor at all. The card says City Mall
+     and stops.
 
      EACH BAND CARRIES ITS OWN BRANCH'S PHONE, on its second card. They are
-     different numbers: Mombasa +254 799 402101, Nairobi +254 746 815 106.
-     That is why .details above carries only one number and calls it
-     Reservations rather than presenting a single line as reaching both.
+     different numbers: Mombasa +254 705 000275, Nairobi +254 756 600600.
+     .details above now carries BOTH, one per cell, which it could not do
+     while one cell held a 45-character email. Crave publishes no email, so
+     that cell was free.
 
-     NO FOUNDING DATES ANYWHERE. Li's says Mombasa came first and publishes
-     no year for either room; the copy says "Li's began here" and stops. The
-     version this replaces asserted 1995 and 2006, which belonged to a
-     different restaurant. Do not reintroduce a year without a source.
+     THE TWO CLOSING TIMES DIFFER and these cards are the only place on the
+     site that says so: midnight in Mombasa, 01:00 in Nairobi, both opening
+     at 06:00 seven days a week. The shared reserve block states the opening
+     hour only, because it is byte-copied to four pages and cannot assert one
+     branch's closing time as the house's. Keep these in step with the FAQ
+     answer below; that pair has drifted before.
+
+     NO FOUNDING DATES ANYWHERE. Crave's own Facebook announced Kilimani as
+     the new branch, so Mombasa came first; no year is published for either
+     room. Do not reintroduce a year without a source.
      ==================================================================== -->
 <section class="locale locale--mombasa" id="locations" aria-labelledby="locale-mombasa-title">
   <div class="locale__head">
     <p class="locale__eyebrow">The Location</p>
     <h2 class="locale__title" id="locale-mombasa-title">Mombasa</h2>
-    <!-- NO FOUNDING YEAR. Li's says its first location was Mombasa and
-         publishes no date for it; the previous copy here asserted one because
-         the restaurant this page used to be for had given one. -->
-    <p class="locale__body">Li&rsquo;s began here. The room is on the first floor of
-      Petrocity Plaza on Links Road in Nyali, and the coast is the reason seafood is the
-      part of this carte with the most to say &mdash; prawns, crab, squid and whole fish,
-      cooked plainly enough to be judged on.</p>
+    <!-- NO FOUNDING YEAR. Crave announced Kilimani as its new branch, so
+         Mombasa is the original; no date is published for either room. -->
+    <p class="locale__body">Crave began here, at City Mall on Malindi Road in
+      Nyali, and the coast is the reason seafood is the part of this carte with the
+      most to say. It is currently ranked first of the two hundred and twelve
+      restaurants TripAdvisor lists in Mombasa.</p>
   </div>
 
   <div class="locale__stage">
@@ -3829,7 +3668,7 @@
                     fill="none" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round"/>
               <circle cx="12" cy="10" r="2.4" fill="currentColor"/>
             </svg>
-            <span class="locale__pill-label">Li&rsquo;s Mombasa</span>
+            <span class="locale__pill-label">Crave Mombasa</span>
           </div>
         </div>
 
@@ -3845,16 +3684,16 @@
       <div class="locale__mark locale__mark--a">
         <div class="locale__card">
           <p class="locale__card-eyebrow">The building</p>
-          <p class="locale__card-title">Petrocity Plaza</p>
-          <p class="locale__card-note">first floor, Links Road, Nyali</p>
+          <p class="locale__card-title">City Mall</p>
+      <p class="locale__card-note">Malindi Road, Nyali</p>
         </div>
       </div>
 
       <div class="locale__mark locale__mark--b">
         <div class="locale__card">
           <p class="locale__card-eyebrow">Call this branch</p>
-          <p class="locale__card-title">+254 799 402101</p>
-          <p class="locale__card-note">Tuesday &ndash; Sunday, 11:00 &ndash; 21:00</p>
+          <p class="locale__card-title">+254 705 000275</p>
+      <p class="locale__card-note">Every day, 06:00 &ndash; 00:00</p>
         </div>
       </div>
     </div>
@@ -3866,10 +3705,9 @@
   <div class="locale__head">
     <p class="locale__eyebrow">The Location</p>
     <h2 class="locale__title" id="locale-nairobi-title">Nairobi</h2>
-    <p class="locale__body">The second room, and the one most people mean now. It sits at
-      Petrocity on Limuru Road in Gigiri and runs the carte the coast kitchen wrote &mdash;
-      the duck, the dim sum, the sizzling platters, and the drinks list that goes with
-      them.</p>
+    <p class="locale__body">The second room, on Ring Road in Kilimani, and the one
+      that stays open latest. It runs the carte the coast kitchen wrote &mdash; and
+      says its seafood still comes up from Mombasa, six hundred kilometres away.</p>
   </div>
 
   <div class="locale__stage">
@@ -3890,7 +3728,7 @@
                     fill="none" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round"/>
               <circle cx="12" cy="10" r="2.4" fill="currentColor"/>
             </svg>
-            <span class="locale__pill-label">Li&rsquo;s Nairobi</span>
+            <span class="locale__pill-label">Crave Nairobi</span>
           </div>
         </div>
 
@@ -3902,16 +3740,16 @@
       <div class="locale__mark locale__mark--a">
         <div class="locale__card">
           <p class="locale__card-eyebrow">The building</p>
-          <p class="locale__card-title">Petrocity, Gigiri</p>
-          <p class="locale__card-note">Limuru Road, Nairobi</p>
+          <p class="locale__card-title">Zarafa Towers</p>
+      <p class="locale__card-note">Ring Road, Kilimani</p>
         </div>
       </div>
 
       <div class="locale__mark locale__mark--b">
         <div class="locale__card">
           <p class="locale__card-eyebrow">Call this branch</p>
-          <p class="locale__card-title">+254 746 815 106</p>
-          <p class="locale__card-note">Tuesday &ndash; Sunday, 11:00 &ndash; 22:30</p>
+          <p class="locale__card-title">+254 756 600600</p>
+      <p class="locale__card-note">Every day, 06:00 &ndash; 01:00</p>
         </div>
       </div>
     </div>
@@ -3922,30 +3760,30 @@
 <!-- ===================================================== the FAQ ====
      Spec: docs/superpowers/specs/2026-08-17-contact-locations-faq-design.md
 
-     EIGHT questions, all answered from research done 2026-08-26 against Li's
-     own site, its published menu and its Mombasa listing. Nothing here is
-     invented, and three answers are deliberately less confident than they
-     could be:
+     EIGHT questions, all answered from research done 2026-09-28 against
+     Crave's own published menu and both branches' claimed TripAdvisor
+     listings.
 
-       · DIETARY. The vegetarian breadth is real and countable off the carte
-         — a whole vegetable section, tofu and paneer several ways, vegetable
-         dim sum, spring rolls and soups. HALAL, VEGAN AND GLUTEN-FREE ARE
-         NOT CONFIRMED for either branch, and the answer says so in bold
-         rather than going quiet about it. Sending allergies to a phone call
-         is the honest position, not a hedge.
-       · PRIVATE DINING. Mombasa's two rooms at 12-15 covers are in its
-         listing. Nairobi's private events are on Li's own site, but no room
-         or capacity is published, so the answer says "takes enquiries" and
-         stops there.
-       · HOURS. Both branches close Mondays and open from 11:00; they close
-         at DIFFERENT times, 22:30 in Nairobi and 21:00 in Mombasa. This
-         answer carries both. The reservation block below carries only
-         "Tuesday - Sunday / Closed Mondays", because that block is copied to
-         four pages and cannot assert one branch's closing time as the
-         house's. THE TWO MUST STAY IN STEP: it is the same claim made twice
-         on one page and the pair has drifted apart before.
+     THE ALCOHOL ANSWER IS THE ONE THAT MATTERS and it is new. Crave is
+     alcohol-free and serves no pork; the drinks menu has fourteen categories
+     and not one of them is alcoholic, and the food menu uses beef macon
+     throughout. Google's listing carries a user-contributed "Great cocktails"
+     attribute, which is wrong — the Strawberry Mojito it links to is on the
+     MOCKTAILS list. Saying so plainly beats letting a guest discover it.
 
-     All of it is researched, not client-confirmed. Confirm before launch.
+     HALAL IS STATED, VEGAN IS NOT. Two independent sources describe the
+     house as halal; no source confirms vegan for either branch, and the
+     answer says so in bold rather than hedging. Gluten-free is listed as a
+     feature on Mombasa's listing only, and the answer says that too instead
+     of averaging the two branches into one claim.
+
+     NO PRIVATE ROOM AND NO CAPACITY. Neither branch publishes either. The
+     answer says both rooms take large groups, which the reviews establish,
+     and stops. Do not make it more confident.
+
+     THE HOURS ANSWER AND THE TWO LOCATION CARDS ARE THE SAME CLAIM TWICE ON
+     ONE PAGE. Keep them in step. That pair has drifted before.
+
      ==================================================================== -->
 <section class="faq" aria-labelledby="faq-title">
   <div class="faq__inner">
@@ -3958,107 +3796,110 @@
     </div>
 
     <div class="faq__list">
+        <details class="faq__item">
+          <summary class="faq__q">
+            <span class="faq__q-text">Where is Crave?</span>
+            <span class="faq__sign" aria-hidden="true"></span>
+          </summary>
+          <div class="faq__a"><div class="faq__a-inner">
+            <p>There are two. Mombasa is at City Mall on Malindi Road in Nyali &mdash;
+            that is the original. Nairobi is on Ring Road in Kilimani, on the ground
+            floor of Zarafa Towers, across from Yaya Centre.</p>
+          </div></div>
+        </details>
 
-      <details class="faq__item">
-        <summary class="faq__q">
-          <span class="faq__q-text">Where is Li&rsquo;s?</span>
-          <span class="faq__sign" aria-hidden="true"></span>
-        </summary>
-        <div class="faq__a"><div class="faq__a-inner">
-          <p>There are two, and both are in Petrocity buildings. Mombasa is on the first
-            floor of Petrocity Plaza, Links Road, Nyali &mdash; that is the original.
-            Nairobi is at Petrocity on Limuru Road in Gigiri.</p>
-        </div></div>
-      </details>
+        <details class="faq__item">
+          <summary class="faq__q">
+            <span class="faq__q-text">What are your opening hours?</span>
+            <span class="faq__sign" aria-hidden="true"></span>
+          </summary>
+          <div class="faq__a"><div class="faq__a-inner">
+            <p>Both branches open at <strong>six in the morning, seven days a week</strong>,
+            and neither closes on any day. Mombasa runs until midnight and Nairobi until
+            one in the morning. Breakfast is served until noon and brunch from eleven
+            until two; everything else is on from open to close.</p>
+          </div></div>
+        </details>
 
-      <details class="faq__item">
-        <summary class="faq__q">
-          <span class="faq__q-text">Do I need a reservation?</span>
-          <span class="faq__sign" aria-hidden="true"></span>
-        </summary>
-        <div class="faq__a"><div class="faq__a-inner">
-          <p>Both branches take them, and they are worth making at the end of a week. If
-            you want the Peking duck, say so when you book: it is not a dish that can be
-            started when you sit down.</p>
-        </div></div>
-      </details>
+        <details class="faq__item">
+          <summary class="faq__q">
+            <span class="faq__q-text">Do you serve alcohol?</span>
+            <span class="faq__sign" aria-hidden="true"></span>
+          </summary>
+          <div class="faq__a"><div class="faq__a-inner">
+            <p><strong>No. Crave is alcohol-free, and there is no pork on the menu.</strong>
+            The mojitos, the pi&ntilde;a colada and the dawa on the drinks list are all
+            mocktails. What there is instead is a coffee bar &mdash; V60, Chemex, cold
+            drip &mdash; eleven ways with matcha, lemonades, juices, shakes and the
+            freakshakes.</p>
+          </div></div>
+        </details>
 
-      <details class="faq__item">
-        <summary class="faq__q">
-          <span class="faq__q-text">What kind of Chinese food do you serve?</span>
-          <span class="faq__sign" aria-hidden="true"></span>
-        </summary>
-        <div class="faq__a"><div class="faq__a-inner">
-          <p>Chinese cooking with a strong Indo-Chinese streak &mdash; dim sum and spring
-            rolls to start, then the wok: chilli garlic, black bean, Schezwan, Kung Pao,
-            and the sizzling platters. Seafood is the part the kitchen is proudest of,
-            which is the coast showing.</p>
-        </div></div>
-      </details>
+        <details class="faq__item">
+          <summary class="faq__q">
+            <span class="faq__q-text">Do I need a reservation?</span>
+            <span class="faq__sign" aria-hidden="true"></span>
+          </summary>
+          <div class="faq__a"><div class="faq__a-inner">
+            <p>Not for one or two &mdash; walk in at any hour and there will be a table. For
+            four or more, or for a birthday, call the branch first. The form above reaches
+            us too.</p>
+          </div></div>
+        </details>
 
-      <details class="faq__item">
-        <summary class="faq__q">
-          <span class="faq__q-text">Do you do Peking duck?</span>
-          <span class="faq__sign" aria-hidden="true"></span>
-        </summary>
-        <div class="faq__a"><div class="faq__a-inner">
-          <p>Yes, half or whole, carved and served with thin pancakes, cucumber and spring
-            onion. It is the dish most people come for. Order it when you book rather than
-            when you arrive.</p>
-        </div></div>
-      </details>
+        <details class="faq__item">
+          <summary class="faq__q">
+            <span class="faq__q-text">What kind of food is it?</span>
+            <span class="faq__sign" aria-hidden="true"></span>
+          </summary>
+          <div class="faq__a"><div class="faq__a-inner">
+            <p>An all-day carte rather than one cuisine: breakfast and brunch, bites, soups,
+            sandwiches, burgers, loaded fries, salads, wings, chicken, steaks, curries,
+            seafood, pasta and pizza &mdash; then eight courses of dessert and fourteen of
+            drinks. Two hundred and ninety-five dishes in total.</p>
+          </div></div>
+        </details>
 
-      <details class="faq__item">
-        <summary class="faq__q">
-          <span class="faq__q-text">Do you have vegetarian options?</span>
-          <span class="faq__sign" aria-hidden="true"></span>
-        </summary>
-        <div class="faq__a"><div class="faq__a-inner">
-          <p>A great many &mdash; a whole vegetable section, plus tofu and paneer done several
-            ways, vegetable dim sum, spring rolls and soups. <strong>Halal, vegan and
-            gluten-free are not something we can confirm here for either branch.</strong>
-            For an allergy or anything more specific, please call the branch: the kitchen
-            would rather tell you plainly what it can and cannot do than have you find out
-            at the table.</p>
-        </div></div>
-      </details>
+        <details class="faq__item">
+          <summary class="faq__q">
+            <span class="faq__q-text">Is there anything only one branch has?</span>
+            <span class="faq__sign" aria-hidden="true"></span>
+          </summary>
+          <div class="faq__a"><div class="faq__a-inner">
+            <p>Yes. The <strong>Mombasa Special</strong> course &mdash; mutton, fish and
+            chicken mandi, Mombasa biriyani, Swahili pilau, chicken tikka, lamb chops and
+            mutton kabab &mdash; is served at City Mall and is not on the Nairobi carte.
+            The fish mandi is lunch only.</p>
+          </div></div>
+        </details>
 
-      <details class="faq__item">
-        <summary class="faq__q">
-          <span class="faq__q-text">Can you host a private dinner?</span>
-          <span class="faq__sign" aria-hidden="true"></span>
-        </summary>
-        <div class="faq__a"><div class="faq__a-inner">
-          <p>Mombasa has two private rooms, each seating around twelve to fifteen. Nairobi
-            takes private-event enquiries too. Either way it is a conversation rather than
-            a booking form &mdash; call the branch, or use the form above.</p>
-        </div></div>
-      </details>
+        <details class="faq__item">
+          <summary class="faq__q">
+            <span class="faq__q-text">Do you have vegetarian options?</span>
+            <span class="faq__sign" aria-hidden="true"></span>
+          </summary>
+          <div class="faq__a"><div class="faq__a-inner">
+            <p>A good many: samosas and spring rolls, the paneer loaded fries, a vegetable
+            burger, five salads, the vegetable curry, margherita and vegetable pizzas, and
+            a pasta section. Both branches list themselves as vegetarian friendly and
+            Mombasa also lists gluten-free options; Nairobi does not.
+            <strong>Vegan we cannot confirm here for either branch.</strong> For an allergy,
+            please call the branch rather than guessing from this page.</p>
+          </div></div>
+        </details>
 
-      <details class="faq__item">
-        <summary class="faq__q">
-          <span class="faq__q-text">Do you deliver, and can I take away?</span>
-          <span class="faq__sign" aria-hidden="true"></span>
-        </summary>
-        <div class="faq__a"><div class="faq__a-inner">
-          <p>Yes to both. Takeaway from either branch, and delivery in Nairobi through Uber
-            Eats.</p>
-        </div></div>
-      </details>
-
-      <details class="faq__item">
-        <summary class="faq__q">
-          <span class="faq__q-text">What are your opening hours?</span>
-          <span class="faq__sign" aria-hidden="true"></span>
-        </summary>
-        <div class="faq__a"><div class="faq__a-inner">
-          <p>Both branches are closed on Mondays and open Tuesday to Sunday from 11:00.
-            They close at different times: Nairobi at 22:30, Mombasa at 21:00. We serve
-            straight through the afternoon, so a late lunch is as welcome as dinner.</p>
-        </div></div>
-      </details>
-
-    </div>
+        <details class="faq__item">
+          <summary class="faq__q">
+            <span class="faq__q-text">Can you host a large group?</span>
+            <span class="faq__sign" aria-hidden="true"></span>
+          </summary>
+          <div class="faq__a"><div class="faq__a-inner">
+            <p>Both rooms do birthdays and group tables regularly &mdash; it is most of what
+            the reviews are about. <strong>Neither branch publishes a private room or a
+            capacity</strong>, so call and ask rather than taking a number from here.</p>
+          </div></div>
+        </details>
+      </div>
   </div>
 </section>
 
@@ -4111,12 +3952,12 @@
 
       <hr class="reserve__rule" aria-hidden="true">
 
-      <p class="reserve__body">A round table, a duck that wants ordering ahead, and
-        a kitchen that would rather know you are coming. Tell us when, and how many
-        &mdash; the rest is arranged from there.</p>
+      <p class="reserve__body">Walk in any hour of the day and there will be a table.
+        Bring six of you, or come for a birthday, and a kitchen would rather know.
+        Tell us when, where and how many &mdash; the rest is arranged from there.</p>
 
       <a class="reserve__cta"
-         href="https://wa.me/254746815106?text=Hello%20Li%E2%80%99s%20%E2%80%94%20I%E2%80%99d%20like%20to%20reserve%20a%20table.%0A%0AName%3A%0ABranch%20(Nairobi%20or%20Mombasa)%3A%0ADate%3A%0ATime%3A%0ANumber%20of%20guests%3A%0A%0AThank%20you."
+         href="https://wa.me/254705000275?text=Hello%20Crave%20%E2%80%94%20I%E2%80%99d%20like%20to%20book%20a%20table.%0A%0AName%3A%0ABranch%20(Mombasa%20or%20Nairobi)%3A%0ADate%3A%0ATime%3A%0ANumber%20of%20guests%3A%0A%0AThank%20you."
          target="_blank" rel="noopener">
         <span class="reserve__ctalbl">Reserve now</span>
         <svg class="reserve__arrow" viewBox="0 0 24 14" aria-hidden="true" focusable="false">
@@ -4133,26 +3974,31 @@
             <path d="M12 7.1V12l3.4 2"/>
           </svg>
           <span class="reserve__metalbl">Opening hours</span>
-          <!-- RESEARCHED 2026-08-26 from Li's own site and the Mombasa
-               listing, and NOT YET CONFIRMED BY THE CLIENT. Both branches are
-               closed Mondays and open Tuesday to Sunday from 11:00; they close
-               at DIFFERENT times — Nairobi 22:30, Mombasa 21:00.
+          <!-- RESEARCHED 2026-09-28 from both branches' claimed TripAdvisor
+               listings, and NOT YET CONFIRMED BY THE CLIENT. Both open at
+               06:00 and neither closes on any day of the week; they close at
+               DIFFERENT times — Mombasa midnight, Nairobi 01:00.
 
                This block is byte-copied to four pages, so it cannot carry a
                closing time without asserting one branch's hours as the whole
-               house's. "Closed Mondays" is true of both, which is why it is
-               what stands here; the exact times live in the location bands and
-               the FAQ on contact.html, where they are allowed to differ.
+               house's. The six o'clock open and the seven-day week are true
+               of both, which is why they are what stand here; the exact
+               closing times live in the location bands and the FAQ on
+               contact.html, where they are allowed to differ.
 
                Keep it in step with that FAQ answer. It is the same claim made
                twice on one page and the pair has drifted apart before.
+
+               eatout.co.ke says 07:00–22:00 and contradicts both listings.
+               Crave's own menu carries a "Breakfast (6AM – 12PM)" section,
+               which is what settles it in favour of the listings.
 
                Two lines, not three. The copy column is an aspect-locked block
                of 48.1u of measured ink, verified to fit one screen from
                1000x700 to 2560x1440; a third line changes that height and the
                fit has to be re-solved. Both lines here are no longer than the
                ones they replace, so the fit can only improve. -->
-          <span class="reserve__metaval">Tuesday &ndash; Sunday<br>Closed Mondays</span>
+          <span class="reserve__metaval">Every day<br>From 6 in the morning</span>
         </li>
         <li class="reserve__metaitem">
           <svg class="reserve__icon" viewBox="0 0 24 24" aria-hidden="true" focusable="false">
@@ -4160,7 +4006,7 @@
             <circle cx="12" cy="10.6" r="2.4"/>
           </svg>
           <span class="reserve__metalbl">Location</span>
-          <span class="reserve__metaval">Nairobi &amp; Mombasa<br>Kenya</span>
+          <span class="reserve__metaval">Mombasa &amp; Nairobi<br>Kenya</span>
         </li>
       </ul>
     </div>
@@ -4171,7 +4017,7 @@
 <footer class="ending">
   <!-- Decorative repeat of the hero's h1. Hidden from assistive tech so the
        brand name is not announced twice on the way out. -->
-  <p class="ending__mark" aria-hidden="true">LI&rsquo;S</p>
+  <p class="ending__mark" aria-hidden="true">CRAVE</p>
 
   <!-- Five links, not three. Locations and Reservations were added on
        2026-08-26: both are places a reader actually wants to reach from the
@@ -4181,12 +4027,12 @@
   <nav class="ending__nav" aria-label="Footer">
     <a class="ending__link" href="menu.html">Menu</a>
     <a class="ending__link" href="about.html">About</a>
-    <a class="ending__link" href="contact.html" aria-current="page">Contact</a>
+    <a class="ending__link" href="contact.html">Contact</a>
     <a class="ending__link" href="contact.html#locations">Locations</a>
     <a class="ending__link" href="#reserve">Reservations</a>
   </nav>
 
-  <p class="ending__note">&copy; 2026 Li&rsquo;s Chinese Restaurant</p>
+  <p class="ending__note">&copy; 2026 Crave</p>
 </footer>
 
 <script>

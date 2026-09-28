@@ -3,7 +3,7 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
-<title>Li&rsquo;s — The Menu</title>
+<title>Crave — The Menu</title>
 <link rel="preload" as="image" type="image/avif"
       imagesrcset="assets/img/r/menu-duck-290.avif 290w, assets/img/r/menu-duck-360.avif 360w, assets/img/r/menu-duck-430.avif 430w, assets/img/r/menu-duck-520.avif 520w, assets/img/r/menu-duck-700.avif 700w"
       imagesizes="(max-width: 900px) 41.2vw, 15.5vw" fetchpriority="high">
@@ -18,7 +18,7 @@
 <link rel="apple-touch-icon" href="assets/apple-touch-icon.png">
 <link rel="manifest" href="assets/site.webmanifest">
 <meta name="theme-color" content="#FBFAF7">
-<meta name="description" content="The Li’s carte — Peking duck, dim sum, seafood and the wok. Nairobi and Mombasa.">
+<meta name="description" content="The Crave carte — 295 dishes across breakfast, brunch, burgers, steaks, seafood, desserts and coffee. Mombasa and Nairobi.">
 
 <link rel="preload" as="font" type="font/woff2" crossorigin href="assets/fonts/cormorant-garamond-normal-300-400.woff2">
 <link rel="preload" as="font" type="font/woff2" crossorigin href="assets/fonts/jost-normal-300-400.woff2">
@@ -81,7 +81,7 @@
   picture { display: contents; }
 
   /* =====================================================================
-     Li's — menu page
+     Crave — menu page
 
      Geometry is measured off `assets/img/menu isnpo.jpeg` and carried
      across as a share of one scale unit, never in pixels: the reference is
@@ -392,8 +392,9 @@
   }
 
   /* Corrected per frame, not on one shared curve. These were shot under
-     different light — the wok is firelight, the duck is warm tungsten, the
-     dim sum is daylight on a pale ground, the prawns are direct flash — so one
+     different light — the grill is flame against daylight, the counter is
+     warm tungsten under glass, the breakfast is flat morning light on a pale
+     ground, the seafood is direct flash — so one
      curve across all four leaves at least two of them wrong. */
   .frame--ul .frame__img { filter: contrast(1.03); }
   .frame--ur .frame__img { filter: saturate(0.88) contrast(1.04); }
@@ -414,7 +415,7 @@
     transform: scale(1.38) translateY(-7%);
   }
 
-  /* The dim sum is the one frame that needs a crop as well as a curve. It
+  /* The breakfast frame is the one that needs a crop as well as a curve. It
      was shot on a white sweep, and object-fit alone leaves a band of that
      sweep inside the frame — on a cream ground the band reads as a pale
      rectangle rather than as a photograph, and the bowl stops being the
@@ -1336,14 +1337,25 @@
        runs to ~92% of the viewport, which is as large as it can be and
        still read as a word rather than as a cropped first and last letter.
        That 92% is the target --end-mark is solved against; see it above. */
-    /* RE-SOLVED 2026-08-26 for a four-glyph wordmark. The size above was
-       fitted so MISONO's six caps ran to ~92% of the viewport; LI'S set at
-       the same size measured 43.4%, which is not a smaller wordmark but a
-       different composition — the mark stopped being the closing gesture and
-       became a caption. Everything is scaled by 92/43.4 = 2.12, the clamp
-       ends included, so the cap at 2560 still bites at the same fraction it
-       always did. Re-solve again if the string ever changes length. */
-    --end-mark:   clamp(9.3rem, 42.2vw, 42.4rem);
+    /* RE-SOLVED 2026-09-28 for a five-glyph wordmark. CRAVE's five wide caps
+       are far wider than LI'S's four narrow ones — measured, ink is 3.816x
+       the font-size against LI'S's 2.026 — so at the inherited size it ran to
+       161% of the viewport and hung 48.6px off the right edge on a 1440.
+       Every term is scaled by 0.531, the clamp ends included, so the cap at
+       2560 still bites at the same fraction it always did.
+
+       THE TARGET IS 85.5%, NOT THE 92% THE NOTE ABOVE ASPIRES TO. 92% is what
+       the block was designed for; 85.5% is what it has actually shipped at
+       every width below the clamp, measured off the previous build. Solving
+       to the comment rather than to the render would have made the mark 7.6%
+       larger than the one it replaces and called it a like-for-like swap.
+
+       MEASURE THE TEXT, NOT THE BOX. The mark is white-space: nowrap in a
+       full-width block, so past 100% its border box stops growing and
+       getBoundingClientRect() hands the viewport back: read that way, a mark
+       overflowing by 61% reported as a comfortable 93.2%. measure-endmark.mjs
+       uses a Range. Re-solve again if the string ever changes length. */
+    --end-mark:   clamp(4.94rem, 22.4vw, 22.5rem);
     /* The last 15% of height comes from the block, not the size — see
        .ending__mark. */
     --end-stretch: 1.15;
@@ -1548,7 +1560,7 @@
       /* Scaled by the same 2.12 as the desktop clamp when the wordmark went
          from six glyphs to four. 20vw held MISONO at 92% of a phone; it held
          LI'S at 43.6%. */
-      --end-mark: 42.4vw;
+      --end-mark: 22.5vw;
       --end-stretch: 1.22;
       min-height: 0;
       padding-top: clamp(64px, 22vw, 108px);
@@ -1558,9 +1570,9 @@
   }
 
   /* =====================================================================
-     PEACH ADAPTATION of the two transplanted sections.
+     IVORY ADAPTATION of the two transplanted sections.
 
-     The peach runs the whole page, so the copied blocks cannot stay on
+     The near-white runs the whole page, so the copied blocks cannot stay on
      cream. Nothing above is edited to achieve that — every change lives
      here, after the copies, so the copies remain byte-identical to
      index.html and can still be re-copied from it wholesale.
@@ -1617,18 +1629,24 @@
 
       <div class="flavors__title">
         <p class="flavors__eyebrow">The Menu</p>
-        <!-- Two words, and the pair is load-bearing: the entrance was
+        <!-- Two lines, and the pair is load-bearing: the entrance was
              measured against these line widths at 1440x900, 1280x800 and
-             390x844. "Flavours" carries the British spelling the rest of the
-             site uses; it is one glyph wider than the American form and
-             nothing else moved. -->
+             390x844. "Exceptional / Flavours" was 11 glyphs over 8; this is
+             10 over 9, so the second line is the wider of the two for the
+             first time. Re-shoot with shoot-flavors.mjs before trusting the
+             composition — the four frames' insets are measured against the
+             heading's own width.
+
+             The words are the brand's own: its menu header reads "Satisfying
+             every craving", which is the hero's tagline. This is the same
+             sentence turned round. -->
         <h1 class="flavors__display" id="flavors-title">
-          <span>Exceptional</span>
-          <span>Flavours</span>
+          <span>Everything</span>
+          <span>You Crave</span>
         </h1>
       </div>
 
-      <!-- Upper-left. The wok — the kitchen's own craft, and the darkest warm
+      <!-- Upper-left. The grill — the kitchen's own craft, and the warmest
            mass of the four. It holds the top-left the way the reference's
            chef portrait does. -->
       <figure class="frame frame--ul">
@@ -1640,14 +1658,14 @@
                     srcset="assets/img/r/lis-hero-290.webp 290w, assets/img/r/lis-hero-1717.webp 1717w">
             <img class="frame__img"
                src="assets/img/lis-hero.jpg"
-               alt="A cook working a wok over an open flame under low warm light."
+               alt="A cook turning steaks on a flat grill in a bright open kitchen."
                width="900" height="1200" loading="eager" decoding="sync" fetchpriority="high">
           </picture>
         </div>
-        <figcaption class="frame__caption">The Wok</figcaption>
+        <figcaption class="frame__caption">The Grill</figcaption>
       </figure>
 
-      <!-- Upper-right. The duck on its platter. The second dark anchor: the
+      <!-- Upper-right. The dessert counter. The second warm anchor: the
            two upper frames carry the weight so the title can sit high between
            them. Warm rather than bright, so the lacquer reads without pulling
            the eye off the type. -->
@@ -1660,14 +1678,14 @@
                     srcset="assets/img/r/menu-duck-290.webp 290w, assets/img/r/menu-duck-700.webp 700w">
             <img class="frame__img"
                src="assets/img/menu-duck.jpg"
-               alt="Sliced Peking duck on a platter with pancakes, cucumber and spring onion."
+               alt="A tiered dessert counter: cheesecakes, waffles and a row of glazed donuts under glass."
                width="900" height="1200" loading="eager" decoding="sync">
           </picture>
         </div>
-        <figcaption class="frame__caption">Peking Duck</figcaption>
+        <figcaption class="frame__caption">The Counter</figcaption>
       </figure>
 
-      <!-- Lower-left. Dim sum in a dark bowl, shot on a pale ground. Cropped
+      <!-- Lower-left. Breakfast on a pale table, shot in flat light. Cropped
            tight so the bowl fills the frame and reads as a dark graphic
            circle — left loose, the pale ground dissolves into the page and
            the frame disappears. -->
@@ -1680,14 +1698,14 @@
                     srcset="assets/img/r/menu-dimsum-270.webp 270w, assets/img/r/menu-dimsum-890.webp 890w">
             <img class="frame__img"
                src="assets/img/menu-dimsum.jpg"
-               alt="Steamed dumplings set in a dark bowl with a spoon of chilli oil alongside."
+               alt="A breakfast plate on a pale table: poached eggs, avocado and sourdough in morning light."
                width="900" height="1200" loading="eager" decoding="sync">
           </picture>
         </div>
-        <figcaption class="frame__caption">Dim Sum</figcaption>
+        <figcaption class="frame__caption">Breakfast</figcaption>
       </figure>
 
-      <!-- Lower-right. Chilli garlic prawns straight out of the wok, close.
+      <!-- Lower-right. Grilled prawns and lobster, close.
            The brightest of the four, and the only one carrying real colour,
            so it takes the heaviest correction of the set. -->
       <figure class="frame frame--lr">
@@ -1699,7 +1717,7 @@
                     srcset="assets/img/r/menu-seafood-250.webp 250w, assets/img/r/menu-seafood-900.webp 900w">
             <img class="frame__img"
                src="assets/img/menu-seafood.jpg"
-               alt="Prawns tossed with chilli and peppers in a steel wok."
+               alt="Grilled prawns and a split lobster tail on a wide plate, shot close."
                width="900" height="1200" loading="eager" decoding="sync">
           </picture>
         </div>
@@ -1721,102 +1739,261 @@
     <div class="carte__inner">
 
       <header class="carte__head">
-        <p class="carte__eyebrow">Wok &amp; Steamer</p>
+        <p class="carte__eyebrow">All Day, Every Day</p>
         <h2 class="carte__title" id="carte-title">The Carte</h2>
-        <!-- REAL. Every dish and every price below is Li's own, read off the
-             official menu on 2026-08-26. Nothing here is invented — which
-             reverses what this page used to be, where all of it was. Prices
-             are a menu and will move: re-read the source before launch. -->
+        <!-- REAL, AND GENERATED. Every dish and every price below is Crave's
+             own, read on 2026-09-28 from the digital menu its Google listing
+             links to. 295 dishes across 38 courses. Nothing here is invented.
+
+             DO NOT HAND-EDIT THIS GRID. It is written by build-carte.mjs from
+             crave-menu.json; an edit here is lost the next time that runs.
+             Fix the source or fix the generator.
+
+             Four items carry an em dash instead of a price because Crave's own
+             menu publishes none for them, each sitting beside near-identical
+             siblings that do have one. They are kept rather than quietly
+             dropped, and the note below says so.
+
+             Prices are a menu and will move: re-read the source before launch. -->
         <p class="carte__note">
-          Cooked to order and meant for the middle of the table rather than for one
-          person. The duck is worth asking for when you book; everything else below
-          is on every night the doors are open.
+          Breakfast runs from six until noon and brunch from eleven until two; the rest
+          is on from open to close, seven days a week. The Mombasa Special course is
+          served at the City Mall branch only. Four items below have no published price
+          &mdash; ask, and they will tell you.
         </p>
       </header>
 
       <div class="carte__grid">
-
         <section class="course course--wide" aria-labelledby="course-signatures">
           <h3 class="course__name" id="course-signatures">Signatures</h3>
           <div class="course__list">
             <div class="dish">
-              <p class="dish__name">Peking Duck</p>
-              <p class="dish__price">KSh 2,900 &middot; 4,900</p>
-              <p class="dish__note">Half or whole, carved and served with thin pancakes, cucumber and spring onion. Worth asking for when you book.</p>
+              <p class="dish__name">Seafood Platter</p>
+              <p class="dish__price">KSh 9,500</p>
+              <p class="dish__note">The top of the carte. Lobster, prawns and fish on one plate, and the dish both branches point at when they talk about the coast.</p>
             </div>
             <div class="dish">
-              <p class="dish__name">Li&rsquo;s Golden Squid</p>
-              <p class="dish__price">KSh 1,850</p>
-              <p class="dish__note">Salt and pepper squid, fried light and served with nothing on it.</p>
+              <p class="dish__name">Lobster Thermidor</p>
+              <p class="dish__price">KSh 4,500</p>
+              <p class="dish__note">Split, the meat folded back into its own shell under a mustard cream and browned.</p>
             </div>
             <div class="dish">
-              <p class="dish__name">Chilli Garlic Ginger Lobster</p>
-              <p class="dish__price">KSh 4,900</p>
-              <p class="dish__note">The largest thing on the carte, and the dish the coast kitchen made its name on.</p>
+              <p class="dish__name">Chicken Loaded Fries</p>
+              <p class="dish__price">KSh 1,000</p>
+              <p class="dish__note">The C3 chips. What Crave is known for and what reviewers name before anything else.</p>
             </div>
             <div class="dish">
-              <p class="dish__name">Li&rsquo;s Prawn Hot Pot</p>
-              <p class="dish__price">KSh 2,100</p>
-              <p class="dish__note">Brought to the table still going in the pot.</p>
+              <p class="dish__name">BBQ Chicken Pizza</p>
+              <p class="dish__price">KSh 1,100</p>
+              <p class="dish__note">On Google’s listing as one of three items badged Popular, alongside the platter.</p>
             </div>
           </div>
         </section>
 
-        <section class="course" aria-labelledby="course-starters">
-          <h3 class="course__name" id="course-starters">Starters &amp; Dim Sum</h3>
+        <section class="course" aria-labelledby="course-breakfast-6am-12pm">
+          <h3 class="course__name" id="course-breakfast-6am-12pm">Breakfast (6am &mdash; 12pm)</h3>
           <div class="course__list">
             <div class="dish">
-              <p class="dish__name">Chicken Dim Sum</p>
-              <p class="dish__price">KSh 1,450</p>
+              <p class="dish__name">One Man Show</p>
+              <p class="dish__price">KSh 600</p>
+              <p class="dish__note">Two slices of bread, two eggs and butter.</p>
             </div>
             <div class="dish">
-              <p class="dish__name">Prawns Dim Sum</p>
-              <p class="dish__price">KSh 2,100</p>
+              <p class="dish__name">Crave Special Breakfast</p>
+              <p class="dish__price">KSh 1,100</p>
+              <p class="dish__note">3 mini fluffy pancakes, crispy chicken strips, avocado, scrambled eggs with mozzarella cheese and syrup.</p>
             </div>
             <div class="dish">
-              <p class="dish__name">Vegetable Dim Sum</p>
-              <p class="dish__price">KSh 1,200</p>
+              <p class="dish__name">English Breakfast</p>
+              <p class="dish__price">KSh 850</p>
+              <p class="dish__note">Two slices of bread, eggs, sausages, macon, baked beans, butter and breakfast potatoes.</p>
             </div>
             <div class="dish">
-              <p class="dish__name">Li&rsquo;s Special Spring Rolls</p>
-              <p class="dish__price">KSh 210 &middot; 350</p>
-              <p class="dish__note">Chicken or beef; or with toppings.</p>
+              <p class="dish__name">American Steak Breakfast</p>
+              <p class="dish__price">KSh 900</p>
+              <p class="dish__note">Grilled tender steak served with pepper sauce, eggs, mushrooms, 2 slices of bread, butter, salad and breakfast potatoes.</p>
             </div>
             <div class="dish">
-              <p class="dish__name">Vegetable Spring Rolls</p>
-              <p class="dish__price">KSh 160</p>
+              <p class="dish__name">Loaded Chapati</p>
+              <p class="dish__price">KSh 850</p>
+              <p class="dish__note">Delicious homemade chapati served with spinach, eggs, sausages, baked beans and breakfast potatoes.</p>
             </div>
             <div class="dish">
-              <p class="dish__name">Salt &amp; Pepper Prawns</p>
-              <p class="dish__price">KSh 2,100</p>
-              <p class="dish__note">Ten pieces.</p>
+              <p class="dish__name">Keto Diet</p>
+              <p class="dish__price">KSh 950</p>
+              <p class="dish__note">Grilled tender steak/chicken breast with pepper/ rosemary sauce, spinach, feta cheese, scrambled eggs and avocado.</p>
             </div>
             <div class="dish">
-              <p class="dish__name">Prawns in Bread Crumbs</p>
-              <p class="dish__price">KSh 2,100</p>
-              <p class="dish__note">Ten pieces.</p>
+              <p class="dish__name">VIP Waffle</p>
+              <p class="dish__price">KSh 1,100</p>
+              <p class="dish__note">Waffle, crispy chicken, poached eggs with hollandaise sauce and breakfast potatoes.</p>
             </div>
             <div class="dish">
-              <p class="dish__name">Special Wings Stuffed with Prawns</p>
-              <p class="dish__price">KSh 2,600</p>
-              <p class="dish__note">Eight pieces.</p>
+              <p class="dish__name">Fitness Breakfast</p>
+              <p class="dish__price">KSh 950</p>
+              <p class="dish__note">Grilled chicken breast with rosemary sauce, avocado, poached eggs, spinach, 2 slices sourdough bread and half baked tomato.</p>
             </div>
             <div class="dish">
-              <p class="dish__name">Spicy Chicken Lollipop</p>
-              <p class="dish__price">KSh 1,450</p>
-              <p class="dish__note">Ten pieces.</p>
+              <p class="dish__name">Eggs Benedits</p>
+              <p class="dish__price">KSh 1,100</p>
+              <p class="dish__note">Toasted bun topped with crispy beef bacon, poached eggs, hollandaise sauce and breakfast potatoes.</p>
             </div>
             <div class="dish">
-              <p class="dish__name">Li&rsquo;s Lamb Spare Ribs</p>
-              <p class="dish__price">KSh 1,400</p>
+              <p class="dish__name">Crossaintwich</p>
+              <p class="dish__price">KSh 850</p>
+              <p class="dish__note">Butter croissant with cheese, egg, sausages and potatoes.</p>
             </div>
             <div class="dish">
-              <p class="dish__name">Li&rsquo;s Crispy Chicken</p>
-              <p class="dish__price">KSh 1,250</p>
+              <p class="dish__name">Chicken Crossainwich</p>
+              <p class="dish__price">KSh 1,100</p>
+              <p class="dish__note">Butter croissant with chicken, tomato slices, cheddar slice, lettuce and breakfast potatoes.</p>
             </div>
             <div class="dish">
-              <p class="dish__name">Prawn Crackers</p>
+              <p class="dish__name">Omelette Combo</p>
+              <p class="dish__price">KSh 900</p>
+              <p class="dish__note">Chicken fajita omelette, grated mozzarella cheese served with breakfast potatoes.</p>
+            </div>
+            <div class="dish">
+              <p class="dish__name">Rolex Wrap</p>
+              <p class="dish__price">KSh 650</p>
+              <p class="dish__note">Farm fresh eggs omelette rolled in homemade chapati, served with fresh fruits and breakfast potatoes.</p>
+            </div>
+            <div class="dish">
+              <p class="dish__name">Fruit Bowl.</p>
+              <p class="dish__price">KSh 600</p>
+              <p class="dish__note">Assorted Seasonal fruit cuts with mint leaves.</p>
+            </div>
+            <div class="dish">
+              <p class="dish__name">Classic Pancakes</p>
+              <p class="dish__price">KSh 500</p>
+              <p class="dish__note">Three fluffy pancakes, syrup and dusted with powdered sugar.</p>
+            </div>
+            <div class="dish">
+              <p class="dish__name">Fruity Burst.</p>
               <p class="dish__price">KSh 800</p>
+              <p class="dish__note">Three fluffy pancakes, strawberry purée, strawberry and banana slices with assorted berries and whipped cream</p>
+            </div>
+          </div>
+        </section>
+
+        <section class="course" aria-labelledby="course-brunch-11am-2pm">
+          <h3 class="course__name" id="course-brunch-11am-2pm">Brunch (11am &mdash; 2pm)</h3>
+          <div class="course__list">
+            <div class="dish">
+              <p class="dish__name">Brunch Bowl</p>
+              <p class="dish__price">KSh 950</p>
+              <p class="dish__note">Flavoured oven baked jacked potatoes, spinach, cherry tomatoes, avocado, boiled eggs, feta cheese , chives and sesame seed.</p>
+            </div>
+            <div class="dish">
+              <p class="dish__name">Yemeni Lahsa</p>
+              <p class="dish__price">KSh 1,000</p>
+              <p class="dish__note">Scrambled eggs cooked in rich tomato sauce, topped with cream cheese and coriander leaves. Served with pita bread.</p>
+            </div>
+            <div class="dish">
+              <p class="dish__name">Afghan Shakhshuka</p>
+              <p class="dish__price">KSh 850</p>
+              <p class="dish__note">Potatoes, rich tomato sauce and poached eggs. Served with toasted bread.</p>
+            </div>
+            <div class="dish">
+              <p class="dish__name">Turkish Tatmak</p>
+              <p class="dish__price">KSh 800</p>
+              <p class="dish__note">Infused natural yoghurt, sourdough bread, poached eggs, chilli oil and dill</p>
+            </div>
+            <div class="dish">
+              <p class="dish__name">Avocado Toast</p>
+              <p class="dish__price">KSh 1,000</p>
+              <p class="dish__note">2 slices sourdough bread, guacamole, crispy beef bacon, avocado slices and poached eggs.</p>
+            </div>
+            <div class="dish">
+              <p class="dish__name">Creamy Salmon Potatoes</p>
+              <p class="dish__price">KSh 1,950</p>
+              <p class="dish__note">Bed of lettuce, potatoes tossed in creamy spinach, grilled salmon, garlic and dill butter sauce and cherry tomatoes.</p>
+            </div>
+            <div class="dish">
+              <p class="dish__name">Avacado Croast</p>
+              <p class="dish__price">KSh 1,000</p>
+              <p class="dish__note">Butter croissant, guacamole, poached egg in hollandaise sauce, rocket salad and parmesan cheese.</p>
+            </div>
+            <div class="dish">
+              <p class="dish__name">Buratta Avo Toast</p>
+              <p class="dish__price">KSh 1,900</p>
+              <p class="dish__note">Burrata cheese, guacamole over whole bread flavoured with chilli oil</p>
+            </div>
+            <div class="dish">
+              <p class="dish__name">Lobster Mac &amp; Cheese</p>
+              <p class="dish__price">KSh 2,950</p>
+            </div>
+            <div class="dish">
+              <p class="dish__name">Chocolate Banana Toast</p>
+              <p class="dish__price">KSh 1,100</p>
+              <p class="dish__note">Signature chocolate, chocolate chips, cream topping and caramelized banana slices.</p>
+            </div>
+            <div class="dish">
+              <p class="dish__name">Lotus &amp; Mix Berries Toast</p>
+              <p class="dish__price">KSh 1,200</p>
+              <p class="dish__note">Lotus spread, crushed biscuits, cream topping with assorted berries.</p>
+            </div>
+            <div class="dish">
+              <p class="dish__name">Rose Pistachio</p>
+              <p class="dish__price">KSh 1,450</p>
+              <p class="dish__note">Pistachio spread, crushed nuts, dried roses, cream topping and berries.</p>
+            </div>
+          </div>
+        </section>
+
+        <section class="course" aria-labelledby="course-bites">
+          <h3 class="course__name" id="course-bites">Bites</h3>
+          <div class="course__list">
+            <div class="dish">
+              <p class="dish__name">Beef Samosa</p>
+              <p class="dish__price">KSh 400</p>
+              <p class="dish__note">Slow cooked ground beef in crispy pastry</p>
+            </div>
+            <div class="dish">
+              <p class="dish__name">Chicken Samosa</p>
+              <p class="dish__price">KSh 450</p>
+              <p class="dish__note">Chicken mince mixed with herbs in crispy pastry.</p>
+            </div>
+            <div class="dish">
+              <p class="dish__name">Vegetable Samosa</p>
+              <p class="dish__price">KSh 350</p>
+              <p class="dish__note">Vegetables mixed with herbs in crispy past</p>
+            </div>
+            <div class="dish">
+              <p class="dish__name">Vegetable Springrolls</p>
+              <p class="dish__price">KSh 350</p>
+              <p class="dish__note">Selected vegetables cooked to perfection in crispy pastry.</p>
+            </div>
+            <div class="dish">
+              <p class="dish__name">Chicken Springroll</p>
+              <p class="dish__price">KSh 450</p>
+              <p class="dish__note">Seasoned chicken pieces in crispy pastry.</p>
+            </div>
+            <div class="dish">
+              <p class="dish__name">Meat Pie</p>
+              <p class="dish__price">KSh 400</p>
+            </div>
+            <div class="dish">
+              <p class="dish__name">Chicken Pie</p>
+              <p class="dish__price">KSh 450</p>
+            </div>
+            <div class="dish">
+              <p class="dish__name">White Kabab</p>
+              <p class="dish__price">KSh 450</p>
+              <p class="dish__note">Mince meat in soft potatoes coated with eggs &amp; fried till lightly crisp</p>
+            </div>
+            <div class="dish">
+              <p class="dish__name">Black Kabab</p>
+              <p class="dish__price">KSh 500</p>
+              <p class="dish__note">Mince meat made with spices &amp; cooked on perfect flame.</p>
+            </div>
+            <div class="dish">
+              <p class="dish__name">Prawns Cocktail</p>
+              <p class="dish__price">KSh 600</p>
+            </div>
+            <div class="dish">
+              <p class="dish__name">Maru Bhajia</p>
+              <p class="dish__price">KSh 500</p>
             </div>
           </div>
         </section>
@@ -1825,335 +2002,1319 @@
           <h3 class="course__name" id="course-soups">Soups</h3>
           <div class="course__list">
             <div class="dish">
-              <p class="dish__name">Seafood Soup</p>
-              <p class="dish__price">KSh 950</p>
+              <p class="dish__name">Minestrone Soup</p>
+              <p class="dish__price">KSh 600</p>
             </div>
             <div class="dish">
-              <p class="dish__name">Crab Meat Soup</p>
-              <p class="dish__price">KSh 950</p>
+              <p class="dish__name">Mushroom Soup</p>
+              <p class="dish__price">KSh 600</p>
             </div>
             <div class="dish">
-              <p class="dish__name">Tom Yum Soup</p>
-              <p class="dish__price">KSh 950</p>
+              <p class="dish__name">Clear Chicken Soup</p>
+              <p class="dish__price">KSh 600</p>
             </div>
             <div class="dish">
-              <p class="dish__name">Chicken Hot &amp; Sour Soup</p>
+              <p class="dish__name">Butternut Soup</p>
+              <p class="dish__price">KSh 600</p>
+            </div>
+            <div class="dish">
+              <p class="dish__name">Beef Soup</p>
+              <p class="dish__price">KSh 600</p>
+            </div>
+          </div>
+        </section>
+
+        <section class="course" aria-labelledby="course-sandwiches">
+          <h3 class="course__name" id="course-sandwiches">Sandwiches</h3>
+          <div class="course__list">
+            <div class="dish">
+              <p class="dish__name">Classic Cheese &amp; Tomato</p>
+              <p class="dish__price">KSh 500</p>
+              <p class="dish__note">Grilled sandwich with cheddar cheese, fresh tomatoes, oregano &amp; tomato sauce.</p>
+            </div>
+            <div class="dish">
+              <p class="dish__name">Cuban Avocado Mix Sandwich.</p>
               <p class="dish__price">KSh 750</p>
+              <p class="dish__note">Marinated Grilled chicken, cheese, pickles, mustard &amp; avocado.</p>
             </div>
             <div class="dish">
-              <p class="dish__name">Chicken Sweet Corn Soup</p>
-              <p class="dish__price">KSh 750</p>
-            </div>
-            <div class="dish">
-              <p class="dish__name">Chicken Wonton Soup</p>
-              <p class="dish__price">KSh 750</p>
-            </div>
-            <div class="dish">
-              <p class="dish__name">Vegetable Wonton Soup</p>
+              <p class="dish__name">Grilled Vegetable Club Sandwich</p>
               <p class="dish__price">KSh 650</p>
+              <p class="dish__note">Seasonal veges tossed in aromatic spices and deep fried to crispy perfection</p>
             </div>
             <div class="dish">
-              <p class="dish__name">Vegetable Hot &amp; Sour Soup</p>
+              <p class="dish__name">BBQ Chicken Sandwich</p>
+              <p class="dish__price">KSh 700</p>
+              <p class="dish__note">Grilled chicken pieces tossed in BBQ sauce &amp; cheese.</p>
+            </div>
+            <div class="dish">
+              <p class="dish__name">Chicken Salad Sandwich</p>
+              <p class="dish__price">KSh 700</p>
+              <p class="dish__note">Fresh salad with salted chicken with tomato &amp; cucumber.</p>
+            </div>
+            <div class="dish">
+              <p class="dish__name">Chicken Pesto Sandwich</p>
+              <p class="dish__price">KSh 800</p>
+              <p class="dish__note">Marinated chicken, tomato with pesto mayonnaise.</p>
+            </div>
+            <div class="dish">
+              <p class="dish__name">Chicken Mayo Sandwich</p>
+              <p class="dish__price">KSh 750</p>
+              <p class="dish__note">Chicken mixed with mayonnaise &amp; cheese.</p>
+            </div>
+            <div class="dish">
+              <p class="dish__name">Chicken Parmesan Sandwich</p>
+              <p class="dish__price">KSh 800</p>
+              <p class="dish__note">Tender chicken lightly coated with parmesan cheese.</p>
+            </div>
+            <div class="dish">
+              <p class="dish__name">C3 Club Sandwich</p>
+              <p class="dish__price">KSh 800</p>
+              <p class="dish__note">Crave crispy chicken sandwich</p>
+            </div>
+            <div class="dish">
+              <p class="dish__name">Steak Sandwich</p>
+              <p class="dish__price">KSh 1,100</p>
+              <p class="dish__note">Tanderloin beef steak with lettuce tomato &amp; steak sauce</p>
+            </div>
+          </div>
+        </section>
+
+        <section class="course" aria-labelledby="course-burgers">
+          <h3 class="course__name" id="course-burgers">Burgers</h3>
+          <div class="course__list">
+            <div class="dish">
+              <p class="dish__name">Cheesy Garlic Bun</p>
+              <p class="dish__price">KSh 500</p>
+              <p class="dish__note">Freshly baked bun with garlic butter &amp; cheese.</p>
+            </div>
+            <div class="dish">
+              <p class="dish__name">Spicy Pepperoni Bun</p>
               <p class="dish__price">KSh 650</p>
+              <p class="dish__note">Freshly baked bun, spiced with chilli flakes, herbs and pepperoni.</p>
+            </div>
+            <div class="dish">
+              <p class="dish__name">One Night Stand</p>
+              <p class="dish__price">KSh 1,450</p>
+              <p class="dish__note">Grilled beef patty, slow cooked pulled chuck roast, cheddar cheese, beef macon, sausage, caramelised onion, shredded lettuce, tomato and smoky bbq sauce.</p>
+            </div>
+            <div class="dish">
+              <p class="dish__name">Mexican Burger</p>
+              <p class="dish__price">KSh 750</p>
+              <p class="dish__note">Grilled beef patty, cheddar cheese, tangy salsa, lettuce, green chillies &amp; mayo.</p>
+            </div>
+            <div class="dish">
+              <p class="dish__name">BBQ Beef Burger</p>
+              <p class="dish__price">KSh 700</p>
+              <p class="dish__note">Juicy beef patty, melted cheese, caramelised onions with CRAVE BBQ on a bun with shredded lettuce &amp; tomato.</p>
+            </div>
+            <div class="dish">
+              <p class="dish__name">Hawaiian BBQ Chicken Burger</p>
+              <p class="dish__price">KSh 750</p>
+              <p class="dish__note">Grilled chicken patty, grilled pineapple, caramelized onions, cheese, lettuce, tomato &amp; BBQ sauce.</p>
+            </div>
+            <div class="dish">
+              <p class="dish__name">Big XL BBQ Burger</p>
+              <p class="dish__price">KSh 850</p>
+              <p class="dish__note">Double beef patty, caramelized onions, lettuce, tomatoes, cucumbers, pickles, cheese &amp; BBQ sauce</p>
+            </div>
+            <div class="dish">
+              <p class="dish__name">Vegetable Burger</p>
+              <p class="dish__price">KSh 700</p>
+              <p class="dish__note">Hand picked vegetables made into a patty &amp; cooked on perfect flame , tomato sauce, lettuce, tomatoes &amp; cucumber.</p>
+            </div>
+            <div class="dish">
+              <p class="dish__name">Chicken BBQ XL</p>
+              <p class="dish__price">KSh 900</p>
+              <p class="dish__note">2 chicken patties, caramelized onions, shredded lettuce, sliced tomato, cucumbers, cheese &amp; BBQ sauce</p>
+            </div>
+            <div class="dish">
+              <p class="dish__name">C3 Burger</p>
+              <p class="dish__price">KSh 950</p>
+              <p class="dish__note">Crave crispy chicken with cheese, Mayonnaise, lettuce, tomato &amp; cucumber.</p>
+            </div>
+          </div>
+        </section>
+
+        <section class="course" aria-labelledby="course-special-c3-chips-loaded-fries">
+          <h3 class="course__name" id="course-special-c3-chips-loaded-fries">Special C3 Chips (Loaded Fries)</h3>
+          <div class="course__list">
+            <div class="dish">
+              <p class="dish__name">Chicken Loaded</p>
+              <p class="dish__price">KSh 1,000</p>
+            </div>
+            <div class="dish">
+              <p class="dish__name">Beef Loaded</p>
+              <p class="dish__price">KSh 1,000</p>
+            </div>
+            <div class="dish">
+              <p class="dish__name">Paneer Loaded</p>
+              <p class="dish__price">KSh 1,000</p>
+            </div>
+            <div class="dish">
+              <p class="dish__name">Special Pepperoni Loaded</p>
+              <p class="dish__price">KSh 1,000</p>
+            </div>
+          </div>
+        </section>
+
+        <section class="course" aria-labelledby="course-salads">
+          <h3 class="course__name" id="course-salads">Salads</h3>
+          <div class="course__list">
+            <div class="dish">
+              <p class="dish__name">Garden Salad</p>
+              <p class="dish__price">KSh 1,000</p>
+            </div>
+            <div class="dish">
+              <p class="dish__name">Ceaser Salad</p>
+              <p class="dish__price">KSh 1,500</p>
+              <p class="dish__note">Crispy romaine lettuce, crunchy croutons, and creamy Ceaser dressing, topped with Parmesan cheese.</p>
+            </div>
+            <div class="dish">
+              <p class="dish__name">Texas Salad</p>
+              <p class="dish__price">KSh 1,500</p>
+              <p class="dish__note">Grilled chicken breast, sweat corn, feta cheese, avocado, olives, micro leaves and cherry tomatoes.</p>
+            </div>
+            <div class="dish">
+              <p class="dish__name">Nicoise Salad</p>
+              <p class="dish__price">KSh 1,500</p>
+              <p class="dish__note">Diffrent kind of lettuce, tuna, hard boiled eggs, cherry tomatoes, cucumber, carrots and red onions</p>
+            </div>
+            <div class="dish">
+              <p class="dish__name">Roquefort and Pear Salad</p>
+              <p class="dish__price">KSh 1,500</p>
+              <p class="dish__note">Tangy roquefort cheese,crunchy nuts, lettuce, rocket leaves and freshly sliced pears.</p>
+            </div>
+            <div class="dish">
+              <p class="dish__name">Beetroot and Quiona Salad</p>
+              <p class="dish__price">KSh 1,500</p>
+              <p class="dish__note">Roast onions, green leaves, avocado, cashew nuts, hummus and chicken.</p>
+            </div>
+            <div class="dish">
+              <p class="dish__name">Salmon Salad</p>
+              <p class="dish__price">KSh 2,300</p>
+              <p class="dish__note">Grilled salmon with quinoa, chia, garden peas, fresh leaves, avocado dressed with sesame oil.</p>
+            </div>
+          </div>
+        </section>
+
+        <section class="course" aria-labelledby="course-wings">
+          <h3 class="course__name" id="course-wings">Wings</h3>
+          <div class="course__list">
+            <div class="dish">
+              <p class="dish__name">Plain Wings</p>
+              <p class="dish__price">KSh 600</p>
+              <p class="dish__note">Crispy wings in pousine sauce.</p>
+            </div>
+            <div class="dish">
+              <p class="dish__name">Pousine Wings</p>
+              <p class="dish__price">KSh 700</p>
+            </div>
+            <div class="dish">
+              <p class="dish__name">Honey Glazed</p>
+              <p class="dish__price">KSh 700</p>
             </div>
           </div>
         </section>
 
         <section class="course" aria-labelledby="course-chicken">
-          <h3 class="course__name" id="course-chicken">From the Wok &mdash; Chicken</h3>
+          <h3 class="course__name" id="course-chicken">Chicken</h3>
           <div class="course__list">
             <div class="dish">
-              <p class="dish__name">Kung Pao Chicken</p>
+              <p class="dish__name">C3 Half Chicken</p>
               <p class="dish__price">KSh 1,500</p>
+              <p class="dish__note">Crispy half chicken best shared.</p>
             </div>
             <div class="dish">
-              <p class="dish__name">Cashew Nut Chicken</p>
-              <p class="dish__price">KSh 1,500</p>
+              <p class="dish__name">Deep Fried Chicken</p>
+              <p class="dish__price">KSh 1,000</p>
             </div>
             <div class="dish">
-              <p class="dish__name">Schezwan Chicken</p>
-              <p class="dish__price">KSh 1,500</p>
+              <p class="dish__name">Pousine Chicken</p>
+              <p class="dish__price">KSh 1,100</p>
             </div>
             <div class="dish">
-              <p class="dish__name">Chicken Sizzler</p>
-              <p class="dish__price">KSh 1,700</p>
+              <p class="dish__name">Lemon &amp; Herbs Chicken</p>
+              <p class="dish__price">KSh 1,100</p>
             </div>
             <div class="dish">
-              <p class="dish__name">Chicken Hot Pot</p>
-              <p class="dish__price">KSh 1,700</p>
+              <p class="dish__name">Grilled Chicken</p>
+              <p class="dish__price">KSh 1,100</p>
             </div>
             <div class="dish">
-              <p class="dish__name">Chilli Garlic Chicken</p>
-              <p class="dish__price">KSh 1,400</p>
-              <p class="dish__note">Dry, or with sauce.</p>
+              <p class="dish__name">Peri Peri Chicken</p>
+              <p class="dish__price">KSh 1,100</p>
             </div>
             <div class="dish">
-              <p class="dish__name">Lemon &amp; Ginger Chicken</p>
-              <p class="dish__price">KSh 1,400</p>
-            </div>
-            <div class="dish">
-              <p class="dish__name">Sesame Chicken</p>
-              <p class="dish__price">KSh 1,400</p>
-            </div>
-            <div class="dish">
-              <p class="dish__name">Chicken in Black Bean Sauce</p>
-              <p class="dish__price">KSh 1,400</p>
-            </div>
-            <div class="dish">
-              <p class="dish__name">Sweet &amp; Sour Chicken</p>
-              <p class="dish__price">KSh 1,400</p>
+              <p class="dish__name">Texas Chicken</p>
+              <p class="dish__price">KSh 1,200</p>
             </div>
           </div>
         </section>
 
-        <section class="course" aria-labelledby="course-beef">
-          <h3 class="course__name" id="course-beef">Beef &amp; Lamb</h3>
+        <section class="course" aria-labelledby="course-steaks">
+          <h3 class="course__name" id="course-steaks">Steaks</h3>
           <div class="course__list">
             <div class="dish">
-              <p class="dish__name">Sizzling Beef</p>
-              <p class="dish__price">KSh 1,700</p>
-              <p class="dish__note">Brought to the table on the iron, still going.</p>
-            </div>
-            <div class="dish">
-              <p class="dish__name">Sizzling Lamb</p>
-              <p class="dish__price">KSh 1,700</p>
-            </div>
-            <div class="dish">
-              <p class="dish__name">Chilli Garlic Beef</p>
-              <p class="dish__price">KSh 1,550</p>
-              <p class="dish__note">Dry, or with sauce.</p>
-            </div>
-            <div class="dish">
-              <p class="dish__name">Beef in Oyster Sauce</p>
-              <p class="dish__price">KSh 1,400</p>
-            </div>
-            <div class="dish">
-              <p class="dish__name">Beef with Broccoli</p>
-              <p class="dish__price">KSh 1,400</p>
-            </div>
-            <div class="dish">
-              <p class="dish__name">Beef in Black Bean Sauce</p>
-              <p class="dish__price">KSh 1,400</p>
-            </div>
-            <div class="dish">
-              <p class="dish__name">Dry Chilli Garlic Lamb</p>
+              <p class="dish__name">Grilled Steak</p>
               <p class="dish__price">KSh 1,600</p>
+              <p class="dish__note">Tender beef steak with sauce on the side.</p>
             </div>
             <div class="dish">
-              <p class="dish__name">Lamb in Black Bean Sauce</p>
-              <p class="dish__price">KSh 1,450</p>
+              <p class="dish__name">Mushroom Steak</p>
+              <p class="dish__price">KSh 1,700</p>
+              <p class="dish__note">Creamy mushroom sauce on spicy &amp; herb steak</p>
             </div>
             <div class="dish">
-              <p class="dish__name">Schezwan Lamb</p>
-              <p class="dish__price">KSh 1,450</p>
+              <p class="dish__name">Pepper Steak</p>
+              <p class="dish__price">KSh 1,650</p>
+              <p class="dish__note">Lightly peppered &amp; grilled steak with pepper sauce.</p>
             </div>
             <div class="dish">
-              <p class="dish__name">Lamb with Green Pepper</p>
-              <p class="dish__price">KSh 1,450</p>
+              <p class="dish__name">Posuine Steak</p>
+              <p class="dish__price">KSh 1,700</p>
+              <p class="dish__note">Shredded steak tossed in pousine sauce</p>
             </div>
           </div>
         </section>
 
-        <section class="course" aria-labelledby="course-seafood">
-          <h3 class="course__name" id="course-seafood">Seafood</h3>
+        <section class="course" aria-labelledby="course-curries">
+          <h3 class="course__name" id="course-curries">Curries</h3>
           <div class="course__list">
             <div class="dish">
-              <p class="dish__name">Chilli Garlic Crab</p>
-              <p class="dish__price">KSh 3,100</p>
-              <p class="dish__note">Whole.</p>
+              <p class="dish__name">Butter Boneless Chicken Curry</p>
+              <p class="dish__price">KSh 1,700</p>
+              <p class="dish__note">Tender chicken in a creamy butter tomato sauce, enriched with aromatic spices. Served with basmati rice and raita sauce, it’s a comforting classic of Indian cuisine.</p>
             </div>
             <div class="dish">
-              <p class="dish__name">Chilli Garlic Crab Meat</p>
-              <p class="dish__price">KSh 3,400</p>
+              <p class="dish__name">Zanzibari Fish Curry</p>
+              <p class="dish__price">KSh 1,700</p>
+              <p class="dish__note">Delicate fish fillets simmered in a fragrant coconut milk sauce, infused with fresh herbs and spices. This tropical dish offers a perfect balance of creaminess and flavor, served with steamed rice for a delightful culinary experience.</p>
             </div>
             <div class="dish">
-              <p class="dish__name">Crab with Spring Onion</p>
-              <p class="dish__price">KSh 3,100</p>
-              <p class="dish__note">Hong Kong style.</p>
+              <p class="dish__name">Tender Beef Curry</p>
+              <p class="dish__price">KSh 1,700</p>
+              <p class="dish__note">Tender chunks of beef slow-cooked in a rich, spiced gravy, featuring a blend of aromatic herbs and seasonings. This hearty dish is perfect for spice enthusiasts, served with fluffy rice and raita sauce.</p>
             </div>
             <div class="dish">
-              <p class="dish__name">Sizzling Prawns</p>
+              <p class="dish__name">Aloo Godi Mataar (Vegetable Curry)</p>
+              <p class="dish__price">KSh 1,700</p>
+              <p class="dish__note">Savor the flavors of India with our Aloo Gobi Matar, a hearty vegetarian curry featuring tender potatoes, cauliflower, and sweet green peas enhanced with sweet corn. Simmered in a spiced tomato sauce with aromatic spices, this dish offers a perfect balance. Served with warm fluffy basmati rice and raita sauce, it’s a comforting choice for any meal!</p>
+            </div>
+          </div>
+        </section>
+
+        <section class="course" aria-labelledby="course-sea-food">
+          <h3 class="course__name" id="course-sea-food">Seafood</h3>
+          <div class="course__list">
+            <div class="dish">
+              <p class="dish__name">Grilled Fish Fillet</p>
+              <p class="dish__price">KSh 1,450</p>
+              <p class="dish__note">Slow grilled fish fillet seasoned with herbs &amp; spices</p>
+            </div>
+            <div class="dish">
+              <p class="dish__name">Fish Masala Fillet</p>
+              <p class="dish__price">KSh 1,600</p>
+              <p class="dish__note">Grilled fish fillet on special crave masala sauce.</p>
+            </div>
+            <div class="dish">
+              <p class="dish__name">Pousine Fish Fillet</p>
+              <p class="dish__price">KSh 1,600</p>
+              <p class="dish__note">Grilled fish fillet on pousine sauce.</p>
+            </div>
+            <div class="dish">
+              <p class="dish__name">London Fish and Chips</p>
+              <p class="dish__price">KSh 1,450</p>
+              <p class="dish__note">Original crispy London batter coated fish fillet.</p>
+            </div>
+            <div class="dish">
+              <p class="dish__name">Grilled Prawns</p>
+              <p class="dish__price">KSh 2,850</p>
+              <p class="dish__note">Grilled prawns coated in spicy lemon &amp; garlic butter sauce, served with chips of your choice.</p>
+            </div>
+            <div class="dish">
+              <p class="dish__name">Lobster Thermidor</p>
+              <p class="dish__price">KSh 4,500</p>
+              <p class="dish__note">Stuffed lobster cooked in a well seasoned creamy white sauce &amp; mushrooms, topped with mozzarella cheese, served with a side of your choice. ( ON AVAILABILITY)</p>
+            </div>
+            <div class="dish">
+              <p class="dish__name">Sea Food Platter</p>
+              <p class="dish__price">KSh 9,500</p>
+              <p class="dish__note">Experience the ocean’s bounty with our Seafood Platter, featuring crispy calamari, garlic piripiri prawns, and grilled fish alongside tender chooza fish. Enjoy a generous portion of baked, flavorful potatoes, and indulge in a lavish lobster thermidor served with a rich sauces.</p>
+            </div>
+            <div class="dish">
+              <p class="dish__name">Fritto Misto</p>
               <p class="dish__price">KSh 2,200</p>
-            </div>
-            <div class="dish">
-              <p class="dish__name">Dry Chilli Garlic Prawns</p>
-              <p class="dish__price">KSh 2,100</p>
-            </div>
-            <div class="dish">
-              <p class="dish__name">Shanghai Style Prawns</p>
-              <p class="dish__price">KSh 2,100</p>
-            </div>
-            <div class="dish">
-              <p class="dish__name">Sweet &amp; Sour Prawns</p>
-              <p class="dish__price">KSh 2,100</p>
-            </div>
-            <div class="dish">
-              <p class="dish__name">Sizzling Squid</p>
-              <p class="dish__price">KSh 2,100</p>
-            </div>
-            <div class="dish">
-              <p class="dish__name">Steamed Whole Fish</p>
-              <p class="dish__price">KSh 1,900</p>
-              <p class="dish__note">Light soya, or chilli.</p>
-            </div>
-            <div class="dish">
-              <p class="dish__name">Fried Whole Fish</p>
-              <p class="dish__price">KSh 1,900</p>
-              <p class="dish__note">Sweet and sour, light soya, or chilli.</p>
-            </div>
-            <div class="dish">
-              <p class="dish__name">Schezwan Spicy Fish</p>
-              <p class="dish__price">KSh 1,550</p>
+              <p class="dish__note">Lightly breaded calamari, perfectly fried to a golden crisp. This delightful dish is accompanied by a generous side of golden fried fresh chips. Served with our housemade tartar sauce for dipping.</p>
             </div>
           </div>
         </section>
 
-        <section class="course" aria-labelledby="course-vegetables">
-          <h3 class="course__name" id="course-vegetables">Vegetables &amp; Tofu</h3>
+        <section class="course" aria-labelledby="course-pasta">
+          <h3 class="course__name" id="course-pasta">Pasta</h3>
           <div class="course__list">
             <div class="dish">
-              <p class="dish__name">Mapau Tofu</p>
+              <p class="dish__name">Napolitano Pasta</p>
+              <p class="dish__price">KSh 950</p>
+              <p class="dish__note">Napolitano sauce on spaghetti</p>
+            </div>
+            <div class="dish">
+              <p class="dish__name">Spaghetti Bolognese</p>
+              <p class="dish__price">KSh 1,200</p>
+            </div>
+            <div class="dish">
+              <p class="dish__name">Mushroom Pasta</p>
+              <p class="dish__price">KSh 1,300</p>
+              <p class="dish__note">Fresh spaghetti / penne tossed in mushroom sauce with cheese.</p>
+            </div>
+            <div class="dish">
+              <p class="dish__name">Chicken Alfredo Pasta</p>
               <p class="dish__price">KSh 1,450</p>
-              <p class="dish__note">Pili-pili tofu.</p>
+              <p class="dish__note">Rich Parmesan cream sauce, chicken cubes, mushrooms and your choice of penne or spaghetti.</p>
             </div>
             <div class="dish">
-              <p class="dish__name">Home Cooked Tofu</p>
+              <p class="dish__name">Chicken Permasan</p>
               <p class="dish__price">KSh 1,450</p>
+              <p class="dish__note">Boneless chicken breast, parmesan cheese with choice of penne or spaghetti &amp; red sauce.</p>
             </div>
             <div class="dish">
-              <p class="dish__name">Sizzling Mixed Vegetables</p>
-              <p class="dish__price">KSh 1,500</p>
+              <p class="dish__name">Chicken Pesto Pasta</p>
+              <p class="dish__price">KSh 1,450</p>
+              <p class="dish__note">Chicken cubes with choice of penne or spaghetti and pesto sauce.</p>
             </div>
             <div class="dish">
-              <p class="dish__name">Kung Pao Vegetables</p>
-              <p class="dish__price">KSh 1,500</p>
+              <p class="dish__name">Shrimp Pasta</p>
+              <p class="dish__price">KSh 1,800</p>
             </div>
             <div class="dish">
-              <p class="dish__name">Vegetable Manchurian</p>
+              <p class="dish__name">Beef Lasagna</p>
+              <p class="dish__price">KSh 1,650</p>
+              <p class="dish__note">Slow cooked beef mince in rich tomato sauce, layered with creamy bechamel sauce,mozzarella cheese and fresh lasagna sheets.</p>
+            </div>
+          </div>
+        </section>
+
+        <section class="course" aria-labelledby="course-pizza">
+          <h3 class="course__name" id="course-pizza">Pizza</h3>
+          <div class="course__list">
+            <div class="dish">
+              <p class="dish__name">Vegetable Pizza</p>
+              <p class="dish__price">KSh 1,000</p>
+              <p class="dish__note">Mozzarella cheese, tomato sauce, green peppers, onions, tomatoes, mushrooms &amp; black olives.</p>
+            </div>
+            <div class="dish">
+              <p class="dish__name">Margherita Pizza</p>
+              <p class="dish__price">KSh 950</p>
+              <p class="dish__note">Mozzarella cheese with herbed pizza sauce.</p>
+            </div>
+            <div class="dish">
+              <p class="dish__name">Pepperoni Pizza</p>
+              <p class="dish__price">KSh 1,100</p>
+              <p class="dish__note">Slice chicken pepperoni, mozzarella cheese with herbed pizza sauce</p>
+            </div>
+            <div class="dish">
+              <p class="dish__name">Mexican Chicken Pizza</p>
+              <p class="dish__price">KSh 1,100</p>
+              <p class="dish__note">Mozzarella cheese, tomato sauce, green peppers, onions, tomatoes, chicken chilli.</p>
+            </div>
+            <div class="dish">
+              <p class="dish__name">BBQ Chicken Pizza</p>
+              <p class="dish__price">KSh 1,100</p>
+              <p class="dish__note">BBQ chicken cubes with green peppers, onions, tomatoes, BBQ sauce &amp; mozzarella cheese.</p>
+            </div>
+            <div class="dish">
+              <p class="dish__name">BBQ Beef Pizza</p>
+              <p class="dish__price">KSh 1,100</p>
+            </div>
+            <div class="dish">
+              <p class="dish__name">Supreme Beef Pizza</p>
+              <p class="dish__price">KSh 1,100</p>
+              <p class="dish__note">Mozzarella cheese, tomato sauce, green peppers, tomatoes, minced beef, onions &amp; black olives.</p>
+            </div>
+            <div class="dish">
+              <p class="dish__name">Nyama Feast Pizza</p>
+              <p class="dish__price">KSh 1,250</p>
+              <p class="dish__note">Beef sausages, beef cubes, chicken cubes, mushrooms, tomato &amp; mozzarella cheese.</p>
+            </div>
+            <div class="dish">
+              <p class="dish__name">Shrimp Pizza</p>
               <p class="dish__price">KSh 1,400</p>
-            </div>
-            <div class="dish">
-              <p class="dish__name">Mixed Vegetable Hot Pot</p>
-              <p class="dish__price">KSh 1,450</p>
-            </div>
-            <div class="dish">
-              <p class="dish__name">Schezwan Eggplant</p>
-              <p class="dish__price">KSh 1,250</p>
-            </div>
-            <div class="dish">
-              <p class="dish__name">Garlic Broccoli</p>
-              <p class="dish__price">KSh 1,250</p>
-            </div>
-            <div class="dish">
-              <p class="dish__name">Stir Fried Pak Choi</p>
-              <p class="dish__price">KSh 1,250</p>
-            </div>
-            <div class="dish">
-              <p class="dish__name">Chilli Garlic French Beans</p>
-              <p class="dish__price">KSh 1,250</p>
+              <p class="dish__note">Shrimps with tomato, onions, capsicums, red sauce, herbs &amp; mozzarella cheese.</p>
             </div>
           </div>
         </section>
 
-        <section class="course" aria-labelledby="course-rice">
-          <h3 class="course__name" id="course-rice">Rice &amp; Noodles</h3>
+        <section class="course" aria-labelledby="course-mombasa-special">
+          <h3 class="course__name" id="course-mombasa-special">Mombasa Special</h3>
           <div class="course__list">
             <div class="dish">
-              <p class="dish__name">Special Fried Rice</p>
-              <p class="dish__price">KSh 1,050</p>
-              <p class="dish__note">Prawns, chicken, or both.</p>
+              <p class="dish__name">Mutton Mandi</p>
+              <p class="dish__price">KSh 1,200</p>
             </div>
             <div class="dish">
-              <p class="dish__name">Fried Rice with Cashew Nuts</p>
-              <p class="dish__price">KSh 995</p>
+              <p class="dish__name">Fish Mandi</p>
+              <p class="dish__price">KSh 1,200</p>
+              <p class="dish__note">AVAILABLE FOR LUNCH ONLY</p>
             </div>
             <div class="dish">
-              <p class="dish__name">Vegetable Fried Rice</p>
+              <p class="dish__name">Chicken Mandi</p>
+              <p class="dish__price">KSh 1,000</p>
+            </div>
+            <div class="dish">
+              <p class="dish__name">Mombasa Biriyani</p>
+              <p class="dish__price">KSh 1,100</p>
+            </div>
+            <div class="dish">
+              <p class="dish__name">Chicken Tikka</p>
+              <p class="dish__price">KSh 1,200</p>
+            </div>
+            <div class="dish">
+              <p class="dish__name">Swahili Pilau</p>
+              <p class="dish__price">KSh 900</p>
+            </div>
+            <div class="dish">
+              <p class="dish__name">Lamb Chops</p>
+              <p class="dish__price">KSh 1,100</p>
+            </div>
+            <div class="dish">
+              <p class="dish__name">Mutton Kabab</p>
+              <p class="dish__price">KSh 1,000</p>
+            </div>
+          </div>
+        </section>
+
+        <section class="course" aria-labelledby="course-cakes">
+          <h3 class="course__name" id="course-cakes">Cakes</h3>
+          <div class="course__list">
+            <div class="dish">
+              <p class="dish__name">Black Forest</p>
+              <p class="dish__price">KSh 450</p>
+            </div>
+            <div class="dish">
+              <p class="dish__name">Fudge Cake</p>
+              <p class="dish__price">KSh 450</p>
+            </div>
+            <div class="dish">
+              <p class="dish__name">Chocolate Brownie</p>
+              <p class="dish__price">KSh 450</p>
+            </div>
+            <div class="dish">
+              <p class="dish__name">Red Velvet</p>
+              <p class="dish__price">KSh 500</p>
+            </div>
+            <div class="dish">
+              <p class="dish__name">Chocolate Tart</p>
+              <p class="dish__price">KSh 250</p>
+            </div>
+            <div class="dish">
+              <p class="dish__name">Cupcake</p>
+              <p class="dish__price">KSh 250</p>
+            </div>
+          </div>
+        </section>
+
+        <section class="course" aria-labelledby="course-premium-cakes">
+          <h3 class="course__name" id="course-premium-cakes">Premium Cakes</h3>
+          <div class="course__list">
+            <div class="dish">
+              <p class="dish__name">Toblerone Cake</p>
+              <p class="dish__price">KSh 950</p>
+            </div>
+            <div class="dish">
+              <p class="dish__name">Pistachio Khunafa Cake</p>
               <p class="dish__price">KSh 850</p>
             </div>
             <div class="dish">
-              <p class="dish__name">Steamed Rice</p>
+              <p class="dish__name">San Sebastian</p>
+              <p class="dish__price">KSh 850</p>
+            </div>
+            <div class="dish">
+              <p class="dish__name">Nero Bueno</p>
               <p class="dish__price">KSh 800</p>
             </div>
+          </div>
+        </section>
+
+        <section class="course" aria-labelledby="course-cheesecakes">
+          <h3 class="course__name" id="course-cheesecakes">Cheesecakes</h3>
+          <div class="course__list">
             <div class="dish">
-              <p class="dish__name">Chicken Fried Noodles</p>
-              <p class="dish__price">KSh 995</p>
+              <p class="dish__name">Lotus Cheesecake</p>
+              <p class="dish__price">KSh 650</p>
             </div>
             <div class="dish">
-              <p class="dish__name">Chilli Garlic Noodles</p>
-              <p class="dish__price">KSh 850</p>
+              <p class="dish__name">Nutella Cheesecake</p>
+              <p class="dish__price">KSh 650</p>
             </div>
             <div class="dish">
-              <p class="dish__name">Singapore Noodles</p>
-              <p class="dish__price">KSh 850</p>
-            </div>
-            <div class="dish">
-              <p class="dish__name">Vegetable Fried Noodles</p>
-              <p class="dish__price">KSh 850</p>
+              <p class="dish__name">Pistachio Cheesecake</p>
+              <p class="dish__price">KSh 800</p>
             </div>
           </div>
         </section>
 
-        <section class="course" aria-labelledby="course-dessert">
-          <h3 class="course__name" id="course-dessert">Dessert</h3>
+        <section class="course" aria-labelledby="course-buttons">
+          <h3 class="course__name" id="course-buttons">Buttons</h3>
           <div class="course__list">
             <div class="dish">
-              <p class="dish__name">Date Pancake</p>
-              <p class="dish__price">KSh 650</p>
+              <p class="dish__name">Signature Buttons</p>
+              <p class="dish__price">KSh 500</p>
+              <p class="dish__note">Mini pancakes, sugar syrup, signature chocolate sauce</p>
             </div>
             <div class="dish">
-              <p class="dish__name">Banana Fritters</p>
-              <p class="dish__price">KSh 650</p>
+              <p class="dish__name">Oreo Buttons</p>
+              <p class="dish__price">KSh 550</p>
+              <p class="dish__note">Mini pancakes, sugar syrup, crushed OREO, signature chocolate sauce.</p>
             </div>
             <div class="dish">
-              <p class="dish__name">Lychee</p>
-              <p class="dish__price">KSh 650</p>
+              <p class="dish__name">Sprinkle Buttons</p>
+              <p class="dish__price">KSh 550</p>
+              <p class="dish__note">Mini pancakes, sugar syrup, sprinkles, chocolate signature sauce</p>
             </div>
             <div class="dish">
-              <p class="dish__name">Ice Cream</p>
-              <p class="dish__price">KSh 650</p>
-              <p class="dish__note">Two scoops.</p>
+              <p class="dish__name">Coco Jambo Buttons</p>
+              <p class="dish__price">KSh 550</p>
+              <p class="dish__note">Mini pancakes, sugar syrup, desiccated coconut, chocolate signature sauce.</p>
             </div>
             <div class="dish">
-              <p class="dish__name">Fruit Salad</p>
+              <p class="dish__name">Lotus Buttons</p>
               <p class="dish__price">KSh 650</p>
+              <p class="dish__note">Mini pancakes, sugar syrup, crushed biscoff cookies, lotus spread</p>
+            </div>
+            <div class="dish">
+              <p class="dish__name">Nutella Buttons</p>
+              <p class="dish__price">KSh 550</p>
+              <p class="dish__note">Mini pancakes, sugar syrup, nutella spread.</p>
+            </div>
+            <div class="dish">
+              <p class="dish__name">Choco Chip Buttons</p>
+              <p class="dish__price">KSh 550</p>
+              <p class="dish__note">Mini pancakes, sugar syrup, chocolate chips, chocolate signature sauce.</p>
+            </div>
+            <div class="dish">
+              <p class="dish__name">Pistachio Buttons</p>
+              <p class="dish__price">KSh 800</p>
+              <p class="dish__note">Mini pancakes, sugar syrup, pistachio sauce.</p>
             </div>
           </div>
         </section>
 
-        <section class="course" aria-labelledby="course-drinks">
-          <h3 class="course__name" id="course-drinks">Tea, Wine &amp; Cocktails</h3>
+        <section class="course" aria-labelledby="course-waffles">
+          <h3 class="course__name" id="course-waffles">Waffles</h3>
           <div class="course__list">
             <div class="dish">
-              <p class="dish__name">Chinese Tea</p>
+              <p class="dish__name">Classic Waffle</p>
+              <p class="dish__price">KSh 400</p>
+              <p class="dish__note">Sprinkled with icing sugar.</p>
+            </div>
+            <div class="dish">
+              <p class="dish__name">Simply Waffle</p>
+              <p class="dish__price">KSh 600</p>
+              <p class="dish__note">With signature chocolate sauce, vanilla ice cream &amp; whipped cream.</p>
+            </div>
+            <div class="dish">
+              <p class="dish__name">Churros Waffle</p>
+              <p class="dish__price">KSh 650</p>
+              <p class="dish__note">Signature chocolate sauce, cinnamon sugar with vanilla ice cream &amp; whipped cream.</p>
+            </div>
+            <div class="dish">
+              <p class="dish__name">Nutella Waffle</p>
+              <p class="dish__price">KSh 1,100</p>
+              <p class="dish__note">With signature chocolate sauce, nutella spread, vanilla ice cream &amp; whipped cream.</p>
+            </div>
+            <div class="dish">
+              <p class="dish__name">Banana Waffle</p>
+              <p class="dish__price">KSh 900</p>
+              <p class="dish__note">Waffle topped up with banana, signature chocolate, vanilla ice cream &amp; whipped cream.</p>
+            </div>
+            <div class="dish">
+              <p class="dish__name">Strawberry Delight</p>
+              <p class="dish__price">KSh 900</p>
+              <p class="dish__note">Waffle topped up with strawberries, vanilla ice cream &amp; signature chocolate sauce.</p>
+            </div>
+          </div>
+        </section>
+
+        <section class="course" aria-labelledby="course-extreme-waffles">
+          <h3 class="course__name" id="course-extreme-waffles">Extreme Waffles</h3>
+          <div class="course__list">
+            <div class="dish">
+              <p class="dish__name">Oreo Waffle</p>
+              <p class="dish__price">KSh 900</p>
+              <p class="dish__note">Waffle topped up with oreo crumbs, signature chocolate sauce vanilla ice cream &amp; whipped cream.</p>
+            </div>
+            <div class="dish">
+              <p class="dish__name">Coco Jambo Waffle</p>
+              <p class="dish__price">KSh 950</p>
+              <p class="dish__note">Waffle topped up with white chocolate sauce, desiccated coconut, vanilla ice cream &amp; whipped cream.</p>
+            </div>
+            <div class="dish">
+              <p class="dish__name">Lotus Waffle</p>
+              <p class="dish__price">KSh 1,100</p>
+              <p class="dish__note">Waffle topped up with lotus, lotus spread, vanilla ice cream &amp; whipped cream.</p>
+            </div>
+            <div class="dish">
+              <p class="dish__name">Nutty Snicker Waffle</p>
+              <p class="dish__price">KSh 1,100</p>
+              <p class="dish__note">Waffle topped up with snickers, caramel sauce, signature chocolate sauce, vanilla ice cream &amp; whipped cream.</p>
+            </div>
+            <div class="dish">
+              <p class="dish__name">Kinder Waffle</p>
+              <p class="dish__price">KSh 1,100</p>
+              <p class="dish__note">Waffle topped up with kinder chocolate, white chocolate, signature chocolate, nutella, vanilla ice cream &amp; whipped cream.</p>
+            </div>
+            <div class="dish">
+              <p class="dish__name">Crunchie Caramel Waffle</p>
+              <p class="dish__price">KSh 1,100</p>
+              <p class="dish__note">Waffle topped up with crunchy chocolate, caramel sauce, signature chocolate sauce &amp; vanilla ice cream.</p>
+            </div>
+            <div class="dish">
+              <p class="dish__name">Wide Load</p>
+              <p class="dish__price">KSh 1,000</p>
+              <p class="dish__note">Waffle topped up chocolate cake, signature chocolate sauce, vanilla ice cream &amp; whipped cream.</p>
+            </div>
+          </div>
+        </section>
+
+        <section class="course" aria-labelledby="course-donuts">
+          <h3 class="course__name" id="course-donuts">Donuts</h3>
+          <div class="course__list">
+            <div class="dish">
+              <p class="dish__name">Sugar Donut</p>
               <p class="dish__price">KSh 350</p>
             </div>
             <div class="dish">
-              <p class="dish__name">Li&rsquo;s Mojito</p>
-              <p class="dish__price">KSh 900</p>
-              <p class="dish__note">The barman&rsquo;s choice.</p>
+              <p class="dish__name">Sprinkle Donut</p>
+              <p class="dish__price">KSh 450</p>
             </div>
             <div class="dish">
-              <p class="dish__name">Li&rsquo;s Special Cocktail</p>
-              <p class="dish__price">KSh 900</p>
+              <p class="dish__name">Coco Jambo Donut</p>
+              <p class="dish__price">KSh 450</p>
             </div>
             <div class="dish">
-              <p class="dish__name">Dawa</p>
-              <p class="dish__price">KSh 800</p>
-              <p class="dish__note">With, or without.</p>
+              <p class="dish__name">Oreo Monster Donut</p>
+              <p class="dish__price">KSh 450</p>
             </div>
             <div class="dish">
-              <p class="dish__name">House Wine</p>
-              <p class="dish__price">KSh 850 &middot; 3,500</p>
-              <p class="dish__note">By the glass, or the bottle.</p>
+              <p class="dish__name">Choco Chip Donut</p>
+              <p class="dish__price">KSh 500</p>
             </div>
             <div class="dish">
-              <p class="dish__name">Tusker</p>
-              <p class="dish__price">KSh 400</p>
+              <p class="dish__name">Lotus Donut</p>
+              <p class="dish__price">KSh 600</p>
+            </div>
+            <div class="dish">
+              <p class="dish__name">Nutella Donut</p>
+              <p class="dish__price">KSh 600</p>
             </div>
           </div>
         </section>
 
+        <section class="course" aria-labelledby="course-ice-cream">
+          <h3 class="course__name" id="course-ice-cream">Ice Cream</h3>
+          <div class="course__list">
+            <div class="dish">
+              <p class="dish__name">Crave Special Icecream</p>
+              <p class="dish__price">KSh 450</p>
+              <p class="dish__note">2 scoops of ice cream topped up with our signature sauce.</p>
+            </div>
+            <div class="dish">
+              <p class="dish__name">Oreo Icecream</p>
+              <p class="dish__price">KSh 500</p>
+              <p class="dish__note">2 scoops of vanilla ice cream topped up with oreo crumbs and our signature sauce.</p>
+            </div>
+            <div class="dish">
+              <p class="dish__name">Lotus Icecream</p>
+              <p class="dish__price">KSh 600</p>
+              <p class="dish__note">2 scoops of vanilla ice cream, lotus biscoff crumbs topped up with lotus spread.</p>
+            </div>
+            <div class="dish">
+              <p class="dish__name">Nutella Icecream</p>
+              <p class="dish__price">KSh 600</p>
+              <p class="dish__note">2 scoops of ice cream topped up with nutella spread</p>
+            </div>
+          </div>
+        </section>
+
+        <section class="course" aria-labelledby="course-speciality-coffee">
+          <h3 class="course__name" id="course-speciality-coffee">Speciality Coffee</h3>
+          <div class="course__list">
+            <div class="dish">
+              <p class="dish__name">V60</p>
+              <p class="dish__price">KSh 500 &middot; 550</p>
+            </div>
+            <div class="dish">
+              <p class="dish__name">Chemex</p>
+              <p class="dish__price">KSh 500 &middot; 550</p>
+            </div>
+            <div class="dish">
+              <p class="dish__name">Aero Press</p>
+              <p class="dish__price">KSh 480</p>
+            </div>
+            <div class="dish">
+              <p class="dish__name">Cold Drip</p>
+              <p class="dish__price">KSh 550</p>
+            </div>
+            <div class="dish">
+              <p class="dish__name">Cortado</p>
+              <p class="dish__price">KSh 300</p>
+            </div>
+            <div class="dish">
+              <p class="dish__name">Expresso Macchiato</p>
+              <p class="dish__price">KSh 280</p>
+            </div>
+            <div class="dish">
+              <p class="dish__name">Espresso</p>
+              <p class="dish__price">KSh 250</p>
+            </div>
+            <div class="dish">
+              <p class="dish__name">Flat White</p>
+              <p class="dish__price">KSh 300</p>
+            </div>
+            <div class="dish">
+              <p class="dish__name">Cappuccino</p>
+              <p class="dish__price">KSh 320 &middot; 380</p>
+            </div>
+            <div class="dish">
+              <p class="dish__name">Latte</p>
+              <p class="dish__price">KSh 320 &middot; 350</p>
+            </div>
+          </div>
+        </section>
+
+        <section class="course" aria-labelledby="course-sweet-coffees">
+          <h3 class="course__name" id="course-sweet-coffees">Sweet Coffees</h3>
+          <div class="course__list">
+            <div class="dish">
+              <p class="dish__name">Biscoff Latte</p>
+              <p class="dish__price">KSh 600</p>
+            </div>
+            <div class="dish">
+              <p class="dish__name">Nutella Hazelnut Latte</p>
+              <p class="dish__price">KSh 600</p>
+            </div>
+            <div class="dish">
+              <p class="dish__name">Pistachio Latte</p>
+              <p class="dish__price">KSh 600</p>
+            </div>
+            <div class="dish">
+              <p class="dish__name">Spanish Latte</p>
+              <p class="dish__price">KSh 500</p>
+            </div>
+            <div class="dish">
+              <p class="dish__name">Rose Latte</p>
+              <p class="dish__price">KSh 550</p>
+            </div>
+            <div class="dish">
+              <p class="dish__name">Caramel Latte</p>
+              <p class="dish__price">KSh 550</p>
+            </div>
+            <div class="dish">
+              <p class="dish__name">After Eight Latte</p>
+              <p class="dish__price">KSh 550</p>
+            </div>
+            <div class="dish">
+              <p class="dish__name">Salted Caramel Latte</p>
+              <p class="dish__price">KSh 550</p>
+            </div>
+            <div class="dish">
+              <p class="dish__name">Mochaccino</p>
+              <p class="dish__price">KSh 500</p>
+            </div>
+            <div class="dish">
+              <p class="dish__name">Blue Ocean Latte</p>
+              <p class="dish__price">KSh 550</p>
+            </div>
+            <div class="dish">
+              <p class="dish__name">Orange Americano</p>
+              <p class="dish__price">KSh 600</p>
+            </div>
+            <div class="dish">
+              <p class="dish__name">Banana Date Latte</p>
+              <p class="dish__price">KSh 550</p>
+            </div>
+          </div>
+        </section>
+
+        <section class="course" aria-labelledby="course-iced-coffes">
+          <h3 class="course__name" id="course-iced-coffes">Iced Coffees</h3>
+          <div class="course__list">
+            <div class="dish">
+              <p class="dish__name">Iced Latte</p>
+              <p class="dish__price">KSh 350</p>
+            </div>
+            <div class="dish">
+              <p class="dish__name">Iced Cappuccino</p>
+              <p class="dish__price">KSh 380</p>
+            </div>
+            <div class="dish">
+              <p class="dish__name">Expresso Freddo</p>
+              <p class="dish__price">KSh 300</p>
+            </div>
+            <div class="dish">
+              <p class="dish__name">Iced Americano</p>
+              <p class="dish__price">KSh 330</p>
+            </div>
+            <div class="dish">
+              <p class="dish__name">Hot Chocolate</p>
+              <p class="dish__price">KSh 450</p>
+            </div>
+            <div class="dish">
+              <p class="dish__name">Iced Chocolate</p>
+              <p class="dish__price">KSh 500</p>
+            </div>
+            <div class="dish">
+              <p class="dish__name">Hot White Chocolate</p>
+              <p class="dish__price">KSh 450</p>
+            </div>
+            <div class="dish">
+              <p class="dish__name">Iced White Chocolate</p>
+              <p class="dish__price">KSh 500</p>
+            </div>
+          </div>
+        </section>
+
+        <section class="course" aria-labelledby="course-frappes">
+          <h3 class="course__name" id="course-frappes">Frappes</h3>
+          <div class="course__list">
+            <div class="dish">
+              <p class="dish__name">Vanilla Frappe</p>
+              <p class="dish__price">KSh 550</p>
+            </div>
+            <div class="dish">
+              <p class="dish__name">Chocolate Frappe</p>
+              <p class="dish__price">KSh 550</p>
+            </div>
+            <div class="dish">
+              <p class="dish__name">Caramel Frappe</p>
+              <p class="dish__price">KSh 550</p>
+            </div>
+            <div class="dish">
+              <p class="dish__name">Coastarian Frappe(coconut)</p>
+              <p class="dish__price">KSh 550</p>
+            </div>
+            <div class="dish">
+              <p class="dish__name">Ferrero Frappe(hazelnut)</p>
+              <p class="dish__price">KSh 550</p>
+            </div>
+            <div class="dish">
+              <p class="dish__name">Coffee Frappe</p>
+              <p class="dish__price">KSh 550</p>
+            </div>
+          </div>
+        </section>
+
+        <section class="course" aria-labelledby="course-matcha">
+          <h3 class="course__name" id="course-matcha">Matcha</h3>
+          <div class="course__list">
+            <div class="dish">
+              <p class="dish__name">Pink Matcha</p>
+              <p class="dish__price">KSh 700</p>
+            </div>
+            <div class="dish">
+              <p class="dish__name">Pistachio Matcha</p>
+              <p class="dish__price">KSh 700</p>
+            </div>
+            <div class="dish">
+              <p class="dish__name">Vanilla Matcha</p>
+              <p class="dish__price">KSh 600</p>
+            </div>
+            <div class="dish">
+              <p class="dish__name">Matcha Organic</p>
+              <p class="dish__price">KSh 600</p>
+            </div>
+            <div class="dish">
+              <p class="dish__name">Blueberry Matcha</p>
+              <p class="dish__price">KSh 650</p>
+            </div>
+            <div class="dish">
+              <p class="dish__name">Strawberry Matcha</p>
+              <p class="dish__price">KSh 650</p>
+            </div>
+            <div class="dish">
+              <p class="dish__name">Matcha Frappe</p>
+              <p class="dish__price">KSh 700</p>
+            </div>
+            <div class="dish">
+              <p class="dish__name">Coconut Matcha</p>
+              <p class="dish__price">KSh 600</p>
+            </div>
+            <div class="dish">
+              <p class="dish__name">Vanilla Matcha (Hot)</p>
+              <p class="dish__price">KSh 600</p>
+            </div>
+            <div class="dish">
+              <p class="dish__name">Pink Matcha (Hot)</p>
+              <p class="dish__price">&mdash;</p>
+            </div>
+            <div class="dish">
+              <p class="dish__name">Pistachio Matcha (Hot)</p>
+              <p class="dish__price">KSh 700</p>
+            </div>
+          </div>
+        </section>
+
+        <section class="course" aria-labelledby="course-lemonades">
+          <h3 class="course__name" id="course-lemonades">Lemonades</h3>
+          <div class="course__list">
+            <div class="dish">
+              <p class="dish__name">Pink Lemonade</p>
+              <p class="dish__price">&mdash;</p>
+            </div>
+            <div class="dish">
+              <p class="dish__name">Peach Lemonade</p>
+              <p class="dish__price">KSh 500</p>
+            </div>
+            <div class="dish">
+              <p class="dish__name">Strawberry Lemonade</p>
+              <p class="dish__price">KSh 500</p>
+            </div>
+            <div class="dish">
+              <p class="dish__name">Blueberry Lemonade</p>
+              <p class="dish__price">KSh 500</p>
+            </div>
+            <div class="dish">
+              <p class="dish__name">Classic Lemonade</p>
+              <p class="dish__price">KSh 500</p>
+            </div>
+          </div>
+        </section>
+
+        <section class="course" aria-labelledby="course-juices">
+          <h3 class="course__name" id="course-juices">Juices</h3>
+          <div class="course__list">
+            <div class="dish">
+              <p class="dish__name">Passion Juice</p>
+              <p class="dish__price">KSh 500</p>
+            </div>
+            <div class="dish">
+              <p class="dish__name">Orange Juice</p>
+              <p class="dish__price">KSh 600</p>
+            </div>
+            <div class="dish">
+              <p class="dish__name">Mango Juice</p>
+              <p class="dish__price">KSh 500</p>
+            </div>
+            <div class="dish">
+              <p class="dish__name">Watermelon Juice</p>
+              <p class="dish__price">KSh 500</p>
+            </div>
+            <div class="dish">
+              <p class="dish__name">Pineapple Juice</p>
+              <p class="dish__price">KSh 500</p>
+            </div>
+            <div class="dish">
+              <p class="dish__name">Apple Juice</p>
+              <p class="dish__price">KSh 600</p>
+            </div>
+          </div>
+        </section>
+
+        <section class="course" aria-labelledby="course-brainfreezes">
+          <h3 class="course__name" id="course-brainfreezes">Brainfreezes</h3>
+          <div class="course__list">
+            <div class="dish">
+              <p class="dish__name">Passion Brainfreeze</p>
+              <p class="dish__price">KSh 500</p>
+            </div>
+            <div class="dish">
+              <p class="dish__name">Pineapple Brainfreeze</p>
+              <p class="dish__price">&mdash;</p>
+            </div>
+            <div class="dish">
+              <p class="dish__name">Strawberry Brainfreeze</p>
+              <p class="dish__price">KSh 500</p>
+            </div>
+          </div>
+        </section>
+
+        <section class="course" aria-labelledby="course-shakes">
+          <h3 class="course__name" id="course-shakes">Shakes</h3>
+          <div class="course__list">
+            <div class="dish">
+              <p class="dish__name">Vanilla Shake</p>
+              <p class="dish__price">KSh 500</p>
+            </div>
+            <div class="dish">
+              <p class="dish__name">Mint Shake</p>
+              <p class="dish__price">KSh 500</p>
+            </div>
+            <div class="dish">
+              <p class="dish__name">Starwberry Shake</p>
+              <p class="dish__price">KSh 500</p>
+            </div>
+            <div class="dish">
+              <p class="dish__name">Chocolate Shake</p>
+              <p class="dish__price">KSh 500</p>
+            </div>
+            <div class="dish">
+              <p class="dish__name">Banana Shake</p>
+              <p class="dish__price">KSh 500</p>
+            </div>
+            <div class="dish">
+              <p class="dish__name">Coffee Shake or Caramel Shake</p>
+              <p class="dish__price">KSh 600</p>
+            </div>
+          </div>
+        </section>
+
+        <section class="course" aria-labelledby="course-freakshakes">
+          <h3 class="course__name" id="course-freakshakes">Freakshakes</h3>
+          <div class="course__list">
+            <div class="dish">
+              <p class="dish__name">Oreo Freak Shake</p>
+              <p class="dish__price">KSh 600</p>
+            </div>
+            <div class="dish">
+              <p class="dish__name">Kit Kat Shake</p>
+              <p class="dish__price">KSh 650</p>
+            </div>
+            <div class="dish">
+              <p class="dish__name">Chocoblast Freakshake</p>
+              <p class="dish__price">&mdash;</p>
+            </div>
+            <div class="dish">
+              <p class="dish__name">Nutella Freakshake</p>
+              <p class="dish__price">KSh 700</p>
+            </div>
+            <div class="dish">
+              <p class="dish__name">Bounty Freakshake</p>
+              <p class="dish__price">KSh 600</p>
+            </div>
+            <div class="dish">
+              <p class="dish__name">Lotus Freakshake</p>
+              <p class="dish__price">KSh 700</p>
+            </div>
+            <div class="dish">
+              <p class="dish__name">Pistachio Freak Shake</p>
+              <p class="dish__price">KSh 750</p>
+            </div>
+          </div>
+        </section>
+
+        <section class="course" aria-labelledby="course-healthy-drinks">
+          <h3 class="course__name" id="course-healthy-drinks">Healthy Drinks</h3>
+          <div class="course__list">
+            <div class="dish">
+              <p class="dish__name">Green Goodness</p>
+              <p class="dish__price">KSh 600</p>
+            </div>
+            <div class="dish">
+              <p class="dish__name">Orange Glow</p>
+              <p class="dish__price">KSh 600</p>
+            </div>
+            <div class="dish">
+              <p class="dish__name">Banana Foster</p>
+              <p class="dish__price">KSh 600</p>
+            </div>
+            <div class="dish">
+              <p class="dish__name">Pink Punch</p>
+              <p class="dish__price">KSh 600</p>
+            </div>
+            <div class="dish">
+              <p class="dish__name">Hawaii Love</p>
+              <p class="dish__price">KSh 600</p>
+            </div>
+            <div class="dish">
+              <p class="dish__name">Very Berry</p>
+              <p class="dish__price">KSh 600</p>
+            </div>
+            <div class="dish">
+              <p class="dish__name">Peanutlicious</p>
+              <p class="dish__price">KSh 600</p>
+            </div>
+          </div>
+        </section>
+
+        <section class="course" aria-labelledby="course-mocktails">
+          <h3 class="course__name" id="course-mocktails">Mocktails</h3>
+          <div class="course__list">
+            <div class="dish">
+              <p class="dish__name">Crave Fusion</p>
+              <p class="dish__price">KSh 500</p>
+            </div>
+            <div class="dish">
+              <p class="dish__name">Classic Mojito</p>
+              <p class="dish__price">KSh 500</p>
+            </div>
+            <div class="dish">
+              <p class="dish__name">Strawberry Mojito</p>
+              <p class="dish__price">KSh 500</p>
+            </div>
+            <div class="dish">
+              <p class="dish__name">Lemon &amp; Mint</p>
+              <p class="dish__price">KSh 500</p>
+            </div>
+            <div class="dish">
+              <p class="dish__name">Apple Mojito</p>
+              <p class="dish__price">KSh 500</p>
+            </div>
+            <div class="dish">
+              <p class="dish__name">Kiwi Mojito</p>
+              <p class="dish__price">KSh 500</p>
+            </div>
+            <div class="dish">
+              <p class="dish__name">Virgin Pinacolada</p>
+              <p class="dish__price">KSh 500</p>
+            </div>
+            <div class="dish">
+              <p class="dish__name">Vimto Special</p>
+              <p class="dish__price">KSh 500</p>
+            </div>
+            <div class="dish">
+              <p class="dish__name">Passion Mojito</p>
+              <p class="dish__price">KSh 500</p>
+            </div>
+            <div class="dish">
+              <p class="dish__name">Blue Frost</p>
+              <p class="dish__price">KSh 500</p>
+            </div>
+            <div class="dish">
+              <p class="dish__name">Raspberry Mojito</p>
+              <p class="dish__price">KSh 500</p>
+            </div>
+            <div class="dish">
+              <p class="dish__name">Pineapple &amp; Mint</p>
+              <p class="dish__price">KSh 500</p>
+            </div>
+            <div class="dish">
+              <p class="dish__name">Peach Mojito</p>
+              <p class="dish__price">KSh 500</p>
+            </div>
+            <div class="dish">
+              <p class="dish__name">Dawa</p>
+              <p class="dish__price">KSh 500</p>
+            </div>
+            <div class="dish">
+              <p class="dish__name">Blueberry Mojito</p>
+              <p class="dish__price">KSh 500</p>
+            </div>
+          </div>
+        </section>
+
+        <section class="course" aria-labelledby="course-iced-teas">
+          <h3 class="course__name" id="course-iced-teas">Iced Teas</h3>
+          <div class="course__list">
+            <div class="dish">
+              <p class="dish__name">Hibiscus</p>
+              <p class="dish__price">KSh 400</p>
+            </div>
+            <div class="dish">
+              <p class="dish__name">Blueberry</p>
+              <p class="dish__price">KSh 400</p>
+            </div>
+            <div class="dish">
+              <p class="dish__name">Peppermint</p>
+              <p class="dish__price">KSh 400</p>
+            </div>
+            <div class="dish">
+              <p class="dish__name">Tropical</p>
+              <p class="dish__price">KSh 400</p>
+            </div>
+            <div class="dish">
+              <p class="dish__name">Lemon &amp; Lime</p>
+              <p class="dish__price">KSh 400</p>
+            </div>
+            <div class="dish">
+              <p class="dish__name">Camomile</p>
+              <p class="dish__price">KSh 400</p>
+            </div>
+            <div class="dish">
+              <p class="dish__name">Peach</p>
+              <p class="dish__price">KSh 400</p>
+            </div>
+            <div class="dish">
+              <p class="dish__name">Raspberry</p>
+              <p class="dish__price">KSh 400</p>
+            </div>
+            <div class="dish">
+              <p class="dish__name">Arnold Palmer</p>
+              <p class="dish__price">KSh 400</p>
+            </div>
+            <div class="dish">
+              <p class="dish__name">Butterfly Pea</p>
+              <p class="dish__price">KSh 450</p>
+            </div>
+          </div>
+        </section>
+
+        <section class="course" aria-labelledby="course-teas">
+          <h3 class="course__name" id="course-teas">Teas</h3>
+          <div class="course__list">
+            <div class="dish">
+              <p class="dish__name">Black Tea</p>
+              <p class="dish__price">KSh 210</p>
+            </div>
+            <div class="dish">
+              <p class="dish__name">Kenyan Milk Mixed Tea</p>
+              <p class="dish__price">KSh 250</p>
+            </div>
+            <div class="dish">
+              <p class="dish__name">English Tea</p>
+              <p class="dish__price">KSh 280</p>
+            </div>
+            <div class="dish">
+              <p class="dish__name">Masala Tea</p>
+              <p class="dish__price">KSh 300</p>
+            </div>
+            <div class="dish">
+              <p class="dish__name">Cardamon Tea</p>
+              <p class="dish__price">KSh 300</p>
+            </div>
+            <div class="dish">
+              <p class="dish__name">Ginger Tea</p>
+              <p class="dish__price">KSh 300</p>
+            </div>
+            <div class="dish">
+              <p class="dish__name">Vanilla Tea</p>
+              <p class="dish__price">KSh 300</p>
+            </div>
+            <div class="dish">
+              <p class="dish__name">Honey Lemon Tea</p>
+              <p class="dish__price">KSh 400</p>
+            </div>
+            <div class="dish">
+              <p class="dish__name">Hibiscus</p>
+              <p class="dish__price">KSh 400</p>
+            </div>
+            <div class="dish">
+              <p class="dish__name">Lemon and Lime</p>
+              <p class="dish__price">KSh 400</p>
+            </div>
+            <div class="dish">
+              <p class="dish__name">Peach</p>
+              <p class="dish__price">KSh 400</p>
+            </div>
+            <div class="dish">
+              <p class="dish__name">Peppermint</p>
+              <p class="dish__price">KSh 400</p>
+            </div>
+            <div class="dish">
+              <p class="dish__name">Carmomile</p>
+              <p class="dish__price">KSh 400</p>
+            </div>
+            <div class="dish">
+              <p class="dish__name">Raspberry</p>
+              <p class="dish__price">KSh 400</p>
+            </div>
+            <div class="dish">
+              <p class="dish__name">Hot Dawa</p>
+              <p class="dish__price">KSh 400</p>
+            </div>
+            <div class="dish">
+              <p class="dish__name">Green Tea</p>
+              <p class="dish__price">KSh 400</p>
+            </div>
+            <div class="dish">
+              <p class="dish__name">The Ginger Shot</p>
+              <p class="dish__price">KSh 500</p>
+            </div>
+            <div class="dish">
+              <p class="dish__name">Chai Latte</p>
+              <p class="dish__price">KSh 500</p>
+            </div>
+          </div>
+        </section>
       </div>
     </div>
   </section>
@@ -2222,12 +3383,12 @@
 
       <hr class="reserve__rule" aria-hidden="true">
 
-      <p class="reserve__body">A round table, a duck that wants ordering ahead, and
-        a kitchen that would rather know you are coming. Tell us when, and how many
-        &mdash; the rest is arranged from there.</p>
+      <p class="reserve__body">Walk in any hour of the day and there will be a table.
+        Bring six of you, or come for a birthday, and a kitchen would rather know.
+        Tell us when, where and how many &mdash; the rest is arranged from there.</p>
 
       <a class="reserve__cta"
-         href="https://wa.me/254746815106?text=Hello%20Li%E2%80%99s%20%E2%80%94%20I%E2%80%99d%20like%20to%20reserve%20a%20table.%0A%0AName%3A%0ABranch%20(Nairobi%20or%20Mombasa)%3A%0ADate%3A%0ATime%3A%0ANumber%20of%20guests%3A%0A%0AThank%20you."
+         href="https://wa.me/254705000275?text=Hello%20Crave%20%E2%80%94%20I%E2%80%99d%20like%20to%20book%20a%20table.%0A%0AName%3A%0ABranch%20(Mombasa%20or%20Nairobi)%3A%0ADate%3A%0ATime%3A%0ANumber%20of%20guests%3A%0A%0AThank%20you."
          target="_blank" rel="noopener">
         <span class="reserve__ctalbl">Reserve now</span>
         <svg class="reserve__arrow" viewBox="0 0 24 14" aria-hidden="true" focusable="false">
@@ -2244,26 +3405,31 @@
             <path d="M12 7.1V12l3.4 2"/>
           </svg>
           <span class="reserve__metalbl">Opening hours</span>
-          <!-- RESEARCHED 2026-08-26 from Li's own site and the Mombasa
-               listing, and NOT YET CONFIRMED BY THE CLIENT. Both branches are
-               closed Mondays and open Tuesday to Sunday from 11:00; they close
-               at DIFFERENT times — Nairobi 22:30, Mombasa 21:00.
+          <!-- RESEARCHED 2026-09-28 from both branches' claimed TripAdvisor
+               listings, and NOT YET CONFIRMED BY THE CLIENT. Both open at
+               06:00 and neither closes on any day of the week; they close at
+               DIFFERENT times — Mombasa midnight, Nairobi 01:00.
 
                This block is byte-copied to four pages, so it cannot carry a
                closing time without asserting one branch's hours as the whole
-               house's. "Closed Mondays" is true of both, which is why it is
-               what stands here; the exact times live in the location bands and
-               the FAQ on contact.html, where they are allowed to differ.
+               house's. The six o'clock open and the seven-day week are true
+               of both, which is why they are what stand here; the exact
+               closing times live in the location bands and the FAQ on
+               contact.html, where they are allowed to differ.
 
                Keep it in step with that FAQ answer. It is the same claim made
                twice on one page and the pair has drifted apart before.
+
+               eatout.co.ke says 07:00–22:00 and contradicts both listings.
+               Crave's own menu carries a "Breakfast (6AM – 12PM)" section,
+               which is what settles it in favour of the listings.
 
                Two lines, not three. The copy column is an aspect-locked block
                of 48.1u of measured ink, verified to fit one screen from
                1000x700 to 2560x1440; a third line changes that height and the
                fit has to be re-solved. Both lines here are no longer than the
                ones they replace, so the fit can only improve. -->
-          <span class="reserve__metaval">Tuesday &ndash; Sunday<br>Closed Mondays</span>
+          <span class="reserve__metaval">Every day<br>From 6 in the morning</span>
         </li>
         <li class="reserve__metaitem">
           <svg class="reserve__icon" viewBox="0 0 24 24" aria-hidden="true" focusable="false">
@@ -2271,7 +3437,7 @@
             <circle cx="12" cy="10.6" r="2.4"/>
           </svg>
           <span class="reserve__metalbl">Location</span>
-          <span class="reserve__metaval">Nairobi &amp; Mombasa<br>Kenya</span>
+          <span class="reserve__metaval">Mombasa &amp; Nairobi<br>Kenya</span>
         </li>
       </ul>
     </div>
@@ -2282,7 +3448,7 @@
 <footer class="ending">
   <!-- Decorative repeat of the hero's h1. Hidden from assistive tech so the
        brand name is not announced twice on the way out. -->
-  <p class="ending__mark" aria-hidden="true">LI&rsquo;S</p>
+  <p class="ending__mark" aria-hidden="true">CRAVE</p>
 
   <!-- Five links, not three. Locations and Reservations were added on
        2026-08-26: both are places a reader actually wants to reach from the
@@ -2290,14 +3456,14 @@
        #reserve resolves on the page the reader is already on, because all
        four carry the block. -->
   <nav class="ending__nav" aria-label="Footer">
-    <a class="ending__link" href="menu.html" aria-current="page">Menu</a>
+    <a class="ending__link" href="menu.html">Menu</a>
     <a class="ending__link" href="about.html">About</a>
     <a class="ending__link" href="contact.html">Contact</a>
     <a class="ending__link" href="contact.html#locations">Locations</a>
     <a class="ending__link" href="#reserve">Reservations</a>
   </nav>
 
-  <p class="ending__note">&copy; 2026 Li&rsquo;s Chinese Restaurant</p>
+  <p class="ending__note">&copy; 2026 Crave</p>
 </footer>
 
 <script>
