@@ -1,0 +1,950 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>Website Proposal — Li's Chinese Restaurant</title>
+<style>
+/* Fonts are inlined by build-proposal.mjs — the same two families the site
+   itself is set in, so the proposal is a sample of the work. */
+__FONTS__
+
+:root {
+  --ground:  #F6EEE1;   /* the site's warm ivory */
+  --ink:     #241A14;   /* display type, 14.79:1 on the ground */
+  --body:    #6A574A;   /* body, 5.93:1 */
+  --accent:  #A3221C;   /* the deep red, 6.51:1 */
+  --gold:    #9C7230;   /* non-text boundary, 3.75:1 */
+  --hair:    #D9B98A;   /* decorative hairline only */
+  --brand:   #CD393E;   /* the measured logo red — the mark, nothing else */
+  --paper:   #FFFDFA;
+
+  /* One scale unit so every measure is a multiple, as on the site. */
+  --u: 1mm;
+}
+
+* { box-sizing: border-box; }
+
+html, body {
+  margin: 0;
+  padding: 0;
+  background: #8a8178;
+  font-family: 'Jost', system-ui, sans-serif;
+  font-weight: 300;
+  color: var(--body);
+  -webkit-font-smoothing: antialiased;
+  text-rendering: geometricPrecision;
+}
+
+.page {
+  position: relative;
+  width: 210mm;
+  height: 297mm;
+  padding: 19mm 20mm 16mm;
+  margin: 0 auto;
+  background: var(--ground);
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+}
+.page + .page { margin-top: 8mm; }
+
+@media print {
+  html, body { background: none; }
+  .page { margin: 0 !important; break-after: page; }
+  .page:last-child { break-after: auto; }
+}
+
+/* ---------------------------------------------------------------- masthead */
+
+.rule {
+  height: 0.5pt;
+  background: var(--accent);
+  opacity: .85;
+}
+
+.sec {
+  display: flex;
+  align-items: baseline;
+  gap: 4mm;
+  margin-bottom: 6mm;
+}
+.sec__no {
+  font-size: 8.5pt;
+  font-weight: 400;
+  letter-spacing: .16em;
+  color: var(--accent);
+  font-variant-numeric: tabular-nums;
+}
+.sec__title {
+  font-family: 'Cormorant Garamond', Georgia, serif;
+  font-weight: 300;
+  font-size: 22pt;
+  line-height: 1.05;
+  color: var(--ink);
+  letter-spacing: -0.01em;
+  margin: 0;
+}
+
+.page__no {
+  position: absolute;
+  right: 20mm;
+  bottom: 9mm;
+  font-size: 7.5pt;
+  letter-spacing: .18em;
+  color: var(--gold);
+}
+.page__mark {
+  position: absolute;
+  left: 20mm;
+  bottom: 8.5mm;
+  font-size: 7.5pt;
+  letter-spacing: .14em;
+  color: var(--gold);
+  opacity: .8;
+}
+
+/* -------------------------------------------------------------------- type */
+
+p { margin: 0 0 3.2mm; font-size: 10pt; line-height: 1.62; }
+p:last-child { margin-bottom: 0; }
+strong { font-weight: 400; color: var(--ink); }
+em { font-style: italic; }
+
+.lede {
+  font-family: 'Cormorant Garamond', Georgia, serif;
+  font-size: 13.5pt;
+  line-height: 1.5;
+  color: var(--ink);
+  font-weight: 300;
+  margin-bottom: 5mm;
+}
+
+.pull {
+  font-family: 'Cormorant Garamond', Georgia, serif;
+  font-size: 15pt;
+  line-height: 1.34;
+  color: var(--accent);
+  font-weight: 300;
+  margin: 5mm 0;
+  padding-left: 6mm;
+  border-left: 1.2pt solid var(--hair);
+}
+
+/* ------------------------------------------------------------------ points */
+
+.points { margin: 0; padding: 0; list-style: none; }
+.points > li { margin-bottom: 3.6mm; }
+.points > li:last-child { margin-bottom: 0; }
+.pt__h {
+  display: block;
+  font-size: 10pt;
+  font-weight: 400;
+  color: var(--ink);
+  margin-bottom: 0.8mm;
+}
+.pt__b { display: block; font-size: 9.2pt; line-height: 1.56; }
+
+/* Two-column deliverables */
+.cols2 { columns: 2; column-gap: 9mm; }
+.cols2 > li { break-inside: avoid; margin-bottom: 3.4mm; }
+
+/* ------------------------------------------------------- the carte (06) */
+
+/* The investment set the way this restaurant sets a dish: name, description,
+   leader, price. It is the one place in the document that borrows the
+   subject's own artefact rather than a business-document convention. */
+.carte { margin: 0; }
+.carte__row { margin-bottom: 8mm; }
+.carte__line {
+  display: flex;
+  align-items: baseline;
+  gap: 2.5mm;
+}
+.carte__name {
+  font-family: 'Cormorant Garamond', Georgia, serif;
+  font-size: 13pt;
+  font-weight: 400;
+  color: var(--ink);
+  letter-spacing: .02em;
+  white-space: nowrap;
+}
+.carte__lead {
+  flex: 1 1 auto;
+  border-bottom: 0.7pt dotted var(--hair);
+  transform: translateY(-1mm);
+}
+.carte__price {
+  font-family: 'Cormorant Garamond', Georgia, serif;
+  font-size: 13pt;
+  font-weight: 400;
+  color: var(--accent);
+  white-space: nowrap;
+  font-variant-numeric: tabular-nums;
+}
+.carte__price .cur {
+  font-family: 'Jost', sans-serif;
+  font-size: 7.5pt;
+  letter-spacing: .12em;
+  color: var(--gold);
+  margin-right: 1.2mm;
+}
+.carte__note {
+  font-size: 9pt;
+  line-height: 1.5;
+  margin-top: 1mm;
+  max-width: 132mm;
+}
+
+.carte--total .carte__name,
+.carte--total .carte__price { font-size: 15pt; }
+.carte--total .carte__lead { border-bottom-style: solid; border-color: var(--gold); opacity: .5; }
+
+/* --------------------------------------------------------------- figures */
+
+.figs {
+  display: flex;
+  gap: 6mm;
+  margin: 5mm 0;
+}
+.fig {
+  flex: 1;
+  border-top: 1pt solid var(--accent);
+  padding-top: 2.5mm;
+}
+.fig__l {
+  display: block;
+  font-size: 7pt;
+  letter-spacing: .16em;
+  color: var(--gold);
+  margin-bottom: 1.5mm;
+}
+.fig__v {
+  display: block;
+  font-family: 'Cormorant Garamond', Georgia, serif;
+  font-size: 19pt;
+  line-height: 1;
+  color: var(--ink);
+  font-weight: 300;
+}
+.fig__v .sm { font-size: 9pt; letter-spacing: .1em; font-family: 'Jost', sans-serif; color: var(--gold); }
+
+/* ----------------------------------------------------------------- tables */
+
+.tbl { width: 100%; border-collapse: collapse; margin: 3mm 0 5mm; }
+.tbl th {
+  text-align: left;
+  font-size: 7pt;
+  font-weight: 400;
+  letter-spacing: .16em;
+  color: var(--gold);
+  padding: 0 0 2mm;
+  border-bottom: 0.7pt solid var(--hair);
+}
+.tbl td {
+  font-size: 9.5pt;
+  padding: 2.8mm 0;
+  border-bottom: 0.5pt solid rgba(217,185,138,.5);
+  vertical-align: baseline;
+}
+.tbl td:last-child, .tbl th:last-child { text-align: right; font-variant-numeric: tabular-nums; }
+.tbl tr:last-child td { border-bottom: none; }
+.tbl .tot td {
+  border-top: 0.9pt solid var(--gold);
+  color: var(--ink);
+  font-size: 10.5pt;
+  padding-top: 3mm;
+}
+
+/* ------------------------------------------------------------- plan lists */
+
+.plan { columns: 2; column-gap: 9mm; margin: 0; padding: 0; list-style: none; }
+.plan li {
+  font-size: 9.4pt;
+  line-height: 1.5;
+  padding-left: 5mm;
+  margin-bottom: 2.4mm;
+  position: relative;
+  break-inside: avoid;
+}
+.plan li::before {
+  content: "";
+  position: absolute;
+  left: 0; top: 1.7mm;
+  width: 2.2mm; height: 2.2mm;
+  border: 0.7pt solid var(--accent);
+  border-radius: 50%;
+}
+
+/* --------------------------------------------------------------- callout */
+
+.note {
+  border: 0.7pt solid var(--hair);
+  padding: 4mm 5mm;
+  margin-top: 4mm;
+}
+.note p { font-size: 9pt; line-height: 1.55; }
+.note__h {
+  font-size: 7pt;
+  letter-spacing: .16em;
+  color: var(--accent);
+  margin-bottom: 2mm;
+  display: block;
+}
+
+.spacer { flex: 1 1 auto; min-height: 3mm; }
+
+/* Two restaurants, side by side — the data already on the site, which also
+   serves as the sheet the owner checks and signs off. */
+.branches { display: grid; grid-template-columns: 1fr 1fr; gap: 7mm; margin-top: 5mm; }
+.branch { border-top: 1pt solid var(--accent); padding-top: 3mm; }
+.branch__n {
+  font-family: 'Cormorant Garamond', Georgia, serif;
+  font-size: 15pt; color: var(--ink); display: block; margin-bottom: 2mm;
+}
+.branch__r { display: flex; gap: 3mm; font-size: 8.8pt; line-height: 1.45; margin-bottom: 1.6mm; }
+.branch__k { flex: none; width: 17mm; color: var(--gold); letter-spacing: .1em; font-size: 6.8pt; padding-top: .6mm; }
+.branch__v { color: var(--body); }
+
+/* Comparison — the argument in section 05, made checkable. */
+.vs { width: 100%; border-collapse: collapse; margin-top: 4mm; }
+.vs th {
+  font-size: 6.8pt; letter-spacing: .15em; font-weight: 400; text-align: left;
+  color: var(--gold); padding-bottom: 2mm; border-bottom: 0.7pt solid var(--hair);
+}
+.vs th:first-child { width: 30mm; }
+.vs th:last-child { color: var(--accent); }
+.vs td {
+  font-size: 9pt; line-height: 1.45; padding: 2.6mm 4mm 2.6mm 0; vertical-align: top;
+  border-bottom: 0.5pt solid rgba(217,185,138,.45);
+}
+.vs td:first-child { color: var(--ink); }
+.vs td:last-child { color: var(--ink); padding-right: 0; }
+.vs tr:last-child td { border-bottom: none; }
+
+/* What the monthly figure is worth in covers. */
+.covers { width: 100%; border-collapse: collapse; margin: 4mm 0 0; }
+.covers th, .covers td { text-align: center; padding: 2.6mm 2mm; }
+.covers th:first-child, .covers td:first-child { text-align: left; padding-left: 0; }
+.covers thead th {
+  font-size: 6.8pt; letter-spacing: .14em; font-weight: 400; color: var(--gold);
+  border-bottom: 0.7pt solid var(--hair);
+}
+.covers td { font-size: 9.4pt; border-bottom: 0.5pt solid rgba(217,185,138,.45); }
+.covers tbody tr:last-child td { border-bottom: none; }
+.covers .big {
+  font-family: 'Cormorant Garamond', Georgia, serif; font-size: 15pt; color: var(--accent);
+}
+
+/* ----------------------------------------------------------------- cover */
+
+.cover { justify-content: space-between; }
+.cover__top { display: flex; justify-content: space-between; align-items: flex-start; }
+.cover__mark { width: 26mm; height: 26mm; }
+.cover__kicker {
+  text-align: right;
+  font-size: 7.5pt;
+  letter-spacing: .22em;
+  color: var(--gold);
+  line-height: 1.9;
+}
+.cover__title {
+  font-family: 'Cormorant Garamond', Georgia, serif;
+  font-weight: 300;
+  font-size: 46pt;
+  line-height: 0.98;
+  color: var(--ink);
+  margin: 0 0 3mm;
+  letter-spacing: -0.02em;
+}
+.cover__title em { color: var(--accent); font-style: normal; }
+.cover__sub {
+  font-size: 10.5pt;
+  letter-spacing: .04em;
+  color: var(--body);
+  margin: 0 0 6mm;
+}
+.cover__meta {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 5mm;
+  border-top: 1pt solid var(--accent);
+  padding-top: 3.5mm;
+  margin-top: 2mm;
+}
+.cover__meta dt {
+  font-size: 6.8pt;
+  letter-spacing: .16em;
+  color: var(--gold);
+  margin-bottom: 1.6mm;
+}
+.cover__meta dd { margin: 0; font-size: 9.5pt; color: var(--ink); line-height: 1.4; }
+
+/* --------------------------------------------------------------- signing */
+
+.sign { display: grid; grid-template-columns: 1fr 1fr; gap: 8mm; margin-top: 6mm; }
+.sign__f { border-bottom: 0.8pt solid var(--ink); height: 16mm; }
+.sign__l { font-size: 7pt; letter-spacing: .16em; color: var(--gold); margin-top: 2mm; display: block; }
+
+.choice {
+  border: 0.9pt solid var(--accent);
+  padding: 5mm 6mm;
+  margin-bottom: 4mm;
+  display: flex;
+  align-items: flex-start;
+  gap: 5mm;
+}
+.choice__box {
+  width: 6mm; height: 6mm;
+  border: 0.9pt solid var(--ink);
+  flex: none;
+  margin-top: 1mm;
+}
+.choice__h {
+  font-family: 'Cormorant Garamond', Georgia, serif;
+  font-size: 14pt;
+  color: var(--ink);
+  display: block;
+  margin-bottom: 1.2mm;
+}
+.choice__b { font-size: 9.2pt; line-height: 1.5; }
+
+.foot {
+  margin-top: 6mm;
+  padding-top: 3mm;
+  border-top: 0.7pt solid var(--hair);
+  font-size: 8.5pt;
+  letter-spacing: .06em;
+  color: var(--gold);
+  display: flex;
+  justify-content: space-between;
+}
+</style>
+</head>
+<body>
+
+<!-- ══════════════════════════════════════════════════ 1 — cover + summary -->
+<section class="page cover">
+  <div class="cover__top">
+    <svg class="cover__mark" viewBox="-3 -8 106 116" aria-label="Li's Chinese Restaurant">
+      <g fill="#1B191A">
+        <path d="M-0.4,-6 L4.9,-6 L27.9,106 L25.4,106 Z"/>
+        <path d="M19.6,-6 L25.6,-6 L23.7,106 L21.9,106 Z"/>
+      </g>
+      <circle cx="50" cy="50" r="46.2" fill="none" stroke="#CD393E" stroke-width="7.1"/>
+      <g fill="#CD393E" transform="translate(52 50) scale(1.12) translate(-53.97 -33.9)">
+        <path d="M35.92,17.33 L42.13,17.33 L39.68,47.6 L38.44,47.6 Z"/>
+        <path d="M35.33,48.35 L53.89,46.85 L53.70,50.50 L35.40,49.25 Z"/>
+        <path d="M54.17,30.0 L60.10,30.0 L57.84,49.67 L56.53,49.67 Z"/>
+        <path d="M55.78,22.0 L57.0,22.11 L57.44,23.22 L59.78,25.56 L61.11,29.0 L59.56,28.44 L54.11,24.33 L54.11,22.89Z"/>
+        <path d="M67.74,24.38 L68.82,24.62 L69.63,24.90 L70.17,25.19 L70.44,25.50 L70.44,25.83 L70.25,26.08 L69.86,26.25 L69.28,26.33 L68.50,26.33 L67.86,26.42 L67.36,26.60 L67.00,26.88 L66.78,27.24 L66.93,27.69 L67.46,28.25 L68.36,28.90 L69.64,29.65 L70.66,30.31 L71.42,30.86 L71.93,31.32 L72.18,31.68 L72.33,32.17 L72.39,32.80 L72.35,33.56 L72.21,34.44 L71.90,35.24 L71.43,35.93 L70.79,36.53 L69.99,37.03 L69.12,37.34 L68.19,37.47 L67.19,37.40 L66.14,37.15 L65.27,36.85 L64.59,36.51 L64.10,36.11 L63.79,35.67 L63.58,35.21 L63.45,34.74 L63.42,34.25 L63.47,33.75 L63.61,33.31 L63.83,32.94 L64.14,32.62 L64.53,32.38 L64.90,32.23 L65.24,32.19 L65.57,32.25 L65.88,32.42 L66.10,32.68 L66.26,33.04 L66.33,33.50 L66.33,34.06 L66.40,34.53 L66.52,34.92 L66.71,35.22 L66.96,35.44 L67.28,35.50 L67.69,35.39 L68.17,35.11 L68.72,34.67 L69.12,34.21 L69.35,33.74 L69.43,33.25 L69.35,32.75 L68.93,32.08 L68.18,31.25 L67.10,30.25 L65.68,29.08 L64.64,28.09 L63.97,27.27 L63.68,26.62 L63.76,26.15 L63.97,25.71 L64.28,25.29 L64.72,24.90 L65.28,24.54 L65.97,24.33 L66.78,24.28 Z"/>
+      </g>
+    </svg>
+    <div class="cover__kicker">WEBSITE PROPOSAL</div>
+  </div>
+
+  <div>
+    <h1 class="cover__title">Li&rsquo;s Chinese<br>Restaurant</h1>
+    <p class="cover__sub">Nyali, Mombasa &nbsp;·&nbsp; Gigiri, Nairobi</p>
+
+    <dl class="cover__meta">
+      <div><dt>PREPARED FOR</dt><dd>The Owner<br>Li&rsquo;s Chinese Restaurant</dd></div>
+      <div><dt>PREPARED BY</dt><dd>Hashim Sheikh</dd></div>
+      <div><dt>DATE</dt><dd>__DATE__</dd></div>
+      <div><dt>VALID UNTIL</dt><dd>__VALID__</dd></div>
+    </dl>
+  </div>
+
+  <div>
+    <div class="sec">
+      <span class="sec__no">01</span>
+      <h2 class="sec__title">Summary</h2>
+    </div>
+    <p class="lede">Li&rsquo;s serves two cities from two kitchens &mdash; the original in Nyali and the second in Gigiri &mdash; from a carte of eighty-four dishes. The website&rsquo;s job is to make both of them easy to find, easy to read on a phone, and easy to book.</p>
+    <p>I have already built it. Four pages, both restaurants, and your real menu: all 84 dishes across ten courses, with prices, set as text on the page rather than locked inside a PDF. It is finished enough to look at today &mdash; which is why this proposal asks for a decision in a week rather than a month.</p>
+    <p><strong>KES 100,000</strong> one-time for the design and build, covering both restaurants, and <strong>KES 10,000 per month</strong> for everything that keeps it running. Hosting, the domain, updates and support are all inside the monthly plan. There are no other fees.</p>
+  </div>
+
+  <span class="page__mark">LI&rsquo;S CHINESE RESTAURANT</span>
+  <span class="page__no">01</span>
+</section>
+
+<!-- ═════════════════════════════════════════════ 2 — two branches, one site -->
+<section class="page">
+  <div class="rule"></div>
+  <div class="sec" style="margin-top:6mm">
+    <span class="sec__no">02</span>
+    <h2 class="sec__title">One restaurant, two branches,<br>one website</h2>
+  </div>
+
+  <p class="lede">The address Li&rsquo;s uses on the web today names Nairobi. Nyali is the original restaurant and keeps the longer week, and a guest who arrives at that address has no particular reason to think the coast is included at all.</p>
+
+  <p>The answer to that is not a second website. It is one site that carries both restaurants properly. Here is the reasoning, plainly:</p>
+
+  <ul class="points" style="margin-top:4mm">
+    <li>
+      <span class="pt__h">Two sites compete with each other in Google.</span>
+      <span class="pt__b">Search standing is earned per domain. Two sites split whatever Li&rsquo;s builds between them, and because the menu pages would be near-identical, Google reads each as a duplicate of the other. One domain carrying both restaurants concentrates that strength instead of halving it.</span>
+    </li>
+    <li>
+      <span class="pt__h">One site can still win both cities.</span>
+      <span class="pt__b">A dedicated page for each restaurant &mdash; its own address, its own hours, its own phone number, its own photographs &mdash; is how a two-branch business ranks locally in two places. You get the Nyali search and the Gigiri search from a single domain.</span>
+    </li>
+    <li>
+      <span class="pt__h">Guests choose the restaurant, then the branch.</span>
+      <span class="pt__b">Nobody searches for a branch. They decide where they want to eat, and only then work out which one is nearer. Two sites force that second decision before the first one has been made.</span>
+    </li>
+    <li>
+      <span class="pt__h">Half the upkeep, permanently.</span>
+      <span class="pt__b">One menu to keep accurate, one plan, one set of hours. Two sites means every price change is made twice, forever &mdash; and in practice the second one quietly drifts out of date.</span>
+    </li>
+  </ul>
+
+  <div class="note">
+    <span class="note__h">WHEN TWO SITES WOULD BE THE RIGHT CALL</span>
+    <p>If one branch traded under a different name, served a different menu, or were separately owned, it would need its own site and its own identity. That is not the case here &mdash; one name, one kitchen tradition, two rooms.</p>
+  </div>
+
+  <div class="spacer"></div>
+  <span class="page__mark">SECTION 02</span>
+  <span class="page__no">02</span>
+</section>
+
+<!-- ═══════════════════════════════════════════════ 3 — the menu is the site -->
+<section class="page">
+  <div class="rule"></div>
+  <div class="sec" style="margin-top:6mm">
+    <span class="sec__no">03</span>
+    <h2 class="sec__title">The menu is the website</h2>
+  </div>
+
+  <p class="lede">For a restaurant, the menu is not one page among several. It is the reason anybody visits the site at all.</p>
+
+  <p>Most restaurant websites in Kenya publish theirs as a PDF, or as a photograph of the printed card. Three things follow from that, and each one costs covers:</p>
+
+  <ul class="points" style="margin-top:4mm">
+    <li>
+      <span class="pt__h">Google cannot read it.</span>
+      <span class="pt__b">A dish inside a PDF or an image is invisible to search. Someone typing &ldquo;peking duck Nyali&rdquo; or &ldquo;dim sum Gigiri&rdquo; into a phone will not find Li&rsquo;s, because as far as Google is concerned those words are not on your website.</span>
+    </li>
+    <li>
+      <span class="pt__h">A phone cannot use it.</span>
+      <span class="pt__b">A PDF on a phone means pinching and dragging around a page laid out for A4 paper. Most people give up and choose the restaurant whose menu they could actually read.</span>
+    </li>
+    <li>
+      <span class="pt__h">You cannot change a price without help.</span>
+      <span class="pt__b">Every change means a new PDF, which means finding whoever made the last one. So the menu on the website slowly stops matching the menu on the table.</span>
+    </li>
+  </ul>
+
+  <p class="pull">On this site the carte <em>is</em> the page. All 84 dishes across ten courses are real text, set the way a printed menu is set, and readable on a phone without zooming.</p>
+
+  <p>When a price moves, it is one line changed, and that is inside the monthly plan. When someone searches for a dish you are known for, there is a page that can answer them.</p>
+
+  <div class="note">
+    <span class="note__h">THE SAME APPLIES TO GOOGLE'S OWN LISTING</span>
+    <p>What Google shows beside a restaurant &mdash; hours, phone number, whether it is open now &mdash; is only as good as what it can read on the website it points at. Two restaurants with different hours and different numbers need two pages saying so plainly, or Google guesses, and a guest arrives at a closed door on a Monday.</p>
+  </div>
+
+  <div class="spacer"></div>
+  <span class="page__mark">SECTION 03</span>
+  <span class="page__no">03</span>
+</section>
+
+<!-- ══════════════════════════════════════════════════ 4 — what you receive -->
+<section class="page">
+  <div class="rule"></div>
+  <div class="sec" style="margin-top:6mm">
+    <span class="sec__no">04</span>
+    <h2 class="sec__title">What you receive</h2>
+  </div>
+
+  <ul class="points cols2">
+    <li>
+      <span class="pt__h">Your full carte, on the page</span>
+      <span class="pt__b">84 dishes across ten courses, with prices, set as text a phone and a search engine can both read.</span>
+    </li>
+    <li>
+      <span class="pt__h">A page for each restaurant</span>
+      <span class="pt__b">Nyali and Gigiri each with their own address, hours, phone number, directions and photographs, so a guest reaches the right room without having to work anything out.</span>
+    </li>
+    <li>
+      <span class="pt__h">Booking the way Kenya books</span>
+      <span class="pt__b">A WhatsApp booking button on every page, beside the direct line for each restaurant.</span>
+    </li>
+    <li>
+      <span class="pt__h">A design made only for Li&rsquo;s</span>
+      <span class="pt__b">Colour and typography drawn from your own mark. No theme, no stock layout, no template.</span>
+    </li>
+    <li>
+      <span class="pt__h">Built for a phone first</span>
+      <span class="pt__b">Because that is where almost every visit will come from.</span>
+    </li>
+    <li>
+      <span class="pt__h">Cinematic scroll animation</span>
+      <span class="pt__b">A custom motion system that reveals each section as the guest moves down the page &mdash; unhurried, and closer to a film than to a brochure.</span>
+    </li>
+    <li>
+      <span class="pt__h">Fast on Kenyan mobile data</span>
+      <span class="pt__b">Every photograph compressed into modern formats and served at the size the guest&rsquo;s screen actually needs, never larger.</span>
+    </li>
+    <li>
+      <span class="pt__h">Takeaway and delivery in reach</span>
+      <span class="pt__b">Uber Eats and takeaway surfaced where a hungry visitor will look for them.</span>
+    </li>
+    <li>
+      <span class="pt__h">Built to be accessible</span>
+      <span class="pt__b">Measured colour contrast, keyboard navigation, and reduced motion for guests who need it.</span>
+    </li>
+    <li>
+      <span class="pt__h">Ready to be found in both cities</span>
+      <span class="pt__b">Location pages, a search-friendly structure, and Google Search Console connected from day one.</span>
+    </li>
+  </ul>
+
+  <div class="branches">
+    <div class="branch">
+      <span class="branch__n">Nyali, Mombasa</span>
+      <div class="branch__r"><span class="branch__k">ADDRESS</span><span class="branch__v">Petrocity Plaza, 1st floor<br>Links Road, Nyali, 80112</span></div>
+      <div class="branch__r"><span class="branch__k">TELEPHONE</span><span class="branch__v">+254 799 402101</span></div>
+      <div class="branch__r"><span class="branch__k">HOURS</span><span class="branch__v">Tue &ndash; Sun, 11:00 &ndash; 21:00<br>Closed Mondays</span></div>
+      <div class="branch__r"><span class="branch__k">ALSO</span><span class="branch__v">Two private rooms, 12 &ndash; 15 covers</span></div>
+    </div>
+    <div class="branch">
+      <span class="branch__n">Gigiri, Nairobi</span>
+      <div class="branch__r"><span class="branch__k">ADDRESS</span><span class="branch__v">Petrocity, Limuru Road<br>Gigiri</span></div>
+      <div class="branch__r"><span class="branch__k">TELEPHONE</span><span class="branch__v">+254 746 815 106</span></div>
+      <div class="branch__r"><span class="branch__k">HOURS</span><span class="branch__v">Tue &ndash; Sun, 11:00 &ndash; 22:30<br>Closed Mondays</span></div>
+      <div class="branch__r"><span class="branch__k">ALSO</span><span class="branch__v">Private events, by enquiry</span></div>
+    </div>
+  </div>
+
+  <div class="note">
+    <span class="note__h">THIS IS WHAT IS ON THE SITE TODAY &mdash; PLEASE CHECK IT</span>
+    <p>Every line above was read from your own published listings rather than assumed, and each restaurant carries its own. If any of it is wrong, it is a five-minute correction now and a much more expensive one after a guest has driven to Nyali on a Monday.</p>
+  </div>
+
+  <div class="spacer"></div>
+  <span class="page__mark">SECTION 04</span>
+  <span class="page__no">04</span>
+</section>
+
+<!-- ══════════════════════════════════════════════════ 5 — how it is built -->
+<section class="page">
+  <div class="rule"></div>
+  <div class="sec" style="margin-top:6mm">
+    <span class="sec__no">05</span>
+    <h2 class="sec__title">How this is built,<br>and why it matters</h2>
+  </div>
+
+  <p class="lede">Most websites sold in Kenya at any price are WordPress with a bought theme. They look like the thousands of other sites using that theme, they slow down as plugins accumulate, and they need constant patching to stay secure.</p>
+
+  <p>This one is written by hand &mdash; <strong>14,622 lines of HTML, CSS and JavaScript</strong> across four pages, with no theme, no page builder and no framework underneath it. Three things follow from that, and all three are practical:</p>
+
+  <ul class="points" style="margin-top:4mm">
+    <li>
+      <span class="pt__h">It cannot be mistaken for another restaurant&rsquo;s site.</span>
+      <span class="pt__b">The design exists nowhere else. For a restaurant whose competition is a row of near-identical template sites, that is not a cosmetic point.</span>
+    </li>
+    <li>
+      <span class="pt__h">It loads fast and stays fast.</span>
+      <span class="pt__b">Every page is under half a megabyte, and it scrolls at a full sixty frames a second on a mid-range phone &mdash; both measured, not estimated. Speed is also a ranking factor, so it compounds.</span>
+    </li>
+    <li>
+      <span class="pt__h">There is nothing to hack.</span>
+      <span class="pt__b">The site is served as plain files. The usual WordPress attack surface simply does not exist, which is also why the monthly plan does not carry a security line item.</span>
+    </li>
+  </ul>
+
+  <table class="vs">
+    <thead><tr><th></th><th>A THEMED WORDPRESS SITE</th><th>THIS BUILD</th></tr></thead>
+    <tbody>
+      <tr><td>The design</td><td>Shared with thousands of other sites</td><td>Exists nowhere else</td></tr>
+      <tr><td>The menu</td><td>Usually a PDF or a photograph</td><td>Text on the page, readable by Google</td></tr>
+      <tr><td>Changing a price</td><td>A new PDF, and someone to make it</td><td>One line, inside the monthly plan</td></tr>
+      <tr><td>Speed</td><td>Slows as plugins accumulate</td><td>Under half a megabyte, and stays there</td></tr>
+      <tr><td>Security</td><td>Patching, indefinitely</td><td>Plain files &mdash; nothing to hack</td></tr>
+    </tbody>
+  </table>
+
+  <div class="figs">
+    <div class="fig"><span class="fig__l">PAGES</span><span class="fig__v">4</span></div>
+    <div class="fig"><span class="fig__l">DISHES, WITH PRICES</span><span class="fig__v">84</span></div>
+    <div class="fig"><span class="fig__l">WEIGHT PER PAGE</span><span class="fig__v">&lt;0.5<span class="sm"> MB</span></span></div>
+    <div class="fig"><span class="fig__l">SCROLL</span><span class="fig__v">60<span class="sm"> FPS</span></span></div>
+  </div>
+
+  <div class="spacer"></div>
+  <span class="page__mark">SECTION 05</span>
+  <span class="page__no">05</span>
+</section>
+
+<!-- ═══════════════════════════════════════════════════════ 6 — investment -->
+<section class="page">
+  <div class="rule"></div>
+  <div class="sec" style="margin-top:6mm">
+    <span class="sec__no">06</span>
+    <h2 class="sec__title">Investment</h2>
+  </div>
+
+  <p style="margin-bottom:7mm">Priced the way you price a dish &mdash; what it is, and what it costs.</p>
+
+  <div class="carte">
+    <div class="carte__row">
+      <div class="carte__line">
+        <span class="carte__name">Design &amp; build</span>
+        <span class="carte__lead"></span>
+        <span class="carte__price"><span class="cur">KES</span>100,000</span>
+      </div>
+      <p class="carte__note">One-time, and it covers both restaurants. Design, build, testing, domain setup and launch. Already substantially complete.</p>
+    </div>
+
+    <div class="carte__row">
+      <div class="carte__line">
+        <span class="carte__name">Care &amp; hosting plan</span>
+        <span class="carte__lead"></span>
+        <span class="carte__price"><span class="cur">KES</span>10,000<span style="font-size:8pt;color:var(--gold)"> / mo</span></span>
+      </div>
+      <p class="carte__note">Everything listed in section 08, covering both restaurants. Begins on launch day, not before.</p>
+    </div>
+
+    <div class="carte__row carte--total">
+      <div class="carte__line">
+        <span class="carte__name">First year, all in</span>
+        <span class="carte__lead"></span>
+        <span class="carte__price"><span class="cur">KES</span>220,000</span>
+      </div>
+      <p class="carte__note">The build plus twelve months of care. No separate hosting bill, no annual domain invoice, no per-branch surcharge, and no charge that is not on this page.</p>
+    </div>
+  </div>
+
+  <div class="note" style="border-color:var(--accent)">
+    <span class="note__h">PAY THE YEAR UP FRONT AND SAVE KES 20,000</span>
+    <p>Twelve months of the care plan for <strong>KES 100,000</strong> instead of KES 120,000, taking the first year to <strong>KES 200,000</strong>. Entirely optional; the monthly rate is unchanged either way.</p>
+  </div>
+
+  <div class="note">
+    <span class="note__h">IF YOU WOULD RATHER NOT TAKE THE CARE PLAN</span>
+    <p>That is a fair choice, and the honest version of it is this: hosting and the domain become yours to buy and renew, and every menu change needs a developer. For a restaurant that is the item that bites &mdash; a carte drifts out of date one price at a time, and nobody notices until a guest does. The site is yours either way, and I will hand it over set up and documented.</p>
+  </div>
+
+  <p style="margin-top:6mm">Both figures cover both restaurants. Adding a third would be quoted then, not now.</p>
+
+  <div class="spacer"></div>
+  <span class="page__mark">SECTION 06</span>
+  <span class="page__no">06</span>
+</section>
+
+<!-- ═══════════════════════════════════════════════════ 7 — what it returns -->
+<section class="page">
+  <div class="rule"></div>
+  <div class="sec" style="margin-top:6mm">
+    <span class="sec__no">07</span>
+    <h2 class="sec__title">What it returns</h2>
+  </div>
+
+  <p class="lede">A restaurant&rsquo;s website is not a brochure. It is the first impression, and it happens before anyone picks up a phone or walks through a door.</p>
+
+  <p>Almost all of it happens on a phone, at the moment a decision is actually being made &mdash; someone deciding where to take the family on Sunday, or where to put a client at lunch, or what to order in tonight. They look at two or three restaurants. They open the menu. The ones whose menu will not load, or will not zoom, or is three years out of date, lose the table right there.</p>
+
+  <p class="pull">The cost of a weak website is invisible, which is exactly what makes it expensive.</p>
+
+  <div class="figs">
+    <div class="fig"><span class="fig__l">FIRST-YEAR TOTAL</span><span class="fig__v"><span class="sm">KES </span>220,000</span></div>
+    <div class="fig"><span class="fig__l">PER MONTH, BOTH BRANCHES</span><span class="fig__v"><span class="sm">KES </span>18,333</span></div>
+    <div class="fig"><span class="fig__l">AVERAGE SPEND PER COVER</span><span class="fig__v" style="color:var(--gold)">your figure</span></div>
+  </div>
+
+  <p>Set your own average cover against that monthly figure. The arithmetic is not complicated, so here it is done three ways &mdash; how many tables of four, in a whole month, across both restaurants, cover the entire cost of the website:</p>
+
+  <table class="covers">
+    <thead>
+      <tr><th>IF YOUR AVERAGE SPEND PER HEAD IS</th><th>KES 1,500</th><th>KES 2,500</th><th>KES 4,000</th></tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td>Tables of four per month to cover it</td>
+        <td class="big">3</td><td class="big">2</td><td class="big">1</td>
+      </tr>
+    </tbody>
+  </table>
+
+  <p style="margin-top:5mm">One to three tables a month, and the site is working on both restaurants at once, every day &mdash; including the nights nobody is there to answer the phone.</p>
+
+  <div class="spacer"></div>
+  <span class="page__mark">SECTION 07</span>
+  <span class="page__no">07</span>
+</section>
+
+<!-- ═════════════════════════════════════════════ 8 — plan + not included -->
+<section class="page">
+  <div class="rule"></div>
+  <div class="sec" style="margin-top:6mm">
+    <span class="sec__no">08</span>
+    <h2 class="sec__title">What the monthly plan covers</h2>
+  </div>
+
+  <ul class="plan">
+    <li>Hosting and deployment management</li>
+    <li>Domain registration, renewal and DNS</li>
+    <li>Ongoing website maintenance</li>
+    <li>Up to 5 content updates each month</li>
+    <li>Menu and price changes</li>
+    <li>Adding and updating photographs</li>
+    <li>Updating hours across both restaurants</li>
+    <li>Basic search engine optimisation</li>
+    <li>Google Search Console monitoring</li>
+    <li>Performance and uptime monitoring</li>
+    <li>Fixing minor website issues</li>
+    <li>WhatsApp and booking button management</li>
+    <li>Priority support, same working day</li>
+  </ul>
+
+  <div class="note">
+    <span class="note__h">WHAT COUNTS AS A CONTENT UPDATE</span>
+    <p>Changing a price, adding or removing a dish, swapping a photograph, amending opening hours, or updating contact details for either restaurant. New pages, new sections or a redesign fall outside the plan and are quoted separately. Unused updates roll over for up to two months, so a quiet month is never wasted.</p>
+  </div>
+
+  <div class="rule" style="margin-top:9mm"></div>
+  <div class="sec" style="margin-top:6mm">
+    <span class="sec__no">09</span>
+    <h2 class="sec__title">Not included</h2>
+  </div>
+
+  <p style="margin-bottom:3mm">Stated plainly so there are no misunderstandings later. Any of these can be quoted on request.</p>
+
+  <ul class="plan">
+    <li>Professional food photography or videography</li>
+    <li>Writing new content beyond what Li&rsquo;s supplies</li>
+    <li>Google Ads or social media advertising</li>
+    <li>Managing social media accounts</li>
+    <li>New pages or sections beyond those agreed</li>
+    <li>Online payments or e-commerce</li>
+    <li>Table-booking or point-of-sale integration</li>
+    <li>Mailbox subscriptions, charged at cost if you want addresses at your own domain</li>
+  </ul>
+
+  <div class="spacer"></div>
+  <span class="page__mark">SECTIONS 08 &ndash; 09</span>
+  <span class="page__no">08</span>
+</section>
+
+<!-- ══════════════════════════════════════════ 9 — terms, timeline, from you -->
+<section class="page">
+  <div class="rule"></div>
+  <div class="sec" style="margin-top:6mm">
+    <span class="sec__no">10</span>
+    <h2 class="sec__title">Terms and timeline</h2>
+  </div>
+
+  <table class="tbl">
+    <thead><tr><th>STAGE</th><th>WHEN</th><th>AMOUNT</th></tr></thead>
+    <tbody>
+      <tr><td>Deposit to commence</td><td>On acceptance</td><td>KES 50,000</td></tr>
+      <tr><td>Balance on launch</td><td>Site live and approved</td><td>KES 50,000</td></tr>
+      <tr><td>Care plan</td><td>Monthly, in advance from launch</td><td>KES 10,000</td></tr>
+      <tr class="tot"><td>First year total</td><td></td><td>KES 220,000</td></tr>
+    </tbody>
+  </table>
+
+  <ul class="points" style="margin-top:2mm">
+    <li>
+      <span class="pt__h">Timeline.</span>
+      <span class="pt__b">The site is built. Once this proposal is accepted, launch takes roughly two weeks: confirming the carte and both restaurants&rsquo; hours, settling the photography, registering the domain, connecting the booking buttons, deploying, and testing on real devices.</span>
+    </li>
+    <li>
+      <span class="pt__h">Payment.</span>
+      <span class="pt__b">M-Pesa or bank transfer. Details on the invoice.</span>
+    </li>
+    <li>
+      <span class="pt__h">Ownership.</span>
+      <span class="pt__b">On final payment the website and its code belong to Li&rsquo;s. The care plan may be cancelled with 30 days&rsquo; notice, and the site and domain are handed over in full.</span>
+    </li>
+  </ul>
+
+  <div class="rule" style="margin-top:8mm"></div>
+  <div class="sec" style="margin-top:6mm">
+    <span class="sec__no">11</span>
+    <h2 class="sec__title">What I need from you</h2>
+  </div>
+
+  <p style="margin-bottom:3.5mm">Four things, none of them needed before you decide.</p>
+
+  <ul class="points">
+    <li>
+      <span class="pt__h">Vector artwork for the logo.</span>
+      <span class="pt__b">The only file I have been able to obtain is 150 pixels square. I have redrawn the mark so it stays sharp at any size and it is faithful to yours &mdash; but your original artwork would replace a careful reconstruction with the real thing.</span>
+    </li>
+    <li>
+      <span class="pt__h">Sign-off on the carte.</span>
+      <span class="pt__b">The 84 dishes and their prices were read from your published menu. Prices move, and I would want yours confirmed before launch.</span>
+    </li>
+    <li>
+      <span class="pt__h">Both restaurants&rsquo; hours and numbers &mdash; and whether the Nairobi line takes WhatsApp.</span>
+      <span class="pt__b">The booking button depends on that last one.</span>
+    </li>
+    <li>
+      <span class="pt__h">A decision on photography.</span>
+      <span class="pt__b">The site currently runs on licensed placeholder images, chosen dish by dish to match food you actually serve and graded to one standard. Photographs of your own food and rooms would be the single biggest improvement available to it, and I can arrange that separately.</span>
+    </li>
+  </ul>
+
+  <div class="spacer"></div>
+  <span class="page__mark">SECTIONS 10 &ndash; 11</span>
+  <span class="page__no">09</span>
+</section>
+
+<!-- ══════════════════════════════════════════════════════ 10 — acceptance -->
+<section class="page">
+  <div class="rule"></div>
+  <div class="sec" style="margin-top:6mm">
+    <span class="sec__no">12</span>
+    <h2 class="sec__title">Acceptance</h2>
+  </div>
+
+  <p class="lede">The site exists. The quickest way to judge this proposal is to look at it &mdash; I will send a private preview link, and you can read your own menu on your own phone before you commit to anything.</p>
+
+  <div class="choice">
+    <span class="choice__box"></span>
+    <span>
+      <span class="choice__h">Yes &mdash; build and launch it</span>
+      <span class="choice__b">One website, both restaurants. <strong>KES 100,000</strong> one-time and <strong>KES 10,000 per month</strong>, beginning on launch day.</span>
+    </span>
+  </div>
+
+  <div class="choice" style="border-color:var(--hair)">
+    <span class="choice__box"></span>
+    <span>
+      <span class="choice__h">Yes &mdash; and I will pay the first year of care up front</span>
+      <span class="choice__b">The same site, with twelve months of care at <strong>KES 100,000</strong> instead of KES 120,000. First year <strong>KES 200,000</strong>.</span>
+    </span>
+  </div>
+
+  <div class="sign">
+    <div>
+      <div class="sign__f"></div>
+      <span class="sign__l">NAME &amp; SIGNATURE, FOR LI&rsquo;S</span>
+    </div>
+    <div>
+      <div class="sign__f"></div>
+      <span class="sign__l">DATE &nbsp;&nbsp; DD / MM / YYYY</span>
+    </div>
+  </div>
+
+  <div class="note" style="margin-top:8mm">
+    <span class="note__h">A NOTE ON THE DATE</span>
+    <p>This proposal is held until <strong>__VALID__</strong>. That is not a sales tactic &mdash; the build is finished and I would rather launch it than leave it sitting. After that date I will requote against whatever else is booked in.</p>
+  </div>
+
+  <div class="spacer"></div>
+
+  <div class="foot">
+    <span>HASHIM SHEIKH &nbsp;·&nbsp; +254 119 999 666</span>
+    <span>VALID UNTIL __VALID_CAPS__</span>
+  </div>
+
+  <span class="page__mark">SECTION 12</span>
+  <span class="page__no">10</span>
+</section>
+
+</body>
+</html>

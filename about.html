@@ -17,7 +17,7 @@
 <link rel="icon" href="assets/favicon-16.png" sizes="16x16" type="image/png">
 <link rel="apple-touch-icon" href="assets/apple-touch-icon.png">
 <link rel="manifest" href="assets/site.webmanifest">
-<meta name="theme-color" content="#F6EEE1">
+<meta name="theme-color" content="#FBFAF7">
 <meta name="description" content="Li’s Chinese Restaurant. The kitchen behind the wok, in Nairobi and Mombasa.">
 
 <link rel="preload" as="font" type="font/woff2" crossorigin href="assets/fonts/cormorant-garamond-normal-300-400.woff2">
@@ -154,15 +154,15 @@
        this section is a photograph, and the sections that sit on the peach
        have not been built. */
     /* The measured logo red. A DEVICE colour: it draws the mark and
-       never sets type. --li-red is the same hue darkened to carry
+       never sets type. --crave-green is the same hue darkened to carry
        text and fills — 6.51:1 on the ground, white on it 7.49:1. */
-    --brand-red: #CD393E;
-    --li-red:    #A3221C;
-    --ink:           #0B0806;
+    --brand-green: #009E2F;
+    --crave-green:    #2A6B41;
+    --ink:           #0E0E0C;
 
     /* The site's ground and its two inks on it, brought over from
        index.html's peach block unchanged — these are the values that
-       block re-derived against #F6EEE1, not the cream ones above them in
+       block re-derived against #FBFAF7, not the cream ones above them in
        that file. The statement section uses them; the opening above it is
        a photograph and does not.
 
@@ -172,10 +172,10 @@
        invalid declaration, so the eyebrow and the numerals fell back to
        inherited ink and the chapter label's leading rule had no background
        and did not draw at all. Nothing errored. */
-    --ground:      #F6EEE1;
-    --menu-ink:    #241A14;  /* 14.79:1 on the ground                       */
-    --menu-body:   #6A574A;  /*  5.93:1                                     */
-    --menu-accent: #A3221C;  /*  6.51:1 — the deep red, from the logo hue   */
+    --ground:      #FBFAF7;
+    --menu-ink:    #0E0E0C;  /* 14.79:1 on the ground                       */
+    --menu-body:   #57534C;  /*  5.93:1                                     */
+    --menu-accent: #2A6B41;  /*  6.51:1 — the deep red, from the logo hue   */
 
     /* Superseded as a colour and still load-bearing as a name: the two
        transplanted blocks at the foot of this file take their ground from
@@ -183,7 +183,7 @@
        moves them onto the peach without editing a byte of the copies. Do
        not reach for it as a colour. index.html and menu.html both carry it
        for the same reason. */
-    --cream:       #FCF8F5;
+    --cream:       #FCFBF9;
 
     /* --res-gold arrived with the experience section, which is the first
        thing on this page to need a non-text boundary colour, and it arrived
@@ -194,7 +194,7 @@
        back to SVG's default fill and came out black on the peach. Nothing
        errored and nothing logged. Check :root actually carries a token
        before using it in a role this page has not used before. */
-    --res-gold:    #9C7230;  /*  3.26:1 — non-text boundary only */
+    --res-gold:    #7A6A48;  /*  3.26:1 — non-text boundary only */
 
     /* 2.4% of the reference's width, at both ends. */
     --open-inset: clamp(20px, 2.4vw, 40px);
@@ -482,7 +482,7 @@
   .topbar__link:focus-visible {
     outline: 1.5px solid rgba(255, 255, 255, 0.92);
     outline-offset: 6px;
-    box-shadow: 0 0 0 9px rgba(58, 82, 128, 0.30);
+    box-shadow: 0 0 0 9px rgba(42, 107, 65, 0.30);
     border-radius: 2px;
   }
 
@@ -519,7 +519,7 @@
     text-shadow:
       0 1px 2px  rgba(8, 5, 3, 0.42),
       0 4px 30px rgba(8, 5, 3, 0.52),
-      0 2px 74px rgba(46, 24, 8, 0.44);
+      0 2px 74px rgba(14, 22, 17, 0.30);
   }
 
   /* --------------------------------------------------------- entrance */
@@ -809,7 +809,7 @@
        moved to the peach; the peach is where it stays. What the dark
        build measured, kept as the record of a ground already derived
        against rather than as an alternative on offer:
-         --stmt-ground #0B0806
+         --stmt-ground #0E0E0C
          --stmt-ink    rgba(255, 251, 246, 0.96)   (15.9:1)
          --stmt-body   #A2938B                     ( 6.7:1)
        Four things do not follow from swapping these — see the block at
@@ -909,7 +909,7 @@
      The tails are literals for the same reason index.html's closing
      gradient is one: a token cannot be given an alpha here, and fading to
      the keyword `transparent` interpolates through rgba(0,0,0,0), which
-     on a ground this light drags a grey haze across both edges. #F6EEE1
+     on a ground this light drags a grey haze across both edges. #FBFAF7
      at zero alpha. If --stmt-ground moves, these move with it. */
   .statement__edges {
     position: absolute;
@@ -1366,7 +1366,7 @@
     top: calc(var(--fig-num) * 0.14);
     height: calc(var(--fig-num) * 0.76);
     width: 1px;
-    background: rgba(36, 26, 20, 0.16);
+    background: rgba(14, 14, 12, 0.16);
   }
 
   .figure__num {
@@ -1441,7 +1441,7 @@
       top: calc(var(--fig-num) * 0.14);
       height: calc(var(--fig-num) * 0.76);
       width: 1px;
-      background: rgba(36, 26, 20, 0.16);
+      background: rgba(14, 14, 12, 0.16);
     }
   }
 
@@ -1482,8 +1482,8 @@
        leading dash      49x1px       = 2.4%
 
      The reference's ink turned out to be this site's ink already: its
-     heading measures #2E1A0F against our --menu-ink #241A14, and its body
-     #624F3F against our --menu-body #6A574A. Nothing was re-derived for
+     heading measures #2E1A0F against our --menu-ink #0E0E0C, and its body
+     #624F3F against our --menu-body #57534C. Nothing was re-derived for
      those two. Its ground is a sand #E7DABC and is not used — this section
      stays on --ground with the rest of the page.
 
@@ -1571,8 +1571,8 @@
 
     /* Same hairline the figures row uses, so the two sections rule at the
        same weight. */
-    --ch-hair:  rgba(36, 26, 20, 0.16);
-    --ch-hair-strong: rgba(36, 26, 20, 0.22);
+    --ch-hair:  rgba(14, 14, 12, 0.16);
+    --ch-hair-strong: rgba(14, 14, 12, 0.22);
   }
 
   /* Without the script this is four ordinary rows and the section is as
@@ -1657,13 +1657,13 @@
        on a 416px frame and heavy on a 192px one. */
     border-radius: clamp(14px, calc(var(--ch-w) * 0.098), 34px);
     overflow: hidden;               /* clips the photograph to that corner */
-    background: #171008;            /* behind a frame that has not loaded */
+    background: #E8E5DE;            /* behind a frame that has not loaded */
     /* Warm, low and wide, tinted with --ember rather than neutral black —
        a grey shadow on a peach ground reads as dirt. */
     box-shadow:
-      0 1px 2px rgba(36, 26, 20, 0.10),
-      0 10px 24px rgba(36, 26, 20, 0.10),
-      0 30px 60px rgba(196, 112, 38, 0.13);
+      0 1px 2px rgba(14, 14, 12, 0.10),
+      0 10px 24px rgba(14, 14, 12, 0.10),
+      0 30px 60px rgba(30, 62, 42, 0.11);
   }
 
   .ch-photo__img {
@@ -2149,7 +2149,7 @@
      Colour: the reference's line is #F2B68D, which measures under 1.6:1 on
      this site's peach and simply disappears. --res-gold is the token for a
      non-text boundary and carries the same warmth at 3.26:1. Its badge is
-     a deep oxblood; --li-red takes that slot instead — it is the one
+     a deep oxblood; --crave-green takes that slot instead — it is the one
      measured brand value on this site and, until now, the only token that
      had never been given anything to do.
      ===================================================================== */
@@ -2180,7 +2180,7 @@
     --ex-body:  clamp(0.9rem, 3.7vw, 1rem);
     --ex-micro: var(--open-link);
 
-    --ex-hair: rgba(36, 26, 20, 0.16);
+    --ex-hair: rgba(14, 14, 12, 0.16);
   }
 
   /* ------------------------------------------------------------ masthead */
@@ -2256,7 +2256,7 @@
     aspect-ratio: 3 / 4;
     border-radius: clamp(10px, 2.4vw, 16px);
     overflow: hidden;               /* clips the photograph to the corner */
-    background: #171008;            /* behind a frame that has not loaded */
+    background: #E8E5DE;            /* behind a frame that has not loaded */
     /* Warm, low and wide, tinted with --ember rather than neutral black —
        a grey shadow on a peach ground reads as dirt. Same recipe as the
        chapter frames, but every radius is a share of --sh rather than a
@@ -2269,9 +2269,9 @@
        absolute — a hairline at the frame's edge is a hairline at any size. */
     --sh: clamp(180px, 60vw, 340px);
     box-shadow:
-      0 1px 2px rgba(36, 26, 20, 0.10),
-      0 calc(var(--sh) * 0.034) calc(var(--sh) * 0.081) rgba(36, 26, 20, 0.10),
-      0 calc(var(--sh) * 0.102) calc(var(--sh) * 0.203) rgba(196, 112, 38, 0.13);
+      0 1px 2px rgba(14, 14, 12, 0.10),
+      0 calc(var(--sh) * 0.034) calc(var(--sh) * 0.081) rgba(14, 14, 12, 0.10),
+      0 calc(var(--sh) * 0.102) calc(var(--sh) * 0.203) rgba(30, 62, 42, 0.11);
   }
 
   .ex-card__img {
@@ -2294,7 +2294,7 @@
     width: 15.1%;                   /* 45/298 */
     aspect-ratio: 1;
     border-radius: 50%;
-    background: var(--li-red);
+    background: var(--crave-green);
     color: #fff;                    /* 7.7:1 on the indigo */
     font-family: Jost, ui-sans-serif, system-ui, sans-serif;
     font-size: clamp(9px, 2.4vw, 12px);
@@ -2694,7 +2694,7 @@
     height: 1px;
     margin: clamp(1.4rem, 5vw, 2.2rem) 0;
     border: 0;
-    background: rgba(36, 26, 20, 0.22);
+    background: rgba(14, 14, 12, 0.22);
   }
 
   .reunion__body {
@@ -2724,14 +2724,14 @@
     height: 100%;
     object-fit: cover;
     border-radius: clamp(10px, 2.4vw, 16px);
-    background: #171008;
+    background: #E8E5DE;
     /* The frame shadow ratios the experience section solved, against this
        section's own plate width. */
     --sh: clamp(180px, 60vw, 340px);
     box-shadow:
-      0 1px 2px rgba(36, 26, 20, 0.10),
-      0 calc(var(--sh) * 0.034) calc(var(--sh) * 0.081) rgba(36, 26, 20, 0.10),
-      0 calc(var(--sh) * 0.102) calc(var(--sh) * 0.203) rgba(196, 112, 38, 0.13);
+      0 1px 2px rgba(14, 14, 12, 0.10),
+      0 calc(var(--sh) * 0.034) calc(var(--sh) * 0.081) rgba(14, 14, 12, 0.10),
+      0 calc(var(--sh) * 0.102) calc(var(--sh) * 0.203) rgba(30, 62, 42, 0.11);
   }
 
   .reunion__cap {
@@ -2887,8 +2887,8 @@
        to marks that state nothing — the rule under the eyebrow, the ring around
        the photograph. Anything a guest reads or clicks takes --menu-accent
        (4.8:1) or --res-gold, which clears 3:1 as a non-text boundary. */
-    --res-hair: #D9B98A;
-    --res-gold: #9C7230;
+    --res-hair: #D8CFBC;
+    --res-gold: #7A6A48;
 
     --res-eyebrow:  clamp(0.66rem, 2.85vw, 0.76rem);
     --res-title:    clamp(2.35rem, 11.9vw, 3.6rem);
@@ -3202,7 +3202,7 @@
     width: max(1px, 0.08vw);
     background: linear-gradient(to bottom,
       var(--res-hair) 6%,
-      rgba(212, 173, 126, 0) 92%);
+      rgba(216, 207, 188, 0) 92%);
   }
 
   .reserve__icon {
@@ -3474,7 +3474,7 @@
        step deepening across the height of this block — far too small to
        read as a band, just enough that the page settles rather than ending
        on the same flat value it has held for three sections. */
-    background: linear-gradient(180deg, var(--cream) 0%, #FAF5F1 100%);
+    background: linear-gradient(180deg, var(--cream) 0%, #F5F2EC 100%);
     color: var(--menu-ink);
     font-family: Jost, ui-sans-serif, system-ui, sans-serif;
     text-align: center;
@@ -3498,7 +3498,7 @@
     line-height: 0.653;
     letter-spacing: 0.16em;
     white-space: nowrap;
-    color: rgba(36, 26, 20, 0.045);
+    color: rgba(14, 14, 12, 0.045);
     user-select: none;
     /* Once the mark is as wide as the screen allows, height is the only
        axis left. A 1.15 vertical scale thickens Cormorant's horizontal
@@ -3591,7 +3591,7 @@
   .ending__link:focus-visible::after { transform: scaleX(1); }
 
   .ending__link:focus-visible {
-    outline: 1px solid var(--li-red);
+    outline: 1px solid var(--crave-green);
     outline-offset: 4px;
     border-radius: 1px;
   }
@@ -3665,7 +3665,7 @@
     --cream: var(--ground);
   }
 
-  /* 1. The gold that bounds the WhatsApp button. index.html picked #9C7230
+  /* 1. The gold that bounds the WhatsApp button. index.html picked #7A6A48
         precisely because it clears 3:1 as a non-text boundary — on cream it
         makes it by 0.18, at 3.18:1. The peach is darker, and that margin was
         not there to spend: it falls to 2.81:1 and fails. Darkened until it
@@ -3673,7 +3673,7 @@
         ever decorative here (the rule, the ring), so no minimum applies to
         it, and on the button's dark hover state it still reads at 7.8:1. */
   .reserve {
-    --res-gold: #9C7230;
+    --res-gold: #7A6A48;
   }
 
   /* 2. The closing gradient's tail is a literal, so --cream cannot reach it.
@@ -3682,7 +3682,7 @@
         settles". Same step applied to the peach rather than a new value
         chosen by eye. Leaves the footer links at 6.2:1 at their dimmest. */
   .ending {
-    background: linear-gradient(180deg, var(--ground) 0%, #F4EBDD 100%);
+    background: linear-gradient(180deg, var(--ground) 0%, #F2EFE8 100%);
   }
 
   /* 3. The wordmark needed NO change, which is worth recording because it

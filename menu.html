@@ -17,7 +17,7 @@
 <link rel="icon" href="assets/favicon-16.png" sizes="16x16" type="image/png">
 <link rel="apple-touch-icon" href="assets/apple-touch-icon.png">
 <link rel="manifest" href="assets/site.webmanifest">
-<meta name="theme-color" content="#F6EEE1">
+<meta name="theme-color" content="#FBFAF7">
 <meta name="description" content="The Li’s carte — Peking duck, dim sum, seafood and the wok. Nairobi and Mombasa.">
 
 <link rel="preload" as="font" type="font/woff2" crossorigin href="assets/fonts/cormorant-garamond-normal-300-400.woff2">
@@ -122,7 +122,7 @@
 
   :root {
     /* GROUND. This page diverges from the homepage: where index.html sits on
-       --cream #FCF8F5, the menu sits on a muted peach. Named --ground rather
+       --cream #FCFBF9, the menu sits on a muted peach. Named --ground rather
        than --peach so the name survives the next experiment.
 
        hsl(22, 58%, 92%). The three numbers that keep it from going cheap:
@@ -137,19 +137,19 @@
        The ink is unchanged and clears 13.6:1 on it. The other two are NOT:
        peach is darker than cream, which cost both of them contrast, so each
        is re-derived against this ground rather than carried over. */
-    --ground:      #F6EEE1;  /* peach — every section on this page          */
-    --cream:       #FCF8F5;  /* the homepage's ground. Kept only so the      */
+    --ground:      #FBFAF7;  /* peach — every section on this page          */
+    --cream:       #FCFBF9;  /* the homepage's ground. Kept only so the      */
                              /* transplanted CSS has a defined fallback; it  */
                              /* is overridden to --ground where it is used.  */
-    --menu-ink:    #241A14;  /* 14.79:1 on the ground                       */
-    --menu-body:   #6A574A;  /*  5.93:1                                     */
-    --menu-accent: #A3221C;  /*  6.51:1 — the deep red, from the logo hue   */
+    --menu-ink:    #0E0E0C;  /* 14.79:1 on the ground                       */
+    --menu-body:   #57534C;  /*  5.93:1                                     */
+    --menu-accent: #2A6B41;  /*  6.51:1 — the deep red, from the logo hue   */
     /* The measured logo red. A DEVICE colour: it draws the mark and
-       never sets type. --li-red is the same hue darkened to carry
+       never sets type. --crave-green is the same hue darkened to carry
        text and fills — 6.51:1 on the ground, white on it 7.49:1. */
-    --brand-red: #CD393E;
-    --li-red:    #A3221C;
-    --hairline:    rgba(36, 26, 20, 0.18);
+    --brand-green: #009E2F;
+    --crave-green:    #2A6B41;
+    --hairline:    rgba(14, 14, 12, 0.18);
 
     /* The one scale unit the whole composition is built from. Pure vw
        overflows a wide-short window — 57.8vw of field height is 1110px at
@@ -215,7 +215,7 @@
     font-family: Jost, ui-sans-serif, system-ui, sans-serif;
   }
 
-  ::selection { background: rgba(153, 85, 28, 0.18); color: var(--menu-ink); }
+  ::selection { background: rgba(42, 107, 65, 0.18); color: var(--menu-ink); }
 
 
   /* ============================================================ flavors */
@@ -371,14 +371,14 @@
     position: relative;
     aspect-ratio: 3 / 4;
     overflow: hidden;
-    background: #EDDCD1;   /* holds the frame before the photograph paints */
+    background: #EAE7E0;   /* holds the frame before the photograph paints */
     /* Layered and warm. A neutral black shadow on peach goes grey and dirty;
        these are tinted toward the ember so the prints sit on the paper
        instead of hovering over it. Carried up a little from the cream build —
        a darker ground swallows a shadow, and at the old opacities the frames
        had started to look pasted on rather than laid down. */
     box-shadow:
-      0 1px 2px rgba(36, 26, 20, 0.06),
+      0 1px 2px rgba(14, 14, 12, 0.06),
       0 6px 14px rgba(122, 72, 38, 0.09),
       0 22px 48px rgba(122, 72, 38, 0.12);
   }
@@ -797,8 +797,8 @@
        to marks that state nothing — the rule under the eyebrow, the ring around
        the photograph. Anything a guest reads or clicks takes --menu-accent
        (4.8:1) or --res-gold, which clears 3:1 as a non-text boundary. */
-    --res-hair: #D9B98A;
-    --res-gold: #9C7230;
+    --res-hair: #D8CFBC;
+    --res-gold: #7A6A48;
 
     --res-eyebrow:  clamp(0.66rem, 2.85vw, 0.76rem);
     --res-title:    clamp(2.35rem, 11.9vw, 3.6rem);
@@ -1112,7 +1112,7 @@
     width: max(1px, 0.08vw);
     background: linear-gradient(to bottom,
       var(--res-hair) 6%,
-      rgba(212, 173, 126, 0) 92%);
+      rgba(216, 207, 188, 0) 92%);
   }
 
   .reserve__icon {
@@ -1384,7 +1384,7 @@
        step deepening across the height of this block — far too small to
        read as a band, just enough that the page settles rather than ending
        on the same flat value it has held for three sections. */
-    background: linear-gradient(180deg, var(--cream) 0%, #FAF5F1 100%);
+    background: linear-gradient(180deg, var(--cream) 0%, #F5F2EC 100%);
     color: var(--menu-ink);
     font-family: Jost, ui-sans-serif, system-ui, sans-serif;
     text-align: center;
@@ -1408,7 +1408,7 @@
     line-height: 0.653;
     letter-spacing: 0.16em;
     white-space: nowrap;
-    color: rgba(36, 26, 20, 0.045);
+    color: rgba(14, 14, 12, 0.045);
     user-select: none;
     /* Once the mark is as wide as the screen allows, height is the only
        axis left. A 1.15 vertical scale thickens Cormorant's horizontal
@@ -1501,7 +1501,7 @@
   .ending__link:focus-visible::after { transform: scaleX(1); }
 
   .ending__link:focus-visible {
-    outline: 1px solid var(--li-red);
+    outline: 1px solid var(--crave-green);
     outline-offset: 4px;
     border-radius: 1px;
   }
@@ -1575,7 +1575,7 @@
     --cream: var(--ground);
   }
 
-  /* 1. The gold that bounds the WhatsApp button. index.html picked #9C7230
+  /* 1. The gold that bounds the WhatsApp button. index.html picked #7A6A48
         precisely because it clears 3:1 as a non-text boundary — on cream it
         makes it by 0.18, at 3.18:1. The peach is darker, and that margin was
         not there to spend: it falls to 2.81:1 and fails. Darkened until it
@@ -1583,7 +1583,7 @@
         ever decorative here (the rule, the ring), so no minimum applies to
         it, and on the button's dark hover state it still reads at 7.8:1. */
   .reserve {
-    --res-gold: #9C7230;
+    --res-gold: #7A6A48;
   }
 
   /* 2. The closing gradient's tail is a literal, so --cream cannot reach it.
@@ -1592,7 +1592,7 @@
         settles". Same step applied to the peach rather than a new value
         chosen by eye. Leaves the footer links at 6.2:1 at their dimmest. */
   .ending {
-    background: linear-gradient(180deg, var(--ground) 0%, #F4EBDD 100%);
+    background: linear-gradient(180deg, var(--ground) 0%, #F2EFE8 100%);
   }
 
   /* 3. The wordmark needed NO change, which is worth recording because it

@@ -17,7 +17,7 @@
 <link rel="icon" href="assets/favicon-16.png" sizes="16x16" type="image/png">
 <link rel="apple-touch-icon" href="assets/apple-touch-icon.png">
 <link rel="manifest" href="assets/site.webmanifest">
-<meta name="theme-color" content="#F6EEE1">
+<meta name="theme-color" content="#FBFAF7">
 <meta name="description" content="Contact Li’s Chinese Restaurant — Gigiri Nairobi and Nyali Mombasa. Reservations, private dining and enquiries.">
 
 <link rel="preload" as="font" type="font/woff2" crossorigin href="assets/fonts/cormorant-garamond-normal-300-400.woff2">
@@ -136,18 +136,18 @@
        without being defined they do not error: every eased transform simply
        falls back to `ease`, and an entrance built on two solved overshoot
        curves quietly loses the overshoot that is its entire character. */
-    --ink:       #0B0806;
+    --ink:       #0E0E0C;
 
     /* The site's ground. Both sections below the hero sit on it, because a
        photograph is the only reason to leave it and neither has one. `body`
        stays on --ink; see the note there. */
-    --ground:      #F6EEE1;
+    --ground:      #FBFAF7;
 
     /* Re-derived on the peach rather than carried, and re-derived a second
-       time against #F4EBDD — the foot of .details' closing gradient, which
+       time against #F2EFE8 — the foot of .details' closing gradient, which
        is the BINDING ground on this page, not the flat peach:
 
-                        on #F6EEE1   on #F4EBDD   needs
+                        on #FBFAF7   on #F2EFE8   needs
          --menu-ink        13.60        13.25      4.5
          --menu-body        6.32         6.16      4.5
          --menu-accent      4.78         4.66      4.5
@@ -157,9 +157,9 @@
        Neither of the two that matter has room to spend: --res-gold clears
        3:1 at the foot by 0.17 and --menu-accent clears 4.5 by 0.16. Deepen
        that gradient's tail and BOTH must be re-derived. */
-    --menu-ink:    #241A14;
-    --menu-body:   #6A574A;
-    --menu-accent: #A3221C;
+    --menu-ink:    #0E0E0C;
+    --menu-body:   #57534C;
+    --menu-accent: #2A6B41;
 
     /* NOT A COLOUR, and it must not be used as one. It is the name the
        transplanted reserve and ending blocks use for "my ground", and
@@ -172,25 +172,25 @@
        here would need --cream AND --ember; only --cream is real. --ember is
        declared on index.html and about.html and READ NOWHERE on the site —
        menu.html carries both copies, does not declare it, and is fine. */
-    --cream:       #FCF8F5;
+    --cream:       #FCFBF9;
 
     /* Focus rings on the peach. The topbar above spells its own ring out in
        rgba() because it sits on a photograph and predates this block. */
     /* The measured logo red. A DEVICE colour: it draws the mark and
-       never sets type. --li-red is the same hue darkened to carry
+       never sets type. --crave-green is the same hue darkened to carry
        text and fills — 6.51:1 on the ground, white on it 7.49:1. */
-    --brand-red: #CD393E;
-    --li-red:    #A3221C;
+    --brand-green: #009E2F;
+    --crave-green:    #2A6B41;
 
     /* Non-text boundary only, at 3.26:1 on the peach. Here it is a 1px rule
        on a photograph, which is exactly the role the token is scoped to. */
-    --res-gold:  #9C7230;
+    --res-gold:  #7A6A48;
 
     /* Decorative on the peach, and this page is the first thing on the site
        to set TYPE in it — a new role for the token, so it is measured rather
        than assumed. Against the painted bed under the eyebrow it clears AA;
        the reading is at the foot of this file. */
-    --res-hair:  #D9B98A;
+    --res-hair:  #D8CFBC;
 
     /* 2.4% of about.html's reference width, at both ends. Carried, not
        re-derived: it is the same bar on the same kind of frame. */
@@ -533,7 +533,7 @@
   .topbar__link:focus-visible {
     outline: 1.5px solid rgba(255, 255, 255, 0.92);
     outline-offset: 6px;
-    box-shadow: 0 0 0 9px rgba(58, 82, 128, 0.30);
+    box-shadow: 0 0 0 9px rgba(42, 107, 65, 0.30);
     border-radius: 2px;
   }
 
@@ -620,7 +620,7 @@
     text-shadow:
       0 1px 2px  rgba(8, 5, 3, 0.42),
       0 4px 30px rgba(8, 5, 3, 0.52),
-      0 2px 74px rgba(46, 24, 8, 0.44);
+      0 2px 74px rgba(14, 22, 17, 0.30);
   }
 
   /* ------------------------------------------------------------ entrance */
@@ -810,7 +810,7 @@
     background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='200' height='200'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.8' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='200' height='200' filter='url(%23n)'/%3E%3C/svg%3E");
   }
 
-  .touch ::selection { background: rgba(153, 85, 28, 0.18); color: var(--menu-ink); }
+  .touch ::selection { background: rgba(42, 107, 65, 0.18); color: var(--menu-ink); }
 
   /* ------------------------------------------------ the drifting planes */
 
@@ -904,7 +904,7 @@
     /* The ending wordmark's alpha, and for the same reason: present and
        almost not there. Measured there as a +9 luminance delta, which is
        within a few points of the same on this ground. */
-    color: rgba(36, 26, 20, 0.042);
+    color: rgba(14, 14, 12, 0.042);
     user-select: none;
     transform: translate3d(0, calc((var(--drift) - 0.5) * -7svh), -260px);
   }
@@ -925,7 +925,7 @@
     display: block;
     width: calc(var(--tu) * 16);
     height: auto;
-    color: rgba(36, 26, 20, 0.05);
+    color: rgba(14, 14, 12, 0.05);
     transform: translate3d(0, calc((var(--drift) - 0.5) * 11svh), -120px);
   }
 
@@ -1172,7 +1172,7 @@
      rule already answers "which field am I in" for everyone else. Drawn
      outside the field so it never sits on the type. */
   .field__input:focus-visible + .field__rule {
-    outline: 1.5px solid var(--li-red);
+    outline: 1.5px solid var(--crave-green);
     outline-offset: 4px;
   }
 
@@ -1411,12 +1411,12 @@
 
        Two consequences, both good and both measured rather than assumed:
 
-         · CONTRAST IMPROVES. #F4EBDD was this page's binding ground, where
+         · CONTRAST IMPROVES. #F2EFE8 was this page's binding ground, where
            --res-gold cleared 3:1 by only 0.17 and --menu-accent cleared 4.5
-           by 0.16. The binding ground is now --ground #F6EEE1, which is
+           by 0.16. The binding ground is now --ground #FBFAF7, which is
            lighter, so both gain: 3.26:1 and 4.80:1.
          · THE SEAM INTO .locale DISAPPEARS. It was a measured step of 4 per
-           channel; both sides are now #F6EEE1 and it is 0.
+           channel; both sides are now #FBFAF7 and it is 0.
 
        THE GROUND MUST STILL BE DECLARED, and the first attempt at this did
        not. Dropping the gradient with nothing in its place falls through to
@@ -1429,7 +1429,7 @@
     color: var(--menu-ink);
   }
 
-  .details ::selection { background: rgba(153, 85, 28, 0.18); color: var(--menu-ink); }
+  .details ::selection { background: rgba(42, 107, 65, 0.18); color: var(--menu-ink); }
 
   /* THE CONNECTOR. This was a 2.6tu tick centred under a centred block; it
      is now a full-width hairline spanning the composition, and that change of
@@ -1453,10 +1453,10 @@
     margin: calc(var(--tu) * 4) 0 calc(var(--tu) * 3);
     border: 0;
     background: linear-gradient(to right,
-      rgba(212, 173, 126, 0) 0%,
+      rgba(216, 207, 188, 0) 0%,
       var(--res-hair) 12%,
       var(--res-hair) 88%,
-      rgba(212, 173, 126, 0) 100%);
+      rgba(216, 207, 188, 0) 100%);
   }
 
   /* TWO COLUMNS FROM 700px, STACKED BELOW IT. Asked for explicitly on
@@ -1533,10 +1533,10 @@
     height: max(1px, 0.08vw);
     transform: translateX(-50%);
     background: linear-gradient(to right,
-      rgba(212, 173, 126, 0) 0%,
+      rgba(216, 207, 188, 0) 0%,
       var(--res-hair) 34%,
       var(--res-hair) 66%,
-      rgba(212, 173, 126, 0) 100%);
+      rgba(216, 207, 188, 0) 100%);
   }
 
   .details__label {
@@ -1616,7 +1616,7 @@
   .details__value:active { transform: translateY(1px); }
 
   .details__value:focus-visible {
-    outline: 1.5px solid var(--li-red);
+    outline: 1.5px solid var(--crave-green);
     outline-offset: 6px;
     border-radius: 1px;
   }
@@ -1826,8 +1826,8 @@
        instead of pretending to a margin that is not there. */
     .touch__plane--kanji { right: -6%; }
     .touch__plane--mon   { left: -8%; bottom: 6%; }
-    .touch__kanji { color: rgba(36, 26, 20, 0.032); }
-    .touch__mon   { color: rgba(36, 26, 20, 0.038); }
+    .touch__kanji { color: rgba(14, 14, 12, 0.032); }
+    .touch__mon   { color: rgba(14, 14, 12, 0.038); }
   }
 
   @media (max-width: 639px) {
@@ -2006,9 +2006,9 @@
        photograph reads as a hole cut in the ground rather than as a plate
        resting on it. */
     box-shadow:
-      0 2px 6px    rgba(36, 26, 20, 0.10),
-      0 18px 40px -14px rgba(36, 26, 20, 0.34),
-      0 44px 84px -32px rgba(36, 26, 20, 0.26);
+      0 2px 6px    rgba(14, 14, 12, 0.10),
+      0 18px 40px -14px rgba(14, 14, 12, 0.34),
+      0 44px 84px -32px rgba(14, 14, 12, 0.26);
   }
 
   /* Hung --lu-travel above its frame and grown by twice that, so the drift
@@ -2066,11 +2066,11 @@
        and documented as "not a colour" — it exists only as the hinge the
        peach adaptation blocks turn. Reaching for it here would make this card
        silently change ground the next time that hinge is turned. */
-    background: rgba(252, 248, 245, 0.94);
+    background: rgba(252, 251, 249, 0.94);
     border-radius: calc(var(--lu) * 0.68);
     box-shadow:
-      0 1px 2px rgba(36, 26, 20, 0.16),
-      0 10px 26px -10px rgba(36, 26, 20, 0.42);
+      0 1px 2px rgba(14, 14, 12, 0.16),
+      0 10px 26px -10px rgba(14, 14, 12, 0.42);
   }
 
   .locale__card-eyebrow {
@@ -2109,10 +2109,10 @@
     align-items: center;
     gap: calc(var(--lu) * 0.62);
     padding: calc(var(--lu) * 0.72) calc(var(--lu) * 1.15);
-    background: var(--li-red);
+    background: var(--crave-green);
     border-radius: 999px;
     box-shadow:
-      0 1px 2px rgba(36, 26, 20, 0.22),
+      0 1px 2px rgba(14, 14, 12, 0.22),
       0 12px 28px -10px rgba(11, 8, 6, 0.5);
     white-space: nowrap;
   }
@@ -2129,7 +2129,7 @@
     font-weight: 400;
     line-height: 1;
     letter-spacing: 0.12em;
-    /* 7.0:1 on --li-red. */
+    /* 7.0:1 on --crave-green. */
     color: #fff;
   }
 
@@ -2378,10 +2378,10 @@
      Decorative either way: a separator carries no information the heading
      above it does not, so no contrast minimum applies. */
   .faq__item {
-    border-top: 1px solid rgba(36, 26, 20, 0.13);
+    border-top: 1px solid rgba(14, 14, 12, 0.13);
   }
   .faq__item:last-child {
-    border-bottom: 1px solid rgba(36, 26, 20, 0.13);
+    border-bottom: 1px solid rgba(14, 14, 12, 0.13);
   }
 
   .faq__q {
@@ -2547,8 +2547,8 @@
        to marks that state nothing — the rule under the eyebrow, the ring around
        the photograph. Anything a guest reads or clicks takes --menu-accent
        (4.8:1) or --res-gold, which clears 3:1 as a non-text boundary. */
-    --res-hair: #D9B98A;
-    --res-gold: #9C7230;
+    --res-hair: #D8CFBC;
+    --res-gold: #7A6A48;
 
     --res-eyebrow:  clamp(0.66rem, 2.85vw, 0.76rem);
     --res-title:    clamp(2.35rem, 11.9vw, 3.6rem);
@@ -2862,7 +2862,7 @@
     width: max(1px, 0.08vw);
     background: linear-gradient(to bottom,
       var(--res-hair) 6%,
-      rgba(212, 173, 126, 0) 92%);
+      rgba(216, 207, 188, 0) 92%);
   }
 
   .reserve__icon {
@@ -3134,7 +3134,7 @@
        step deepening across the height of this block — far too small to
        read as a band, just enough that the page settles rather than ending
        on the same flat value it has held for three sections. */
-    background: linear-gradient(180deg, var(--cream) 0%, #FAF5F1 100%);
+    background: linear-gradient(180deg, var(--cream) 0%, #F5F2EC 100%);
     color: var(--menu-ink);
     font-family: Jost, ui-sans-serif, system-ui, sans-serif;
     text-align: center;
@@ -3158,7 +3158,7 @@
     line-height: 0.653;
     letter-spacing: 0.16em;
     white-space: nowrap;
-    color: rgba(36, 26, 20, 0.045);
+    color: rgba(14, 14, 12, 0.045);
     user-select: none;
     /* Once the mark is as wide as the screen allows, height is the only
        axis left. A 1.15 vertical scale thickens Cormorant's horizontal
@@ -3251,7 +3251,7 @@
   .ending__link:focus-visible::after { transform: scaleX(1); }
 
   .ending__link:focus-visible {
-    outline: 1px solid var(--li-red);
+    outline: 1px solid var(--crave-green);
     outline-offset: 4px;
     border-radius: 1px;
   }
@@ -3415,8 +3415,8 @@
        typed value  13.60:1
        body          6.32:1
        send border   3.26:1   (UI boundary)
-       details value 13.25:1  against #F4EBDD, the gradient's foot
-       details label  4.66:1  against #F4EBDD
+       details value 13.25:1  against #F2EFE8, the gradient's foot
+       details label  4.66:1  against #F2EFE8
 
      All four field rules paint rgb(172, 118, 52) at lum 124.7 — sampled
      from the render, because at four different y they read as two
@@ -3472,13 +3472,13 @@
      survives re-proportioning the columns and fails only if the two rows
      genuinely stop agreeing.
 
-     CONTRAST, re-derived after the closing gradient was removed. #F4EBDD
-     was this page's binding ground and it is now --ground #F6EEE1, which is
+     CONTRAST, re-derived after the closing gradient was removed. #F2EFE8
+     was this page's binding ground and it is now --ground #FBFAF7, which is
      lighter, so everything measured against it gained:
 
        field rule    3.26:1   (UI boundary, WCAG 1.4.11, needs 3)
        field label   4.78:1
-       details value 13.60:1  (was 13.25 against #F4EBDD)
+       details value 13.60:1  (was 13.25 against #F2EFE8)
        details label  4.80:1  (was 4.66)
 
      REDUCED MOTION: nothing is left transformed or faded, no inline --drift
@@ -3511,19 +3511,19 @@
     --cream: var(--ground);
   }
 
-  /* 1. The gold that bounds the WhatsApp button. index.html picked #9C7230
+  /* 1. The gold that bounds the WhatsApp button. index.html picked #7A6A48
         precisely because it clears 3:1 as a non-text boundary — on cream it
         makes it by 0.18, at 3.18:1. The peach is darker, and that margin was
         not there to spend: it falls to 2.81:1 and fails. Darkened until it
         clears again with room, 3.26:1.
 
-        THIS OVERRIDE IS REQUIRED EVEN THOUGH :root ALREADY CARRIES #9C7230,
+        THIS OVERRIDE IS REQUIRED EVEN THOUGH :root ALREADY CARRIES #7A6A48,
         which is the trap worth spelling out: the copied .reserve rule
-        declares --res-gold: #9C7230 on ITSELF, and a declaration on the
+        declares --res-gold: #7A6A48 on ITSELF, and a declaration on the
         element beats one on :root. Deleting this block because the token
         "is already correct globally" silently puts the cream value back. */
   .reserve {
-    --res-gold: #9C7230;
+    --res-gold: #7A6A48;
   }
 
   /* 2. The closing gradient's tail is a literal, so --cream cannot reach it.
@@ -3532,7 +3532,7 @@
         settles". Same step applied to the peach rather than a new value
         chosen by eye. Leaves the footer links at 6.2:1 at their dimmest. */
   .ending {
-    background: linear-gradient(180deg, var(--ground) 0%, #F4EBDD 100%);
+    background: linear-gradient(180deg, var(--ground) 0%, #F2EFE8 100%);
   }
 
   /* 3. The wordmark needed NO change, which is worth recording because it
