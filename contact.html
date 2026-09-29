@@ -5,8 +5,8 @@
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
 <title>Crave — We Are at Your Service</title>
 <link rel="preload" as="image" type="image/avif"
-      imagesrcset="assets/img/r/contact-hero-1090.avif 1090w, assets/img/r/contact-hero-1310.avif 1310w, assets/img/r/contact-hero-1570.avif 1570w, assets/img/r/contact-hero-2000.avif 2000w"
-      imagesizes="106.7vw" fetchpriority="high">
+      imagesrcset="assets/img/r/contact-hero-1090.avif 1090w, assets/img/r/contact-hero-1310.avif 1310w, assets/img/r/contact-hero-2000.avif 2000w"
+      imagesizes="106.6vw" fetchpriority="high">
 <!-- Site icon. Two drawings, not one file scaled: the SVG and the two small
      PNGs carry the mark reduced to the ring and the chopsticks, because the
      full mark with its lettering turns to mush below ~48px; the touch icon
@@ -267,8 +267,15 @@
     /* As on index.html and about.html: the body stays on --ink behind a
        full-viewport photograph, so a frame that fails to load leaves white
        type on black rather than white type on nothing. */
-    background: var(--ink);
-    color: #fff;
+    /* WAS --ink. It was the ink so a frame that failed to load left the type
+       on it readable — white on black. The photography inverted on 2026-09-28
+       and the type over these frames is DARK, so black is now the one ground
+       that hides it. Same reason, opposite value. */
+    background: var(--ground);
+    /* INVERTED 2026-09-28 with the photography: the frame under this type is
+       a bright room now, so the type is the ink and every halo below is a
+       LIGHT one. */
+    color: var(--ink);
     font-family: Jost, ui-sans-serif, system-ui, sans-serif;
   }
 
@@ -351,24 +358,31 @@
      its last readable detail, so the band is the lighter of the two. Do not
      chase the 15 — there is nothing down there to darken. */
   .hero__wash {
+    /* INVERTED 2026-09-28. Every stop below kept its ALPHA and changed its
+       COLOUR. The alphas were solved for how much separation this composition
+       needs between type and photograph, and that quantity did not change when
+       the photograph got brighter and the type went dark — only the direction
+       the separation has to run. Re-measure rather than trusting that, but it
+       is the right starting point and it is why the numbers look familiar. */
+
     position: absolute;
     inset: 0;
     z-index: 2;
     pointer-events: none;
     background:
       radial-gradient(76% 68% at 46% 50%,
-        rgba(6, 4, 3, 0.00)  0%,
-        rgba(6, 4, 3, 0.16) 50%,
-        rgba(6, 4, 3, 0.52) 76%,
-        rgba(6, 4, 3, 0.82) 100%),
+        rgba(251, 250, 247, 0.0)  0%,
+        rgba(251, 250, 247, 0.16) 50%,
+        rgba(251, 250, 247, 0.4) 76%,
+        rgba(251, 250, 247, 0.53) 100%),
       linear-gradient(180deg,
-        rgba(6, 4, 3, 0.44) 0%,
-        rgba(6, 4, 3, 0.18) 12%,
-        rgba(6, 4, 3, 0.00) 26%),
+        rgba(251, 250, 247, 0.36) 0%,
+        rgba(251, 250, 247, 0.18) 12%,
+        rgba(251, 250, 247, 0.0) 26%),
       linear-gradient(0deg,
-        rgba(6, 4, 3, 0.40) 0%,
-        rgba(6, 4, 3, 0.16) 13%,
-        rgba(6, 4, 3, 0.00) 30%);
+        rgba(251, 250, 247, 0.35) 0%,
+        rgba(251, 250, 247, 0.16) 13%,
+        rgba(251, 250, 247, 0.0) 30%);
   }
 
   /* A bed that travels with the type rather than a scrim over the frame —
@@ -397,9 +411,9 @@
     transform: translate(-50%, -50%);
     pointer-events: none;
     background: radial-gradient(50% 50% at 50% 50%,
-      rgba(6, 4, 3, 0.24) 0%,
-      rgba(6, 4, 3, 0.14) 60%,
-      rgba(6, 4, 3, 0.00) 100%);
+      rgba(251, 250, 247, 0.24) 0%,
+      rgba(251, 250, 247, 0.14) 60%,
+      rgba(251, 250, 247, 0.0) 100%);
   }
 
   /* Grain, at the threshold of visibility. It is here to break the banding
@@ -424,7 +438,11 @@
     inset: 0;
     z-index: 5;
     pointer-events: none;
-    background: var(--ink);
+    /* WAS --ink. It was the ink so a frame that failed to load left the type
+       on it readable — white on black. The photography inverted on 2026-09-28
+       and the type over these frames is DARK, so black is now the one ground
+       that hides it. Same reason, opposite value. */
+    background: var(--ground);
     animation: lift 1200ms var(--ease-quiet) both;
   }
 
@@ -453,13 +471,13 @@
     margin-right: -0.16em;
     text-transform: uppercase;
     text-decoration: none;
-    color: rgba(255, 255, 255, 0.94);
-    text-shadow: 0 1px 14px rgba(8, 5, 3, 0.70);
+    color: rgba(14, 14, 12, 0.94);
+    text-shadow: 0 1px 14px rgba(251, 250, 247, 0.85);
     transition: color 220ms var(--ease-quiet);
   }
 
   .topbar__brand:hover,
-  .topbar__brand:focus-visible { color: #fff; }
+  .topbar__brand:focus-visible { color: var(--ink); }
 
   /* The hit area goes to 44px OUTSIDE layout, so the bar's measured
      alignment is not traded away to buy a tap target. */
@@ -489,8 +507,8 @@
     margin-right: -0.16em;
     text-transform: uppercase;
     text-decoration: none;
-    color: rgba(255, 255, 255, 0.64);
-    text-shadow: 0 1px 14px rgba(8, 5, 3, 0.70);
+    color: rgba(14, 14, 12, 0.70);
+    text-shadow: 0 1px 14px rgba(251, 250, 247, 0.85);
     transition: color 220ms var(--ease-quiet);
   }
 
@@ -520,18 +538,18 @@
   }
 
   .topbar__link:hover,
-  .topbar__link:focus-visible { color: #fff; }
+  .topbar__link:focus-visible { color: var(--ink); }
 
   .topbar__link:hover::after,
   .topbar__link:focus-visible::after { transform: scaleX(1); }
 
   /* The page you are on is stated, not linked away from. */
-  .topbar__link[aria-current="page"] { color: #fff; }
+  .topbar__link[aria-current="page"] { color: var(--ink); }
   .topbar__link[aria-current="page"]::after { transform: scaleX(1); }
 
   .topbar__brand:focus-visible,
   .topbar__link:focus-visible {
-    outline: 1.5px solid rgba(255, 255, 255, 0.92);
+    outline: 1.5px solid rgba(14, 14, 12, 0.92);
     outline-offset: 6px;
     box-shadow: 0 0 0 9px rgba(42, 107, 65, 0.30);
     border-radius: 2px;
@@ -564,8 +582,22 @@
     line-height: 1;
     letter-spacing: 0.34em;
     text-transform: uppercase;
-    color: var(--res-hair);
-    text-shadow: 0 1px 14px rgba(8, 5, 3, 0.72);
+    /* WAS --res-hair, and that was right on a dark photograph and is exactly
+       wrong on a bright one: #D8CFBC is a LIGHT hairline and it disappears
+       into a sunlit room. --res-gold is the same role at the other polarity —
+       a boundary/utility value that also carries small type, 5.05:1 on the
+       ground. THE EYEBROW, NOT THE HEADING, SETS THIS PAGE'S CONTRAST FLOOR:
+       the heading has ~16:1 where it needs 3 and never binds; this is 12.4px
+       held to 4.5:1 and it runs out first.
+
+       --res-gold was tried and MEASURED 2:1. On a bed of 159 of 255 there is
+       very little room: the arithmetic says the ink has to be at or below
+       sRGB 54 to clear 4.5, which rules out --res-gold (2.0), --menu-body
+       (2.9) and --menu-accent (2.4) alike. Only the ink itself clears, at
+       7.2. At 12.4px with 0.34em of tracking it still reads as a label
+       rather than as a shout. Measured per viewport by shoot-contact.mjs. */
+    color: var(--menu-ink);
+    text-shadow: 0 1px 14px rgba(251, 250, 247, 0.85);
   }
 
   /* The signature, and the only flourish on the page: the site's link
@@ -618,8 +650,8 @@
        hairline serif from the photograph, a mid halo, and a wide warm one so
        the line sits inside the room's light rather than on top of it. */
     text-shadow:
-      0 1px 2px  rgba(8, 5, 3, 0.42),
-      0 4px 30px rgba(8, 5, 3, 0.52),
+      0 1px 2px  rgba(251, 250, 247, 0.42),
+      0 4px 30px rgba(251, 250, 247, 0.52),
       0 2px 74px rgba(14, 22, 17, 0.30);
   }
 
@@ -728,17 +760,17 @@
     .hero__wash {
       background:
         radial-gradient(98% 64% at 46% 50%,
-          rgba(6, 4, 3, 0.00)  0%,
-          rgba(6, 4, 3, 0.18) 52%,
-          rgba(6, 4, 3, 0.48) 100%),
+          rgba(251, 250, 247, 0.0)  0%,
+          rgba(251, 250, 247, 0.18) 52%,
+          rgba(251, 250, 247, 0.38) 100%),
         linear-gradient(180deg,
-          rgba(6, 4, 3, 0.62) 0%,
-          rgba(6, 4, 3, 0.10) 18%,
-          rgba(6, 4, 3, 0.00) 34%),
+          rgba(251, 250, 247, 0.44) 0%,
+          rgba(251, 250, 247, 0.1) 18%,
+          rgba(251, 250, 247, 0.0) 34%),
         linear-gradient(0deg,
-          rgba(6, 4, 3, 0.58) 0%,
-          rgba(6, 4, 3, 0.14) 20%,
-          rgba(6, 4, 3, 0.00) 38%);
+          rgba(251, 250, 247, 0.43) 0%,
+          rgba(251, 250, 247, 0.14) 20%,
+          rgba(251, 250, 247, 0.0) 38%);
     }
 
     .hero__eyebrow { letter-spacing: 0.30em; margin-right: -0.30em; }
@@ -2128,7 +2160,7 @@
     line-height: 1;
     letter-spacing: 0.12em;
     /* 7.0:1 on --crave-green. */
-    color: #fff;
+    color: var(--ink);
   }
 
   /* Non-text, so --res-gold is in exactly the role the token is scoped to.
@@ -3407,9 +3439,9 @@
   -->
   <div class="hero__media">
     <picture>
-      <source type="image/avif" sizes="106.7vw"
-              srcset="assets/img/r/contact-hero-1090.avif 1090w, assets/img/r/contact-hero-1310.avif 1310w, assets/img/r/contact-hero-1570.avif 1570w, assets/img/r/contact-hero-2000.avif 2000w">
-      <source type="image/webp" sizes="106.7vw"
+      <source type="image/avif" sizes="106.6vw"
+              srcset="assets/img/r/contact-hero-1090.avif 1090w, assets/img/r/contact-hero-1310.avif 1310w, assets/img/r/contact-hero-2000.avif 2000w">
+      <source type="image/webp" sizes="106.6vw"
               srcset="assets/img/r/contact-hero-1090.webp 1090w, assets/img/r/contact-hero-2000.webp 2000w">
       <img class="hero__img" src="assets/img/contact-hero.jpg" alt=""
          fetchpriority="high" decoding="sync" width="2000" height="1333" loading="eager">
@@ -3648,9 +3680,9 @@
     <figure class="locale__frame">
       <!-- PLACEHOLDER — the Mombasa waterfront, not Links Road in Nyali. See above. -->
       <picture>
-        <source type="image/avif" sizes="85.3vw"
+        <source type="image/avif" sizes="85.4vw"
                 srcset="assets/img/r/locale-mombasa-880.avif 880w, assets/img/r/locale-mombasa-1050.avif 1050w, assets/img/r/locale-mombasa-1260.avif 1260w, assets/img/r/locale-mombasa-1570.avif 1570w, assets/img/r/locale-mombasa-2000.avif 2000w">
-        <source type="image/webp" sizes="85.3vw"
+        <source type="image/webp" sizes="85.4vw"
                 srcset="assets/img/r/locale-mombasa-880.webp 880w, assets/img/r/locale-mombasa-2000.webp 2000w">
         <img class="locale__img" src="assets/img/locale-mombasa.jpg" width="2000" height="1125"
            alt="The Mombasa waterfront: white apartment buildings and palms on a green bluff above the water." loading="lazy" decoding="async" fetchpriority="low" data-warm=".locale--mombasa">
@@ -3932,14 +3964,13 @@
       </svg>
       <div class="reserve__frame">
         <picture>
-          <source type="image/avif" sizes="(max-width: 1000px) 100.9vw, 62.6vw"
-                  srcset="assets/img/r/reserve-interior-640.avif 640w, assets/img/r/reserve-interior-770.avif 770w, assets/img/r/reserve-interior-920.avif 920w, assets/img/r/reserve-interior-1150.avif 1150w, assets/img/r/reserve-interior-1400.avif 1400w">
-          <source type="image/webp" sizes="(max-width: 1000px) 100.9vw, 62.6vw"
-                  srcset="assets/img/r/reserve-interior-640.webp 640w, assets/img/r/reserve-interior-1400.webp 1400w">
+          <source type="image/avif" sizes="(max-width: 1000px) 100.7vw, 62.4vw"
+                  srcset="assets/img/r/reserve-interior-650.avif 650w, assets/img/r/reserve-interior-770.avif 770w, assets/img/r/reserve-interior-930.avif 930w, assets/img/r/reserve-interior-1160.avif 1160w, assets/img/r/reserve-interior-1400.avif 1400w">
+          <source type="image/webp" sizes="(max-width: 1000px) 100.7vw, 62.4vw"
+                  srcset="assets/img/r/reserve-interior-650.webp 650w, assets/img/r/reserve-interior-1400.webp 1400w">
           <img class="reserve__img" src="assets/img/reserve-interior.jpg"
              width="1400" height="1576"
-             alt="A warm, low-lit dining room: dark timber, a long run of small
-                  pendant lights, tables laid and waiting along one side."
+             alt="A laid table in a light-filled dining room, plates and glasses set for a meal."
              loading="lazy" decoding="async" fetchpriority="low">
         </picture>
       </div>

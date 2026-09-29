@@ -5,8 +5,8 @@
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
 <title>Crave — Satisfying Every Craving</title>
 <link rel="preload" as="image" type="image/avif"
-      imagesrcset="assets/img/r/lis-hero-290.avif 290w, assets/img/r/lis-hero-360.avif 360w, assets/img/r/lis-hero-520.avif 520w, assets/img/r/lis-hero-700.avif 700w, assets/img/r/lis-hero-1040.avif 1040w, assets/img/r/lis-hero-1250.avif 1250w, assets/img/r/lis-hero-1717.avif 1717w"
-      imagesizes="101.6vw" fetchpriority="high">
+      imagesrcset="assets/img/r/crave-hero-290.avif 290w, assets/img/r/crave-hero-430.avif 430w, assets/img/r/crave-hero-520.avif 520w, assets/img/r/crave-hero-700.avif 700w, assets/img/r/crave-hero-1040.avif 1040w, assets/img/r/crave-hero-1250.avif 1250w, assets/img/r/crave-hero-1717.avif 1717w"
+      imagesizes="101.7vw" fetchpriority="high">
 <!-- Site icon. Two drawings, not one file scaled: the SVG and the two small
      PNGs carry the plaque alone with its stroke thickened, because at 16px the
      mark's own 5.2/100 stroke lands at 0.83px and its lettering at well under
@@ -98,15 +98,15 @@
      browser picked, so a future re-bake with a different ladder cannot move
      the marquee.
      --------------------------------------------------------------------- */
-  .beyond__track img[src$="dish1-duck.jpg"] { aspect-ratio: 856 / 560; }
+  .beyond__track img[src$="dish1-fries.jpg"] { aspect-ratio: 856 / 560; }
   .beyond__track img[src$="dish2-prawns.jpg"] { aspect-ratio: 671 / 560; }
-  .beyond__track img[src$="dish3-bao.jpg"] { aspect-ratio: 510 / 560; }
-  .beyond__track img[src$="dish4-dimsum.jpg"] { aspect-ratio: 445 / 560; }
-  .beyond__track img[src$="dish5-rice.jpg"] { aspect-ratio: 563 / 560; }
-  .beyond__track img[src$="dish6-noodles.jpg"] { aspect-ratio: 564 / 560; }
-  .beyond__track img[src$="dish7-sizzling.jpg"] { aspect-ratio: 637 / 560; }
-  .beyond__track img[src$="dish8-springroll.jpg"] { aspect-ratio: 450 / 560; }
-  .beyond__track img[src$="dish9-duckslice.jpg"] { aspect-ratio: 306 / 560; }
+  .beyond__track img[src$="dish3-pancakes.jpg"] { aspect-ratio: 510 / 560; }
+  .beyond__track img[src$="dish4-waffle.jpg"] { aspect-ratio: 445 / 560; }
+  .beyond__track img[src$="dish5-burger.jpg"] { aspect-ratio: 563 / 560; }
+  .beyond__track img[src$="dish6-wings.jpg"] { aspect-ratio: 564 / 560; }
+  .beyond__track img[src$="dish7-steak.jpg"] { aspect-ratio: 637 / 560; }
+  .beyond__track img[src$="dish8-cheesecake.jpg"] { aspect-ratio: 450 / 560; }
+  .beyond__track img[src$="dish9-shake.jpg"] { aspect-ratio: 306 / 560; }
 
   /* ---------------------------------------------------------------------
      Li's — hero
@@ -139,7 +139,13 @@
 
   body {
     margin: 0;
-    background: var(--ink);
+    /* WAS --ink, and the reason it was is what changed. It was the ink so a
+       failed hero image left WHITE type on black rather than white type on the
+       ground. The photography inverted on 2026-09-28 and the type over both
+       full-viewport frames is now DARK, so an unchanged --ink would leave dark
+       type on black — invisible. The reason survives the inversion; the value
+       does not. */
+    background: var(--ground);
     color: #fff;
     font-family: Jost, ui-sans-serif, system-ui, sans-serif;
   }
@@ -175,8 +181,12 @@
     animation: drift 42s var(--ease-quiet) infinite alternate;
   }
 
-  /* Elevated plane — grade. A warm multiply pass keeps the tungsten
-     glow and stops the twilight window going electric-blue. */
+  /* Elevated plane — grade. RE-SOLVED 2026-09-28 with the photography. The
+     old pass was a warm MULTIPLY that pulled the corners down by 26% to hold a
+     tungsten-lit room together; on a daylight room the same pass reads as a
+     dirty lens, which is the same reason the baked vignettes went. It is a
+     screen now, and a tenth of the strength: just enough to keep the window
+     from going cold at the right edge. */
   .hero__warm {
     position: absolute;
     inset: 0;
@@ -184,13 +194,20 @@
     pointer-events: none;
     background:
       radial-gradient(128% 110% at 70% 54%,
-        rgba(226, 150, 70, 0.08) 0%,
-        rgba(40, 22, 10, 0.26) 76%);
-    mix-blend-mode: multiply;
+        rgba(255, 236, 206, 0.10) 0%,
+        rgba(255, 244, 228, 0.00) 76%);
+    mix-blend-mode: screen;
   }
 
   /* The wash that buys legibility: heavy at the left where the branding
-     sits, gone by the two-thirds mark so the counter keeps its light. */
+     sits, gone by the two-thirds mark so the room keeps its light.
+
+     IT LIGHTENS NOW INSTEAD OF DARKENING, and that is the whole inversion in
+     one declaration. The type over this frame is dark, so legibility is bought
+     by raising what is under it, not by lowering it. The stops are the same
+     shape and the same positions — 60/40/10/0 across, 34/0/0/38 down — because
+     the composition they were solved for has not moved; only the colour they
+     are drawn in has. */
   .hero__wash {
     position: absolute;
     inset: 0;
@@ -198,15 +215,15 @@
     pointer-events: none;
     background:
       linear-gradient(90deg,
-        rgba(8, 5, 3, 0.60) 0%,
-        rgba(8, 5, 3, 0.40) 30%,
-        rgba(8, 5, 3, 0.10) 62%,
-        rgba(8, 5, 3, 0.00) 100%),
+        rgba(251, 250, 247, 0.60) 0%,
+        rgba(251, 250, 247, 0.40) 30%,
+        rgba(251, 250, 247, 0.10) 62%,
+        rgba(251, 250, 247, 0.00) 100%),
       linear-gradient(180deg,
-        rgba(8, 5, 3, 0.34) 0%,
-        rgba(8, 5, 3, 0.00) 24%,
-        rgba(8, 5, 3, 0.00) 64%,
-        rgba(8, 5, 3, 0.38) 100%);
+        rgba(251, 250, 247, 0.34) 0%,
+        rgba(251, 250, 247, 0.00) 24%,
+        rgba(251, 250, 247, 0.00) 64%,
+        rgba(251, 250, 247, 0.38) 100%);
   }
 
   /* Grain, at the threshold of visibility — it exists to break up the
@@ -233,13 +250,14 @@
     top: clamp(24px, 5vh, 52px);
     width: var(--mark-size);
     height: var(--mark-size);
-    color: #fff;
+    color: var(--ink);
     opacity: 0.96;
-    /* The mon is a hairline at this size, so it gets a tight shadow for edge
-       separation plus a wide one to sit it into the ceiling shadow. */
+    /* The plaque is a hairline at this size, so it gets a tight halo for edge
+       separation plus a wide one to sit it into the room's light. Both are
+       LIGHT, as the wordmark's shadows are, and for the same reason. */
     filter:
-      drop-shadow(0 1px 3px rgba(8, 5, 3, 0.60))
-      drop-shadow(0 2px 26px rgba(8, 5, 3, 0.70));
+      drop-shadow(0 1px 3px rgba(251, 250, 247, 0.70))
+      drop-shadow(0 2px 26px rgba(251, 250, 247, 0.80));
   }
 
   .hero__brand {
@@ -275,10 +293,13 @@
     bottom: -85%;
     z-index: -1;
     pointer-events: none;
+    /* LIGHT, not dark. A bed exists to separate type from a photograph, and
+       which direction it works in is decided by the type's colour, not by
+       habit. Under dark type a dark bed does the opposite of its job. */
     background: radial-gradient(64% 56% at 52% 50%,
-      rgba(8, 5, 3, 0.70) 0%,
-      rgba(8, 5, 3, 0.46) 50%,
-      rgba(8, 5, 3, 0.00) 82%);
+      rgba(251, 250, 247, 0.70) 0%,
+      rgba(251, 250, 247, 0.46) 50%,
+      rgba(251, 250, 247, 0.00) 82%);
   }
 
   .hero__name {
@@ -311,13 +332,16 @@
     letter-spacing: 0.22em;
     /* Indent-correct: tracking adds a trailing space after the final E. */
     margin-right: -0.22em;
-    /* Three layers: a tight edge to separate the hairline serif from the
-       stone, a mid halo, and a wide warm one so the type sits inside the
-       room's light rather than on top of it. */
+    color: var(--ink);
+    /* Three layers, and all three are LIGHT now: a tight edge to separate the
+       hairline serif from the floor, a mid halo, and a wide one so the type
+       sits inside the room's light rather than on top of it. A hairline
+       Cormorant at 300 over a photograph needs the separation whichever way
+       round the contrast runs. */
     text-shadow:
-      0 1px 2px  rgba(8, 5, 3, 0.40),
-      0 4px 28px rgba(8, 5, 3, 0.50),
-      0 2px 70px rgba(46, 24, 8, 0.45);
+      0 1px 2px  rgba(251, 250, 247, 0.55),
+      0 4px 28px rgba(251, 250, 247, 0.65),
+      0 2px 70px rgba(251, 250, 247, 0.55);
   }
 
   .hero__tagline {
@@ -329,7 +353,7 @@
     letter-spacing: 0.34em;
     margin-right: -0.34em;
     text-transform: uppercase;
-    color: rgba(255, 255, 255, 0.80);
+    color: rgba(14, 14, 12, 0.82);
     text-shadow: 0 1px 16px rgba(11, 8, 6, 0.6);
   }
 
@@ -345,7 +369,7 @@
     place-items: center;
     width: clamp(20px, 1.45vw, 22px);
     height: clamp(20px, 1.45vw, 22px);
-    color: rgba(255, 255, 255, 0.90);
+    color: rgba(14, 14, 12, 0.90);
     border-radius: 3px;
     transition:
       color 260ms var(--ease-quiet),
@@ -359,8 +383,8 @@
     filter: drop-shadow(0 1px 12px rgba(11, 8, 6, 0.55));
   }
 
-  .hero__social a:hover  { color: #fff; transform: translateY(-2px); }
-  .hero__social a:active { color: #fff; transform: translateY(0); }
+  .hero__social a:hover  { color: var(--ink); transform: translateY(-2px); }
+  .hero__social a:active { color: var(--ink); transform: translateY(0); }
 
   .hero__social a:focus-visible {
     outline: 1.5px solid rgba(255, 255, 255, 0.92);
@@ -448,7 +472,7 @@
        58%              4.09                3.70  FAILS        11.31
 
      50% is kept. Left of it the flame slides out of frame and the phone gets
-     a dark kitchen with a wok in it; right of it the flame climbs onto the
+     the dark chairs and the table; right of it the light from the window
      type and the tagline is under its floor by 58%. The wider frame IMPROVED
      two of the three margins against the 1.874:1 solve it replaces
      (4.80 / 6.56 / 8.07), because the flame is now a smaller share of what a
@@ -517,31 +541,38 @@
        own shadow and starts being a scrim, and at 0.86 it reads as a smudge
        laid over the photograph. That is the one thing a bed here must not
        do. */
+    /* INVERTED 2026-09-28 with the photography, and this is the SECOND of the
+       two bed declarations — the base one is up near .hero__brand and below
+       640px it is THIS one that governs. Editing only the base produces a
+       sweep where every candidate reports identical numbers, which is the
+       signature of a bed that is not being measured at all. */
     .hero__brand::before {
       left: -58%;
       right: -58%;
       background: radial-gradient(68% 60% at 54% 50%,
-        rgba(8, 5, 3, 0.64) 0%,
-        rgba(8, 5, 3, 0.38) 52%,
-        rgba(8, 5, 3, 0.00) 84%);
+        rgba(251, 250, 247, 0.34) 0%,
+        rgba(251, 250, 247, 0.18) 52%,
+        rgba(251, 250, 247, 0.00) 84%);
     }
 
-    /* Far less wash than the desktop needs: this slice is already dark, and
-       stacking a heavy scrim on it turns the room to mud. Re-pointed for the
-       type's new place — the weight is in the bottom quarter now, under the
-       brand block, and the top is lighter than it was because the hood above
-       the counter is already near black and 0.40 flattened it to a dead
-       band. The 28-54% window is left almost clear: that is the lit
-       stone, the vase and the chef, and it is the whole reason for the
-       crop. */
+    /* INVERTED with the photography, and REWEIGHTED for what this frame
+       actually holds. The desktop's 90deg gradient does nothing useful here:
+       a portrait crop takes a 28% slice out of the middle of the frame, so
+       there is no "left third" left to lift. All of the work is vertical.
+
+       The weight is in the bottom half, under the brand block, because that
+       is the part of this crop the chairs and the table occupy — measured,
+       the bed under the wordmark read 82 against the mark's 171 at the top.
+       The 0-28% window stays light: that is the far wall and the window, and
+       lifting it further only flattens it. */
     .hero__wash {
       background:
         linear-gradient(180deg,
-          rgba(8, 5, 3, 0.26) 0%,
-          rgba(8, 5, 3, 0.05) 28%,
-          rgba(8, 5, 3, 0.06) 54%,
-          rgba(8, 5, 3, 0.24) 76%,
-          rgba(8, 5, 3, 0.44) 100%);
+          rgba(251, 250, 247, 0.10) 0%,
+          rgba(251, 250, 247, 0.06) 28%,
+          rgba(251, 250, 247, 0.30) 54%,
+          rgba(251, 250, 247, 0.52) 76%,
+          rgba(251, 250, 247, 0.62) 100%);
     }
   }
 
@@ -2147,11 +2178,11 @@
         phone; the full frame is only 1.8x and visibly sharper for 300KB more.
       -->
       <picture>
-        <source type="image/avif" sizes="101.6vw"
-                srcset="assets/img/r/lis-hero-290.avif 290w, assets/img/r/lis-hero-360.avif 360w, assets/img/r/lis-hero-520.avif 520w, assets/img/r/lis-hero-700.avif 700w, assets/img/r/lis-hero-1040.avif 1040w, assets/img/r/lis-hero-1250.avif 1250w, assets/img/r/lis-hero-1717.avif 1717w">
-        <source type="image/webp" sizes="101.6vw"
-                srcset="assets/img/r/lis-hero-290.webp 290w, assets/img/r/lis-hero-1717.webp 1717w">
-        <img class="hero__img" src="assets/img/lis-hero.jpg" alt="" fetchpriority="high" decoding="sync" width="1717" height="1073" loading="eager">
+        <source type="image/avif" sizes="101.7vw"
+                srcset="assets/img/r/crave-hero-290.avif 290w, assets/img/r/crave-hero-430.avif 430w, assets/img/r/crave-hero-520.avif 520w, assets/img/r/crave-hero-700.avif 700w, assets/img/r/crave-hero-1040.avif 1040w, assets/img/r/crave-hero-1250.avif 1250w, assets/img/r/crave-hero-1717.avif 1717w">
+        <source type="image/webp" sizes="101.7vw"
+                srcset="assets/img/r/crave-hero-290.webp 290w, assets/img/r/crave-hero-1717.webp 1717w">
+        <img class="hero__img" src="assets/img/crave-hero.jpg" alt="" fetchpriority="high" decoding="sync" width="1717" height="1073" loading="eager">
       </picture>
     </div>
 
@@ -2258,12 +2289,12 @@
             -->
             <picture>
               <source type="image/avif" sizes="(max-width: 1200px) 85.6vw, 56.9vw"
-                      srcset="assets/img/r/wok-counter-700.avif 700w, assets/img/r/wok-counter-840.avif 840w, assets/img/r/wok-counter-1030.avif 1030w, assets/img/r/wok-counter-1536.avif 1536w">
+                      srcset="assets/img/r/crave-counter-700.avif 700w, assets/img/r/crave-counter-840.avif 840w, assets/img/r/crave-counter-1030.avif 1030w, assets/img/r/crave-counter-1230.avif 1230w, assets/img/r/crave-counter-1536.avif 1536w">
               <source type="image/webp" sizes="(max-width: 1200px) 85.6vw, 56.9vw"
-                      srcset="assets/img/r/wok-counter-700.webp 700w, assets/img/r/wok-counter-1536.webp 1536w">
+                      srcset="assets/img/r/crave-counter-700.webp 700w, assets/img/r/crave-counter-1536.webp 1536w">
               <img class="menu__img"
-                 src="assets/img/wok-counter.jpg"
-                 alt="Flame rising off a wok in the kitchen, behind stacked blue-and-white porcelain bowls and bowls of prepared chilli."
+                 src="assets/img/crave-counter.jpg"
+                 alt="A bright cafe in daylight: yellow tub chairs, tables by a tall window and hanging plants."
                  width="1536" height="710" loading="lazy" decoding="async" fetchpriority="low">
             </picture>
           </div>
@@ -2314,194 +2345,194 @@
             <!-- copy 1 -->
             <picture>
               <source type="image/avif" sizes="(max-width: 480px) 25.5vw, (max-width: 600px) 22vw, (max-width: 900px) 17.6vw, (max-width: 1200px) 11.7vw, 7.6vw"
-                      srcset="assets/img/r/gallery/dish9-duckslice-306.avif 306w">
+                      srcset="assets/img/r/gallery/dish9-shake-306.avif 306w">
               <source type="image/webp" sizes="(max-width: 480px) 25.5vw, (max-width: 600px) 22vw, (max-width: 900px) 17.6vw, (max-width: 1200px) 11.7vw, 7.6vw"
-                      srcset="assets/img/r/gallery/dish9-duckslice-306.webp 306w">
-              <img src="assets/img/gallery/dish9-duckslice.jpg" alt="" width="306" height="560" loading="lazy" decoding="async" fetchpriority="low" data-warm=".beyond">
+                      srcset="assets/img/r/gallery/dish9-shake-306.webp 306w">
+              <img src="assets/img/gallery/dish9-shake.jpg" alt="" width="306" height="560" loading="lazy" decoding="async" fetchpriority="low" data-warm=".beyond">
             </picture>
             <picture>
               <source type="image/avif" sizes="(max-width: 480px) 55.8vw, (max-width: 600px) 48.3vw, (max-width: 900px) 38.6vw, (max-width: 1200px) 25.8vw, (max-width: 1800px) 20vw, 16.6vw"
-                      srcset="assets/img/r/gallery/dish2-prawns-250.avif 250w, assets/img/r/gallery/dish2-prawns-310.avif 310w, assets/img/r/gallery/dish2-prawns-380.avif 380w, assets/img/r/gallery/dish2-prawns-550.avif 550w, assets/img/r/gallery/dish2-prawns-670.avif 670w">
+                      srcset="assets/img/r/gallery/dish2-prawns-250.avif 250w, assets/img/r/gallery/dish2-prawns-310.avif 310w, assets/img/r/gallery/dish2-prawns-380.avif 380w, assets/img/r/gallery/dish2-prawns-670.avif 670w">
               <source type="image/webp" sizes="(max-width: 480px) 55.8vw, (max-width: 600px) 48.3vw, (max-width: 900px) 38.6vw, (max-width: 1200px) 25.8vw, (max-width: 1800px) 20vw, 16.6vw"
                       srcset="assets/img/r/gallery/dish2-prawns-250.webp 250w, assets/img/r/gallery/dish2-prawns-670.webp 670w">
               <img src="assets/img/gallery/dish2-prawns.jpg" alt="" width="671" height="560" loading="lazy" decoding="async" fetchpriority="low" data-warm=".beyond">
             </picture>
             <picture>
               <source type="image/avif" sizes="(max-width: 480px) 37vw, (max-width: 600px) 32vw, (max-width: 900px) 25.6vw, (max-width: 1200px) 17.1vw, (max-width: 1440px) 13.2vw, 11vw"
-                      srcset="assets/img/r/gallery/dish4-dimsum-250.avif 250w, assets/img/r/gallery/dish4-dimsum-370.avif 370w, assets/img/r/gallery/dish4-dimsum-445.avif 445w">
+                      srcset="assets/img/r/gallery/dish4-waffle-250.avif 250w, assets/img/r/gallery/dish4-waffle-445.avif 445w">
               <source type="image/webp" sizes="(max-width: 480px) 37vw, (max-width: 600px) 32vw, (max-width: 900px) 25.6vw, (max-width: 1200px) 17.1vw, (max-width: 1440px) 13.2vw, 11vw"
-                      srcset="assets/img/r/gallery/dish4-dimsum-250.webp 250w, assets/img/r/gallery/dish4-dimsum-445.webp 445w">
-              <img src="assets/img/gallery/dish4-dimsum.jpg" alt="" width="445" height="560" loading="lazy" decoding="async" fetchpriority="low" data-warm=".beyond">
+                      srcset="assets/img/r/gallery/dish4-waffle-250.webp 250w, assets/img/r/gallery/dish4-waffle-445.webp 445w">
+              <img src="assets/img/gallery/dish4-waffle.jpg" alt="" width="445" height="560" loading="lazy" decoding="async" fetchpriority="low" data-warm=".beyond">
             </picture>
             <picture>
               <source type="image/avif" sizes="(max-width: 480px) 53vw, (max-width: 600px) 45.9vw, (max-width: 900px) 36.7vw, (max-width: 1200px) 24.5vw, (max-width: 1440px) 19vw, 15.8vw"
-                      srcset="assets/img/r/gallery/dish7-sizzling-240.avif 240w, assets/img/r/gallery/dish7-sizzling-290.avif 290w, assets/img/r/gallery/dish7-sizzling-360.avif 360w, assets/img/r/gallery/dish7-sizzling-530.avif 530w, assets/img/r/gallery/dish7-sizzling-637.avif 637w">
+                      srcset="assets/img/r/gallery/dish7-steak-240.avif 240w, assets/img/r/gallery/dish7-steak-290.avif 290w, assets/img/r/gallery/dish7-steak-360.avif 360w, assets/img/r/gallery/dish7-steak-637.avif 637w">
               <source type="image/webp" sizes="(max-width: 480px) 53vw, (max-width: 600px) 45.9vw, (max-width: 900px) 36.7vw, (max-width: 1200px) 24.5vw, (max-width: 1440px) 19vw, 15.8vw"
-                      srcset="assets/img/r/gallery/dish7-sizzling-240.webp 240w, assets/img/r/gallery/dish7-sizzling-637.webp 637w">
-              <img src="assets/img/gallery/dish7-sizzling.jpg" alt="" width="637" height="560" loading="lazy" decoding="async" fetchpriority="low" data-warm=".beyond">
+                      srcset="assets/img/r/gallery/dish7-steak-240.webp 240w, assets/img/r/gallery/dish7-steak-637.webp 637w">
+              <img src="assets/img/gallery/dish7-steak.jpg" alt="" width="637" height="560" loading="lazy" decoding="async" fetchpriority="low" data-warm=".beyond">
             </picture>
             <picture>
               <source type="image/avif" sizes="(max-width: 480px) 71.2vw, (max-width: 600px) 61.6vw, (max-width: 900px) 49.3vw, (max-width: 1000px) 32.9vw, (max-width: 1200px) 30.6vw, (max-width: 1800px) 25.5vw, 21.2vw"
-                      srcset="assets/img/r/gallery/dish1-duck-320.avif 320w, assets/img/r/gallery/dish1-duck-390.avif 390w, assets/img/r/gallery/dish1-duck-480.avif 480w, assets/img/r/gallery/dish1-duck-710.avif 710w, assets/img/r/gallery/dish1-duck-850.avif 850w">
+                      srcset="assets/img/r/gallery/dish1-fries-320.avif 320w, assets/img/r/gallery/dish1-fries-390.avif 390w, assets/img/r/gallery/dish1-fries-480.avif 480w, assets/img/r/gallery/dish1-fries-710.avif 710w, assets/img/r/gallery/dish1-fries-850.avif 850w">
               <source type="image/webp" sizes="(max-width: 480px) 71.2vw, (max-width: 600px) 61.6vw, (max-width: 900px) 49.3vw, (max-width: 1000px) 32.9vw, (max-width: 1200px) 30.6vw, (max-width: 1800px) 25.5vw, 21.2vw"
-                      srcset="assets/img/r/gallery/dish1-duck-320.webp 320w, assets/img/r/gallery/dish1-duck-850.webp 850w">
-              <img src="assets/img/gallery/dish1-duck.jpg" alt="" width="856" height="560" loading="lazy" decoding="async" fetchpriority="low" data-warm=".beyond">
+                      srcset="assets/img/r/gallery/dish1-fries-320.webp 320w, assets/img/r/gallery/dish1-fries-850.webp 850w">
+              <img src="assets/img/gallery/dish1-fries.jpg" alt="" width="856" height="560" loading="lazy" decoding="async" fetchpriority="low" data-warm=".beyond">
             </picture>
             <picture>
               <source type="image/avif" sizes="(max-width: 480px) 46.8vw, (max-width: 600px) 40.5vw, (max-width: 900px) 32.4vw, (max-width: 1200px) 21.6vw, (max-width: 1440px) 16.8vw, 14vw"
-                      srcset="assets/img/r/gallery/dish5-rice-260.avif 260w, assets/img/r/gallery/dish5-rice-320.avif 320w, assets/img/r/gallery/dish5-rice-470.avif 470w, assets/img/r/gallery/dish5-rice-560.avif 560w">
+                      srcset="assets/img/r/gallery/dish5-burger-260.avif 260w, assets/img/r/gallery/dish5-burger-320.avif 320w, assets/img/r/gallery/dish5-burger-560.avif 560w">
               <source type="image/webp" sizes="(max-width: 480px) 46.8vw, (max-width: 600px) 40.5vw, (max-width: 900px) 32.4vw, (max-width: 1200px) 21.6vw, (max-width: 1440px) 16.8vw, 14vw"
-                      srcset="assets/img/r/gallery/dish5-rice-260.webp 260w, assets/img/r/gallery/dish5-rice-560.webp 560w">
-              <img src="assets/img/gallery/dish5-rice.jpg" alt="" width="563" height="560" loading="lazy" decoding="async" fetchpriority="low" data-warm=".beyond">
+                      srcset="assets/img/r/gallery/dish5-burger-260.webp 260w, assets/img/r/gallery/dish5-burger-560.webp 560w">
+              <img src="assets/img/gallery/dish5-burger.jpg" alt="" width="563" height="560" loading="lazy" decoding="async" fetchpriority="low" data-warm=".beyond">
             </picture>
             <picture>
               <source type="image/avif" sizes="(max-width: 480px) 37.4vw, (max-width: 600px) 32.4vw, (max-width: 900px) 25.9vw, (max-width: 1200px) 17.3vw, (max-width: 1440px) 13.4vw, 11.2vw"
-                      srcset="assets/img/r/gallery/dish8-springroll-250.avif 250w, assets/img/r/gallery/dish8-springroll-370.avif 370w, assets/img/r/gallery/dish8-springroll-450.avif 450w">
+                      srcset="assets/img/r/gallery/dish8-cheesecake-250.avif 250w, assets/img/r/gallery/dish8-cheesecake-450.avif 450w">
               <source type="image/webp" sizes="(max-width: 480px) 37.4vw, (max-width: 600px) 32.4vw, (max-width: 900px) 25.9vw, (max-width: 1200px) 17.3vw, (max-width: 1440px) 13.4vw, 11.2vw"
-                      srcset="assets/img/r/gallery/dish8-springroll-250.webp 250w, assets/img/r/gallery/dish8-springroll-450.webp 450w">
-              <img src="assets/img/gallery/dish8-springroll.jpg" alt="" width="450" height="560" loading="lazy" decoding="async" fetchpriority="low" data-warm=".beyond">
+                      srcset="assets/img/r/gallery/dish8-cheesecake-250.webp 250w, assets/img/r/gallery/dish8-cheesecake-450.webp 450w">
+              <img src="assets/img/gallery/dish8-cheesecake.jpg" alt="" width="450" height="560" loading="lazy" decoding="async" fetchpriority="low" data-warm=".beyond">
             </picture>
             <picture>
               <source type="image/avif" sizes="(max-width: 480px) 42.4vw, (max-width: 600px) 36.7vw, (max-width: 900px) 29.4vw, (max-width: 1200px) 19.6vw, (max-width: 1440px) 15.2vw, 12.6vw"
-                      srcset="assets/img/r/gallery/dish3-bao-240.avif 240w, assets/img/r/gallery/dish3-bao-290.avif 290w, assets/img/r/gallery/dish3-bao-420.avif 420w, assets/img/r/gallery/dish3-bao-510.avif 510w">
+                      srcset="assets/img/r/gallery/dish3-pancakes-240.avif 240w, assets/img/r/gallery/dish3-pancakes-290.avif 290w, assets/img/r/gallery/dish3-pancakes-420.avif 420w, assets/img/r/gallery/dish3-pancakes-510.avif 510w">
               <source type="image/webp" sizes="(max-width: 480px) 42.4vw, (max-width: 600px) 36.7vw, (max-width: 900px) 29.4vw, (max-width: 1200px) 19.6vw, (max-width: 1440px) 15.2vw, 12.6vw"
-                      srcset="assets/img/r/gallery/dish3-bao-240.webp 240w, assets/img/r/gallery/dish3-bao-510.webp 510w">
-              <img src="assets/img/gallery/dish3-bao.jpg" alt="" width="510" height="560" loading="lazy" decoding="async" fetchpriority="low" data-warm=".beyond">
+                      srcset="assets/img/r/gallery/dish3-pancakes-240.webp 240w, assets/img/r/gallery/dish3-pancakes-510.webp 510w">
+              <img src="assets/img/gallery/dish3-pancakes.jpg" alt="" width="510" height="560" loading="lazy" decoding="async" fetchpriority="low" data-warm=".beyond">
             </picture>
             <picture>
               <source type="image/avif" sizes="(max-width: 480px) 46.9vw, (max-width: 600px) 40.6vw, (max-width: 900px) 32.5vw, (max-width: 1200px) 21.7vw, (max-width: 1440px) 16.8vw, 14vw"
-                      srcset="assets/img/r/gallery/dish6-noodles-260.avif 260w, assets/img/r/gallery/dish6-noodles-320.avif 320w, assets/img/r/gallery/dish6-noodles-470.avif 470w, assets/img/r/gallery/dish6-noodles-560.avif 560w">
+                      srcset="assets/img/r/gallery/dish6-wings-260.avif 260w, assets/img/r/gallery/dish6-wings-320.avif 320w, assets/img/r/gallery/dish6-wings-470.avif 470w, assets/img/r/gallery/dish6-wings-560.avif 560w">
               <source type="image/webp" sizes="(max-width: 480px) 46.9vw, (max-width: 600px) 40.6vw, (max-width: 900px) 32.5vw, (max-width: 1200px) 21.7vw, (max-width: 1440px) 16.8vw, 14vw"
-                      srcset="assets/img/r/gallery/dish6-noodles-260.webp 260w, assets/img/r/gallery/dish6-noodles-560.webp 560w">
-              <img src="assets/img/gallery/dish6-noodles.jpg" alt="" width="564" height="560" loading="lazy" decoding="async" fetchpriority="low" data-warm=".beyond">
+                      srcset="assets/img/r/gallery/dish6-wings-260.webp 260w, assets/img/r/gallery/dish6-wings-560.webp 560w">
+              <img src="assets/img/gallery/dish6-wings.jpg" alt="" width="564" height="560" loading="lazy" decoding="async" fetchpriority="low" data-warm=".beyond">
             </picture>
             <!-- copy 2 -->
             <picture>
               <source type="image/avif" sizes="(max-width: 480px) 25.5vw, (max-width: 600px) 22vw, (max-width: 900px) 17.6vw, (max-width: 1200px) 11.7vw, 7.6vw"
-                      srcset="assets/img/r/gallery/dish9-duckslice-306.avif 306w">
+                      srcset="assets/img/r/gallery/dish9-shake-306.avif 306w">
               <source type="image/webp" sizes="(max-width: 480px) 25.5vw, (max-width: 600px) 22vw, (max-width: 900px) 17.6vw, (max-width: 1200px) 11.7vw, 7.6vw"
-                      srcset="assets/img/r/gallery/dish9-duckslice-306.webp 306w">
-              <img src="assets/img/gallery/dish9-duckslice.jpg" alt="" width="306" height="560" loading="lazy" decoding="async" fetchpriority="low" data-warm=".beyond">
+                      srcset="assets/img/r/gallery/dish9-shake-306.webp 306w">
+              <img src="assets/img/gallery/dish9-shake.jpg" alt="" width="306" height="560" loading="lazy" decoding="async" fetchpriority="low" data-warm=".beyond">
             </picture>
             <picture>
               <source type="image/avif" sizes="(max-width: 480px) 55.8vw, (max-width: 600px) 48.3vw, (max-width: 900px) 38.6vw, (max-width: 1200px) 25.8vw, (max-width: 1800px) 20vw, 16.6vw"
-                      srcset="assets/img/r/gallery/dish2-prawns-250.avif 250w, assets/img/r/gallery/dish2-prawns-310.avif 310w, assets/img/r/gallery/dish2-prawns-380.avif 380w, assets/img/r/gallery/dish2-prawns-550.avif 550w, assets/img/r/gallery/dish2-prawns-670.avif 670w">
+                      srcset="assets/img/r/gallery/dish2-prawns-250.avif 250w, assets/img/r/gallery/dish2-prawns-310.avif 310w, assets/img/r/gallery/dish2-prawns-380.avif 380w, assets/img/r/gallery/dish2-prawns-670.avif 670w">
               <source type="image/webp" sizes="(max-width: 480px) 55.8vw, (max-width: 600px) 48.3vw, (max-width: 900px) 38.6vw, (max-width: 1200px) 25.8vw, (max-width: 1800px) 20vw, 16.6vw"
                       srcset="assets/img/r/gallery/dish2-prawns-250.webp 250w, assets/img/r/gallery/dish2-prawns-670.webp 670w">
               <img src="assets/img/gallery/dish2-prawns.jpg" alt="" width="671" height="560" loading="lazy" decoding="async" fetchpriority="low" data-warm=".beyond">
             </picture>
             <picture>
               <source type="image/avif" sizes="(max-width: 480px) 37vw, (max-width: 600px) 32vw, (max-width: 900px) 25.6vw, (max-width: 1200px) 17.1vw, (max-width: 1440px) 13.2vw, 11vw"
-                      srcset="assets/img/r/gallery/dish4-dimsum-250.avif 250w, assets/img/r/gallery/dish4-dimsum-370.avif 370w, assets/img/r/gallery/dish4-dimsum-445.avif 445w">
+                      srcset="assets/img/r/gallery/dish4-waffle-250.avif 250w, assets/img/r/gallery/dish4-waffle-445.avif 445w">
               <source type="image/webp" sizes="(max-width: 480px) 37vw, (max-width: 600px) 32vw, (max-width: 900px) 25.6vw, (max-width: 1200px) 17.1vw, (max-width: 1440px) 13.2vw, 11vw"
-                      srcset="assets/img/r/gallery/dish4-dimsum-250.webp 250w, assets/img/r/gallery/dish4-dimsum-445.webp 445w">
-              <img src="assets/img/gallery/dish4-dimsum.jpg" alt="" width="445" height="560" loading="lazy" decoding="async" fetchpriority="low" data-warm=".beyond">
+                      srcset="assets/img/r/gallery/dish4-waffle-250.webp 250w, assets/img/r/gallery/dish4-waffle-445.webp 445w">
+              <img src="assets/img/gallery/dish4-waffle.jpg" alt="" width="445" height="560" loading="lazy" decoding="async" fetchpriority="low" data-warm=".beyond">
             </picture>
             <picture>
               <source type="image/avif" sizes="(max-width: 480px) 53vw, (max-width: 600px) 45.9vw, (max-width: 900px) 36.7vw, (max-width: 1200px) 24.5vw, (max-width: 1440px) 19vw, 15.8vw"
-                      srcset="assets/img/r/gallery/dish7-sizzling-240.avif 240w, assets/img/r/gallery/dish7-sizzling-290.avif 290w, assets/img/r/gallery/dish7-sizzling-360.avif 360w, assets/img/r/gallery/dish7-sizzling-530.avif 530w, assets/img/r/gallery/dish7-sizzling-637.avif 637w">
+                      srcset="assets/img/r/gallery/dish7-steak-240.avif 240w, assets/img/r/gallery/dish7-steak-290.avif 290w, assets/img/r/gallery/dish7-steak-360.avif 360w, assets/img/r/gallery/dish7-steak-637.avif 637w">
               <source type="image/webp" sizes="(max-width: 480px) 53vw, (max-width: 600px) 45.9vw, (max-width: 900px) 36.7vw, (max-width: 1200px) 24.5vw, (max-width: 1440px) 19vw, 15.8vw"
-                      srcset="assets/img/r/gallery/dish7-sizzling-240.webp 240w, assets/img/r/gallery/dish7-sizzling-637.webp 637w">
-              <img src="assets/img/gallery/dish7-sizzling.jpg" alt="" width="637" height="560" loading="lazy" decoding="async" fetchpriority="low" data-warm=".beyond">
+                      srcset="assets/img/r/gallery/dish7-steak-240.webp 240w, assets/img/r/gallery/dish7-steak-637.webp 637w">
+              <img src="assets/img/gallery/dish7-steak.jpg" alt="" width="637" height="560" loading="lazy" decoding="async" fetchpriority="low" data-warm=".beyond">
             </picture>
             <picture>
               <source type="image/avif" sizes="(max-width: 480px) 71.2vw, (max-width: 600px) 61.6vw, (max-width: 900px) 49.3vw, (max-width: 1000px) 32.9vw, (max-width: 1200px) 30.6vw, (max-width: 1800px) 25.5vw, 21.2vw"
-                      srcset="assets/img/r/gallery/dish1-duck-320.avif 320w, assets/img/r/gallery/dish1-duck-390.avif 390w, assets/img/r/gallery/dish1-duck-480.avif 480w, assets/img/r/gallery/dish1-duck-710.avif 710w, assets/img/r/gallery/dish1-duck-850.avif 850w">
+                      srcset="assets/img/r/gallery/dish1-fries-320.avif 320w, assets/img/r/gallery/dish1-fries-390.avif 390w, assets/img/r/gallery/dish1-fries-480.avif 480w, assets/img/r/gallery/dish1-fries-710.avif 710w, assets/img/r/gallery/dish1-fries-850.avif 850w">
               <source type="image/webp" sizes="(max-width: 480px) 71.2vw, (max-width: 600px) 61.6vw, (max-width: 900px) 49.3vw, (max-width: 1000px) 32.9vw, (max-width: 1200px) 30.6vw, (max-width: 1800px) 25.5vw, 21.2vw"
-                      srcset="assets/img/r/gallery/dish1-duck-320.webp 320w, assets/img/r/gallery/dish1-duck-850.webp 850w">
-              <img src="assets/img/gallery/dish1-duck.jpg" alt="" width="856" height="560" loading="lazy" decoding="async" fetchpriority="low" data-warm=".beyond">
+                      srcset="assets/img/r/gallery/dish1-fries-320.webp 320w, assets/img/r/gallery/dish1-fries-850.webp 850w">
+              <img src="assets/img/gallery/dish1-fries.jpg" alt="" width="856" height="560" loading="lazy" decoding="async" fetchpriority="low" data-warm=".beyond">
             </picture>
             <picture>
               <source type="image/avif" sizes="(max-width: 480px) 46.8vw, (max-width: 600px) 40.5vw, (max-width: 900px) 32.4vw, (max-width: 1200px) 21.6vw, (max-width: 1440px) 16.8vw, 14vw"
-                      srcset="assets/img/r/gallery/dish5-rice-260.avif 260w, assets/img/r/gallery/dish5-rice-320.avif 320w, assets/img/r/gallery/dish5-rice-470.avif 470w, assets/img/r/gallery/dish5-rice-560.avif 560w">
+                      srcset="assets/img/r/gallery/dish5-burger-260.avif 260w, assets/img/r/gallery/dish5-burger-320.avif 320w, assets/img/r/gallery/dish5-burger-560.avif 560w">
               <source type="image/webp" sizes="(max-width: 480px) 46.8vw, (max-width: 600px) 40.5vw, (max-width: 900px) 32.4vw, (max-width: 1200px) 21.6vw, (max-width: 1440px) 16.8vw, 14vw"
-                      srcset="assets/img/r/gallery/dish5-rice-260.webp 260w, assets/img/r/gallery/dish5-rice-560.webp 560w">
-              <img src="assets/img/gallery/dish5-rice.jpg" alt="" width="563" height="560" loading="lazy" decoding="async" fetchpriority="low" data-warm=".beyond">
+                      srcset="assets/img/r/gallery/dish5-burger-260.webp 260w, assets/img/r/gallery/dish5-burger-560.webp 560w">
+              <img src="assets/img/gallery/dish5-burger.jpg" alt="" width="563" height="560" loading="lazy" decoding="async" fetchpriority="low" data-warm=".beyond">
             </picture>
             <picture>
               <source type="image/avif" sizes="(max-width: 480px) 37.4vw, (max-width: 600px) 32.4vw, (max-width: 900px) 25.9vw, (max-width: 1200px) 17.3vw, (max-width: 1440px) 13.4vw, 11.2vw"
-                      srcset="assets/img/r/gallery/dish8-springroll-250.avif 250w, assets/img/r/gallery/dish8-springroll-370.avif 370w, assets/img/r/gallery/dish8-springroll-450.avif 450w">
+                      srcset="assets/img/r/gallery/dish8-cheesecake-250.avif 250w, assets/img/r/gallery/dish8-cheesecake-450.avif 450w">
               <source type="image/webp" sizes="(max-width: 480px) 37.4vw, (max-width: 600px) 32.4vw, (max-width: 900px) 25.9vw, (max-width: 1200px) 17.3vw, (max-width: 1440px) 13.4vw, 11.2vw"
-                      srcset="assets/img/r/gallery/dish8-springroll-250.webp 250w, assets/img/r/gallery/dish8-springroll-450.webp 450w">
-              <img src="assets/img/gallery/dish8-springroll.jpg" alt="" width="450" height="560" loading="lazy" decoding="async" fetchpriority="low" data-warm=".beyond">
+                      srcset="assets/img/r/gallery/dish8-cheesecake-250.webp 250w, assets/img/r/gallery/dish8-cheesecake-450.webp 450w">
+              <img src="assets/img/gallery/dish8-cheesecake.jpg" alt="" width="450" height="560" loading="lazy" decoding="async" fetchpriority="low" data-warm=".beyond">
             </picture>
             <picture>
               <source type="image/avif" sizes="(max-width: 480px) 42.4vw, (max-width: 600px) 36.7vw, (max-width: 900px) 29.4vw, (max-width: 1200px) 19.6vw, (max-width: 1440px) 15.2vw, 12.6vw"
-                      srcset="assets/img/r/gallery/dish3-bao-240.avif 240w, assets/img/r/gallery/dish3-bao-290.avif 290w, assets/img/r/gallery/dish3-bao-420.avif 420w, assets/img/r/gallery/dish3-bao-510.avif 510w">
+                      srcset="assets/img/r/gallery/dish3-pancakes-240.avif 240w, assets/img/r/gallery/dish3-pancakes-290.avif 290w, assets/img/r/gallery/dish3-pancakes-420.avif 420w, assets/img/r/gallery/dish3-pancakes-510.avif 510w">
               <source type="image/webp" sizes="(max-width: 480px) 42.4vw, (max-width: 600px) 36.7vw, (max-width: 900px) 29.4vw, (max-width: 1200px) 19.6vw, (max-width: 1440px) 15.2vw, 12.6vw"
-                      srcset="assets/img/r/gallery/dish3-bao-240.webp 240w, assets/img/r/gallery/dish3-bao-510.webp 510w">
-              <img src="assets/img/gallery/dish3-bao.jpg" alt="" width="510" height="560" loading="lazy" decoding="async" fetchpriority="low" data-warm=".beyond">
+                      srcset="assets/img/r/gallery/dish3-pancakes-240.webp 240w, assets/img/r/gallery/dish3-pancakes-510.webp 510w">
+              <img src="assets/img/gallery/dish3-pancakes.jpg" alt="" width="510" height="560" loading="lazy" decoding="async" fetchpriority="low" data-warm=".beyond">
             </picture>
             <picture>
               <source type="image/avif" sizes="(max-width: 480px) 46.9vw, (max-width: 600px) 40.6vw, (max-width: 900px) 32.5vw, (max-width: 1200px) 21.7vw, (max-width: 1440px) 16.8vw, 14vw"
-                      srcset="assets/img/r/gallery/dish6-noodles-260.avif 260w, assets/img/r/gallery/dish6-noodles-320.avif 320w, assets/img/r/gallery/dish6-noodles-470.avif 470w, assets/img/r/gallery/dish6-noodles-560.avif 560w">
+                      srcset="assets/img/r/gallery/dish6-wings-260.avif 260w, assets/img/r/gallery/dish6-wings-320.avif 320w, assets/img/r/gallery/dish6-wings-470.avif 470w, assets/img/r/gallery/dish6-wings-560.avif 560w">
               <source type="image/webp" sizes="(max-width: 480px) 46.9vw, (max-width: 600px) 40.6vw, (max-width: 900px) 32.5vw, (max-width: 1200px) 21.7vw, (max-width: 1440px) 16.8vw, 14vw"
-                      srcset="assets/img/r/gallery/dish6-noodles-260.webp 260w, assets/img/r/gallery/dish6-noodles-560.webp 560w">
-              <img src="assets/img/gallery/dish6-noodles.jpg" alt="" width="564" height="560" loading="lazy" decoding="async" fetchpriority="low" data-warm=".beyond">
+                      srcset="assets/img/r/gallery/dish6-wings-260.webp 260w, assets/img/r/gallery/dish6-wings-560.webp 560w">
+              <img src="assets/img/gallery/dish6-wings.jpg" alt="" width="564" height="560" loading="lazy" decoding="async" fetchpriority="low" data-warm=".beyond">
             </picture>
             <!-- copy 3 -->
             <picture>
               <source type="image/avif" sizes="(max-width: 480px) 25.5vw, (max-width: 600px) 22vw, (max-width: 900px) 17.6vw, (max-width: 1200px) 11.7vw, 7.6vw"
-                      srcset="assets/img/r/gallery/dish9-duckslice-306.avif 306w">
+                      srcset="assets/img/r/gallery/dish9-shake-306.avif 306w">
               <source type="image/webp" sizes="(max-width: 480px) 25.5vw, (max-width: 600px) 22vw, (max-width: 900px) 17.6vw, (max-width: 1200px) 11.7vw, 7.6vw"
-                      srcset="assets/img/r/gallery/dish9-duckslice-306.webp 306w">
-              <img src="assets/img/gallery/dish9-duckslice.jpg" alt="" width="306" height="560" loading="lazy" decoding="async" fetchpriority="low" data-warm=".beyond">
+                      srcset="assets/img/r/gallery/dish9-shake-306.webp 306w">
+              <img src="assets/img/gallery/dish9-shake.jpg" alt="" width="306" height="560" loading="lazy" decoding="async" fetchpriority="low" data-warm=".beyond">
             </picture>
             <picture>
               <source type="image/avif" sizes="(max-width: 480px) 55.8vw, (max-width: 600px) 48.3vw, (max-width: 900px) 38.6vw, (max-width: 1200px) 25.8vw, (max-width: 1800px) 20vw, 16.6vw"
-                      srcset="assets/img/r/gallery/dish2-prawns-250.avif 250w, assets/img/r/gallery/dish2-prawns-310.avif 310w, assets/img/r/gallery/dish2-prawns-380.avif 380w, assets/img/r/gallery/dish2-prawns-550.avif 550w, assets/img/r/gallery/dish2-prawns-670.avif 670w">
+                      srcset="assets/img/r/gallery/dish2-prawns-250.avif 250w, assets/img/r/gallery/dish2-prawns-310.avif 310w, assets/img/r/gallery/dish2-prawns-380.avif 380w, assets/img/r/gallery/dish2-prawns-670.avif 670w">
               <source type="image/webp" sizes="(max-width: 480px) 55.8vw, (max-width: 600px) 48.3vw, (max-width: 900px) 38.6vw, (max-width: 1200px) 25.8vw, (max-width: 1800px) 20vw, 16.6vw"
                       srcset="assets/img/r/gallery/dish2-prawns-250.webp 250w, assets/img/r/gallery/dish2-prawns-670.webp 670w">
               <img src="assets/img/gallery/dish2-prawns.jpg" alt="" width="671" height="560" loading="lazy" decoding="async" fetchpriority="low" data-warm=".beyond">
             </picture>
             <picture>
               <source type="image/avif" sizes="(max-width: 480px) 37vw, (max-width: 600px) 32vw, (max-width: 900px) 25.6vw, (max-width: 1200px) 17.1vw, (max-width: 1440px) 13.2vw, 11vw"
-                      srcset="assets/img/r/gallery/dish4-dimsum-250.avif 250w, assets/img/r/gallery/dish4-dimsum-370.avif 370w, assets/img/r/gallery/dish4-dimsum-445.avif 445w">
+                      srcset="assets/img/r/gallery/dish4-waffle-250.avif 250w, assets/img/r/gallery/dish4-waffle-445.avif 445w">
               <source type="image/webp" sizes="(max-width: 480px) 37vw, (max-width: 600px) 32vw, (max-width: 900px) 25.6vw, (max-width: 1200px) 17.1vw, (max-width: 1440px) 13.2vw, 11vw"
-                      srcset="assets/img/r/gallery/dish4-dimsum-250.webp 250w, assets/img/r/gallery/dish4-dimsum-445.webp 445w">
-              <img src="assets/img/gallery/dish4-dimsum.jpg" alt="" width="445" height="560" loading="lazy" decoding="async" fetchpriority="low" data-warm=".beyond">
+                      srcset="assets/img/r/gallery/dish4-waffle-250.webp 250w, assets/img/r/gallery/dish4-waffle-445.webp 445w">
+              <img src="assets/img/gallery/dish4-waffle.jpg" alt="" width="445" height="560" loading="lazy" decoding="async" fetchpriority="low" data-warm=".beyond">
             </picture>
             <picture>
               <source type="image/avif" sizes="(max-width: 480px) 53vw, (max-width: 600px) 45.9vw, (max-width: 900px) 36.7vw, (max-width: 1200px) 24.5vw, (max-width: 1440px) 19vw, 15.8vw"
-                      srcset="assets/img/r/gallery/dish7-sizzling-240.avif 240w, assets/img/r/gallery/dish7-sizzling-290.avif 290w, assets/img/r/gallery/dish7-sizzling-360.avif 360w, assets/img/r/gallery/dish7-sizzling-530.avif 530w, assets/img/r/gallery/dish7-sizzling-637.avif 637w">
+                      srcset="assets/img/r/gallery/dish7-steak-240.avif 240w, assets/img/r/gallery/dish7-steak-290.avif 290w, assets/img/r/gallery/dish7-steak-360.avif 360w, assets/img/r/gallery/dish7-steak-637.avif 637w">
               <source type="image/webp" sizes="(max-width: 480px) 53vw, (max-width: 600px) 45.9vw, (max-width: 900px) 36.7vw, (max-width: 1200px) 24.5vw, (max-width: 1440px) 19vw, 15.8vw"
-                      srcset="assets/img/r/gallery/dish7-sizzling-240.webp 240w, assets/img/r/gallery/dish7-sizzling-637.webp 637w">
-              <img src="assets/img/gallery/dish7-sizzling.jpg" alt="" width="637" height="560" loading="lazy" decoding="async" fetchpriority="low" data-warm=".beyond">
+                      srcset="assets/img/r/gallery/dish7-steak-240.webp 240w, assets/img/r/gallery/dish7-steak-637.webp 637w">
+              <img src="assets/img/gallery/dish7-steak.jpg" alt="" width="637" height="560" loading="lazy" decoding="async" fetchpriority="low" data-warm=".beyond">
             </picture>
             <picture>
               <source type="image/avif" sizes="(max-width: 480px) 71.2vw, (max-width: 600px) 61.6vw, (max-width: 900px) 49.3vw, (max-width: 1000px) 32.9vw, (max-width: 1200px) 30.6vw, (max-width: 1800px) 25.5vw, 21.2vw"
-                      srcset="assets/img/r/gallery/dish1-duck-320.avif 320w, assets/img/r/gallery/dish1-duck-390.avif 390w, assets/img/r/gallery/dish1-duck-480.avif 480w, assets/img/r/gallery/dish1-duck-710.avif 710w, assets/img/r/gallery/dish1-duck-850.avif 850w">
+                      srcset="assets/img/r/gallery/dish1-fries-320.avif 320w, assets/img/r/gallery/dish1-fries-390.avif 390w, assets/img/r/gallery/dish1-fries-480.avif 480w, assets/img/r/gallery/dish1-fries-710.avif 710w, assets/img/r/gallery/dish1-fries-850.avif 850w">
               <source type="image/webp" sizes="(max-width: 480px) 71.2vw, (max-width: 600px) 61.6vw, (max-width: 900px) 49.3vw, (max-width: 1000px) 32.9vw, (max-width: 1200px) 30.6vw, (max-width: 1800px) 25.5vw, 21.2vw"
-                      srcset="assets/img/r/gallery/dish1-duck-320.webp 320w, assets/img/r/gallery/dish1-duck-850.webp 850w">
-              <img src="assets/img/gallery/dish1-duck.jpg" alt="" width="856" height="560" loading="lazy" decoding="async" fetchpriority="low" data-warm=".beyond">
+                      srcset="assets/img/r/gallery/dish1-fries-320.webp 320w, assets/img/r/gallery/dish1-fries-850.webp 850w">
+              <img src="assets/img/gallery/dish1-fries.jpg" alt="" width="856" height="560" loading="lazy" decoding="async" fetchpriority="low" data-warm=".beyond">
             </picture>
             <picture>
               <source type="image/avif" sizes="(max-width: 480px) 46.8vw, (max-width: 600px) 40.5vw, (max-width: 900px) 32.4vw, (max-width: 1200px) 21.6vw, (max-width: 1440px) 16.8vw, 14vw"
-                      srcset="assets/img/r/gallery/dish5-rice-260.avif 260w, assets/img/r/gallery/dish5-rice-320.avif 320w, assets/img/r/gallery/dish5-rice-470.avif 470w, assets/img/r/gallery/dish5-rice-560.avif 560w">
+                      srcset="assets/img/r/gallery/dish5-burger-260.avif 260w, assets/img/r/gallery/dish5-burger-320.avif 320w, assets/img/r/gallery/dish5-burger-560.avif 560w">
               <source type="image/webp" sizes="(max-width: 480px) 46.8vw, (max-width: 600px) 40.5vw, (max-width: 900px) 32.4vw, (max-width: 1200px) 21.6vw, (max-width: 1440px) 16.8vw, 14vw"
-                      srcset="assets/img/r/gallery/dish5-rice-260.webp 260w, assets/img/r/gallery/dish5-rice-560.webp 560w">
-              <img src="assets/img/gallery/dish5-rice.jpg" alt="" width="563" height="560" loading="lazy" decoding="async" fetchpriority="low" data-warm=".beyond">
+                      srcset="assets/img/r/gallery/dish5-burger-260.webp 260w, assets/img/r/gallery/dish5-burger-560.webp 560w">
+              <img src="assets/img/gallery/dish5-burger.jpg" alt="" width="563" height="560" loading="lazy" decoding="async" fetchpriority="low" data-warm=".beyond">
             </picture>
             <picture>
               <source type="image/avif" sizes="(max-width: 480px) 37.4vw, (max-width: 600px) 32.4vw, (max-width: 900px) 25.9vw, (max-width: 1200px) 17.3vw, (max-width: 1440px) 13.4vw, 11.2vw"
-                      srcset="assets/img/r/gallery/dish8-springroll-250.avif 250w, assets/img/r/gallery/dish8-springroll-370.avif 370w, assets/img/r/gallery/dish8-springroll-450.avif 450w">
+                      srcset="assets/img/r/gallery/dish8-cheesecake-250.avif 250w, assets/img/r/gallery/dish8-cheesecake-450.avif 450w">
               <source type="image/webp" sizes="(max-width: 480px) 37.4vw, (max-width: 600px) 32.4vw, (max-width: 900px) 25.9vw, (max-width: 1200px) 17.3vw, (max-width: 1440px) 13.4vw, 11.2vw"
-                      srcset="assets/img/r/gallery/dish8-springroll-250.webp 250w, assets/img/r/gallery/dish8-springroll-450.webp 450w">
-              <img src="assets/img/gallery/dish8-springroll.jpg" alt="" width="450" height="560" loading="lazy" decoding="async" fetchpriority="low" data-warm=".beyond">
+                      srcset="assets/img/r/gallery/dish8-cheesecake-250.webp 250w, assets/img/r/gallery/dish8-cheesecake-450.webp 450w">
+              <img src="assets/img/gallery/dish8-cheesecake.jpg" alt="" width="450" height="560" loading="lazy" decoding="async" fetchpriority="low" data-warm=".beyond">
             </picture>
             <picture>
               <source type="image/avif" sizes="(max-width: 480px) 42.4vw, (max-width: 600px) 36.7vw, (max-width: 900px) 29.4vw, (max-width: 1200px) 19.6vw, (max-width: 1440px) 15.2vw, 12.6vw"
-                      srcset="assets/img/r/gallery/dish3-bao-240.avif 240w, assets/img/r/gallery/dish3-bao-290.avif 290w, assets/img/r/gallery/dish3-bao-420.avif 420w, assets/img/r/gallery/dish3-bao-510.avif 510w">
+                      srcset="assets/img/r/gallery/dish3-pancakes-240.avif 240w, assets/img/r/gallery/dish3-pancakes-290.avif 290w, assets/img/r/gallery/dish3-pancakes-420.avif 420w, assets/img/r/gallery/dish3-pancakes-510.avif 510w">
               <source type="image/webp" sizes="(max-width: 480px) 42.4vw, (max-width: 600px) 36.7vw, (max-width: 900px) 29.4vw, (max-width: 1200px) 19.6vw, (max-width: 1440px) 15.2vw, 12.6vw"
-                      srcset="assets/img/r/gallery/dish3-bao-240.webp 240w, assets/img/r/gallery/dish3-bao-510.webp 510w">
-              <img src="assets/img/gallery/dish3-bao.jpg" alt="" width="510" height="560" loading="lazy" decoding="async" fetchpriority="low" data-warm=".beyond">
+                      srcset="assets/img/r/gallery/dish3-pancakes-240.webp 240w, assets/img/r/gallery/dish3-pancakes-510.webp 510w">
+              <img src="assets/img/gallery/dish3-pancakes.jpg" alt="" width="510" height="560" loading="lazy" decoding="async" fetchpriority="low" data-warm=".beyond">
             </picture>
             <picture>
               <source type="image/avif" sizes="(max-width: 480px) 46.9vw, (max-width: 600px) 40.6vw, (max-width: 900px) 32.5vw, (max-width: 1200px) 21.7vw, (max-width: 1440px) 16.8vw, 14vw"
-                      srcset="assets/img/r/gallery/dish6-noodles-260.avif 260w, assets/img/r/gallery/dish6-noodles-320.avif 320w, assets/img/r/gallery/dish6-noodles-470.avif 470w, assets/img/r/gallery/dish6-noodles-560.avif 560w">
+                      srcset="assets/img/r/gallery/dish6-wings-260.avif 260w, assets/img/r/gallery/dish6-wings-320.avif 320w, assets/img/r/gallery/dish6-wings-470.avif 470w, assets/img/r/gallery/dish6-wings-560.avif 560w">
               <source type="image/webp" sizes="(max-width: 480px) 46.9vw, (max-width: 600px) 40.6vw, (max-width: 900px) 32.5vw, (max-width: 1200px) 21.7vw, (max-width: 1440px) 16.8vw, 14vw"
-                      srcset="assets/img/r/gallery/dish6-noodles-260.webp 260w, assets/img/r/gallery/dish6-noodles-560.webp 560w">
-              <img src="assets/img/gallery/dish6-noodles.jpg" alt="" width="564" height="560" loading="lazy" decoding="async" fetchpriority="low" data-warm=".beyond">
+                      srcset="assets/img/r/gallery/dish6-wings-260.webp 260w, assets/img/r/gallery/dish6-wings-560.webp 560w">
+              <img src="assets/img/gallery/dish6-wings.jpg" alt="" width="564" height="560" loading="lazy" decoding="async" fetchpriority="low" data-warm=".beyond">
             </picture>
           </div>
         </div>
@@ -2511,194 +2542,194 @@
             <!-- copy 1 -->
             <picture>
               <source type="image/avif" sizes="(max-width: 480px) 46.8vw, (max-width: 600px) 40.5vw, (max-width: 900px) 32.4vw, (max-width: 1200px) 21.6vw, (max-width: 1440px) 16.8vw, 14vw"
-                      srcset="assets/img/r/gallery/dish5-rice-260.avif 260w, assets/img/r/gallery/dish5-rice-320.avif 320w, assets/img/r/gallery/dish5-rice-470.avif 470w, assets/img/r/gallery/dish5-rice-560.avif 560w">
+                      srcset="assets/img/r/gallery/dish5-burger-260.avif 260w, assets/img/r/gallery/dish5-burger-320.avif 320w, assets/img/r/gallery/dish5-burger-560.avif 560w">
               <source type="image/webp" sizes="(max-width: 480px) 46.8vw, (max-width: 600px) 40.5vw, (max-width: 900px) 32.4vw, (max-width: 1200px) 21.6vw, (max-width: 1440px) 16.8vw, 14vw"
-                      srcset="assets/img/r/gallery/dish5-rice-260.webp 260w, assets/img/r/gallery/dish5-rice-560.webp 560w">
-              <img src="assets/img/gallery/dish5-rice.jpg" alt="" width="563" height="560" loading="lazy" decoding="async" fetchpriority="low" data-warm=".beyond">
+                      srcset="assets/img/r/gallery/dish5-burger-260.webp 260w, assets/img/r/gallery/dish5-burger-560.webp 560w">
+              <img src="assets/img/gallery/dish5-burger.jpg" alt="" width="563" height="560" loading="lazy" decoding="async" fetchpriority="low" data-warm=".beyond">
             </picture>
             <picture>
               <source type="image/avif" sizes="(max-width: 480px) 37.4vw, (max-width: 600px) 32.4vw, (max-width: 900px) 25.9vw, (max-width: 1200px) 17.3vw, (max-width: 1440px) 13.4vw, 11.2vw"
-                      srcset="assets/img/r/gallery/dish8-springroll-250.avif 250w, assets/img/r/gallery/dish8-springroll-370.avif 370w, assets/img/r/gallery/dish8-springroll-450.avif 450w">
+                      srcset="assets/img/r/gallery/dish8-cheesecake-250.avif 250w, assets/img/r/gallery/dish8-cheesecake-450.avif 450w">
               <source type="image/webp" sizes="(max-width: 480px) 37.4vw, (max-width: 600px) 32.4vw, (max-width: 900px) 25.9vw, (max-width: 1200px) 17.3vw, (max-width: 1440px) 13.4vw, 11.2vw"
-                      srcset="assets/img/r/gallery/dish8-springroll-250.webp 250w, assets/img/r/gallery/dish8-springroll-450.webp 450w">
-              <img src="assets/img/gallery/dish8-springroll.jpg" alt="" width="450" height="560" loading="lazy" decoding="async" fetchpriority="low" data-warm=".beyond">
+                      srcset="assets/img/r/gallery/dish8-cheesecake-250.webp 250w, assets/img/r/gallery/dish8-cheesecake-450.webp 450w">
+              <img src="assets/img/gallery/dish8-cheesecake.jpg" alt="" width="450" height="560" loading="lazy" decoding="async" fetchpriority="low" data-warm=".beyond">
             </picture>
             <picture>
               <source type="image/avif" sizes="(max-width: 480px) 71.2vw, (max-width: 600px) 61.6vw, (max-width: 900px) 49.3vw, (max-width: 1000px) 32.9vw, (max-width: 1200px) 30.6vw, (max-width: 1800px) 25.5vw, 21.2vw"
-                      srcset="assets/img/r/gallery/dish1-duck-320.avif 320w, assets/img/r/gallery/dish1-duck-390.avif 390w, assets/img/r/gallery/dish1-duck-480.avif 480w, assets/img/r/gallery/dish1-duck-710.avif 710w, assets/img/r/gallery/dish1-duck-850.avif 850w">
+                      srcset="assets/img/r/gallery/dish1-fries-320.avif 320w, assets/img/r/gallery/dish1-fries-390.avif 390w, assets/img/r/gallery/dish1-fries-480.avif 480w, assets/img/r/gallery/dish1-fries-710.avif 710w, assets/img/r/gallery/dish1-fries-850.avif 850w">
               <source type="image/webp" sizes="(max-width: 480px) 71.2vw, (max-width: 600px) 61.6vw, (max-width: 900px) 49.3vw, (max-width: 1000px) 32.9vw, (max-width: 1200px) 30.6vw, (max-width: 1800px) 25.5vw, 21.2vw"
-                      srcset="assets/img/r/gallery/dish1-duck-320.webp 320w, assets/img/r/gallery/dish1-duck-850.webp 850w">
-              <img src="assets/img/gallery/dish1-duck.jpg" alt="" width="856" height="560" loading="lazy" decoding="async" fetchpriority="low" data-warm=".beyond">
+                      srcset="assets/img/r/gallery/dish1-fries-320.webp 320w, assets/img/r/gallery/dish1-fries-850.webp 850w">
+              <img src="assets/img/gallery/dish1-fries.jpg" alt="" width="856" height="560" loading="lazy" decoding="async" fetchpriority="low" data-warm=".beyond">
             </picture>
             <picture>
               <source type="image/avif" sizes="(max-width: 480px) 46.9vw, (max-width: 600px) 40.6vw, (max-width: 900px) 32.5vw, (max-width: 1200px) 21.7vw, (max-width: 1440px) 16.8vw, 14vw"
-                      srcset="assets/img/r/gallery/dish6-noodles-260.avif 260w, assets/img/r/gallery/dish6-noodles-320.avif 320w, assets/img/r/gallery/dish6-noodles-470.avif 470w, assets/img/r/gallery/dish6-noodles-560.avif 560w">
+                      srcset="assets/img/r/gallery/dish6-wings-260.avif 260w, assets/img/r/gallery/dish6-wings-320.avif 320w, assets/img/r/gallery/dish6-wings-470.avif 470w, assets/img/r/gallery/dish6-wings-560.avif 560w">
               <source type="image/webp" sizes="(max-width: 480px) 46.9vw, (max-width: 600px) 40.6vw, (max-width: 900px) 32.5vw, (max-width: 1200px) 21.7vw, (max-width: 1440px) 16.8vw, 14vw"
-                      srcset="assets/img/r/gallery/dish6-noodles-260.webp 260w, assets/img/r/gallery/dish6-noodles-560.webp 560w">
-              <img src="assets/img/gallery/dish6-noodles.jpg" alt="" width="564" height="560" loading="lazy" decoding="async" fetchpriority="low" data-warm=".beyond">
+                      srcset="assets/img/r/gallery/dish6-wings-260.webp 260w, assets/img/r/gallery/dish6-wings-560.webp 560w">
+              <img src="assets/img/gallery/dish6-wings.jpg" alt="" width="564" height="560" loading="lazy" decoding="async" fetchpriority="low" data-warm=".beyond">
             </picture>
             <picture>
               <source type="image/avif" sizes="(max-width: 480px) 55.8vw, (max-width: 600px) 48.3vw, (max-width: 900px) 38.6vw, (max-width: 1200px) 25.8vw, (max-width: 1800px) 20vw, 16.6vw"
-                      srcset="assets/img/r/gallery/dish2-prawns-250.avif 250w, assets/img/r/gallery/dish2-prawns-310.avif 310w, assets/img/r/gallery/dish2-prawns-380.avif 380w, assets/img/r/gallery/dish2-prawns-550.avif 550w, assets/img/r/gallery/dish2-prawns-670.avif 670w">
+                      srcset="assets/img/r/gallery/dish2-prawns-250.avif 250w, assets/img/r/gallery/dish2-prawns-310.avif 310w, assets/img/r/gallery/dish2-prawns-380.avif 380w, assets/img/r/gallery/dish2-prawns-670.avif 670w">
               <source type="image/webp" sizes="(max-width: 480px) 55.8vw, (max-width: 600px) 48.3vw, (max-width: 900px) 38.6vw, (max-width: 1200px) 25.8vw, (max-width: 1800px) 20vw, 16.6vw"
                       srcset="assets/img/r/gallery/dish2-prawns-250.webp 250w, assets/img/r/gallery/dish2-prawns-670.webp 670w">
               <img src="assets/img/gallery/dish2-prawns.jpg" alt="" width="671" height="560" loading="lazy" decoding="async" fetchpriority="low" data-warm=".beyond">
             </picture>
             <picture>
               <source type="image/avif" sizes="(max-width: 480px) 42.4vw, (max-width: 600px) 36.7vw, (max-width: 900px) 29.4vw, (max-width: 1200px) 19.6vw, (max-width: 1440px) 15.2vw, 12.6vw"
-                      srcset="assets/img/r/gallery/dish3-bao-240.avif 240w, assets/img/r/gallery/dish3-bao-290.avif 290w, assets/img/r/gallery/dish3-bao-420.avif 420w, assets/img/r/gallery/dish3-bao-510.avif 510w">
+                      srcset="assets/img/r/gallery/dish3-pancakes-240.avif 240w, assets/img/r/gallery/dish3-pancakes-290.avif 290w, assets/img/r/gallery/dish3-pancakes-420.avif 420w, assets/img/r/gallery/dish3-pancakes-510.avif 510w">
               <source type="image/webp" sizes="(max-width: 480px) 42.4vw, (max-width: 600px) 36.7vw, (max-width: 900px) 29.4vw, (max-width: 1200px) 19.6vw, (max-width: 1440px) 15.2vw, 12.6vw"
-                      srcset="assets/img/r/gallery/dish3-bao-240.webp 240w, assets/img/r/gallery/dish3-bao-510.webp 510w">
-              <img src="assets/img/gallery/dish3-bao.jpg" alt="" width="510" height="560" loading="lazy" decoding="async" fetchpriority="low" data-warm=".beyond">
+                      srcset="assets/img/r/gallery/dish3-pancakes-240.webp 240w, assets/img/r/gallery/dish3-pancakes-510.webp 510w">
+              <img src="assets/img/gallery/dish3-pancakes.jpg" alt="" width="510" height="560" loading="lazy" decoding="async" fetchpriority="low" data-warm=".beyond">
             </picture>
             <picture>
               <source type="image/avif" sizes="(max-width: 480px) 25.5vw, (max-width: 600px) 22vw, (max-width: 900px) 17.6vw, (max-width: 1200px) 11.7vw, 7.6vw"
-                      srcset="assets/img/r/gallery/dish9-duckslice-306.avif 306w">
+                      srcset="assets/img/r/gallery/dish9-shake-306.avif 306w">
               <source type="image/webp" sizes="(max-width: 480px) 25.5vw, (max-width: 600px) 22vw, (max-width: 900px) 17.6vw, (max-width: 1200px) 11.7vw, 7.6vw"
-                      srcset="assets/img/r/gallery/dish9-duckslice-306.webp 306w">
-              <img src="assets/img/gallery/dish9-duckslice.jpg" alt="" width="306" height="560" loading="lazy" decoding="async" fetchpriority="low" data-warm=".beyond">
+                      srcset="assets/img/r/gallery/dish9-shake-306.webp 306w">
+              <img src="assets/img/gallery/dish9-shake.jpg" alt="" width="306" height="560" loading="lazy" decoding="async" fetchpriority="low" data-warm=".beyond">
             </picture>
             <picture>
               <source type="image/avif" sizes="(max-width: 480px) 53vw, (max-width: 600px) 45.9vw, (max-width: 900px) 36.7vw, (max-width: 1200px) 24.5vw, (max-width: 1440px) 19vw, 15.8vw"
-                      srcset="assets/img/r/gallery/dish7-sizzling-240.avif 240w, assets/img/r/gallery/dish7-sizzling-290.avif 290w, assets/img/r/gallery/dish7-sizzling-360.avif 360w, assets/img/r/gallery/dish7-sizzling-530.avif 530w, assets/img/r/gallery/dish7-sizzling-637.avif 637w">
+                      srcset="assets/img/r/gallery/dish7-steak-240.avif 240w, assets/img/r/gallery/dish7-steak-290.avif 290w, assets/img/r/gallery/dish7-steak-360.avif 360w, assets/img/r/gallery/dish7-steak-637.avif 637w">
               <source type="image/webp" sizes="(max-width: 480px) 53vw, (max-width: 600px) 45.9vw, (max-width: 900px) 36.7vw, (max-width: 1200px) 24.5vw, (max-width: 1440px) 19vw, 15.8vw"
-                      srcset="assets/img/r/gallery/dish7-sizzling-240.webp 240w, assets/img/r/gallery/dish7-sizzling-637.webp 637w">
-              <img src="assets/img/gallery/dish7-sizzling.jpg" alt="" width="637" height="560" loading="lazy" decoding="async" fetchpriority="low" data-warm=".beyond">
+                      srcset="assets/img/r/gallery/dish7-steak-240.webp 240w, assets/img/r/gallery/dish7-steak-637.webp 637w">
+              <img src="assets/img/gallery/dish7-steak.jpg" alt="" width="637" height="560" loading="lazy" decoding="async" fetchpriority="low" data-warm=".beyond">
             </picture>
             <picture>
               <source type="image/avif" sizes="(max-width: 480px) 37vw, (max-width: 600px) 32vw, (max-width: 900px) 25.6vw, (max-width: 1200px) 17.1vw, (max-width: 1440px) 13.2vw, 11vw"
-                      srcset="assets/img/r/gallery/dish4-dimsum-250.avif 250w, assets/img/r/gallery/dish4-dimsum-370.avif 370w, assets/img/r/gallery/dish4-dimsum-445.avif 445w">
+                      srcset="assets/img/r/gallery/dish4-waffle-250.avif 250w, assets/img/r/gallery/dish4-waffle-445.avif 445w">
               <source type="image/webp" sizes="(max-width: 480px) 37vw, (max-width: 600px) 32vw, (max-width: 900px) 25.6vw, (max-width: 1200px) 17.1vw, (max-width: 1440px) 13.2vw, 11vw"
-                      srcset="assets/img/r/gallery/dish4-dimsum-250.webp 250w, assets/img/r/gallery/dish4-dimsum-445.webp 445w">
-              <img src="assets/img/gallery/dish4-dimsum.jpg" alt="" width="445" height="560" loading="lazy" decoding="async" fetchpriority="low" data-warm=".beyond">
+                      srcset="assets/img/r/gallery/dish4-waffle-250.webp 250w, assets/img/r/gallery/dish4-waffle-445.webp 445w">
+              <img src="assets/img/gallery/dish4-waffle.jpg" alt="" width="445" height="560" loading="lazy" decoding="async" fetchpriority="low" data-warm=".beyond">
             </picture>
             <!-- copy 2 -->
             <picture>
               <source type="image/avif" sizes="(max-width: 480px) 46.8vw, (max-width: 600px) 40.5vw, (max-width: 900px) 32.4vw, (max-width: 1200px) 21.6vw, (max-width: 1440px) 16.8vw, 14vw"
-                      srcset="assets/img/r/gallery/dish5-rice-260.avif 260w, assets/img/r/gallery/dish5-rice-320.avif 320w, assets/img/r/gallery/dish5-rice-470.avif 470w, assets/img/r/gallery/dish5-rice-560.avif 560w">
+                      srcset="assets/img/r/gallery/dish5-burger-260.avif 260w, assets/img/r/gallery/dish5-burger-320.avif 320w, assets/img/r/gallery/dish5-burger-560.avif 560w">
               <source type="image/webp" sizes="(max-width: 480px) 46.8vw, (max-width: 600px) 40.5vw, (max-width: 900px) 32.4vw, (max-width: 1200px) 21.6vw, (max-width: 1440px) 16.8vw, 14vw"
-                      srcset="assets/img/r/gallery/dish5-rice-260.webp 260w, assets/img/r/gallery/dish5-rice-560.webp 560w">
-              <img src="assets/img/gallery/dish5-rice.jpg" alt="" width="563" height="560" loading="lazy" decoding="async" fetchpriority="low" data-warm=".beyond">
+                      srcset="assets/img/r/gallery/dish5-burger-260.webp 260w, assets/img/r/gallery/dish5-burger-560.webp 560w">
+              <img src="assets/img/gallery/dish5-burger.jpg" alt="" width="563" height="560" loading="lazy" decoding="async" fetchpriority="low" data-warm=".beyond">
             </picture>
             <picture>
               <source type="image/avif" sizes="(max-width: 480px) 37.4vw, (max-width: 600px) 32.4vw, (max-width: 900px) 25.9vw, (max-width: 1200px) 17.3vw, (max-width: 1440px) 13.4vw, 11.2vw"
-                      srcset="assets/img/r/gallery/dish8-springroll-250.avif 250w, assets/img/r/gallery/dish8-springroll-370.avif 370w, assets/img/r/gallery/dish8-springroll-450.avif 450w">
+                      srcset="assets/img/r/gallery/dish8-cheesecake-250.avif 250w, assets/img/r/gallery/dish8-cheesecake-450.avif 450w">
               <source type="image/webp" sizes="(max-width: 480px) 37.4vw, (max-width: 600px) 32.4vw, (max-width: 900px) 25.9vw, (max-width: 1200px) 17.3vw, (max-width: 1440px) 13.4vw, 11.2vw"
-                      srcset="assets/img/r/gallery/dish8-springroll-250.webp 250w, assets/img/r/gallery/dish8-springroll-450.webp 450w">
-              <img src="assets/img/gallery/dish8-springroll.jpg" alt="" width="450" height="560" loading="lazy" decoding="async" fetchpriority="low" data-warm=".beyond">
+                      srcset="assets/img/r/gallery/dish8-cheesecake-250.webp 250w, assets/img/r/gallery/dish8-cheesecake-450.webp 450w">
+              <img src="assets/img/gallery/dish8-cheesecake.jpg" alt="" width="450" height="560" loading="lazy" decoding="async" fetchpriority="low" data-warm=".beyond">
             </picture>
             <picture>
               <source type="image/avif" sizes="(max-width: 480px) 71.2vw, (max-width: 600px) 61.6vw, (max-width: 900px) 49.3vw, (max-width: 1000px) 32.9vw, (max-width: 1200px) 30.6vw, (max-width: 1800px) 25.5vw, 21.2vw"
-                      srcset="assets/img/r/gallery/dish1-duck-320.avif 320w, assets/img/r/gallery/dish1-duck-390.avif 390w, assets/img/r/gallery/dish1-duck-480.avif 480w, assets/img/r/gallery/dish1-duck-710.avif 710w, assets/img/r/gallery/dish1-duck-850.avif 850w">
+                      srcset="assets/img/r/gallery/dish1-fries-320.avif 320w, assets/img/r/gallery/dish1-fries-390.avif 390w, assets/img/r/gallery/dish1-fries-480.avif 480w, assets/img/r/gallery/dish1-fries-710.avif 710w, assets/img/r/gallery/dish1-fries-850.avif 850w">
               <source type="image/webp" sizes="(max-width: 480px) 71.2vw, (max-width: 600px) 61.6vw, (max-width: 900px) 49.3vw, (max-width: 1000px) 32.9vw, (max-width: 1200px) 30.6vw, (max-width: 1800px) 25.5vw, 21.2vw"
-                      srcset="assets/img/r/gallery/dish1-duck-320.webp 320w, assets/img/r/gallery/dish1-duck-850.webp 850w">
-              <img src="assets/img/gallery/dish1-duck.jpg" alt="" width="856" height="560" loading="lazy" decoding="async" fetchpriority="low" data-warm=".beyond">
+                      srcset="assets/img/r/gallery/dish1-fries-320.webp 320w, assets/img/r/gallery/dish1-fries-850.webp 850w">
+              <img src="assets/img/gallery/dish1-fries.jpg" alt="" width="856" height="560" loading="lazy" decoding="async" fetchpriority="low" data-warm=".beyond">
             </picture>
             <picture>
               <source type="image/avif" sizes="(max-width: 480px) 46.9vw, (max-width: 600px) 40.6vw, (max-width: 900px) 32.5vw, (max-width: 1200px) 21.7vw, (max-width: 1440px) 16.8vw, 14vw"
-                      srcset="assets/img/r/gallery/dish6-noodles-260.avif 260w, assets/img/r/gallery/dish6-noodles-320.avif 320w, assets/img/r/gallery/dish6-noodles-470.avif 470w, assets/img/r/gallery/dish6-noodles-560.avif 560w">
+                      srcset="assets/img/r/gallery/dish6-wings-260.avif 260w, assets/img/r/gallery/dish6-wings-320.avif 320w, assets/img/r/gallery/dish6-wings-470.avif 470w, assets/img/r/gallery/dish6-wings-560.avif 560w">
               <source type="image/webp" sizes="(max-width: 480px) 46.9vw, (max-width: 600px) 40.6vw, (max-width: 900px) 32.5vw, (max-width: 1200px) 21.7vw, (max-width: 1440px) 16.8vw, 14vw"
-                      srcset="assets/img/r/gallery/dish6-noodles-260.webp 260w, assets/img/r/gallery/dish6-noodles-560.webp 560w">
-              <img src="assets/img/gallery/dish6-noodles.jpg" alt="" width="564" height="560" loading="lazy" decoding="async" fetchpriority="low" data-warm=".beyond">
+                      srcset="assets/img/r/gallery/dish6-wings-260.webp 260w, assets/img/r/gallery/dish6-wings-560.webp 560w">
+              <img src="assets/img/gallery/dish6-wings.jpg" alt="" width="564" height="560" loading="lazy" decoding="async" fetchpriority="low" data-warm=".beyond">
             </picture>
             <picture>
               <source type="image/avif" sizes="(max-width: 480px) 55.8vw, (max-width: 600px) 48.3vw, (max-width: 900px) 38.6vw, (max-width: 1200px) 25.8vw, (max-width: 1800px) 20vw, 16.6vw"
-                      srcset="assets/img/r/gallery/dish2-prawns-250.avif 250w, assets/img/r/gallery/dish2-prawns-310.avif 310w, assets/img/r/gallery/dish2-prawns-380.avif 380w, assets/img/r/gallery/dish2-prawns-550.avif 550w, assets/img/r/gallery/dish2-prawns-670.avif 670w">
+                      srcset="assets/img/r/gallery/dish2-prawns-250.avif 250w, assets/img/r/gallery/dish2-prawns-310.avif 310w, assets/img/r/gallery/dish2-prawns-380.avif 380w, assets/img/r/gallery/dish2-prawns-670.avif 670w">
               <source type="image/webp" sizes="(max-width: 480px) 55.8vw, (max-width: 600px) 48.3vw, (max-width: 900px) 38.6vw, (max-width: 1200px) 25.8vw, (max-width: 1800px) 20vw, 16.6vw"
                       srcset="assets/img/r/gallery/dish2-prawns-250.webp 250w, assets/img/r/gallery/dish2-prawns-670.webp 670w">
               <img src="assets/img/gallery/dish2-prawns.jpg" alt="" width="671" height="560" loading="lazy" decoding="async" fetchpriority="low" data-warm=".beyond">
             </picture>
             <picture>
               <source type="image/avif" sizes="(max-width: 480px) 42.4vw, (max-width: 600px) 36.7vw, (max-width: 900px) 29.4vw, (max-width: 1200px) 19.6vw, (max-width: 1440px) 15.2vw, 12.6vw"
-                      srcset="assets/img/r/gallery/dish3-bao-240.avif 240w, assets/img/r/gallery/dish3-bao-290.avif 290w, assets/img/r/gallery/dish3-bao-420.avif 420w, assets/img/r/gallery/dish3-bao-510.avif 510w">
+                      srcset="assets/img/r/gallery/dish3-pancakes-240.avif 240w, assets/img/r/gallery/dish3-pancakes-290.avif 290w, assets/img/r/gallery/dish3-pancakes-420.avif 420w, assets/img/r/gallery/dish3-pancakes-510.avif 510w">
               <source type="image/webp" sizes="(max-width: 480px) 42.4vw, (max-width: 600px) 36.7vw, (max-width: 900px) 29.4vw, (max-width: 1200px) 19.6vw, (max-width: 1440px) 15.2vw, 12.6vw"
-                      srcset="assets/img/r/gallery/dish3-bao-240.webp 240w, assets/img/r/gallery/dish3-bao-510.webp 510w">
-              <img src="assets/img/gallery/dish3-bao.jpg" alt="" width="510" height="560" loading="lazy" decoding="async" fetchpriority="low" data-warm=".beyond">
+                      srcset="assets/img/r/gallery/dish3-pancakes-240.webp 240w, assets/img/r/gallery/dish3-pancakes-510.webp 510w">
+              <img src="assets/img/gallery/dish3-pancakes.jpg" alt="" width="510" height="560" loading="lazy" decoding="async" fetchpriority="low" data-warm=".beyond">
             </picture>
             <picture>
               <source type="image/avif" sizes="(max-width: 480px) 25.5vw, (max-width: 600px) 22vw, (max-width: 900px) 17.6vw, (max-width: 1200px) 11.7vw, 7.6vw"
-                      srcset="assets/img/r/gallery/dish9-duckslice-306.avif 306w">
+                      srcset="assets/img/r/gallery/dish9-shake-306.avif 306w">
               <source type="image/webp" sizes="(max-width: 480px) 25.5vw, (max-width: 600px) 22vw, (max-width: 900px) 17.6vw, (max-width: 1200px) 11.7vw, 7.6vw"
-                      srcset="assets/img/r/gallery/dish9-duckslice-306.webp 306w">
-              <img src="assets/img/gallery/dish9-duckslice.jpg" alt="" width="306" height="560" loading="lazy" decoding="async" fetchpriority="low" data-warm=".beyond">
+                      srcset="assets/img/r/gallery/dish9-shake-306.webp 306w">
+              <img src="assets/img/gallery/dish9-shake.jpg" alt="" width="306" height="560" loading="lazy" decoding="async" fetchpriority="low" data-warm=".beyond">
             </picture>
             <picture>
               <source type="image/avif" sizes="(max-width: 480px) 53vw, (max-width: 600px) 45.9vw, (max-width: 900px) 36.7vw, (max-width: 1200px) 24.5vw, (max-width: 1440px) 19vw, 15.8vw"
-                      srcset="assets/img/r/gallery/dish7-sizzling-240.avif 240w, assets/img/r/gallery/dish7-sizzling-290.avif 290w, assets/img/r/gallery/dish7-sizzling-360.avif 360w, assets/img/r/gallery/dish7-sizzling-530.avif 530w, assets/img/r/gallery/dish7-sizzling-637.avif 637w">
+                      srcset="assets/img/r/gallery/dish7-steak-240.avif 240w, assets/img/r/gallery/dish7-steak-290.avif 290w, assets/img/r/gallery/dish7-steak-360.avif 360w, assets/img/r/gallery/dish7-steak-637.avif 637w">
               <source type="image/webp" sizes="(max-width: 480px) 53vw, (max-width: 600px) 45.9vw, (max-width: 900px) 36.7vw, (max-width: 1200px) 24.5vw, (max-width: 1440px) 19vw, 15.8vw"
-                      srcset="assets/img/r/gallery/dish7-sizzling-240.webp 240w, assets/img/r/gallery/dish7-sizzling-637.webp 637w">
-              <img src="assets/img/gallery/dish7-sizzling.jpg" alt="" width="637" height="560" loading="lazy" decoding="async" fetchpriority="low" data-warm=".beyond">
+                      srcset="assets/img/r/gallery/dish7-steak-240.webp 240w, assets/img/r/gallery/dish7-steak-637.webp 637w">
+              <img src="assets/img/gallery/dish7-steak.jpg" alt="" width="637" height="560" loading="lazy" decoding="async" fetchpriority="low" data-warm=".beyond">
             </picture>
             <picture>
               <source type="image/avif" sizes="(max-width: 480px) 37vw, (max-width: 600px) 32vw, (max-width: 900px) 25.6vw, (max-width: 1200px) 17.1vw, (max-width: 1440px) 13.2vw, 11vw"
-                      srcset="assets/img/r/gallery/dish4-dimsum-250.avif 250w, assets/img/r/gallery/dish4-dimsum-370.avif 370w, assets/img/r/gallery/dish4-dimsum-445.avif 445w">
+                      srcset="assets/img/r/gallery/dish4-waffle-250.avif 250w, assets/img/r/gallery/dish4-waffle-445.avif 445w">
               <source type="image/webp" sizes="(max-width: 480px) 37vw, (max-width: 600px) 32vw, (max-width: 900px) 25.6vw, (max-width: 1200px) 17.1vw, (max-width: 1440px) 13.2vw, 11vw"
-                      srcset="assets/img/r/gallery/dish4-dimsum-250.webp 250w, assets/img/r/gallery/dish4-dimsum-445.webp 445w">
-              <img src="assets/img/gallery/dish4-dimsum.jpg" alt="" width="445" height="560" loading="lazy" decoding="async" fetchpriority="low" data-warm=".beyond">
+                      srcset="assets/img/r/gallery/dish4-waffle-250.webp 250w, assets/img/r/gallery/dish4-waffle-445.webp 445w">
+              <img src="assets/img/gallery/dish4-waffle.jpg" alt="" width="445" height="560" loading="lazy" decoding="async" fetchpriority="low" data-warm=".beyond">
             </picture>
             <!-- copy 3 -->
             <picture>
               <source type="image/avif" sizes="(max-width: 480px) 46.8vw, (max-width: 600px) 40.5vw, (max-width: 900px) 32.4vw, (max-width: 1200px) 21.6vw, (max-width: 1440px) 16.8vw, 14vw"
-                      srcset="assets/img/r/gallery/dish5-rice-260.avif 260w, assets/img/r/gallery/dish5-rice-320.avif 320w, assets/img/r/gallery/dish5-rice-470.avif 470w, assets/img/r/gallery/dish5-rice-560.avif 560w">
+                      srcset="assets/img/r/gallery/dish5-burger-260.avif 260w, assets/img/r/gallery/dish5-burger-320.avif 320w, assets/img/r/gallery/dish5-burger-560.avif 560w">
               <source type="image/webp" sizes="(max-width: 480px) 46.8vw, (max-width: 600px) 40.5vw, (max-width: 900px) 32.4vw, (max-width: 1200px) 21.6vw, (max-width: 1440px) 16.8vw, 14vw"
-                      srcset="assets/img/r/gallery/dish5-rice-260.webp 260w, assets/img/r/gallery/dish5-rice-560.webp 560w">
-              <img src="assets/img/gallery/dish5-rice.jpg" alt="" width="563" height="560" loading="lazy" decoding="async" fetchpriority="low" data-warm=".beyond">
+                      srcset="assets/img/r/gallery/dish5-burger-260.webp 260w, assets/img/r/gallery/dish5-burger-560.webp 560w">
+              <img src="assets/img/gallery/dish5-burger.jpg" alt="" width="563" height="560" loading="lazy" decoding="async" fetchpriority="low" data-warm=".beyond">
             </picture>
             <picture>
               <source type="image/avif" sizes="(max-width: 480px) 37.4vw, (max-width: 600px) 32.4vw, (max-width: 900px) 25.9vw, (max-width: 1200px) 17.3vw, (max-width: 1440px) 13.4vw, 11.2vw"
-                      srcset="assets/img/r/gallery/dish8-springroll-250.avif 250w, assets/img/r/gallery/dish8-springroll-370.avif 370w, assets/img/r/gallery/dish8-springroll-450.avif 450w">
+                      srcset="assets/img/r/gallery/dish8-cheesecake-250.avif 250w, assets/img/r/gallery/dish8-cheesecake-450.avif 450w">
               <source type="image/webp" sizes="(max-width: 480px) 37.4vw, (max-width: 600px) 32.4vw, (max-width: 900px) 25.9vw, (max-width: 1200px) 17.3vw, (max-width: 1440px) 13.4vw, 11.2vw"
-                      srcset="assets/img/r/gallery/dish8-springroll-250.webp 250w, assets/img/r/gallery/dish8-springroll-450.webp 450w">
-              <img src="assets/img/gallery/dish8-springroll.jpg" alt="" width="450" height="560" loading="lazy" decoding="async" fetchpriority="low" data-warm=".beyond">
+                      srcset="assets/img/r/gallery/dish8-cheesecake-250.webp 250w, assets/img/r/gallery/dish8-cheesecake-450.webp 450w">
+              <img src="assets/img/gallery/dish8-cheesecake.jpg" alt="" width="450" height="560" loading="lazy" decoding="async" fetchpriority="low" data-warm=".beyond">
             </picture>
             <picture>
               <source type="image/avif" sizes="(max-width: 480px) 71.2vw, (max-width: 600px) 61.6vw, (max-width: 900px) 49.3vw, (max-width: 1000px) 32.9vw, (max-width: 1200px) 30.6vw, (max-width: 1800px) 25.5vw, 21.2vw"
-                      srcset="assets/img/r/gallery/dish1-duck-320.avif 320w, assets/img/r/gallery/dish1-duck-390.avif 390w, assets/img/r/gallery/dish1-duck-480.avif 480w, assets/img/r/gallery/dish1-duck-710.avif 710w, assets/img/r/gallery/dish1-duck-850.avif 850w">
+                      srcset="assets/img/r/gallery/dish1-fries-320.avif 320w, assets/img/r/gallery/dish1-fries-390.avif 390w, assets/img/r/gallery/dish1-fries-480.avif 480w, assets/img/r/gallery/dish1-fries-710.avif 710w, assets/img/r/gallery/dish1-fries-850.avif 850w">
               <source type="image/webp" sizes="(max-width: 480px) 71.2vw, (max-width: 600px) 61.6vw, (max-width: 900px) 49.3vw, (max-width: 1000px) 32.9vw, (max-width: 1200px) 30.6vw, (max-width: 1800px) 25.5vw, 21.2vw"
-                      srcset="assets/img/r/gallery/dish1-duck-320.webp 320w, assets/img/r/gallery/dish1-duck-850.webp 850w">
-              <img src="assets/img/gallery/dish1-duck.jpg" alt="" width="856" height="560" loading="lazy" decoding="async" fetchpriority="low" data-warm=".beyond">
+                      srcset="assets/img/r/gallery/dish1-fries-320.webp 320w, assets/img/r/gallery/dish1-fries-850.webp 850w">
+              <img src="assets/img/gallery/dish1-fries.jpg" alt="" width="856" height="560" loading="lazy" decoding="async" fetchpriority="low" data-warm=".beyond">
             </picture>
             <picture>
               <source type="image/avif" sizes="(max-width: 480px) 46.9vw, (max-width: 600px) 40.6vw, (max-width: 900px) 32.5vw, (max-width: 1200px) 21.7vw, (max-width: 1440px) 16.8vw, 14vw"
-                      srcset="assets/img/r/gallery/dish6-noodles-260.avif 260w, assets/img/r/gallery/dish6-noodles-320.avif 320w, assets/img/r/gallery/dish6-noodles-470.avif 470w, assets/img/r/gallery/dish6-noodles-560.avif 560w">
+                      srcset="assets/img/r/gallery/dish6-wings-260.avif 260w, assets/img/r/gallery/dish6-wings-320.avif 320w, assets/img/r/gallery/dish6-wings-470.avif 470w, assets/img/r/gallery/dish6-wings-560.avif 560w">
               <source type="image/webp" sizes="(max-width: 480px) 46.9vw, (max-width: 600px) 40.6vw, (max-width: 900px) 32.5vw, (max-width: 1200px) 21.7vw, (max-width: 1440px) 16.8vw, 14vw"
-                      srcset="assets/img/r/gallery/dish6-noodles-260.webp 260w, assets/img/r/gallery/dish6-noodles-560.webp 560w">
-              <img src="assets/img/gallery/dish6-noodles.jpg" alt="" width="564" height="560" loading="lazy" decoding="async" fetchpriority="low" data-warm=".beyond">
+                      srcset="assets/img/r/gallery/dish6-wings-260.webp 260w, assets/img/r/gallery/dish6-wings-560.webp 560w">
+              <img src="assets/img/gallery/dish6-wings.jpg" alt="" width="564" height="560" loading="lazy" decoding="async" fetchpriority="low" data-warm=".beyond">
             </picture>
             <picture>
               <source type="image/avif" sizes="(max-width: 480px) 55.8vw, (max-width: 600px) 48.3vw, (max-width: 900px) 38.6vw, (max-width: 1200px) 25.8vw, (max-width: 1800px) 20vw, 16.6vw"
-                      srcset="assets/img/r/gallery/dish2-prawns-250.avif 250w, assets/img/r/gallery/dish2-prawns-310.avif 310w, assets/img/r/gallery/dish2-prawns-380.avif 380w, assets/img/r/gallery/dish2-prawns-550.avif 550w, assets/img/r/gallery/dish2-prawns-670.avif 670w">
+                      srcset="assets/img/r/gallery/dish2-prawns-250.avif 250w, assets/img/r/gallery/dish2-prawns-310.avif 310w, assets/img/r/gallery/dish2-prawns-380.avif 380w, assets/img/r/gallery/dish2-prawns-670.avif 670w">
               <source type="image/webp" sizes="(max-width: 480px) 55.8vw, (max-width: 600px) 48.3vw, (max-width: 900px) 38.6vw, (max-width: 1200px) 25.8vw, (max-width: 1800px) 20vw, 16.6vw"
                       srcset="assets/img/r/gallery/dish2-prawns-250.webp 250w, assets/img/r/gallery/dish2-prawns-670.webp 670w">
               <img src="assets/img/gallery/dish2-prawns.jpg" alt="" width="671" height="560" loading="lazy" decoding="async" fetchpriority="low" data-warm=".beyond">
             </picture>
             <picture>
               <source type="image/avif" sizes="(max-width: 480px) 42.4vw, (max-width: 600px) 36.7vw, (max-width: 900px) 29.4vw, (max-width: 1200px) 19.6vw, (max-width: 1440px) 15.2vw, 12.6vw"
-                      srcset="assets/img/r/gallery/dish3-bao-240.avif 240w, assets/img/r/gallery/dish3-bao-290.avif 290w, assets/img/r/gallery/dish3-bao-420.avif 420w, assets/img/r/gallery/dish3-bao-510.avif 510w">
+                      srcset="assets/img/r/gallery/dish3-pancakes-240.avif 240w, assets/img/r/gallery/dish3-pancakes-290.avif 290w, assets/img/r/gallery/dish3-pancakes-420.avif 420w, assets/img/r/gallery/dish3-pancakes-510.avif 510w">
               <source type="image/webp" sizes="(max-width: 480px) 42.4vw, (max-width: 600px) 36.7vw, (max-width: 900px) 29.4vw, (max-width: 1200px) 19.6vw, (max-width: 1440px) 15.2vw, 12.6vw"
-                      srcset="assets/img/r/gallery/dish3-bao-240.webp 240w, assets/img/r/gallery/dish3-bao-510.webp 510w">
-              <img src="assets/img/gallery/dish3-bao.jpg" alt="" width="510" height="560" loading="lazy" decoding="async" fetchpriority="low" data-warm=".beyond">
+                      srcset="assets/img/r/gallery/dish3-pancakes-240.webp 240w, assets/img/r/gallery/dish3-pancakes-510.webp 510w">
+              <img src="assets/img/gallery/dish3-pancakes.jpg" alt="" width="510" height="560" loading="lazy" decoding="async" fetchpriority="low" data-warm=".beyond">
             </picture>
             <picture>
               <source type="image/avif" sizes="(max-width: 480px) 25.5vw, (max-width: 600px) 22vw, (max-width: 900px) 17.6vw, (max-width: 1200px) 11.7vw, 7.6vw"
-                      srcset="assets/img/r/gallery/dish9-duckslice-306.avif 306w">
+                      srcset="assets/img/r/gallery/dish9-shake-306.avif 306w">
               <source type="image/webp" sizes="(max-width: 480px) 25.5vw, (max-width: 600px) 22vw, (max-width: 900px) 17.6vw, (max-width: 1200px) 11.7vw, 7.6vw"
-                      srcset="assets/img/r/gallery/dish9-duckslice-306.webp 306w">
-              <img src="assets/img/gallery/dish9-duckslice.jpg" alt="" width="306" height="560" loading="lazy" decoding="async" fetchpriority="low" data-warm=".beyond">
+                      srcset="assets/img/r/gallery/dish9-shake-306.webp 306w">
+              <img src="assets/img/gallery/dish9-shake.jpg" alt="" width="306" height="560" loading="lazy" decoding="async" fetchpriority="low" data-warm=".beyond">
             </picture>
             <picture>
               <source type="image/avif" sizes="(max-width: 480px) 53vw, (max-width: 600px) 45.9vw, (max-width: 900px) 36.7vw, (max-width: 1200px) 24.5vw, (max-width: 1440px) 19vw, 15.8vw"
-                      srcset="assets/img/r/gallery/dish7-sizzling-240.avif 240w, assets/img/r/gallery/dish7-sizzling-290.avif 290w, assets/img/r/gallery/dish7-sizzling-360.avif 360w, assets/img/r/gallery/dish7-sizzling-530.avif 530w, assets/img/r/gallery/dish7-sizzling-637.avif 637w">
+                      srcset="assets/img/r/gallery/dish7-steak-240.avif 240w, assets/img/r/gallery/dish7-steak-290.avif 290w, assets/img/r/gallery/dish7-steak-360.avif 360w, assets/img/r/gallery/dish7-steak-637.avif 637w">
               <source type="image/webp" sizes="(max-width: 480px) 53vw, (max-width: 600px) 45.9vw, (max-width: 900px) 36.7vw, (max-width: 1200px) 24.5vw, (max-width: 1440px) 19vw, 15.8vw"
-                      srcset="assets/img/r/gallery/dish7-sizzling-240.webp 240w, assets/img/r/gallery/dish7-sizzling-637.webp 637w">
-              <img src="assets/img/gallery/dish7-sizzling.jpg" alt="" width="637" height="560" loading="lazy" decoding="async" fetchpriority="low" data-warm=".beyond">
+                      srcset="assets/img/r/gallery/dish7-steak-240.webp 240w, assets/img/r/gallery/dish7-steak-637.webp 637w">
+              <img src="assets/img/gallery/dish7-steak.jpg" alt="" width="637" height="560" loading="lazy" decoding="async" fetchpriority="low" data-warm=".beyond">
             </picture>
             <picture>
               <source type="image/avif" sizes="(max-width: 480px) 37vw, (max-width: 600px) 32vw, (max-width: 900px) 25.6vw, (max-width: 1200px) 17.1vw, (max-width: 1440px) 13.2vw, 11vw"
-                      srcset="assets/img/r/gallery/dish4-dimsum-250.avif 250w, assets/img/r/gallery/dish4-dimsum-370.avif 370w, assets/img/r/gallery/dish4-dimsum-445.avif 445w">
+                      srcset="assets/img/r/gallery/dish4-waffle-250.avif 250w, assets/img/r/gallery/dish4-waffle-445.avif 445w">
               <source type="image/webp" sizes="(max-width: 480px) 37vw, (max-width: 600px) 32vw, (max-width: 900px) 25.6vw, (max-width: 1200px) 17.1vw, (max-width: 1440px) 13.2vw, 11vw"
-                      srcset="assets/img/r/gallery/dish4-dimsum-250.webp 250w, assets/img/r/gallery/dish4-dimsum-445.webp 445w">
-              <img src="assets/img/gallery/dish4-dimsum.jpg" alt="" width="445" height="560" loading="lazy" decoding="async" fetchpriority="low" data-warm=".beyond">
+                      srcset="assets/img/r/gallery/dish4-waffle-250.webp 250w, assets/img/r/gallery/dish4-waffle-445.webp 445w">
+              <img src="assets/img/gallery/dish4-waffle.jpg" alt="" width="445" height="560" loading="lazy" decoding="async" fetchpriority="low" data-warm=".beyond">
             </picture>
           </div>
         </div>
@@ -2721,7 +2752,7 @@
 
       <figure class="dish__fig">
         <!--
-          PLACEHOLDER — cut out by bake-duck-plate.py. The seafood platter is
+          PLACEHOLDER — cut out by bake-platter-plate.py. The seafood platter is
           the top of Crave's carte at KSh 9,500, the first item Google lists
           under "Popular", and the dish that carries the one thing both
           branches say about themselves: the seafood comes from the coast.
@@ -2739,11 +2770,11 @@
           replacing this file.
         -->
         <picture>
-          <source type="image/webp" sizes="(max-width: 480px) 96.9vw, (max-width: 700px) 91.8vw, (max-width: 820px) 78.3vw, (max-width: 900px) 66.7vw, (max-width: 1000px) 61.2vw, (max-width: 1200px) 55.1vw, 47.7vw"
-                  srcset="assets/img/r/duck-plate-590.webp 590w, assets/img/r/duck-plate-700.webp 700w, assets/img/r/duck-plate-880.webp 880w, assets/img/r/duck-plate-1122.webp 1122w">
+          <source type="image/webp" sizes="(max-width: 480px) 98.6vw, (max-width: 700px) 93.2vw, (max-width: 820px) 79.5vw, (max-width: 900px) 67.4vw, (max-width: 1000px) 62.1vw, (max-width: 1200px) 55.8vw, 48.2vw"
+                  srcset="assets/img/r/platter-plate-600.webp 600w, assets/img/r/platter-plate-710.webp 710w, assets/img/r/platter-plate-890.webp 890w, assets/img/r/platter-plate-1122.webp 1122w">
           <img class="dish__plate"
-             src="assets/img/duck-plate.webp"
-             alt="A seafood platter seen from directly overhead: a split grilled lobster, prawns and fillets of white fish with lemon wedges, on a wide pale ceramic plate."
+             src="assets/img/platter-plate.webp"
+             alt="A round plate of grilled prawns seen from directly overhead, filling the plate to its rim."
              width="1122" height="1122" loading="lazy" decoding="async" fetchpriority="low">
         </picture>
       </figure>
@@ -2834,14 +2865,13 @@
       </svg>
       <div class="reserve__frame">
         <picture>
-          <source type="image/avif" sizes="(max-width: 1000px) 100.9vw, 62.6vw"
-                  srcset="assets/img/r/reserve-interior-640.avif 640w, assets/img/r/reserve-interior-770.avif 770w, assets/img/r/reserve-interior-920.avif 920w, assets/img/r/reserve-interior-1150.avif 1150w, assets/img/r/reserve-interior-1400.avif 1400w">
-          <source type="image/webp" sizes="(max-width: 1000px) 100.9vw, 62.6vw"
-                  srcset="assets/img/r/reserve-interior-640.webp 640w, assets/img/r/reserve-interior-1400.webp 1400w">
+          <source type="image/avif" sizes="(max-width: 1000px) 100.7vw, 62.4vw"
+                  srcset="assets/img/r/reserve-interior-650.avif 650w, assets/img/r/reserve-interior-770.avif 770w, assets/img/r/reserve-interior-930.avif 930w, assets/img/r/reserve-interior-1160.avif 1160w, assets/img/r/reserve-interior-1400.avif 1400w">
+          <source type="image/webp" sizes="(max-width: 1000px) 100.7vw, 62.4vw"
+                  srcset="assets/img/r/reserve-interior-650.webp 650w, assets/img/r/reserve-interior-1400.webp 1400w">
           <img class="reserve__img" src="assets/img/reserve-interior.jpg"
              width="1400" height="1576"
-             alt="A warm, low-lit dining room: dark timber, a long run of small
-                  pendant lights, tables laid and waiting along one side."
+             alt="A laid table in a light-filled dining room, plates and glasses set for a meal."
              loading="lazy" decoding="async" fetchpriority="low">
         </picture>
       </div>

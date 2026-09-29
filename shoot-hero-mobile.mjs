@@ -200,7 +200,18 @@ for (const pos of list) {
     if (!r) continue;
     const m = await read(r[0], r[1], r[2], r[3]);
     if (!m) continue;
-    const ink = k === 'tagline' ? [204, 204, 204] : [255, 255, 255]; // tagline is white at .80
+    /* THE INK IS DARK NOW, and it was white until 2026-09-28. Left at white
+       this tool reports a bright bed as a triumph and a dark one as a failure,
+       which is exactly backwards for this hero — it would have passed a
+       black-floor crop at 18:1 and failed the one that shipped.
+
+       These are COMPOSITES, not the declared colours: the tagline is the ink
+       at .82 and the icons at .90, both over the bed, so each is mixed against
+       a representative bed of 250 rather than taken at face value. The
+       wordmark is the ink at full opacity. */
+    const ink = k === 'tagline' ? [57, 57, 55]
+              : k === 'social'  ? [38, 38, 36]
+              :                   [14, 14, 12];
     console.log(`    ${k.padEnd(8)} bed luma ${String(m.luma).padStart(5)}  peak ${String(m.peak).padStart(3)}` +
                 `   contrast ${String(ratio(m.rl, ink)).padStart(5)}:1` +
                 `   worst 12px tile ${String(ratio(m.worst, ink)).padStart(5)}:1 at ${m.wx},${m.wy}`);

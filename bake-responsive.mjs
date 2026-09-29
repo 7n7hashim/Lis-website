@@ -30,7 +30,7 @@
       90-108. An encoder that shifts levels would move a frame out of its
       band silently, and PSNR alone would not show it.
 
-   4. duck-plate is WEBP-ONLY, and that is not an oversight. It is the
+   4. platter-plate is WEBP-ONLY, and that is not an oversight. It is the
       one alpha cutout on the site, ffmpeg's AVIF path cannot carry an
       alpha channel here (libsvtav1 has no gray encoder for the aux
       stream), and the failure is SILENT — the encode succeeds and returns
@@ -82,7 +82,7 @@ const ROLE_OF = {
 const roleFor = (src) => ROLE_OF[src] ?? (src.includes('/gallery/') ? 'tile' : 'feature');
 
 /* WebP only. See note 4. */
-const ALPHA = new Set(['assets/img/duck-plate.webp']);
+const ALPHA = new Set(['assets/img/platter-plate.webp']);
 
 const sh = (cmd, args) => execFileSync(cmd, args, { maxBuffer: 1 << 30 });
 
@@ -119,7 +119,7 @@ function ladder(observed, natural) {
   }
   /* Thin by GAP, not by position. The old rule spliced from the middle
      until five remained, which is right only when the demand is narrow.
-     lis-hero is asked for at 101.4vw on index.html and 15.2vw on menu.html
+     crave-hero is asked for at 101.4vw on index.html and 15.2vw on menu.html
      — a 6.1x span — and middle-thinning removed exactly the rungs menu.html
      needs, leaving [280, 350, 1210, 1450, 1717]: a 3.46x hole where every
      other ladder on the site sits between 1.2 and 2.1. A 390px phone then
@@ -266,7 +266,7 @@ for (const j of jobs) {
   const cfg = ROLES[j.role];
   const alpha = ALPHA.has(j.src);
   /* sizesByPage MUST be carried through. `sizes` is per PAGE, not per file —
-     lis-hero is a full-viewport hero on index.html and a 15vw framed
+     crave-hero is a full-viewport hero on index.html and a 15vw framed
      photograph on menu.html — and apply-responsive-markup.mjs reads its
      hint from THIS manifest, not from img-sizes.json. Dropping the field
      here silently defeated the per-page fix on every re-run of the

@@ -40,9 +40,9 @@ const manifest = JSON.parse(readFileSync('img-manifest.json', 'utf8'));
              before their turn. */
 const POLICY = {
   'index.html': {
-    'assets/img/lis-hero.jpg': { mode: 'eager', priority: 'high', preload: true },
-    'assets/img/wok-counter.jpg': { mode: 'lazy' },
-    'assets/img/duck-plate.webp': { mode: 'lazy' },
+    'assets/img/crave-hero.jpg': { mode: 'eager', priority: 'high', preload: true },
+    'assets/img/crave-counter.jpg': { mode: 'lazy' },
+    'assets/img/platter-plate.webp': { mode: 'lazy' },
     'assets/img/reserve-interior.jpg': { mode: 'lazy' },
     '*gallery*': { mode: 'warm', warm: '.beyond' },
   },
@@ -51,34 +51,34 @@ const POLICY = {
        the measured LCP element. All four frames arrive together out of
        depth; a lazy one would arrive late into a two-second choreography.
 
-       The PRELOAD goes on menu-duck, and which frame carries it is measured
-       rather than assumed. It sat on lis-hero — index.html's hero, carried
+       The PRELOAD goes on menu-grill, and which frame carries it is measured
+       rather than assumed. It sat on crave-hero — index.html's hero, carried
        across with the policy — where it is the SMALLEST of the four frames:
        151px on a phone against menu-seafood's 189. So the page spent its one
        high-priority fetch on a frame that is not the LCP, and the frame that
        is waited its turn behind three others. Chrome reports the LCP element
-       here as menu-duck: not the largest by area, because the entrance runs
+       here as menu-grill: not the largest by area, because the entrance runs
        two seconds and LCP lands on whichever frame reaches full opacity
        first with real area. Re-measure with a throttled profile before
        moving this — the answer is not the one geometry predicts. */
-    'assets/img/menu-duck.jpg': { mode: 'eager', priority: 'high', preload: true },
-    'assets/img/lis-hero.jpg': { mode: 'eager' },
-    'assets/img/menu-dimsum.jpg': { mode: 'eager' },
+    'assets/img/menu-grill.jpg': { mode: 'eager', priority: 'high', preload: true },
+    'assets/img/crave-hero.jpg': { mode: 'eager' },
+    'assets/img/menu-breakfast.jpg': { mode: 'eager' },
     'assets/img/menu-seafood.jpg': { mode: 'eager' },
     'assets/img/reserve-interior.jpg': { mode: 'lazy' },
   },
   'about.html': {
     'assets/img/about-opening.jpg': { mode: 'eager', priority: 'high', preload: true },
     'assets/img/about-plate.jpg': { mode: 'lazy' },
-    'assets/img/about-ch1-wok.jpg': { mode: 'warm', warm: '.chapters' },
-    'assets/img/about-ch2-hand.jpg': { mode: 'warm', warm: '.chapters' },
-    'assets/img/about-ch3-coast.jpg': { mode: 'warm', warm: '.chapters' },
+    'assets/img/about-ch1-morning.jpg': { mode: 'warm', warm: '.chapters' },
+    'assets/img/about-ch2-coast.jpg': { mode: 'warm', warm: '.chapters' },
+    'assets/img/about-ch3-counter.jpg': { mode: 'warm', warm: '.chapters' },
     'assets/img/about-ch4-table.jpg': { mode: 'warm', warm: '.chapters' },
-    'assets/img/about-ex1-fire.jpg': { mode: 'warm', warm: '.experience' },
-    'assets/img/about-ex2-dimsum.jpg': { mode: 'warm', warm: '.experience' },
-    'assets/img/about-ex3-room.jpg': { mode: 'warm', warm: '.experience' },
-    'assets/img/about-ic1-duck.jpg': { mode: 'warm', warm: '.reunion' },
-    'assets/img/about-ic2-table.jpg': { mode: 'warm', warm: '.reunion' },
+    'assets/img/about-ex1-coffee.jpg': { mode: 'warm', warm: '.experience' },
+    'assets/img/about-ex2-grill.jpg': { mode: 'warm', warm: '.experience' },
+    'assets/img/about-ex3-sweet.jpg': { mode: 'warm', warm: '.experience' },
+    'assets/img/about-ic1-late.jpg': { mode: 'warm', warm: '.reunion' },
+    'assets/img/about-ic2-late.jpg': { mode: 'warm', warm: '.reunion' },
     'assets/img/reserve-interior.jpg': { mode: 'lazy' },
   },
   'contact.html': {

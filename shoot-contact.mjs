@@ -116,25 +116,54 @@ for (const p of POS) {
   /* Ink extents of the heading, by scanning pixels rather than trusting a
      font metric: about.html's opening records that Cormorant's metric ascent
      reads 1.769% for type that measures 1.875% on screen. */
+  /* TWO CAPTURES, DIFFERENCED. A single-threshold scan cannot separate dark
+     type from a dark photograph, and since the type inverted on 2026-09-28 it
+     no longer can separate it from a bright one either: brighter-than finds
+     the background, darker-than finds the room, and BOTH return the heading's
+     full box. That is why this reported a cap of 3.472% against a true
+     1.877% — the box height, not a cap, and it looked like a real measurement
+     because the ink WIDTH beside it was right (the background fills the box
+     edge to edge, so the width happens to come out correct either way).
+
+     Differencing the shipped frame against the same frame with the type
+     hidden finds exactly the pixels the type changed, whatever colour it is
+     and whatever is behind it. */
+  await sampler(bareBuf);
+  const bare = await page.evaluate(() => {
+    const { c, g } = window.__s;
+    return g.getImageData(0, 0, c.width, c.height).data;
+  });
   await sampler(readFileSync(file));
-  const ink = await page.evaluate(() => {
+  const ink = await page.evaluate((bare) => {
     const { c, g } = window.__s;
     const r = document.querySelector('.hero__title').getBoundingClientRect();
     const X0 = Math.max(0, Math.floor(r.x)), Y0 = Math.max(0, Math.floor(r.y));
     const X1 = Math.min(c.width, Math.ceil(r.right)), Y1 = Math.min(c.height, Math.ceil(r.bottom));
     const d = g.getImageData(X0, Y0, X1 - X0, Y1 - Y0).data;
-    const w = X1 - X0;
-    /* 150 sits well above the bed and well below the type's core, so it finds
-       the letterform rather than its glow. */
+    const w = X1 - X0, CW = c.width;
+    /* THE TEST IS DARKER-THAN, and it was brighter-than until 2026-09-28.
+       The type over this frame used to be white on a dark room and is now the
+       ink on a bright one, so a brighter-than test stopped finding letters and
+       started finding the BACKGROUND — it reported the heading's full box as
+       ink and gave a cap of 3.472% against a true 1.877%, which is the box
+       height, not a cap. The ink-width figure it printed alongside happened to
+       match the documented 46.7% by coincidence: the background fills the box
+       edge to edge.
+
+       150 still sits well below the bed and well above the type's core. */
+    const L = (a, j) => 0.299 * a[j] + 0.587 * a[j + 1] + 0.114 * a[j + 2];
     let minX = 1e9, maxX = -1, minY = 1e9, maxY = -1;
     for (let i = 0; i < d.length; i += 4) {
-      if (0.299 * d[i] + 0.587 * d[i + 1] + 0.114 * d[i + 2] <= 150) continue;
       const px = (i / 4) % w, py = ((i / 4) / w) | 0;
+      const j = ((Y0 + py) * CW + (X0 + px)) * 4;
+      /* 28 sits above the antialiased rim and the text-shadow's halo and well
+         below the letterform's own core. */
+      if (Math.abs(L(d, i) - L(bare, j)) < 28) continue;
       if (px < minX) minX = px; if (px > maxX) maxX = px;
       if (py < minY) minY = py; if (py > maxY) maxY = py;
     }
     return { w: maxX - minX, h: maxY - minY, lines: r.height };
-  });
+  }, bare);
   console.log(`         ink ${(ink.w / W * 100).toFixed(1)}% of width  (about.html reference 49.5%)` +
               `   cap ${(ink.h / W * 100).toFixed(3)}%  (reference 1.877%, single line)`);
 

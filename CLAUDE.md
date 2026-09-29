@@ -1,41 +1,72 @@
 # CLAUDE.md — Frontend Website Rules
 
-## Project: Li's Chinese Restaurant
-A Chinese restaurant in Kenya with two branches. **Rebranded from Misono, a Japanese
-restaurant, on 2026-08-26** — the architecture was kept and everything else was replaced.
-Spec: `docs/superpowers/specs/2026-08-26-lis-rebrand-design.md`.
+## Project: Crave
+An all-day cafe in Kenya with two branches. **Rebranded from Li's Chinese Restaurant on
+2026-09-28**, which had itself been rebranded from Misono on 2026-08-26 — the
+architecture was kept both times and everything else was replaced.
+Spec: `docs/superpowers/specs/2026-09-28-crave-rebrand-design.md`.
 
 **Every fact on this site is researched, not invented, and is listed with its source in
-that spec.** The short version, all read 2026-08-26 from Li's own site
-(`lischineserestaurantnairobi.co.ke`), its published menu and its Mombasa listing:
+that spec.** Crave has **no website**. Everything below was read 2026-09-28 from its own
+digital menu (`oddmenu.com/p/cravekenya`), its two claimed TripAdvisor listings, its
+Instagram bio and its Google listing:
 
 | | |
 |---|---|
-| Mombasa — **the original** | Petrocity Plaza, 1st floor, Links Road, Nyali, 80112 · +254 799 402101 · Tue–Sun 11:00–21:00 |
-| Nairobi — the second | Petrocity, Limuru Road, Gigiri (QR74+JR2) · +254 746 815 106 · Tue–Sun 11:00–22:30 |
-| Both | closed Mondays |
-| Email | reservations@ / info@ / orders@ / careers@lischineserestaurantnairobi.co.ke |
-| People | Hari Khasu, Executive Chef · Morris Mativo, Manager |
-| Private dining | 2 VIP rooms, 12–15 covers — **Mombasa only**, confirmed there and nowhere else |
-| Services | reservations, takeaway, Uber Eats, full bar, free parking |
-| Socials | IG @lischineserestaurant · IG @lischinese (Msa) · X @LisChinese · TikTok @lischineserestaurantnrb |
+| Mombasa — **the original** | Malindi Road, City Mall, Nyali, 80100 · +254 705 000275 · **06:00–00:00** |
+| Nairobi — the second | Ring Road, Kilimani, Zarafa Towers, ground floor · +254 756 600600 · **06:00–01:00** |
+| Both | **open seven days. Neither closes on any day of the week.** |
+| Standing | Mombasa #1 of 212 in the city, 4.9 (406) · Nairobi #8 of 1,111, 4.9 (629) · Travellers' Choice 2026 both · Google 4.8 (1,664) · Ksh 1,000–3,500pp |
+| Tagline | **"Satisfying every craving"** — Crave's own, off its menu header |
+| Alcohol | **NONE. Halal, and no pork.** See the rule below |
+| Email | **none published.** See the rule below |
+| Services | breakfast, lunch, dinner, brunch, drinks · vegetarian friendly · gluten-free listed at Mombasa only · parking · cards |
+| Socials | IG @crave_kenya · TikTok @crave_kenya · Facebook. **No X account** |
 
-**The carte on `menu.html` is REAL** — 84 dishes with Li's own KSh prices, off the
-published menu. Nothing on that page is invented, which reverses what it used to be.
+**The carte on `menu.html` is REAL and GENERATED** — 295 dishes across 38 courses with
+Crave's own KSh prices, read from its own menu API. `build-carte.mjs` writes that grid
+from `crave-menu.json`; **do not hand-edit it**, an edit is lost on the next run.
+
+**CRAVE IS ALCOHOL-FREE AND THE SITE SAYS SO OUT LOUD.** Fourteen drinks categories and
+not one is alcoholic; the food menu uses beef macon throughout. Google's listing carries
+a user-contributed "Great cocktails" attribute and it is **wrong** — the Strawberry
+Mojito it links to is on the MOCKTAILS list. The FAQ states it plainly rather than
+staying silent, because a guest who turns up expecting wine has been misled by omission.
+Li's site claimed a full bar; that claim was deleted, not re-worded.
+
+**THERE IS NO EMAIL ADDRESS ANYWHERE ON THE SITE, and that is a decision.**
+`reservations@cravekenya.com` turns up in search on `crave-kenya.quickprimetech.com`,
+which is an agency's demo site and not Crave's. `.details` on `contact.html` therefore
+carries **two phone cells**, Mombasa and Nairobi, where it used to carry a phone and a
+45-character email.
+
+**MOMBASA SPECIALS IS A ONE-BRANCH MENU.** Eight dishes — mandi, Mombasa biriyani,
+Swahili pilau, chicken tikka, lamb chops, mutton kabab — served at City Mall and not in
+Nairobi. It is presented on the branch's own card and in the FAQ, never as a house claim.
 
 **NEVER ASSERTED, and each for a reason:** no founding year for either branch (none is
-published — the site says only that Mombasa came first); no drive times or distances on
-the location cards; no single phone number presented as reaching both branches; no dish
-that is not on the real carte.
+published — Crave's own Facebook announced Kilimani as the new branch, so Mombasa came
+first, and the copy says that and stops); **no third branch** (Mombasa's listing text
+mentions one "not far from Fort Jesus" and no other source does); no floor number in
+Mombasa (three sources give three different answers); no drive times or distances on the
+location cards; no single phone presented as reaching both branches; no dish that is not
+on the real carte.
 
 ### The ground
-**The whole site is on a warm ivory, `--ground #F6EEE1`.** It replaced a muted peach with
-the rebrand: the ivory reads pink beside a deep red, and the red is the accent the whole
-palette now turns on. The `--cream` token is not a second ground — see the tokens table.
+**The whole site is on a near-white, `--ground #FBFAF7`.** It replaced a warm ivory with
+the rebrand. Crave's logo is a white plaque on black with **zero chroma in either**, and
+its room is a daylight cafe, so the site is a white sheet with black plaques on it and
+**the food is the only colour on the page**. The `--cream` token is not a second ground —
+see the tokens table.
 
 The two exceptions are both full-viewport photographs, not grounds: the homepage hero and
-`about.html`'s opening. `body` stays on `--ink` behind each, deliberately — a failed image
-then leaves white type on black rather than white type on ivory.
+`about.html`'s opening.
+
+**`body` IS NO LONGER ON `--ink` BEHIND THEM, and the reason it used to be is what
+changed.** It was `--ink` so a failed hero image left white type on black rather than
+white type on ivory. The photography inverted with the rebrand and the type over both
+frames is now DARK, so an unchanged `--ink` would leave dark type on black — invisible.
+The reason survived the inversion; the value did not.
 
 **A photograph is the only reason to leave the ivory.** Re-derive contrast per ground
 rather than carrying it across, and expect roughly four things per section not to follow
@@ -49,6 +80,44 @@ are literals. The arithmetic for each is in that file, beside the declaration it
 
   **The hero has a PORTRAIT crop of its own**, keyed on aspect ratio rather than width,
   because the aspect is what does the cropping. Desktop is untouched. Load-bearing:
+
+  **THE PHOTOGRAPH AND THE TYPE'S POLARITY BOTH CHANGED 2026-09-28.** The hero is a
+  bright room and the type over it is **dark**. The frame, its aspect and the whole
+  portrait-crop apparatus are unchanged; every LUMINANCE below was re-solved.
+
+  **EVERY OVERLAY INVERTED, AND ALL OF THEM KEPT THEIR ALPHAS.** `.hero__warm` went from
+  a multiply to a screen at a tenth of the strength — a corner-darkening pass reads as a
+  dirty lens on a daylight room, which is the same reason the baked vignettes went.
+  `.hero__wash` and `.hero__brand::before` kept their stop positions and swapped
+  `rgba(8,5,3,·)` for `rgba(251,250,247,·)`. The alphas were solved for *how much*
+  separation the composition needs, and that quantity did not change when the photograph
+  got brighter — only the direction it has to run in.
+
+  **THERE ARE STILL TWO BED DECLARATIONS AND BELOW 640px THE OVERRIDE GOVERNS.** Both
+  were inverted. Editing only the base produces a sweep where every candidate reports
+  identical numbers, and that is exactly what happened on the way through: the first
+  phone sweep returned 17.22 / 10.02 for four different bed strengths, because a
+  malformed alpha had invalidated the override's whole `background` and the base rule was
+  painting instead. **Identical numbers across a sweep mean the instrument, not the
+  design.**
+
+  Measured at 390x844, worst 12px tile, against floors of 3 / 4.5 / 3 / 3:
+  **name 16.52 · tagline 9.00 · social 12.80 · mark 14.10.**
+
+  **`shoot-hero-mobile.mjs` HARDCODED WHITE INK UNTIL 2026-09-28.** Left that way it
+  scores a bright bed as a triumph and a dark one as a failure, which is backwards now —
+  it would have passed a black-floor crop at 18:1 and failed the one that shipped. The
+  tagline and the icons are given as COMPOSITES of the ink's alpha over a representative
+  bed, not at their declared values.
+
+  **`shoot-contact.mjs`'s ink scan had the same fault and a subtler symptom.** It took
+  pixels BRIGHTER than 150 as ink; with dark type on a bright room it found the
+  background instead and reported the heading's full box — a cap of 3.472% against a true
+  1.877%. It looked like a real measurement because the ink WIDTH printed beside it was
+  right: the background fills the box edge to edge, so the width comes out correct either
+  way. It now differences the frame against the same frame with the type hidden, which
+  finds the pixels the type changed whatever colour it is. Re-measured: cap 1.944%, ink
+  46.0%.
 
   **THE FRAME WAS WIDENED 2026-08-27, 1.874:1 → 1.60:1 (1717x1073).** The hero read as
   too tightly cropped, and the zoom was compounding in THREE places at once — which is
@@ -117,11 +186,11 @@ are literals. The arithmetic for each is in that file, beside the declaration it
   read off the published menu on 2026-08-26. Nothing on the page is invented, which
   reverses what it used to be. Prices move; re-read before launch.
 
-  **The PRELOAD goes on `menu-duck`, and which frame carries it is MEASURED.** It sat on
-  `lis-hero` — `index.html`'s hero, carried across with the policy — where it is the
+  **The PRELOAD goes on a MEASURED frame, not a guessed one.** It once sat on
+  `crave-hero` — `index.html`'s hero, carried across with the policy — where it is the
   *smallest* of the four frames, 151px on a phone against `menu-seafood`'s 189. So the
-  page spent its one high-priority fetch on a frame that is not the LCP. Chrome reports
-  the LCP element here as **`menu-duck`**: not the largest by area, because the entrance
+  page spent its one high-priority fetch on a frame that is not the LCP. With the old
+  photography Chrome reported the LCP element as the upper-right frame: not the largest by area, because the entrance
   runs two seconds and LCP lands on whichever frame reaches full opacity first with real
   area. **Re-measure with a throttled profile before moving it — the answer is not the
   one geometry predicts.**
@@ -131,11 +200,11 @@ are literals. The arithmetic for each is in that file, beside the declaration it
   are still fading in. Do not reach for byte reductions to move this number, and do not
   shorten the choreography to chase it.
 
-  **The four opening frames get DEDICATED files (`menu-duck`, `menu-dimsum`,
+  **The four opening frames get DEDICATED files (`menu-grill`, `menu-breakfast`,
   `menu-seafood`, plus the hero), not marquee tiles.** Three of them reused a gallery tile
   at first, which is what the design they replace did — but the tiles are 560px tall,
   built for a marquee, and these frames paint into a 3:4 portrait slot needing up to 683
-  device px. `dish4-dimsum` topped out at 445 and was genuinely soft. The dedicated files
+  device px. `dish4-waffle` topped out at 445 and was genuinely soft. The dedicated files
   cost ~100KB on a mobile load and ~550ms of LCP on a throttled profile; the composition
   is the first thing on the page and the LCP element, so it is worth it.
 
@@ -472,19 +541,19 @@ are literals. The arithmetic for each is in that file, beside the declaration it
     the ivory. `.details` dropped its closing gradient in the 2026-08-18
     rebuild, so `--ground` is the binding ground here — there is no tail left
     to check against.
-  - **`.details` NAMES ITS TWO CELLS Reservations and Email**, and carries the
-    Nairobi line only. Li's two branches have two different numbers; each is on
-    its own location card below, where there is room for it. Cramming both into
-    a two-cell block is what makes a site claim one number reaches both.
-  - **THE EMAIL IS 45 CHARACTERS AND THAT IS A LAYOUT CONSTRAINT.**
-    `reservations@lischineserestaurantnairobi.co.ke` against the 26-character
-    address `.details__value`'s size was solved for. At 1440 it still leaves
-    516px of slack so desktop is untouched — but on a 390px phone it ran 94px
-    past the content box, and the base rule's `white-space: nowrap` turned that
-    into horizontal scroll for the whole document. The 639px block now wraps it
-    (`overflow-wrap: anywhere`, since an email has no space and this domain has
-    no hyphen) and drops it to 2.25tu. `verify-touch.mjs` reports it as
-    `email-slack`; watch that number if the address ever changes.
+  - **`.details` NAMES ITS TWO CELLS Mombasa and Nairobi**, and that reverses
+    the rule it replaces. The cells used to be Reservations and Email, carrying
+    one number, because a 45-character email filled the other. **Crave publishes
+    no email at all**, so the second cell was free — and two branches with two
+    different numbers is exactly what it should hold.
+  - **THE 45-CHARACTER EMAIL IS GONE AND SO IS THE CONSTRAINT IT IMPOSED.**
+    `reservations@lischineserestaurantnairobi.co.ke` ran 94px past the content
+    box on a 390px phone, and the base rule's `white-space: nowrap` turned that
+    into horizontal scroll for the whole document. Both cells now hold a Kenyan
+    phone number, fifteen characters. **The wrapping rule is kept anyway** — it
+    costs nothing at this length and the next long string will not announce
+    itself. `verify-touch.mjs` still reports `email-slack`; it is a slack
+    figure, not an email figure, and it measures whatever is longest.
   - **`.touch` and `.details` ARE ONE COMPOSITION ON ONE GRID**, rebuilt
     2026-08-18. Treat them as a single design object; editing either alone is
     what produced every problem the rebuild fixed.
@@ -547,11 +616,19 @@ are literals. The arithmetic for each is in that file, beside the declaration it
     placed *above* the base rules loses at equal specificity: it silently
     killed a font-size change and kept a divider horizontal on 2026-08-18.
     Put overrides after the base rules.
-  - **The vertical kanji needs `white-space: nowrap`, and without it the
-    failure is silent.** Six glyphs are taller than the window, so `vertical-rl`
-    breaks them into a second column — and `rl` puts that column to the LEFT,
-    so お問い合わせ reads out of order. At whisper alpha it looks like decorative
-    texture rather than like broken type, which is why it survived a build.
+  - **The vertical mark is KARIBU — Swahili, set in Cormorant.** It replaces
+    联系我们, which belonged to the Chinese restaurant this page was built for.
+    **`white-space: nowrap` is still load-bearing and the failure is still
+    silent:** a column taller than the window breaks into a second one, and
+    `vertical-rl` puts that column to the LEFT, so the word reads UBIRAK. At
+    whisper alpha that looks like decorative texture rather than like broken
+    type, which is how it survived a build once already.
+
+    **THE SIZE DOES NOT CARRY ACROSS FROM CJK.** A CJK glyph is a full em
+    square; a Latin cap is about 0.65 of one, and there are six of them here
+    rather than four. The size was re-solved against the window, not scaled
+    from the value it replaced. `text-orientation: upright` is required, or the
+    Latin glyphs rotate instead of stacking.
 
 ### The reservation section
 Rebuilt 2026-08-15 against `assets/img/inspooooo.png`, replacing the 2026-08-10
@@ -692,30 +769,39 @@ peach, which is the standing rule.
 
 | token | value | ratio on the ground | note |
 |---|---|---|---|
-| `--ground` | `#F6EEE1` | — | warm ivory. Every section, every page |
-| `--ink` | `#0B0806` | — | behind the two full-viewport photographs only |
-| `--menu-ink` | `#241A14` | 14.79:1 | display type |
-| `--menu-body` | `#6A574A` | 5.93:1 | body |
-| `--menu-accent` | `#A3221C` | 6.51:1 | the deep red — eyebrows, rules, links |
-| `--li-red` | `#A3221C` | 6.51:1 | same value, the FILL/focus role. White on it is 7.49:1 |
-| `--brand-red` | `#CD393E` | 4.29:1 | the measured logo red. **Device only — never type** |
-| `--res-gold` | `#9C7230` | 3.75:1 | non-text boundary |
-| `--res-hair` | `#D9B98A` | 1.62:1 | decorative only, no minimum applies |
+| `--ground` | `#FBFAF7` | — | near-white, faintest warm cast. Every section, every page |
+| `--ink` | `#0E0E0C` | 18.51:1 | display type, **and the black plaque fields** |
+| `--menu-ink` | `#0E0E0C` | 18.51:1 | display type (same value — the logo has one black) |
+| `--menu-body` | `#57534C` | 7.32:1 | body |
+| `--menu-accent` | `#2A6B41` | 6.14:1 | the botanical green — eyebrows, rules, links |
+| `--crave-green` | `#2A6B41` | 6.14:1 | same value, the FILL/focus role. White on it is 6.14:1 |
+| `--brand-green` | `#009E2F` | 3.39:1 | Crave's own chosen green. **Device only — never type** |
+| `--res-gold` | `#7A6A48` | 5.05:1 | non-text boundary, and small utility type |
+| `--res-hair` | `#D8CFBC` | 1.48:1 | decorative only, no minimum applies |
 
-**THE ONE RULE THE WHOLE RE-SKIN TURNS ON: red is a LIGHT-ground colour here.**
-`--menu-accent` measures 6.51:1 on the ivory and **2.67:1 on `--ink`**. Anything that has
-to be read on a dark section takes gold or ivory instead. Reaching for the accent on a
-photograph is the mistake this palette makes available.
+**THE ONE RULE THE WHOLE RE-SKIN TURNS ON, AND IT IS THE EXACT INVERSE OF THE LAST ONE.**
+Li's rule was *red is a light-ground colour*. Here there are **two greens and neither one
+works on both grounds**: `#2A6B41` measures 6.14:1 on the near-white and **3.02:1 on
+`--ink`**; `#009E2F` measures 3.39:1 on the near-white and **5.46:1 on `--ink`**. Anything
+that has to be read on a black plaque takes `#8FCFA3` (10.69:1 on the ink), `--res-hair`
+or the ground itself. Reaching for the accent on a dark field is the mistake this palette
+makes available.
 
-`--brand-red` #CD393E is the red measured off the official `logo.jpg`. It clears the 3:1
-non-text floor and fails AA for body text. It colours the mark and nothing else.
+`--brand-green` #009E2F is the colour Crave picked for its own digital menu. It clears the
+3:1 non-text floor and fails AA for text. It colours the mark and nothing else.
 
-**The old token NAMES were kept as the values moved**, because there are ~1,400 `var()`
-call sites across four pages and renaming all of them to move a palette is how a rebrand
-breaks a layout. `--menu-*` and `--res-*` therefore no longer describe a menu or a
-reservation — they are the site's ink / body / accent / boundary / hairline roles.
-`--misono-indigo` is the one that *was* renamed, to `--li-red`, because it carried the
-old brand's name; it is the focus ring and the location pill's fill.
+**`--brand-red` was DELETED with this rebrand**, exactly as `--ember` was before it:
+`grep -c 'var(--brand-red)' *.html` returned **0** across all four pages. Do not
+reintroduce a token on the strength of a note — check whether it is actually read.
+
+**The old token NAMES were kept as the values moved**, because there are **256** `var()`
+call sites for the role tokens across four pages and renaming them to move a palette is
+how a rebrand breaks a layout. (The "~1,400" this note used to claim counted every
+`var()` of every kind; the role tokens alone are 256.) `--menu-*` and `--res-*` therefore
+no longer describe a menu or a reservation — they are the site's ink / body / accent /
+boundary / hairline roles. `--li-red` is the one that *was* renamed, to `--crave-green`,
+because it carried the old brand's name; it is the focus ring and the location pill's
+fill. It had been `--misono-indigo` before that.
 
 A token that is used but not defined **fails silently, and it has happened twice on the
 same page in the same week.** `--menu-accent` was missing from `about.html`'s `:root`
@@ -737,47 +823,66 @@ projecting, check where the property is declared against where the transformed e
 actually sits in the tree before touching any numbers.
 
 `--ember` was declared in two files and read by nothing on the site. **It was deleted
-with the rebrand**; `grep -c 'var(--ember)' *.html` had returned zero for weeks. Do not
+with the 2026-08-26 rebrand**, and `--brand-red` went the same way on 2026-09-28. Do not
 reintroduce a token on the strength of a note — check whether it is actually read.
 
-`--cream #FCF8F5` **appears nowhere on any page as a colour.** The token exists because it
+`--cream #FCFBF9` **appears nowhere on any page as a colour.** The token exists because it
 is the name the transplanted section CSS uses for "my ground", and re-pointing that one
 property is what moves those sections onto the ivory without editing them. Do not reach
 for it as a colour, and do not delete it — it is the hinge all three adaptation blocks turn.
 
 Type is **Cormorant Garamond** (display, 300/400) with **Jost** (utility, 300/400).
-Never pair anything else without being asked. `contact.html` also sets four glyphs of
-Simplified Chinese; **that stack is SC-first on purpose** — the Japanese faces it used to
-name all carry 联系我们, so nothing would have looked broken, but several of those
-characters have different regional glyph forms and a Chinese restaurant setting Chinese in
-Japanese shapes is an error only the people it matters to would notice.
+Never pair anything else without being asked. **No CJK anywhere any more** — the whole
+Songti/PingFang/YaHei stack went with the Chinese restaurant, and `contact.html`'s
+vertical mark is now KARIBU, set in Cormorant.
+
+**THE WORDMARK IS CORMORANT AND THAT IS A KNOWN COMPROMISE, not a match.** Crave's logo
+letters are a transitional serif with prominent bracketed serifs and moderate stroke
+contrast; Cormorant is lighter and more calligraphic. Every measured type invariant on
+this site is keyed to Cormorant's metrics — the contact hero's cap height, the locale
+bands' `4.1 × --lu`, the reserve column's 48.1u, the statement's 51.1u block, the
+`size-adjust: 86.8%` fallback — so swapping the display face means re-solving all of them.
+It is flagged for the client rather than silently accepted.
 
 ### Still to confirm with the client
-Everything on this site is **researched from public sources, not client-confirmed.** The
-sources are listed in the rebrand spec. In priority order:
+Everything on this site is **researched from public sources, not client-confirmed.**
+Crave publishes no website at all, so every fact here came from its own digital menu, its
+two claimed TripAdvisor listings, its Instagram bio and its Google listing. The sources
+are in the rebrand spec. In priority order:
 
-- **The two phone numbers and the email.** +254 746 815 106 (Nairobi, on the official
-  site) and +254 799 402101 (Mombasa, on its TripAdvisor listing);
-  reservations@lischineserestaurantnairobi.co.ke. Each branch carries its own number on
-  its own location card, which is why `.details` presents one number labelled
-  Reservations rather than implying one line reaches both.
-- **Whether the Nairobi number takes WhatsApp.** The reserve CTA on all four pages says
-  "Opens WhatsApp" and links `wa.me/254746815106`. The number is real; WhatsApp on it is
-  not verified, and if it is wrong the primary booking CTA is a dead end.
-- **The opening hours.** Both branches Tue–Sun from 11:00, closed Mondays; Nairobi to
-  22:30, Mombasa to 21:00. **The shared reserve block says only "Tuesday – Sunday /
-  Closed Mondays"** — it is byte-copied to four pages and cannot assert one branch's
-  closing time as the house's. The exact times live in the location bands and the FAQ.
-  **Those two must stay in step**; it is the same claim twice on one page and that pair
-  has drifted before.
-- **The private dining answer.** Mombasa's two rooms at 12–15 covers are in its listing.
-  Nairobi's private events are on Li's own site but no room or capacity is published, so
-  the FAQ says "takes enquiries" and stops. **Do not make it more confident.**
+- **Whether either number takes WhatsApp.** The reserve CTA on all four pages says
+  "Opens WhatsApp" and links `wa.me/254705000275`, the Mombasa line. The number is real;
+  WhatsApp on it is not verified, and if it is wrong the primary booking CTA is a dead
+  end. Mombasa rather than Nairobi because the block is byte-copied to four pages and has
+  to pick one, and Mombasa is the original; the prefilled message asks which branch.
+- **The opening hours.** Both branches' claimed listings say 06:00 opens and no closing
+  day, with Mombasa to midnight and Nairobi to 01:00. Crave's own menu corroborates the
+  six o'clock open with a "Breakfast (6AM – 12PM)" course. **eatout.co.ke says
+  07:00–22:00 and contradicts both.** The site uses the listings. **The shared reserve
+  block states the opening hour and the seven-day week only** — it cannot assert one
+  branch's closing time as the house's. The exact times live in the location bands and
+  the FAQ. **Those two must stay in step**; it is the same claim twice on one page and
+  that pair has drifted before.
+- **That there are two branches and not three.** Mombasa's own listing text mentions "a
+  second branch not far from Fort Jesus" and no other source does. The site says two.
+- **Whether an email address exists.** None is published anywhere. The address that turns
+  up in search belongs to an agency's demo site, not to Crave, and is asserted nowhere.
+- **The alcohol answer.** The FAQ states plainly that the house is alcohol-free and
+  serves no pork. That is read off the menu itself — fourteen non-alcoholic drinks
+  categories, beef macon throughout — and corroborated by two review sources. **Google's
+  "Great cocktails" attribute is user-contributed and wrong.** Do not soften this.
 - **The dietary answer.** Vegetarian breadth is countable off the real carte and is
-  stated plainly. **Halal, vegan and gluten-free are NOT confirmed for either branch**,
-  the answer says so in bold, and allergies go to a phone call. That is the honest
-  position, not a hedge — do not soften it.
-- **The prices.** Real as of 2026-08-26, but a menu moves. Re-read before launch.
+  stated. Mombasa's listing carries gluten-free options and Nairobi's does not, and the
+  answer says exactly that rather than averaging them. **Vegan is NOT confirmed for
+  either branch**, the answer says so in bold, and allergies go to a phone call.
+- **Private dining and capacity.** **Neither branch publishes a private room or a
+  number.** The FAQ says both rooms do large groups, which the reviews establish, and
+  stops. Do not make it more confident.
+- **Which floor Mombasa is on.** Three sources give rooftop, second floor, and no floor
+  at all. The card says City Mall and stops.
+- **Official vector artwork**, and whether the wordmark should be set in the logo's own
+  transitional serif rather than Cormorant — see the type note above.
+- **The prices.** Real as of 2026-09-28, but a menu moves. Re-read before launch.
 
 **`contact.html`'s enquiry form does not submit, by decision rather than oversight.**
 There is no backend; `mailto:`, WhatsApp and a third-party endpoint were all offered and
@@ -788,17 +893,24 @@ nothing was sent is worse than a button that visibly does nothing. To wire it up
 the `<form>` an action and delete that handler.
 
 **Every photograph on the site is a placeholder and is flagged as one in the markup.**
-Li's own imagery is not available at usable resolution or licence. The frames are Pexels,
-matched dish by dish to dishes that are actually on Li's carte, and graded to the site's
-existing bands. Each one's markup comment names the single property a replacement has to
+Crave's own imagery is not available at usable resolution or licence. The frames are
+Pexels, matched dish by dish to dishes that are actually on Crave's carte, and graded to
+the bands above. Each one's markup comment names the single property a replacement has to
 have. The two location photographs matter most: a location band implies the picture IS
-the place, and neither is — Mombasa is the waterfront rather than Links Road in Nyali,
-Nairobi is Uhuru Park and the CBD, ~10km south of Gigiri.
+the place, and neither is — Mombasa is the waterfront rather than City Mall in Nyali,
+Nairobi is Uhuru Park and the CBD rather than Ring Road in Kilimani.
 
-**The logo is a reconstruction.** The only artwork obtainable is a 150x150 JPEG on an
-opaque white square. See `brand_assets/README.md` for how the mark was rebuilt and why
-the wordmark is set in Cormorant rather than in the logo's own lettering. **Ask the
-client for vector artwork.**
+**HARVESTING PEXELS IDS NEEDS A REAL BROWSER.** `pexels.com/search` is behind a
+Cloudflare challenge that headless Chrome does not clear: it returns a "Just a moment…"
+page with two links on it and no photographs, which reads exactly like a query with no
+results. `images.pexels.com` is NOT challenged, so `fetch-pexels.mjs` still works
+headless — only the search does not. What works is fetching the search URL from page
+context inside a browser that already holds the challenge cookie.
+
+**The logo is a reconstruction.** The only artwork obtainable is a 320x320 JPEG on an
+opaque black square — measured ground `#000000`, mark `#FBFBFB`, **zero chroma in
+either**. See `brand_assets/README.md` and `make-cartouche-path.mjs`. **Ask the client
+for vector artwork.**
 
 **Written rather than sourced, and all of it about Chinese cooking in general rather
 than about Li's specifically:** the four chapters and the experience cards on
@@ -857,8 +969,8 @@ different ladder is a one-command update.
 **THAT TRAP HAD ALREADY FIRED, AND THE SITE SHIPPED WRONG PHOTOGRAPHS FOR DAYS.**
 Audited 2026-09-01: of the 24 derivative files whose width happened to survive the
 rebrand, **18 were still the Misono photograph** — `reserve-interior` (the reservation
-block, i.e. ALL FOUR PAGES), `contact-hero`, `about-plate`, `about-ch2-hand` and
-`about-ex3-room`. The `<img src>` JPEG fallback was correctly Li's; every browser that
+block, i.e. ALL FOUR PAGES), `contact-hero`, `about-plate`, `about-ch2-coast` and
+`about-ex3-sweet`. The `<img src>` JPEG fallback was correctly Li's; every browser that
 takes AVIF or WebP — which is every current browser — got the old restaurant's picture.
 
 **Nothing detected it, and three separate checks each had a reason not to.** The rungs'
@@ -876,7 +988,7 @@ the directory rather than trusting `--force`**, and re-run
 
 **`bake-responsive.mjs` DOES NOT NOTICE A CHANGED SOURCE AT THE SAME WIDTH, and the
 failure is silent.** It keys on the output filename, which is `stem-width`, so when
-`lis-hero.jpg` was re-cropped 1.874:1 → 1.60:1 on 2026-08-27 at the same 1717 width, the
+`crave-hero.jpg` was re-cropped 1.874:1 → 1.60:1 on 2026-08-27 at the same 1717 width, the
 run wrote only the two rungs whose widths were *new* (1210, 1450) and left five carrying
 the old geometry. Nothing errored; the report said every variant met its PSNR floor,
 because every variant it actually encoded did. The page then served a 1.874:1 rung to a
@@ -914,7 +1026,7 @@ Seven things here are load-bearing:
   the whole reserve block up 0.7px on a phone — 43 elements, which is what
   `compare-layout.mjs` is for. **When a rule is justified by "it is in a sized box",
   check every breakpoint's box.**
-- **`sizes` is PER PAGE.** `lis-hero` is a full-viewport hero on `index.html` and a
+- **`sizes` is PER PAGE.** `crave-hero` is a full-viewport hero on `index.html` and a
   15vw framed photograph on `menu.html`. One merged value made `menu.html` fetch — and
   preload — the 1717px rung to paint a frame a fifth that wide. **That fix was silently
   defeated for days and was only caught on 2026-08-27.** `apply-responsive-markup.mjs`
@@ -935,7 +1047,7 @@ Seven things here are load-bearing:
   reads true dimensions from disk with ffprobe for exactly this reason. Read off the DOM
   after the responsive pass, the hero measured 371px and the plate measured 0, and every
   ladder silently collapsed to nothing.
-- **`duck-plate` is WebP-only and gets the WHOLE ladder.** It is the one alpha cutout
+- **`platter-plate` is WebP-only and gets the WHOLE ladder.** It is the one alpha cutout
   on the site; ffmpeg cannot carry an alpha channel into AVIF here (libsvtav1 has no gray
   encoder for the aux stream) and **the failure is silent** — the encode succeeds and
   returns a fully opaque image, verified 30.4% transparent in, 0.0% out. Every other
@@ -944,7 +1056,7 @@ Seven things here are load-bearing:
   fetching the 1122 rung.
 - **The ladder is thinned by GAP, not by position** (changed 2026-09-01). The old rule
   spliced rungs out of the middle until five remained, which is right only when an
-  image's demand is narrow. `lis-hero` is asked for at 101.4vw on `index.html` and
+  image's demand is narrow. `crave-hero` is asked for at 101.4vw on `index.html` and
   15.2vw on `menu.html` — a 6.1x span — and middle-thinning removed exactly the rungs
   `menu.html` needed, leaving `[280, 350, 1210, 1450, 1717]`: a **3.46x hole** where
   every other ladder on the site sits between 1.2 and 2.1. A 390px phone fetched the
@@ -1091,6 +1203,15 @@ node perf-scroll.mjs       # frame cost while scrolling, at 4x CPU throttle
 node verify-touch.mjs      # the contact page's own checks, unchanged and still passing
 node verify-locale.mjs     # the location bands' own checks, unchanged and still passing
 ```
+**Run `node recopy-blocks.mjs --check` too.** It replaces the diff snippet above, and it
+exists because a LENGTH-based splice of those blocks has now failed twice. Both ends of
+every block are anchored in the target independently. The 2026-09-28 failure is the
+instructive one: index.html's reserve markup grew eight lines, so a length-based splice
+ate eight lines PAST the end of each target's older block and took `</main>`, the ending
+marker and `<footer class="ending">` with it on all three pages at once. Nothing errored
+and the pages still rendered — a browser closes an unclosed `<footer>` at `</body>`
+for you.
+
 **`verify-rungs.mjs` is the guard against the stale-derivative bug**, and it is the one
 check here that found a live fault rather than confirming its absence. It compares each
 shipped rung's luma against its CURRENT source downscaled to that rung's size: a
@@ -1100,7 +1221,7 @@ and there is no middle ground to tune against. Exit 1 and the fix line if any fa
 produced confident false positives first:
 
 - **The alpha cutout is compared over opaque pixels only, and the mask is ERODED.**
-  `duck-plate` reported 21dB — the signature of a wrong photograph — on files baked from
+  `platter-plate` reported 21dB — the signature of a wrong photograph — on files baked from
   that very source minutes earlier. The bake resizes through Chrome's canvas and this
   check through swscale, and on a hard-edged cutout those two disagree along the rim by
   far more than compression does. Only the 1122 rung passed, which is the source's own
@@ -1196,33 +1317,55 @@ kept only so nothing is unrecoverable. `node build.mjs` derives its copy list fr
 markup, so `_archive/` cannot reach a deploy by accident.
 
 ## Assets on hand
-- `brand_assets/lis-logo-official-150.jpg` — **the real logo, and the only artwork there
-  is: 150x150, JPEG, opaque white square.** Measured red **#CD393E**, black **#1B191A**.
-  At that size it cannot be a hero wordmark and cannot sit on a photograph.
-- `brand_assets/lis-mark.svg` — the mark **redrawn** from it and inlined into all four
-  pages. Ring and chopsticks are measured geometry; the `Li's` wedges are least-squares
-  fits of the source edges (residual 0.17 units) rather than a pixel trace, which shipped
-  visible staircase artefacts. **A reconstruction — verify against official artwork.**
-  Full method in `brand_assets/README.md`.
+- `brand_assets/crave-logo-official-320.jpg` — **the real logo, and the only artwork
+  there is: 320x320, JPEG, opaque black square.** A white serif `CRAVE` inside a
+  scalloped cartouche. Measured ground **#000000**, mark **#FBFBFB**, **zero chroma in
+  either** — it is a genuinely monochrome identity, which is the single most useful thing
+  about it. At that size it cannot be a hero wordmark.
+- `brand_assets/crave-mark.svg` — the plaque **redrawn** from it and inlined into
+  `index.html` and `contact.html`. Regenerated by `make-cartouche-path.mjs`, checked by
+  `verify-mark.mjs`. **A reconstruction — verify against official artwork.** Four things
+  about the method:
+
+  - **The plaque is five lobes across its top** — tip-lobe, shoulder, crown, shoulder,
+    tip-lobe — and **two of them are genuine measured flats**, 13% and 5% of the
+    half-width. An evenly-spaced anchor set rounds both off and the mark stops reading as
+    a scalloped cartouche at all.
+  - **ONE quadrant is traced and mirrored twice.** The mark is 4-fold symmetric, and
+    folding all four quadrants onto one profile before fitting is what makes a lopsided
+    result impossible. Worst segment RMS **0.39px** at the source's own 320.
+  - **The apex and the tips are EXTREMA, so their tangents follow from that** —
+    horizontal at the crown, vertical at the tips. A central difference underestimates
+    both, because the curve turns inside one sample, and the fit then overshoots the
+    point it is turning around: the first emit put a control point at u=1.02 and doubled
+    the outline back over its own tip.
+  - **Sweep the stroke by RE-EMITTING the path, never by changing `stroke-width` on a
+    path already emitted.** The emitted path is the stroke's centreline and its inset is
+    a function of the stroke, so the two move together. A sweep that varied only the
+    attribute reported an optimum at 4.6 which measured 1.97px once generated. Swept
+    properly: 2.86px at 4.2, **minimum 0.88px at 5.2**, 0.91px at 5.4.
+
+  **MEASURE THE BOUNDARY, NOT THE FILLED AREA.** Filled-area IoU reported a confident
+  55% — because the official tile carries the `CRAVE` lettering inside the plaque and the
+  mark file deliberately does not, so a third of the "disagreement" was the lettering
+  being correctly absent. `verify-mark.mjs` compares outer boundaries: **mean 0.88px over
+  906 samples**. Its worst case, 21px, is a **sampling artefact**, not an error — that row
+  cuts the shoulder flat, where the boundary is near-horizontal and a sub-pixel vertical
+  difference moves the leftmost-ink column by tens of pixels.
 - **The site icon set, baked by `bake-favicons.mjs`** (2026-09-01). Seven files wired
   into all four pages, and **two different drawings rather than one file scaled**:
 
   - **The small mark** — `assets/favicon.svg`, `favicon-16.png`, `favicon-32.png` — is
-    the full mark reduced to its two structural elements, the red ring and the crossed
-    chopsticks, with the lettering dropped. At 16px the full mark collapses into a red
-    blob with dark streaks through it: the ring's stroke lands at 1.1px and the `Li's`
-    wedges at well under a pixel. The small drawing thickens the ring to 13/100 and
-    pulls it right so the two elements never merge.
-  - **The chopsticks stay LEFT of the ring's centre, as they are in the real mark.**
-    Centred, they read as a **prohibition sign** — a circle with a line through it —
-    which is the one thing this icon must not look like. That was tried and rejected.
+    the plaque alone with its stroke thickened, lettering dropped. At 16px the mark's own
+    5.2/100 stroke lands at **0.83px** and its lettering at well under a pixel, so the
+    whole thing collapses into a smear. The small drawing thickens the stroke to 10.6/100.
   - **The large mark** — `apple-touch-icon.png` (180), `icon-192.png`, `icon-512.png` —
     is the full artwork, lettering and all, **inset to 78%**. iOS and Android mask these
-    to a rounded shape or a circle and the mark's ring spans 92% of its viewBox, so
-    uninset it loses its edges to the mask.
-  - **Both sit on an OPAQUE ivory ground.** The chopsticks are `#1B191A`; on a
-    transparent icon they vanish against a dark browser tab. The ground is what keeps
-    every element in the colour role the palette documents.
+    to a rounded shape or a circle, so uninset the plaque loses its tips to the mask.
+  - **Both sit on the logo's OWN OPAQUE BLACK, with the plaque in the ground colour.**
+    That is the real artwork's polarity, and it is the one place on this site where a
+    black tile is correct rather than a carried-over habit. On a transparent icon the
+    plaque vanishes against a dark browser tab.
   - `assets/site.webmanifest` carries the 192 and 512 tiles. **A manifest names its
     icons in JSON, which `build.mjs`'s HTML attribute scanner cannot see** — left alone,
     those two tiles were the one part of the set that never reached `dist/`, and nothing
@@ -1234,31 +1377,43 @@ markup, so `_archive/` cannot reach a deploy by accident.
     reasoning lives in `bake-favicons.mjs` instead.
 - No brand style guide exists. If one arrives, its values win over anything derived.
 
-**Every photograph is a Pexels placeholder baked by `bake-lis-photography.py`**, which
+**Every photograph is a Pexels placeholder baked by `bake-crave-photography.py`**, which
 carries the source id, crop, grade and target band for all 27 frames in one table, plus
-the reproduce command. The `.dish` cutout has its own script, `bake-duck-plate.py`.
+the reproduce command. The `.dish` cutout has its own script, `bake-platter-plate.py`.
 Each frame's markup comment names the single property a replacement must have.
 
-- `assets/img/duck-plate.webp` — the turning plate on the homepage, an alpha cutout of a
-  Peking duck pancake. **Three things decide whether the file works, and all three are
-  about the fact that it TURNS:** the plate's centre must be the file's centre or it
-  orbits; the plate is an ellipse in the source (ry/rx 0.9410, the camera ~20° off
-  vertical) and is scaled circular or it wobbles once per revolution; and the silhouette
-  comes from a flood of the GROUND inward from the border, not a threshold on the plate,
-  so no pale surface is left baked onto the rim. **The white plate centre reads as ground
-  to any brightness test** — it survives only because the rim encloses it and the border
-  flood cannot reach it. Do not replace the flood with a threshold.
+- `assets/img/platter-plate.webp` — the turning plate on the homepage, an alpha cutout of
+  a round plate of grilled prawns. **Three things decide whether the file works, and all
+  three are about the fact that it TURNS:** the plate's centre must be the file's centre
+  or it orbits; any ellipse in the source is scaled circular or it wobbles once per
+  revolution (measured ry/rx 0.9545, corrected by 1.0477); and the silhouette comes from
+  a flood of the GROUND inward from the border, not a threshold on the plate, so no pale
+  surface is left baked onto the rim. **A pale plate centre reads as ground to any
+  brightness test** — it survives only because the rim encloses it and the border flood
+  cannot reach it. Do not replace the flood with a threshold.
+
+  **THE GROUND TEST IS PER SOURCE AND MUST BE SOLVED, NOT CARRIED ACROSS.** The previous
+  frame's white surface wanted `L>196 / sat<26`; on this pale wooden board that scored an
+  ellipse fill of **0.710** and an ry/rx of 0.657 — a silhouette that is not a plate. It
+  is `L>170 / sat<40` here, which scores 0.981. **The assert in the script is what caught
+  it**, not a screenshot.
+
+  **AND THE GROUND IS CLOSED BEFORE FLOODING.** Wood grain leaves speckles of not-ground
+  across the board, and a chain of them BRIDGES the plate to the frame edge: the flood
+  stops at the bridge, the plate's component grows out along it, and the fit comes back
+  as a 452x318 blob at fill 0.65. A morphological close removes any speckle narrower than
+  its kernel and leaves the rim where it was. Same parameters without it: 0.671.
 - `assets/img/gallery/dish1..9-*.jpg` — the nine marquee tiles. **Their WIDTHS are the
   nine the row has always had** (856, 671, 510, 445, 563, 564, 637, 450, 306, all 560
   tall), so `.beyond__track` keeps its measured width and the marquee's percentage
   translate is untouched. A replacement must keep its slot's width.
 - `assets/img/menu-{duck,dimsum,seafood}.jpg` — 900x1200, dedicated to `menu.html`'s
   opening frames. See that page's note for why they are not marquee tiles.
-- `assets/img/locale-{mombasa,nairobi}.jpg` — the two location photographs, **kept from
-  the previous build** because they are generic city frames rather than restaurant ones.
-  They are a fourth grading band, 108–118: the other bands all grade something lit inside
-  a dark building, and a daylight aerial forced to 90 does not read as moody, it reads as
-  drained. The band has a hard floor from the composition — the marker cards are
+- `assets/img/locale-{mombasa,nairobi}.jpg` — the two location photographs, **kept
+  through both rebrands** because they are generic city frames rather than restaurant
+  ones, and because their band, 108–118, is where the rest of the site has now moved to.
+  They were the one daylight band on a site full of dark rooms; they are now an
+  unremarkable part of a bright one. The band has a hard floor from the composition — the marker cards are
   near-white, so `bake-contact-locations.py` reports the CARD ZONES separately (Mombasa
   151/86, Nairobi 165/54); a card on a sky above ~170 has a 1.4:1 edge and dissolves.
 - `assets/img/r/` — the AVIF and WebP derivatives, ~200 files, all generated. **Never
@@ -1274,23 +1429,47 @@ Each frame's markup comment names the single property a replacement must have.
   architecture the site still has. `build.mjs` keeps all 35MB of them out of the deploy.
 
 ### Baking images
-`bake-lis-photography.py` covers every frame; `bake-duck-plate.py` the one cutout. Both
+`bake-crave-photography.py` covers every frame; `bake-platter-plate.py` the one cutout. Both
 take `bake-png-to-jpeg.mjs` / `bake-png-to-webp.mjs` and `fetch-pexels.mjs`, with the
 reproduce command in each docstring. `bake-contact-locations.py` still bakes the two
 location frames.
 
-**THE BAND IS CHOSEN BEFORE GRADING, NOT AFTER**, and the bands are:
+**THE BAND IS CHOSEN BEFORE GRADING, NOT AFTER.** The bands were re-derived on
+2026-09-28 and they are **the inverse of the set they replace** — the previous restaurant
+was a dark evening dining room, Crave is a daylight cafe whose own header photograph
+measures mean **130.9** of 255:
 
-    hero            44-57     dark rooms with type over them
-    reserve         64        a laid table behind the gourd clip
-    about opening   71
-    about plate     37        full bleed, nothing on it, allowed to be black
-    chapters      62-84       lit subject in a dark room
-    experience   90-108       lit rooms and white plates
-    reunion       64-96
-    contact hero    60        no baked vignette
-    locale       108-118      open-air daylight
-    gallery tiles  ~112       a marquee on a light ground, must stay appetising
+    hero           138        bright room, DARK type over it
+    counter        145        the pill frame on index
+    reserve        150        a laid table in daylight
+    about opening  140
+    about plate    120        full bleed, nothing on it
+    chapters       145        lit rooms, food in daylight
+    experience     160        white plates and pale counters
+    midnight        95        the ONE dark band, and it is EARNED
+    contact hero   135        no baked vignette
+    locale       108-118      open-air daylight — UNCHANGED, see below
+    gallery tiles  135        a marquee on a near-white ground, must stay appetising
+
+**THE LOCALE BAND DID NOT MOVE, and that is the useful finding.** Those two frames are
+open-air daylight city photographs and were already the one band on the site lit like
+Crave's rooms. They are kept as they were, card-zone floor and all.
+
+**THE MIDNIGHT BAND IS EARNED, NOT INHERITED.** `about.html`'s closing section is about
+the last hour of an eighteen-hour day, so a dark frame there is what the content is
+about. Every other dark band on this site was dark because the old restaurant was.
+
+**A BRIGHT PHOTOGRAPH IS THE HARDER GROUND FOR TYPE, NOT THE EASIER ONE.** A dark frame's
+worst case under white type is a lamp at 250, which a grade can pull back. A bright
+frame's worst case under dark type is a blown highlight at 255, which has no headroom
+left in it at all. The worst-12px-tile instrument is unchanged and still right; only the
+direction of the test flips.
+
+**THE VIGNETTES ARE MOSTLY GONE**, and that follows from the same inversion: a vignette
+darkens the corners, which on a dark frame concentrates the eye and on a bright one reads
+as a dirty lens. Where it survives it is a tenth of what it was. On `crave-hero` it is
+**zero** — the wordmark sits in the lower left, the type is dark, and darkening that
+corner is the one thing that would break it.
 
 **Grade the character by eye; SOLVE the level.** Frames from different photographers
 arrive at different exposures — the chapter set measured 49, 60, 69 and 99 of 255 and
@@ -1298,23 +1477,31 @@ each looked right alone. The bake sets contrast, saturation, warmth and vignette
 but **bisects a gamma per frame** until its mean lands on the target. Gamma rather than a
 gain, because a gain clips and these frames have their room in the shadows.
 
-**A frame that cannot reach its band does not belong in it.** `about-ic1-duck` is a
+**A frame that cannot reach its band does not belong in it.** `about-ic1-late` is a
 bright studio overhead on a pale ground; solving it to the reunion band's 80 pinned the
 gamma at its 3.2 ceiling, still missed, and what it did reach was crushed and edge-lit —
 corner 103 against centre 44, the vignette inverted. It aims 96 instead, and the reason
 is written beside it.
 
-**Two frames bake no vignette or a corrected cast, and both are deliberate:**
-- `contact-hero` bakes **no vignette at all** — its only light source is a pendant in the
-  corner and a baked vignette puts the lamp out. **And it desaturates BEFORE it warms:**
-  the room's brick carries a flat green-teal cast across most of the frame, and warmth
-  pushed at full saturation left the green and turned the lamps orange. Saturation comes
-  most of the way out first so the field goes neutral, then the warmth is pushed hard and
-  the lamps carry the colour alone.
-- `lis-hero` aims 52 rather than the 44 the frame it replaced measured, because it has an
-  open flame in it. Solving the whole-frame mean to 44 with a 250/255 flame in shot spends
-  the entire budget on the flame and crushes the room to black — which is where the
-  wordmark sits. The bake reports the wordmark band separately for exactly this reason.
+**Three frames break the table and all three are deliberate:**
+- `contact-hero` bakes **no vignette at all**, unchanged through two rebrands and for
+  opposite reasons each time: the frame before was a dark room lit by one corner pendant
+  and a vignette put the lamp out; this one is a sunlit dining room and a vignette would
+  dirty it.
+- `about-ch4-table` aims **158**, not the chapters band's 145. Its source is already at
+  186 and pulling it to 145 needs gamma 2.02, which crushes everything that is not a
+  window.
+- `about-ex1-coffee` and `about-ch2-coast` both had their **sources replaced** rather than
+  their aims bent. The first frames tried (35667656, 18752152) measured 53 and 53 and
+  **pinned the gamma at its 0.25 floor** without reaching the band — 149.3 against 160,
+  and 76.7 against 128. **A frame that cannot reach its band does not belong in it.**
+
+**THE HERO IS CHOSEN ON ITS WORDMARK BAND, NOT ON ITS ROOM.** Four bright interiors were
+rendered at 1.60:1 with the band outlined (x 6–52%, y 62–94%) and three put a black chair,
+a dark table or a row of yellow tub chairs straight under the type. The one that shipped
+puts **plain floor** there. Measured, its band reads **131.5** against the 95.2 of the
+frame first tried — and with dark type, high and even is exactly what that number wants
+to be. The bake prints it on every run.
 
 **A near-white element laid OVER a photograph is a grading constraint, not a CSS one.**
 The fix belongs in the bake — deepen the vignette until the card zone holds. Reaching for

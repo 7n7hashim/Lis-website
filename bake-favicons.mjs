@@ -1,59 +1,60 @@
-/* Bakes the site icon set from the Li's mark.
+/* Bakes the site icon set from the Crave mark.
 
    Reproduce:  node bake-favicons.mjs
 
    Two DIFFERENT drawings, which is the whole point of the script rather
    than a single file scaled down:
 
-   - The SMALL mark (favicon.svg, favicon-16.png, favicon-32.png) is the full mark
-     reduced to its two structural elements — the red ring and the crossed
-     chopsticks. The lettering is dropped. Rendered at 16px the full mark
-     collapses into a red blob with dark streaks through it: the ring's
-     stroke lands at 1.1px, the `Li's` wedges at well under a pixel, and
-     the three elements merge. So the small drawing thickens the ring to
-     13/100 (2.1px at 16), moves the chopsticks fully inside the frame,
-     and pulls the ring right so the two never overlap into mush.
-
-     The chopsticks stay LEFT of the ring's centre, as they are in the real
-     mark. Centring them reads as a prohibition sign — a circle with a line
-     through it — which is the one thing this icon must not look like.
+   - The SMALL mark (favicon.svg, favicon-16.png, favicon-32.png) is the
+     plaque alone, with its stroke thickened and the lettering dropped. The
+     real mark's stroke is 5.2 of 100, which at 16px lands at 0.83px, and its
+     lettering at well under a pixel — rendered that size the whole thing
+     collapses into a smear with a lighter middle. The small drawing takes the
+     stroke to 10.6/100, which is 1.7px at 16 and reads as a shape.
 
    - The LARGE mark (apple-touch-icon, 192, 512) is the full artwork,
      lettering and all, inset to 78% of the tile. iOS and Android both mask
-     these to a rounded shape or a circle, and the mark's own ring spans
-     92% of its viewBox, so uninset it loses its edges to the mask.
+     these to a rounded shape or a circle, and the plaque spans 84% of its own
+     viewBox, so uninset it loses its tips to the mask.
 
-   Both sit on an OPAQUE ivory ground (--ground #F6EEE1). The mark's
-   chopsticks are #1B191A: on a transparent icon they disappear against a
-   dark browser tab, and the ivory is what keeps every element in the
-   colour role the palette documents.
+     ITS LETTERING IS SET AS TYPE, not traced. brand_assets/crave-mark.svg
+     deliberately carries no letterforms — the mark is the plaque and CRAVE is
+     type beside it, which is what lets one path take currentColor and work at
+     any size. That is fine here because these three outputs are PNG: the font
+     dependency is baked away by the render. assets/favicon.svg ships as SVG
+     and therefore carries the small drawing, which needs no font at all.
 
-   PNG encoding goes through the Chrome puppeteer already ships, the same
-   route bake-png-to-webp.mjs uses — there is no ImageMagick on this
-   machine and `sips` cannot render SVG. */
+   Both sit on the logo's OWN OPAQUE BLACK with the plaque in the ground
+   colour. That is the real artwork's polarity — a white plaque on black — and
+   it is the one place on this site where a black tile is correct rather than
+   a carried-over habit. On a transparent icon the plaque vanishes against a
+   dark browser tab.
+
+   AN XML COMMENT MAY NOT CONTAIN A DOUBLE HYPHEN. Written the obvious way the
+   SVG stops being well-formed and the browser shows a broken image with a
+   clean 200 on the wire and nothing in the console. favicon.svg therefore
+   carries no comments; the reasoning lives here instead.
+
+   PNG encoding goes through the Chrome puppeteer already ships — there is no
+   ImageMagick on this machine and `sips` cannot render SVG. */
 import puppeteer from 'puppeteer';
 import { writeFileSync, readFileSync, statSync } from 'node:fs';
 
-const GROUND = '#F6EEE1';   /* --ground, the site's warm ivory */
-const RED    = '#CD393E';   /* --brand-red, measured off the official logo */
-const INK    = '#1B191A';   /* the logo's black */
+const TILE = '#000000';   /* the logo's own ground, measured off it */
+const MARK = '#FBFAF7';   /* --ground. The logo's mark measures #FBFBFB */
 
 /* ------------------------------------------------------------ the drawings */
 
-const SMALL = `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100" width="100" height="100" role="img" aria-label="Li's Chinese Restaurant">
-<title>Li's Chinese Restaurant</title>
-<rect width="100" height="100" fill="${GROUND}"/>
-<g fill="${INK}">
-<path d="M17,10 L25,10 L40,90 L33,90 Z"/>
-<path d="M32,10 L40,10 L38,90 L32,90 Z"/>
-</g>
-<circle cx="60" cy="50" r="29" fill="none" stroke="${RED}" stroke-width="13"/>
+const SMALL = `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100" width="100" height="100" role="img" aria-label="Crave">
+<title>Crave</title>
+<rect width="100" height="100" fill="${TILE}"/>
+<path d="M50.6 25.95C60.929 25.95,68.037 32.159,69.045 32.45C69.717 32.643,72.417 32.267,73.841 32.513C76.689 33.005,78.885 35.081,79.19 35.508C81.095 38.178,80.261 38.645,81.957 40.989C82.265 41.415,83.309 41.659,83.801 42.008C87.369 44.542,87.49 47.29,87.49 49.4C87.49 51.511,87.369 54.258,83.801 56.792C83.309 57.141,82.265 57.385,81.957 57.811C80.261 60.155,81.095 60.622,79.19 63.292C78.885 63.719,76.689 65.795,73.841 66.287C72.417 66.533,69.717 66.157,69.045 66.35C68.037 66.641,60.929 72.85,50.6 72.85C40.271 72.85,33.163 66.641,32.155 66.35C31.483 66.157,28.783 66.533,27.359 66.287C24.511 65.795,22.315 63.719,22.01 63.292C20.105 60.622,20.939 60.155,19.244 57.811C18.935 57.385,17.891 57.141,17.399 56.792C13.831 54.258,13.71 51.511,13.71 49.4C13.71 47.29,13.831 44.542,17.399 42.008C17.891 41.659,18.935 41.415,19.244 40.989C20.939 38.645,20.105 38.178,22.01 35.508C22.315 35.081,24.511 33.005,27.359 32.513C28.783 32.267,31.483 32.643,32.155 32.45C33.163 32.159,40.271 25.95,50.6 25.95Z" fill="none" stroke="${MARK}" stroke-width="10.6" stroke-linejoin="round"/>
 </svg>`;
 
 /* The full mark, lifted from brand_assets/lis-mark.svg and inset. Its own
    <title>/<desc> are dropped — an icon carries no accessible name of its
    own — and the paths are untouched. */
-const markBody = readFileSync('brand_assets/lis-mark.svg', 'utf8')
+const markBody = readFileSync('brand_assets/crave-mark.svg', 'utf8')
   .replace(/<\?xml[\s\S]*?\?>/, '')
   .replace(/<svg[^>]*>/, '')
   .replace(/<\/svg>\s*$/, '')
@@ -64,9 +65,12 @@ const markBody = readFileSync('brand_assets/lis-mark.svg', 'utf8')
 const INSET = 0.78;
 const off = (100 - 100 * INSET) / 2;
 const LARGE = `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100" width="100" height="100">
-<rect width="100" height="100" fill="${GROUND}"/>
-<g transform="translate(${off} ${off}) scale(${INSET})">
+<rect width="100" height="100" fill="${TILE}"/>
+<g transform="translate(${off} ${off}) scale(${INSET})" color="${MARK}">
 ${markBody}
+<text x="50.6" y="49.4" fill="${MARK}" font-family="Cormorant Garamond, Cormorant, Georgia, serif"
+      font-size="21" font-weight="400" letter-spacing="1.6"
+      text-anchor="middle" dominant-baseline="central" textLength="58" lengthAdjust="spacing">CRAVE</text>
 </g>
 </svg>`;
 
