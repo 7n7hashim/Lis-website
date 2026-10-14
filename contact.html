@@ -3,10 +3,10 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
-<title>Crave — We Are at Your Service</title>
+<title>La Pranzo — We Are at Your Service</title>
 <link rel="preload" as="image" type="image/avif"
       imagesrcset="assets/img/r/contact-hero-1090.avif 1090w, assets/img/r/contact-hero-1310.avif 1310w, assets/img/r/contact-hero-2000.avif 2000w"
-      imagesizes="106.6vw" fetchpriority="high">
+      imagesizes="106.7vw" fetchpriority="high">
 <!-- Site icon. Two drawings, not one file scaled: the SVG and the two small
      PNGs carry the mark reduced to the ring and the chopsticks, because the
      full mark with its lettering turns to mush below ~48px; the touch icon
@@ -17,8 +17,8 @@
 <link rel="icon" href="assets/favicon-16.png" sizes="16x16" type="image/png">
 <link rel="apple-touch-icon" href="assets/apple-touch-icon.png">
 <link rel="manifest" href="assets/site.webmanifest">
-<meta name="theme-color" content="#FBFAF7">
-<meta name="description" content="Contact Crave — City Mall Nyali in Mombasa and Ring Road Kilimani in Nairobi. Both branches open six in the morning, seven days a week.">
+<meta name="theme-color" content="#0D0C0A">
+<meta name="description" content="Contact La Pranzo &amp; Al-Diwan — Haile Selassie Road, next to the Ola station, Mombasa. Open noon until eleven, seven days a week. +254 768 818833.">
 
 <link rel="preload" as="font" type="font/woff2" crossorigin href="assets/fonts/cormorant-garamond-normal-300-400.woff2">
 <link rel="preload" as="font" type="font/woff2" crossorigin href="assets/fonts/jost-normal-300-400.woff2">
@@ -30,7 +30,7 @@
 
 <style>
   /* =====================================================================
-     PERFORMANCE — self-hosted type and the <picture> box tree.
+     PERFORMANCE — self-hosted type and the box tree.
      Added by the 2026-08-24 load-time pass; see apply-perf-shell.mjs for the
      reasoning behind every number in here. Nothing below changes a typeface,
      a weight, a size or a colour.
@@ -67,7 +67,7 @@
     line-gap-override: 0%;
   }
 
-  /* <picture> generates NO box. Several of these photographs are flex or
+  /* generates NO box. Several of these photographs are flex or
      grid items of their own parent — .beyond__track img is `flex: none` in
      a max-content row whose width the marquee's translate is a percentage
      of — and a wrapper would take that slot instead of the <img>. With
@@ -136,30 +136,40 @@
        without being defined they do not error: every eased transform simply
        falls back to `ease`, and an entrance built on two solved overshoot
        curves quietly loses the overshoot that is its entire character. */
-    --ink:       #0E0E0C;
+    --ink:       #F8F7F3;
 
     /* The site's ground. Both sections below the hero sit on it, because a
        photograph is the only reason to leave it and neither has one. `body`
        stays on --ink; see the note there. */
-    --ground:      #FBFAF7;
+    --ground:      #0D0C0A;
 
-    /* Re-derived on the peach rather than carried, and re-derived a second
-       time against #F2EFE8 — the foot of .details' closing gradient, which
-       is the BINDING ground on this page, not the flat peach:
+    /* RE-DERIVED AGAINST THE NEAR-BLACK on 2026-09-30, not carried. The
+       ground inverted with the brand, so every one of these was solved from
+       scratch a fourth time:
 
-                        on #FBFAF7   on #F2EFE8   needs
-         --menu-ink        13.60        13.25      4.5
-         --menu-body        6.32         6.16      4.5
-         --menu-accent      4.78         4.66      4.5
-         --res-gold         3.26         3.17      3.0  (non-text)
-         --res-hair         1.74          --       decorative only
+                        on #0D0C0A   needs
+         --menu-ink        18.24       4.5
+         --menu-body        7.46       4.5
+         --menu-accent     12.79       4.5
+         --res-gold         5.50       3.0  (non-text, and small type)
+         --res-hair         1.37        --  decorative only
 
-       Neither of the two that matter has room to spend: --res-gold clears
-       3:1 at the foot by 0.17 and --menu-accent clears 4.5 by 0.16. Deepen
-       that gradient's tail and BOTH must be re-derived. */
-    --menu-ink:    #0E0E0C;
-    --menu-body:   #57534C;
-    --menu-accent: #2A6B41;
+       THE MARGINS GOT WIDER, NOT NARROWER, and that is the one genuinely
+       good thing about inverting a page: every role gained. The accent
+       roughly doubled, 4.66 to 12.79, because #FFCA2A on near-black is a
+       far easier pairing than a mid green on an off-white was. There is no
+       longer a closing gradient on .details to be the binding ground, so
+       the flat --ground is the only ground on the page and this table has
+       one column instead of two.
+
+       THE TRAP MOVED RATHER THAN CLOSING. On the old build nothing had
+       headroom to spend. Here everything does — EXCEPT on a light field,
+       and there is still one: the locale band's marker cards are near-white
+       over a photograph. --menu-accent measures 1.43:1 there. Anything set
+       on a card takes --ground (18.24) or --lp-amber (5.70). */
+    --menu-ink:    #F8F7F3;
+    --menu-body:   #A79F91;
+    --menu-accent: #FFCA2A;
 
     /* NOT A COLOUR, and it must not be used as one. It is the name the
        transplanted reserve and ending blocks use for "my ground", and
@@ -172,25 +182,42 @@
        here would need --cream AND --ember; only --cream is real. --ember is
        declared on index.html and about.html and READ NOWHERE on the site —
        menu.html carries both copies, does not declare it, and is fine. */
-    --cream:       #FCFBF9;
+    --cream:       #0F0E0B;
 
-    /* Focus rings on the peach. The topbar above spells its own ring out in
-       rgba() because it sits on a photograph and predates this block. */
-    /* The measured logo red. A DEVICE colour: it draws the mark and
-       never sets type. --crave-green is the same hue darkened to carry
-       text and fills — 6.51:1 on the ground, white on it 7.49:1. */
-    --brand-green: #009E2F;
-    --crave-green:    #2A6B41;
+    /* Focus rings. The topbar above spells its own ring out in rgba()
+       because it sits on a photograph and predates this block.
 
-    /* Non-text boundary only, at 3.26:1 on the peach. Here it is a 1px rule
-       on a photograph, which is exactly the role the token is scoped to. */
-    --res-gold:  #7A6A48;
+       TWO NAMES, ONE VALUE, AND THAT IS THE FINDING RATHER THAN AN
+       OVERSIGHT. The last two brands each needed two colours: a device hue
+       that failed AA for text, and a darkened version of it that carried
+       type and fills. #FFCA2A measured off La Pranzo's own menu boards
+       clears 12.79:1 on this ground, so the device colour and the text
+       colour are the same colour for the first time. The names are kept
+       apart because the ROLES are still two, and the next brand may need
+       two values again. */
+    --brand-yellow: #FFCA2A;
+    --lp-yellow:    #FFCA2A;
 
-    /* Decorative on the peach, and this page is the first thing on the site
-       to set TYPE in it — a new role for the token, so it is measured rather
-       than assumed. Against the painted bed under the eyebrow it clears AA;
-       the reading is at the foot of this file. */
-    --res-hair:  #D8CFBC;
+    /* THE LIGHT-FIELD ESCAPE, and the only token on the site that exists for
+       a ground the page does not have. The locale band's marker cards are
+       near-white plates laid over a photograph; on one of those the accent
+       is 1.43:1 and unusable. This is 5.70:1 there. It is NOT for use on
+       --ground, where it measures 3.20 and is a boundary at best. */
+    --lp-amber:  #7A5E0E;
+
+    /* Non-text boundary and small utility type, at 5.50:1 on the ground.
+       Here it is a 1px rule on a photograph and the four field underlines,
+       which are UI component boundaries under WCAG 1.4.11 and so carry a
+       3:1 floor of their own. verify-touch.mjs samples them from the render
+       rather than trusting the declaration. */
+    --res-gold:  #9A8654;
+
+    /* Decorative, and this page is still the only thing on the site that
+       sets TYPE in it — a role the token is not scoped for, so it is
+       measured per viewport rather than assumed. Against the painted bed
+       under the eyebrow it clears AA; the reading is at the foot of this
+       file, and it was re-taken after the ground inverted. */
+    --res-hair:  #2E2A22;
 
     /* 2.4% of about.html's reference width, at both ends. Carried, not
        re-derived: it is the same bar on the same kind of frame. */
@@ -267,14 +294,16 @@
     /* As on index.html and about.html: the body stays on --ink behind a
        full-viewport photograph, so a frame that fails to load leaves white
        type on black rather than white type on nothing. */
-    /* WAS --ink. It was the ink so a frame that failed to load left the type
-       on it readable — white on black. The photography inverted on 2026-09-28
-       and the type over these frames is DARK, so black is now the one ground
-       that hides it. Same reason, opposite value. */
+    /* The ground, which since 2026-09-30 IS near-black again — so this rule
+       and the 2026-09-28 one it replaces now resolve to the same kind of
+       value by two different routes. A frame that fails to load leaves white
+       type on near-black, which is the readable failure. */
     background: var(--ground);
-    /* INVERTED 2026-09-28 with the photography: the frame under this type is
-       a bright room now, so the type is the ink and every halo below is a
-       LIGHT one. */
+    /* INVERTED AGAIN 2026-09-30. The frame under this type is a dark room
+       again, so the type is back to the ink and every halo below is a DARK
+       one. The reason has now survived three rebrands and two flips: the
+       body ground must be whatever HIDES a failed frame least, which is
+       always the same value the type is NOT. */
     color: var(--ink);
     font-family: Jost, ui-sans-serif, system-ui, sans-serif;
   }
@@ -371,36 +400,50 @@
     pointer-events: none;
     background:
       radial-gradient(76% 68% at 46% 50%,
-        rgba(251, 250, 247, 0.0)  0%,
-        rgba(251, 250, 247, 0.16) 50%,
-        rgba(251, 250, 247, 0.4) 76%,
-        rgba(251, 250, 247, 0.53) 100%),
+        rgba(13, 12, 10, 0.0)  0%,
+        rgba(13, 12, 10, 0.16) 50%,
+        rgba(13, 12, 10, 0.4) 76%,
+        rgba(13, 12, 10, 0.53) 100%),
       linear-gradient(180deg,
-        rgba(251, 250, 247, 0.36) 0%,
-        rgba(251, 250, 247, 0.18) 12%,
-        rgba(251, 250, 247, 0.0) 26%),
+        rgba(13, 12, 10, 0.36) 0%,
+        rgba(13, 12, 10, 0.18) 12%,
+        rgba(13, 12, 10, 0.0) 26%),
       linear-gradient(0deg,
-        rgba(251, 250, 247, 0.35) 0%,
-        rgba(251, 250, 247, 0.16) 13%,
-        rgba(251, 250, 247, 0.0) 30%);
+        rgba(13, 12, 10, 0.35) 0%,
+        rgba(13, 12, 10, 0.16) 13%,
+        rgba(13, 12, 10, 0.0) 30%);
   }
 
   /* A bed that travels with the type rather than a scrim over the frame —
      the hero's own device on index.html, and about.html's.
 
-     0.24/0.14 against that file's 0.60/0.42, for the reason set out at the
-     top: its centre measures 117 and needs subduing, this one measures 41
-     and needs almost nothing. Taken to its values the mural stops being a
-     mural. Verified with the type hidden, so the reading is the bed and not
-     the letters.
+     0.54/0.36, RE-SOLVED 2026-10-01 FROM 0.24/0.14, and the number that moved
+     is the FRAME'S CENTRE rather than anything about the type. This bed is a
+     function of what is behind it: about.html's opening measures 117 at the
+     centre and carries 0.60/0.42; this slot's previous frame measured 41 and
+     needed almost nothing, which is where 0.24/0.14 came from. The frame that
+     replaced it is a lit core — a man in a white shirt, centre-lit, pouring —
+     and measures 112.2. So the bed goes back to about.html's order of
+     magnitude, a shade lighter because 112.2 is a shade darker than 117.
 
-     IT IS THE EYEBROW, NOT THE HEADING, THAT SETS THE FLOOR HERE, which is
-     the opposite of how a hero usually works. White at 255 on this band has
-     roughly 16:1 and needs 3:1, so the heading would tolerate a far lighter
-     bed than this. --res-hair at 12.4px is held to 4.5:1, and it runs out
-     first: measured against its own strip, 0.34/0.22 gave 6.09:1 and this
-     gives the reading recorded at the foot of the file. Lighten it further
-     and the eyebrow, not the heading, is what fails. */
+     THE HEADING SETS THE FLOOR NOW, AND IT USED TO BE THE EYEBROW. That
+     reversal is the whole finding. On a dark-core frame the heading had ~16:1
+     where it needs 3:1 and never bound, while --res-hair at 12.4px ran out
+     first against its 4.5:1. On this frame the heading crosses the shirt and
+     the pot, and at the inherited bed its worst 12px tile measured **3.01:1
+     against a 3:1 floor** — passing by 0.01, which is not passing. The
+     eyebrow sat at 4.69 against 4.5 in the same breath. Both were green on
+     the page's own shooter, which reports the band MEAN (77.8): **a mean is
+     exactly what hides a white shirt behind one word.**
+
+     Swept with the type hidden, worst 12px tile, heading / eyebrow:
+       0.24/0.14 -> 3.07 / 4.76     0.46/0.30 -> 4.52 / 7.06
+       0.38/0.24 -> 3.93 / 6.15     0.54/0.36 -> 5.26 / 8.11
+                                    0.60/0.42 -> 6.11 / 9.16
+     0.54/0.36 lands both at about 1.8x their floor. 0.60/0.42 clears by more
+     and was not taken: the pour is the subject and it sits directly under the
+     type, so every extra point of bed is spent on the one thing the frame is
+     of. */
   .hero__bed {
     position: absolute;
     left: 50%;
@@ -411,9 +454,9 @@
     transform: translate(-50%, -50%);
     pointer-events: none;
     background: radial-gradient(50% 50% at 50% 50%,
-      rgba(251, 250, 247, 0.24) 0%,
-      rgba(251, 250, 247, 0.14) 60%,
-      rgba(251, 250, 247, 0.0) 100%);
+      rgba(13, 12, 10, 0.54) 0%,
+      rgba(13, 12, 10, 0.36) 60%,
+      rgba(13, 12, 10, 0.0) 100%);
   }
 
   /* Grain, at the threshold of visibility. It is here to break the banding
@@ -438,10 +481,10 @@
     inset: 0;
     z-index: 5;
     pointer-events: none;
-    /* WAS --ink. It was the ink so a frame that failed to load left the type
-       on it readable — white on black. The photography inverted on 2026-09-28
-       and the type over these frames is DARK, so black is now the one ground
-       that hides it. Same reason, opposite value. */
+    /* The ground, which since 2026-09-30 IS near-black again — so this rule
+       and the 2026-09-28 one it replaces now resolve to the same kind of
+       value by two different routes. A frame that fails to load leaves white
+       type on near-black, which is the readable failure. */
     background: var(--ground);
     animation: lift 1200ms var(--ease-quiet) both;
   }
@@ -471,8 +514,8 @@
     margin-right: -0.16em;
     text-transform: uppercase;
     text-decoration: none;
-    color: rgba(14, 14, 12, 0.94);
-    text-shadow: 0 1px 14px rgba(251, 250, 247, 0.85);
+    color: rgba(248, 247, 243, 0.94);
+    text-shadow: 0 1px 14px rgba(13, 12, 10, 0.85);
     transition: color 220ms var(--ease-quiet);
   }
 
@@ -507,8 +550,8 @@
     margin-right: -0.16em;
     text-transform: uppercase;
     text-decoration: none;
-    color: rgba(14, 14, 12, 0.70);
-    text-shadow: 0 1px 14px rgba(251, 250, 247, 0.85);
+    color: rgba(248, 247, 243, 0.70);
+    text-shadow: 0 1px 14px rgba(13, 12, 10, 0.85);
     transition: color 220ms var(--ease-quiet);
   }
 
@@ -549,9 +592,9 @@
 
   .topbar__brand:focus-visible,
   .topbar__link:focus-visible {
-    outline: 1.5px solid rgba(14, 14, 12, 0.92);
+    outline: 1.5px solid rgba(248, 247, 243, 0.92);
     outline-offset: 6px;
-    box-shadow: 0 0 0 9px rgba(42, 107, 65, 0.30);
+    box-shadow: 0 0 0 9px rgba(255, 202, 42, 0.30);
     border-radius: 2px;
   }
 
@@ -597,7 +640,7 @@
        7.2. At 12.4px with 0.34em of tracking it still reads as a label
        rather than as a shout. Measured per viewport by shoot-contact.mjs. */
     color: var(--menu-ink);
-    text-shadow: 0 1px 14px rgba(251, 250, 247, 0.85);
+    text-shadow: 0 1px 14px rgba(13, 12, 10, 0.85);
   }
 
   /* The signature, and the only flourish on the page: the site's link
@@ -650,8 +693,8 @@
        hairline serif from the photograph, a mid halo, and a wide warm one so
        the line sits inside the room's light rather than on top of it. */
     text-shadow:
-      0 1px 2px  rgba(251, 250, 247, 0.42),
-      0 4px 30px rgba(251, 250, 247, 0.52),
+      0 1px 2px  rgba(13, 12, 10, 0.42),
+      0 4px 30px rgba(13, 12, 10, 0.52),
       0 2px 74px rgba(14, 22, 17, 0.30);
   }
 
@@ -760,17 +803,17 @@
     .hero__wash {
       background:
         radial-gradient(98% 64% at 46% 50%,
-          rgba(251, 250, 247, 0.0)  0%,
-          rgba(251, 250, 247, 0.18) 52%,
-          rgba(251, 250, 247, 0.38) 100%),
+          rgba(13, 12, 10, 0.0)  0%,
+          rgba(13, 12, 10, 0.18) 52%,
+          rgba(13, 12, 10, 0.38) 100%),
         linear-gradient(180deg,
-          rgba(251, 250, 247, 0.44) 0%,
-          rgba(251, 250, 247, 0.1) 18%,
-          rgba(251, 250, 247, 0.0) 34%),
+          rgba(13, 12, 10, 0.44) 0%,
+          rgba(13, 12, 10, 0.1) 18%,
+          rgba(13, 12, 10, 0.0) 34%),
         linear-gradient(0deg,
-          rgba(251, 250, 247, 0.43) 0%,
-          rgba(251, 250, 247, 0.14) 20%,
-          rgba(251, 250, 247, 0.0) 38%);
+          rgba(13, 12, 10, 0.43) 0%,
+          rgba(13, 12, 10, 0.14) 20%,
+          rgba(13, 12, 10, 0.0) 38%);
     }
 
     .hero__eyebrow { letter-spacing: 0.30em; margin-right: -0.30em; }
@@ -822,9 +865,9 @@
        would then sit one step off the section below it. */
     background-image:
       radial-gradient(112% 82% at 50% 44%,
-        rgba(255, 247, 243, 0.52) 0%,
-        rgba(255, 247, 243, 0.20) 42%,
-        rgba(255, 247, 243, 0)    79%);
+        rgba(18, 16, 13, 0.52) 0%,
+        rgba(18, 16, 13, 0.20) 42%,
+        rgba(18, 16, 13, 0)    79%);
     padding: calc(var(--tu) * 8) 0;
   }
 
@@ -842,7 +885,7 @@
     background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='200' height='200'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.8' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='200' height='200' filter='url(%23n)'/%3E%3C/svg%3E");
   }
 
-  .touch ::selection { background: rgba(42, 107, 65, 0.18); color: var(--menu-ink); }
+  .touch ::selection { background: rgba(255, 202, 42, 0.18); color: var(--menu-ink); }
 
   /* ------------------------------------------------ the drifting planes */
 
@@ -933,7 +976,7 @@
     /* The ending wordmark's alpha, and for the same reason: present and
        almost not there. Measured there as a +9 luminance delta, which is
        within a few points of the same on this ground. */
-    color: rgba(14, 14, 12, 0.042);
+    color: rgba(248, 247, 243, 0.042);
     user-select: none;
     transform: translate3d(0, calc((var(--drift) - 0.5) * -7svh), -260px);
   }
@@ -953,8 +996,15 @@
   .touch__mon {
     display: block;
     width: calc(var(--tu) * 16);
-    height: auto;
-    color: rgba(14, 14, 12, 0.05);
+    /* WAS height: auto on an <svg> with a viewBox. The mark is a raster now
+       and a masked <span> has no intrinsic ratio, so the square has to be
+       stated. The source file IS square — make-lapranzo-mark.py crops about
+       the ink's own centre — so 1/1 is the artwork's own aspect, not a crop. */
+    aspect-ratio: 1;
+    color: rgba(248, 247, 243, 0.05);
+    background: currentColor;
+    -webkit-mask: url("brand_assets/lapranzo-mask-512.png") center / contain no-repeat;
+            mask: url("brand_assets/lapranzo-mask-512.png") center / contain no-repeat;
     transform: translate3d(0, calc((var(--drift) - 0.5) * 11svh), -120px);
   }
 
@@ -990,7 +1040,9 @@
     letter-spacing: 0.34em;
     text-indent: 0.34em;
     text-transform: uppercase;
-    color: var(--menu-accent);
+    /* NOT --menu-accent. #FFCA2A on this card is 1.43:1 — the accent is a
+       dark-ground colour and this is the site's one light field. 5.70:1. */
+    color: var(--lp-amber);
   }
 
   .touch__eyebrow::after {
@@ -1056,7 +1108,9 @@
     font-weight: 300;
     font-size: max(13.5px, calc(var(--tu) * 1.02));
     line-height: 1.9;
-    color: var(--menu-body);
+    /* NOT --menu-body, for the same reason as the two above: #A79F91 on this
+       card is 1.93:1. This is the body role re-derived against the CARD. */
+    color: #55504A;
   }
 
   /* ------------------------------------------------------------ the form */
@@ -1201,7 +1255,7 @@
      rule already answers "which field am I in" for everyone else. Drawn
      outside the field so it never sits on the type. */
   .field__input:focus-visible + .field__rule {
-    outline: 1.5px solid var(--crave-green);
+    outline: 1.5px solid var(--lp-yellow);
     outline-offset: 4px;
   }
 
@@ -1458,7 +1512,7 @@
     color: var(--menu-ink);
   }
 
-  .details ::selection { background: rgba(42, 107, 65, 0.18); color: var(--menu-ink); }
+  .details ::selection { background: rgba(255, 202, 42, 0.18); color: var(--menu-ink); }
 
   /* THE CONNECTOR. This was a 2.6tu tick centred under a centred block; it
      is now a full-width hairline spanning the composition, and that change of
@@ -1482,10 +1536,10 @@
     margin: calc(var(--tu) * 4) 0 calc(var(--tu) * 3);
     border: 0;
     background: linear-gradient(to right,
-      rgba(216, 207, 188, 0) 0%,
+      rgba(46, 42, 34, 0) 0%,
       var(--res-hair) 12%,
       var(--res-hair) 88%,
-      rgba(216, 207, 188, 0) 100%);
+      rgba(46, 42, 34, 0) 100%);
   }
 
   /* TWO COLUMNS FROM 700px, STACKED BELOW IT. Asked for explicitly on
@@ -1562,10 +1616,10 @@
     height: max(1px, 0.08vw);
     transform: translateX(-50%);
     background: linear-gradient(to right,
-      rgba(216, 207, 188, 0) 0%,
+      rgba(46, 42, 34, 0) 0%,
       var(--res-hair) 34%,
       var(--res-hair) 66%,
-      rgba(216, 207, 188, 0) 100%);
+      rgba(46, 42, 34, 0) 100%);
   }
 
   .details__label {
@@ -1645,7 +1699,7 @@
   .details__value:active { transform: translateY(1px); }
 
   .details__value:focus-visible {
-    outline: 1.5px solid var(--crave-green);
+    outline: 1.5px solid var(--lp-yellow);
     outline-offset: 6px;
     border-radius: 1px;
   }
@@ -1855,8 +1909,8 @@
        instead of pretending to a margin that is not there. */
     .touch__plane--kanji { right: -6%; }
     .touch__plane--mon   { left: -8%; bottom: 6%; }
-    .touch__kanji { color: rgba(14, 14, 12, 0.032); }
-    .touch__mon   { color: rgba(14, 14, 12, 0.038); }
+    .touch__kanji { color: rgba(248, 247, 243, 0.032); }
+    .touch__mon   { color: rgba(248, 247, 243, 0.038); }
   }
 
   @media (max-width: 639px) {
@@ -2094,8 +2148,16 @@
     padding: calc(var(--lu) * 1.05) calc(var(--lu) * 1.15);
     /* Written as a literal rather than as var(--cream). --cream is superseded
        and documented as "not a colour" — it exists only as the hinge the
-       peach adaptation blocks turn. Reaching for it here would make this card
-       silently change ground the next time that hinge is turned. */
+       ground adaptation blocks turn. Reaching for it here would make this
+       card silently change ground the next time that hinge is turned.
+
+       AND THE LITERAL IS WHY THIS CARD IS STILL NEAR-WHITE ON A NEAR-BLACK
+       SITE, which is correct and is the whole reason the three rules below
+       had to be re-solved by hand on 2026-09-30. The card is a PLATE LAID
+       OVER A PHOTOGRAPH; it is the one light field left anywhere on this
+       site, and a token flip that moved every ink on the page to white left
+       white type on a white card. Every colour inside this box is measured
+       against the CARD, never against --ground. */
     background: rgba(252, 251, 249, 0.94);
     border-radius: calc(var(--lu) * 0.68);
     box-shadow:
@@ -2120,7 +2182,10 @@
     font-weight: 400;
     font-size: calc(var(--lu) * 1.62);
     line-height: 1.12;
-    color: var(--menu-ink);
+    /* NOT --menu-ink. The ink went near-white with the ground and this card
+       did not: white on the card is 1.04:1 and the title vanished outright.
+       The ground is 18.24:1 on it. */
+    color: var(--ground);
   }
 
   .locale__card-note {
@@ -2139,7 +2204,7 @@
     align-items: center;
     gap: calc(var(--lu) * 0.62);
     padding: calc(var(--lu) * 0.72) calc(var(--lu) * 1.15);
-    background: var(--crave-green);
+    background: var(--lp-yellow);
     border-radius: 999px;
     box-shadow:
       0 1px 2px rgba(14, 14, 12, 0.22),
@@ -2159,8 +2224,10 @@
     font-weight: 400;
     line-height: 1;
     letter-spacing: 0.12em;
-    /* 7.0:1 on --crave-green. */
-    color: var(--ink);
+    /* WAS --ink at 7.0:1 on the old green. On #FFCA2A --ink is 1.43:1 —
+       a fill made of the accent is a LIGHT field however dark the page is,
+       so its type takes the ground. 12.79:1. */
+    color: var(--ground);
   }
 
   /* Non-text, so --res-gold is in exactly the role the token is scoped to.
@@ -2204,15 +2271,16 @@
   .locale__mark--d1   { left: 30%;  top: 33%; }
   .locale__mark--d2   { right: 27%; bottom: 26%; }
 
-  /* Nairobi mirrors it. Only the four horizontal anchors flip — the vertical
-     rhythm is kept, so the pair reads as one system seen from two sides
-     rather than as two unrelated layouts. */
-  .locale--nairobi .locale__head { margin-left: auto; text-align: right; }
-  .locale--nairobi .locale__mark--a    { right: auto; left: 6.5%; }
-  .locale--nairobi .locale__mark--b    { left: auto;  right: 5.5%; }
-  .locale--nairobi .locale__mark--pill { left: auto;  right: 42%; }
-  .locale--nairobi .locale__mark--d1   { left: auto;  right: 30%; }
-  .locale--nairobi .locale__mark--d2   { right: auto; left: 27%; }
+  /* THE MIRROR IS GONE, AND SO IS THE SECOND BAND. This was a component
+     with two instances — Mombasa took the reference composition and
+     .locale--nairobi flipped its four horizontal anchors so the pair read as
+     one system seen from two sides. La Pranzo has ONE address, so the
+     mirror has nothing to mirror.
+
+     Deleted rather than left in place. Six dead rules that still match
+     nothing cost nothing to run and everything to read: the next person
+     through this file would spend ten minutes looking for the second band.
+     The component itself is untouched and would take an instance again. */
 
   /* ---------------------------------------------------- the entrance */
 
@@ -2303,8 +2371,7 @@
     .locale { padding: calc(var(--lu) * 7) var(--lu-inset) calc(var(--lu) * 5); }
     /* The copy column stops being a column. 41.46vw is a measured share of a
        DESKTOP width; kept here it would set three words a line. */
-    .locale__head,
-    .locale--nairobi .locale__head { max-width: none; margin-left: 0; text-align: left; }
+    .locale__head { max-width: none; margin-left: 0; text-align: left; }
     .locale__title { font-size: max(34px, calc(var(--lu) * 5.6)); }
     .locale__body  { font-size: max(14px, calc(var(--lu) * 1.6)); }
     .locale__card  { width: calc(var(--lu) * 22); }
@@ -2324,15 +2391,13 @@
       margin-top: calc(var(--lu) * 1.6);
     }
     .locale__mark--a,
-    .locale__mark--b,
-    .locale--nairobi .locale__mark--a,
-    .locale--nairobi .locale__mark--b {
+    .locale__mark--b {
       position: static;
       inset: auto;
     }
     .locale__card { width: 100%; }
     .locale__title { font-size: max(30px, calc(var(--lu) * 7.4)); }
-    .locale__mark--pill, .locale--nairobi .locale__mark--pill { left: 50%; right: auto; transform: translate3d(-50%, calc((0.5 - var(--rise)) * 22px), 0); }
+    .locale__mark--pill { left: 50%; right: auto; transform: translate3d(-50%, calc((0.5 - var(--rise)) * 22px), 0); }
   }
 
   /* ================================================================ faq */
@@ -2408,10 +2473,10 @@
      Decorative either way: a separator carries no information the heading
      above it does not, so no contrast minimum applies. */
   .faq__item {
-    border-top: 1px solid rgba(14, 14, 12, 0.13);
+    border-top: 1px solid rgba(248, 247, 243, 0.13);
   }
   .faq__item:last-child {
-    border-bottom: 1px solid rgba(14, 14, 12, 0.13);
+    border-bottom: 1px solid rgba(248, 247, 243, 0.13);
   }
 
   .faq__q {
@@ -2577,8 +2642,8 @@
        to marks that state nothing — the rule under the eyebrow, the ring around
        the photograph. Anything a guest reads or clicks takes --menu-accent
        (4.8:1) or --res-gold, which clears 3:1 as a non-text boundary. */
-    --res-hair: #D8CFBC;
-    --res-gold: #7A6A48;
+    --res-hair: #2E2A22;
+    --res-gold: #9A8654;
 
     --res-eyebrow:  clamp(0.66rem, 2.85vw, 0.76rem);
     --res-title:    clamp(2.35rem, 11.9vw, 3.6rem);
@@ -2892,7 +2957,7 @@
     width: max(1px, 0.08vw);
     background: linear-gradient(to bottom,
       var(--res-hair) 6%,
-      rgba(216, 207, 188, 0) 92%);
+      rgba(46, 42, 34, 0) 92%);
   }
 
   .reserve__icon {
@@ -3116,25 +3181,28 @@
        runs to ~92% of the viewport, which is as large as it can be and
        still read as a word rather than as a cropped first and last letter.
        That 92% is the target --end-mark is solved against; see it above. */
-    /* RE-SOLVED 2026-09-28 for a five-glyph wordmark. CRAVE's five wide caps
-       are far wider than LI'S's four narrow ones — measured, ink is 3.816x
-       the font-size against LI'S's 2.026 — so at the inherited size it ran to
-       161% of the viewport and hung 48.6px off the right edge on a 1440.
-       Every term is scaled by 0.531, the clamp ends included, so the cap at
-       2560 still bites at the same fraction it always did.
+    /* RE-SOLVED 2026-09-30 for a NINE-glyph wordmark. LA PRANZO's ink is
+       6.731x the font-size against CRAVE's 4.10 and LI'S's 2.026, so at the
+       inherited size it ran to 150.8% of the viewport at 1440, 1280 and
+       1000 alike and hung 61% off the right edge. measure-endmark.mjs is
+       what prints that; it is the tool for this and it was run before and
+       after.
 
-       THE TARGET IS 85.5%, NOT THE 92% THE NOTE ABOVE ASPIRES TO. 92% is what
-       the block was designed for; 85.5% is what it has actually shipped at
-       every width below the clamp, measured off the previous build. Solving
-       to the comment rather than to the render would have made the mark 7.6%
-       larger than the one it replaces and called it a like-for-like swap.
+       EVERY TERM IS SCALED BY THE SAME 0.610, the clamp ends included, and
+       that is what makes it a like-for-like swap rather than a resize. The
+       vw term sets the 92% the block runs at below the cap; the rem ends
+       set where the cap bites and how far the mark tapers on a very wide
+       screen. Scaling only the middle term would have held 92% at 1440 and
+       left the mark at 94.7% of a 2560 — a cap that had stopped capping.
+       Measured after: 92.0% at 1440, 1280 and 1000, and 57.7% at 2560,
+       which is the same pair of numbers CRAVE shipped.
 
        MEASURE THE TEXT, NOT THE BOX. The mark is white-space: nowrap in a
        full-width block, so past 100% its border box stops growing and
        getBoundingClientRect() hands the viewport back: read that way, a mark
-       overflowing by 61% reported as a comfortable 93.2%. measure-endmark.mjs
+       overflowing by 51% reports as a comfortable 93%. measure-endmark.mjs
        uses a Range. Re-solve again if the string ever changes length. */
-    --end-mark:   clamp(4.94rem, 22.4vw, 22.5rem);
+    --end-mark:   clamp(3.01rem, 13.66vw, 13.72rem);
     /* The last 15% of height comes from the block, not the size — see
        .ending__mark. */
     --end-stretch: 1.15;
@@ -3175,7 +3243,7 @@
        step deepening across the height of this block — far too small to
        read as a band, just enough that the page settles rather than ending
        on the same flat value it has held for three sections. */
-    background: linear-gradient(180deg, var(--cream) 0%, #F5F2EC 100%);
+    background: linear-gradient(180deg, var(--cream) 0%, #1A1815 100%);
     color: var(--menu-ink);
     font-family: Jost, ui-sans-serif, system-ui, sans-serif;
     text-align: center;
@@ -3199,7 +3267,7 @@
     line-height: 0.653;
     letter-spacing: 0.16em;
     white-space: nowrap;
-    color: rgba(14, 14, 12, 0.045);
+    color: rgba(248, 247, 243, 0.045);
     user-select: none;
     /* Once the mark is as wide as the screen allows, height is the only
        axis left. A 1.15 vertical scale thickens Cormorant's horizontal
@@ -3292,7 +3360,7 @@
   .ending__link:focus-visible::after { transform: scaleX(1); }
 
   .ending__link:focus-visible {
-    outline: 1px solid var(--crave-green);
+    outline: 1px solid var(--lp-yellow);
     outline-offset: 4px;
     border-radius: 1px;
   }
@@ -3331,15 +3399,15 @@
      viewport, so there is almost nothing left to give here — 20vw is the
      same 92%, and anything past it starts cropping the first letter. The phone gets
      its height from the stretch instead, pushed a little harder because a
-     390px screen has proportionally more empty cream to fill. The 72svh
+     390px screen has proportionally more empty ground to fill. The 72svh
      minimum goes: on a phone the closing frame is as tall as its contents
      and no taller. */
   @media (max-width: 639px) {
     .ending {
-      /* Scaled by the same 2.12 as the desktop clamp when the wordmark went
-         from six glyphs to four. 20vw held MISONO at 92% of a phone; it held
-         LI'S at 43.6%. */
-      --end-mark: 22.5vw;
+      /* Scaled by the same 0.610 as the desktop clamp when the wordmark went
+         from five glyphs to nine. 22.5vw held CRAVE at 92% of a phone; it
+         held LA PRANZO at 151.4%. Measured after: 92.3%. */
+      --end-mark: 13.73vw;
       --end-stretch: 1.22;
       min-height: 0;
       padding-top: clamp(64px, 22vw, 108px);
@@ -3385,7 +3453,7 @@
         element beats one on :root. Deleting this block because the token
         "is already correct globally" silently puts the cream value back. */
   .reserve {
-    --res-gold: #7A6A48;
+    --res-gold: #9A8654;
   }
 
   /* 2. The closing gradient's tail is a literal, so --cream cannot reach it.
@@ -3394,7 +3462,7 @@
         settles". Same step applied to the peach rather than a new value
         chosen by eye. Leaves the footer links at 6.2:1 at their dimmest. */
   .ending {
-    background: linear-gradient(180deg, var(--ground) 0%, #F2EFE8 100%);
+    background: linear-gradient(180deg, var(--ground) 0%, #1B1916 100%);
   }
 
   /* 3. The wordmark needed NO change, which is worth recording because it
@@ -3439,11 +3507,11 @@
   -->
   <div class="hero__media">
     <picture>
-      <source type="image/avif" sizes="106.6vw"
+      <source type="image/avif" sizes="106.7vw"
               srcset="assets/img/r/contact-hero-1090.avif 1090w, assets/img/r/contact-hero-1310.avif 1310w, assets/img/r/contact-hero-2000.avif 2000w">
-      <source type="image/webp" sizes="106.6vw"
+      <source type="image/webp" sizes="106.7vw"
               srcset="assets/img/r/contact-hero-1090.webp 1090w, assets/img/r/contact-hero-2000.webp 2000w">
-      <img class="hero__img" src="assets/img/contact-hero.jpg" alt=""
+      <img class="hero__img" src="assets/img/contact-hero.jpg" alt="Arabic coffee being poured from a long-spouted dallah into a cup."
          fetchpriority="high" decoding="sync" width="2000" height="1333" loading="eager">
     </picture>
   </div>
@@ -3455,7 +3523,7 @@
   <div class="hero__lift"></div>
 
   <header class="topbar">
-    <a class="topbar__brand" href="index.html">Crave</a>
+    <a class="topbar__brand" href="index.html">La Pranzo</a>
 
     <nav class="topbar__nav" aria-label="Primary">
       <a class="topbar__link" href="menu.html">Menu</a>
@@ -3523,9 +3591,7 @@
          is written out. That mark carried its defs with it because
          about.html once referenced #mm-petal without defining it and drew
          nothing at all; a self-contained mark cannot fail that way. -->
-    <svg class="touch__mon" viewBox="0 0 100 100" focusable="false" aria-hidden="true">
-      <path d="M50.6 23.25C61.685 23.25,69.313 30.174,70.395 30.498C71.116 30.714,74.014 30.295,75.542 30.569C78.598 31.118,80.955 33.433,81.282 33.909C83.327 36.886,82.432 37.407,84.252 40.02C84.582 40.495,85.703 40.767,86.231 41.157C90.06 43.982,90.19 47.046,90.19 49.4C90.19 51.754,90.06 54.818,86.231 57.643C85.703 58.033,84.582 58.305,84.252 58.78C82.432 61.393,83.327 61.914,81.282 64.891C80.955 65.367,78.598 67.682,75.542 68.231C74.014 68.505,71.116 68.086,70.395 68.302C69.313 68.626,61.685 75.55,50.6 75.55C39.515 75.55,31.887 68.626,30.805 68.302C30.084 68.086,27.186 68.505,25.658 68.231C22.602 67.682,20.245 65.367,19.918 64.891C17.873 61.914,18.768 61.393,16.949 58.78C16.618 58.305,15.497 58.033,14.969 57.643C11.14 54.818,11.01 51.754,11.01 49.4C11.01 47.046,11.14 43.982,14.969 41.157C15.497 40.767,16.618 40.495,16.949 40.02C18.768 37.407,17.873 36.886,19.918 33.909C20.245 33.433,22.602 31.118,25.658 30.569C27.186 30.295,30.084 30.714,30.805 30.498C31.887 30.174,39.515 23.25,50.6 23.25Z" fill="none" stroke="currentColor" stroke-width="5.2" stroke-linejoin="round"/>
-    </svg>
+    <span class="touch__mon" aria-hidden="true"></span>
     </div>
   </div>
 
@@ -3539,9 +3605,9 @@
 
       <hr class="touch__rule" aria-hidden="true">
 
-      <p class="touch__body">A table for six, a birthday, a question about
-          either branch, or something you want to know before you come. Tell us what
-          you need and which city, and the right room will answer.</p>
+      <p class="touch__body">A table for six, a birthday, a question about the
+          carte, or something you want to know before you come. Tell us what you
+          need and the room will answer.</p>
     </div>
 
     <form class="touch__form" novalidate>
@@ -3586,38 +3652,38 @@
 </section>
 
 <!-- ================================================ contact details ====
-     RESEARCHED 2026-09-28, NOT CONFIRMED BY THE CLIENT. Both numbers come
-     from Crave's own Instagram bio and from each branch's claimed
-     TripAdvisor listing.
+     RESEARCHED 2026-09-30, NOT CONFIRMED BY THE CLIENT. The number appears
+     identically on La Pranzo's Google listing, in its Instagram bio and on
+     its own site, which is as corroborated as anything here gets.
 
-     BOTH NUMBERS ARE HERE, ONE PER CELL, which is a reversal. The cells used
-     to be Reservations and Email, and the email was the reason only one
-     phone number fitted. Crave publishes NO email address anywhere — the one
-     that turns up in search belongs to an agency's demo site, not to Crave —
-     so the second cell was free, and two branches with two different numbers
-     is exactly what it should hold.
+     PHONE AND INSTAGRAM, WHICH IS THE THIRD ARRANGEMENT THESE TWO CELLS HAVE
+     HELD. They were Reservations and Email; then, when Crave turned out to
+     publish no email at all, they became two branch phone numbers. La Pranzo
+     publishes one number and one social account, so the honest pair is the
+     channel you call and the channel you message.
 
-     That also retires this block's oldest layout constraint. The 45-character
-     address used to run 94px past the content box on a 390px phone and turn
-     the whole document into a horizontal scroll. A Kenyan number is fifteen
-     characters. The overflow-wrap rule below is kept, because it costs
-     nothing and the next long string will not announce itself.
+     STILL NO EMAIL, for the third rebrand running, and still for a reason
+     rather than by omission: none is published anywhere.
 
-     That also settles the claim the previous version of this comment flagged.
-     The reservation block on all four pages says "Nairobi & Mombasa"; this
-     page no longer presents one number as reaching both.
+     Neither cell is anywhere near the width that used to break this block:
+     the phone is fifteen characters and the handle eleven. The 45-character
+     address that ran 94px past the content box on a 390px phone, and turned
+     the whole document into a horizontal scroll, is two brands gone. The
+     overflow-wrap rule below is kept anyway, because it costs nothing and
+     the next long string will not announce itself.
+
      ==================================================================== -->
 <section class="details" aria-label="Contact details">
   <hr class="details__rule" aria-hidden="true">
 
   <ul class="details__list">
     <li class="details__item">
-      <span class="details__label">Mombasa</span>
-      <a class="details__value" href="tel:+254705000275">+254 705 000275</a>
+      <span class="details__label">Phone</span>
+      <a class="details__value" href="tel:+254768818833">+254 768 818833</a>
     </li>
     <li class="details__item">
-      <span class="details__label">Nairobi</span>
-      <a class="details__value" href="tel:+254756600600">+254 756 600600</a>
+      <span class="details__label">Instagram</span>
+      <a class="details__value" href="https://www.instagram.com/lapranzoke" rel="noopener">@lapranzoke</a>
     </li>
   </ul>
 </section>
@@ -3668,21 +3734,29 @@
   <div class="locale__head">
     <p class="locale__eyebrow">The Location</p>
     <h2 class="locale__title" id="locale-mombasa-title">Mombasa</h2>
-    <!-- NO FOUNDING YEAR. Crave announced Kilimani as its new branch, so
-         Mombasa is the original; no date is published for either room. -->
-    <p class="locale__body">Crave began here, at City Mall on Malindi Road in
-      Nyali, and the coast is the reason seafood is the part of this carte with the
-      most to say. It is currently ranked first of the two hundred and twelve
-      restaurants TripAdvisor lists in Mombasa.</p>
+    <!-- NO FOUNDING YEAR, for the third rebrand running. None is published
+         anywhere for this room either.
+
+         THREE SOURCES, THREE DEGREES OF PRECISION, AND THE CARD TAKES THE MOST
+         USEFUL ONE. Google gives the road and the postcode; La Pranzo's own
+         site adds "next to Ola petrol station"; the Google listing adds that
+         the unit sits inside United Meat Supplies. The landmark is what a
+         guest actually navigates by on a road that long, so it is what the
+         card carries and the postcode is what it leaves out. -->
+    <p class="locale__body">One room, downtown, on Haile Selassie Road next to the Ola
+      station. Google rates it 4.7 across three hundred and twenty-three reviews, and
+      reports that people spend anywhere from twenty-five minutes to three hours here
+      &mdash; which is a wide spread for a place that calls itself a fast food and
+      cafe.</p>
   </div>
 
   <div class="locale__stage">
     <figure class="locale__frame">
-      <!-- PLACEHOLDER — the Mombasa waterfront, not Links Road in Nyali. See above. -->
+      <!-- PLACEHOLDER — the Mombasa waterfront, not Haile Selassie Road. See above. -->
       <picture>
-        <source type="image/avif" sizes="85.4vw"
+        <source type="image/avif" sizes="85.3vw"
                 srcset="assets/img/r/locale-mombasa-880.avif 880w, assets/img/r/locale-mombasa-1050.avif 1050w, assets/img/r/locale-mombasa-1260.avif 1260w, assets/img/r/locale-mombasa-1570.avif 1570w, assets/img/r/locale-mombasa-2000.avif 2000w">
-        <source type="image/webp" sizes="85.4vw"
+        <source type="image/webp" sizes="85.3vw"
                 srcset="assets/img/r/locale-mombasa-880.webp 880w, assets/img/r/locale-mombasa-2000.webp 2000w">
         <img class="locale__img" src="assets/img/locale-mombasa.jpg" width="2000" height="1125"
            alt="The Mombasa waterfront: white apartment buildings and palms on a green bluff above the water." loading="lazy" decoding="async" fetchpriority="low" data-warm=".locale--mombasa">
@@ -3700,7 +3774,7 @@
                     fill="none" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round"/>
               <circle cx="12" cy="10" r="2.4" fill="currentColor"/>
             </svg>
-            <span class="locale__pill-label">Crave Mombasa</span>
+            <span class="locale__pill-label">La Pranzo</span>
           </div>
         </div>
 
@@ -3715,80 +3789,23 @@
     <div class="locale__marks-flow">
       <div class="locale__mark locale__mark--a">
         <div class="locale__card">
-          <p class="locale__card-eyebrow">The building</p>
-          <p class="locale__card-title">City Mall</p>
-      <p class="locale__card-note">Malindi Road, Nyali</p>
+          <p class="locale__card-eyebrow">Finding it</p>
+          <p class="locale__card-title">Next to Ola</p>
+          <p class="locale__card-note">Haile Selassie Road</p>
         </div>
       </div>
 
       <div class="locale__mark locale__mark--b">
         <div class="locale__card">
-          <p class="locale__card-eyebrow">Call this branch</p>
-          <p class="locale__card-title">+254 705 000275</p>
-      <p class="locale__card-note">Every day, 06:00 &ndash; 00:00</p>
+          <p class="locale__card-eyebrow">Call the room</p>
+          <p class="locale__card-title">+254 768 818833</p>
+          <p class="locale__card-note">Every day, 12:00 &ndash; 23:00</p>
         </div>
       </div>
     </div>
 
   </div>
 </section>
-
-<section class="locale locale--nairobi" aria-labelledby="locale-nairobi-title">
-  <div class="locale__head">
-    <p class="locale__eyebrow">The Location</p>
-    <h2 class="locale__title" id="locale-nairobi-title">Nairobi</h2>
-    <p class="locale__body">The second room, on Ring Road in Kilimani, and the one
-      that stays open latest. It runs the carte the coast kitchen wrote &mdash; and
-      says its seafood still comes up from Mombasa, six hundred kilometres away.</p>
-  </div>
-
-  <div class="locale__stage">
-    <figure class="locale__frame">
-      <!-- PLACEHOLDER — Uhuru Park and the CBD, not Gigiri, which is ~10km north. See above. -->
-      <picture>
-        <source type="image/avif" sizes="85.3vw"
-                srcset="assets/img/r/locale-nairobi-880.avif 880w, assets/img/r/locale-nairobi-1050.avif 1050w, assets/img/r/locale-nairobi-1260.avif 1260w, assets/img/r/locale-nairobi-1570.avif 1570w, assets/img/r/locale-nairobi-2000.avif 2000w">
-        <source type="image/webp" sizes="85.3vw"
-                srcset="assets/img/r/locale-nairobi-880.webp 880w, assets/img/r/locale-nairobi-2000.webp 2000w">
-        <img class="locale__img" src="assets/img/locale-nairobi.jpg" width="2000" height="1125"
-           alt="Nairobi seen over the trees and lake of Uhuru Park, with the city’s towers behind." loading="lazy" decoding="async" fetchpriority="low" data-warm=".locale--nairobi">
-      </picture>
-        <div class="locale__mark locale__mark--pill">
-          <div class="locale__pill">
-            <svg class="locale__pill-mark" viewBox="0 0 24 24" focusable="false" aria-hidden="true">
-              <path d="M12 22s7-7.1 7-12A7 7 0 1 0 5 10c0 4.9 7 12 7 12Z"
-                    fill="none" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round"/>
-              <circle cx="12" cy="10" r="2.4" fill="currentColor"/>
-            </svg>
-            <span class="locale__pill-label">Crave Nairobi</span>
-          </div>
-        </div>
-
-        <div class="locale__mark locale__mark--dot locale__mark--d1" aria-hidden="true"><span class="locale__dot"></span></div>
-        <div class="locale__mark locale__mark--dot locale__mark--d2" aria-hidden="true"><span class="locale__dot"></span></div>
-    </figure>
-
-    <div class="locale__marks-flow">
-      <div class="locale__mark locale__mark--a">
-        <div class="locale__card">
-          <p class="locale__card-eyebrow">The building</p>
-          <p class="locale__card-title">Zarafa Towers</p>
-      <p class="locale__card-note">Ring Road, Kilimani</p>
-        </div>
-      </div>
-
-      <div class="locale__mark locale__mark--b">
-        <div class="locale__card">
-          <p class="locale__card-eyebrow">Call this branch</p>
-          <p class="locale__card-title">+254 756 600600</p>
-      <p class="locale__card-note">Every day, 06:00 &ndash; 01:00</p>
-        </div>
-      </div>
-    </div>
-
-  </div>
-</section>
-
 <!-- ===================================================== the FAQ ====
      Spec: docs/superpowers/specs/2026-08-17-contact-locations-faq-design.md
 
@@ -3830,13 +3847,13 @@
     <div class="faq__list">
         <details class="faq__item">
           <summary class="faq__q">
-            <span class="faq__q-text">Where is Crave?</span>
+            <span class="faq__q-text">Where is La Pranzo?</span>
             <span class="faq__sign" aria-hidden="true"></span>
           </summary>
           <div class="faq__a"><div class="faq__a-inner">
-            <p>There are two. Mombasa is at City Mall on Malindi Road in Nyali &mdash;
-            that is the original. Nairobi is on Ring Road in Kilimani, on the ground
-            floor of Zarafa Towers, across from Yaya Centre.</p>
+            <p>One room, downtown. Haile Selassie Road, <strong>next to the Ola petrol
+            station</strong>, in the United Meat Supplies building, Mombasa 80100.
+            There is no second branch.</p>
           </div></div>
         </details>
 
@@ -3846,10 +3863,9 @@
             <span class="faq__sign" aria-hidden="true"></span>
           </summary>
           <div class="faq__a"><div class="faq__a-inner">
-            <p>Both branches open at <strong>six in the morning, seven days a week</strong>,
-            and neither closes on any day. Mombasa runs until midnight and Nairobi until
-            one in the morning. Breakfast is served until noon and brunch from eleven
-            until two; everything else is on from open to close.</p>
+            <p><strong>Noon until eleven at night, seven days a week.</strong> The kitchen
+            does not close on any day, and the rice dishes are started long before the
+            doors open because they cannot be hurried.</p>
           </div></div>
         </details>
 
@@ -3859,11 +3875,27 @@
             <span class="faq__sign" aria-hidden="true"></span>
           </summary>
           <div class="faq__a"><div class="faq__a-inner">
-            <p><strong>No. Crave is alcohol-free, and there is no pork on the menu.</strong>
-            The mojitos, the pi&ntilde;a colada and the dawa on the drinks list are all
-            mocktails. What there is instead is a coffee bar &mdash; V60, Chemex, cold
-            drip &mdash; eleven ways with matcha, lemonades, juices, shakes and the
-            freakshakes.</p>
+            <p><strong>No.</strong> There is not one alcoholic drink among the hundred and
+            sixty-six things on this carte. <strong>The thirteen mojitos are
+            mocktails</strong> &mdash; lemon, passion, blue lagoon, green mountain and
+            the rest &mdash; and so is everything on the juice board, including the one
+            called a Cocktail Juice. What there is instead is a coffee bar: eighteen hot,
+            nine frappuccinos, six iced, and thirteen milkshakes beside them.</p>
+          </div></div>
+        </details>
+
+        <details class="faq__item">
+          <summary class="faq__q">
+            <span class="faq__q-text">Is the food halal?</span>
+            <span class="faq__sign" aria-hidden="true"></span>
+          </summary>
+          <div class="faq__a"><div class="faq__a-inner">
+            <p><strong>We cannot tell you from here, and would rather say so than guess.</strong>
+            La Pranzo publishes no halal certification anywhere, and none of its
+            listings carry one. What is on the carte is consistent with it &mdash; the
+            kitchen is Middle Eastern, and there is no pork on any of the nineteen
+            courses &mdash; but that is an observation about a menu, not a statement from
+            the restaurant. <strong>Call and ask.</strong></p>
           </div></div>
         </details>
 
@@ -3873,9 +3905,9 @@
             <span class="faq__sign" aria-hidden="true"></span>
           </summary>
           <div class="faq__a"><div class="faq__a-inner">
-            <p>Not for one or two &mdash; walk in at any hour and there will be a table. For
-            four or more, or for a birthday, call the branch first. The form above reaches
-            us too.</p>
+            <p>Not for one or two &mdash; walk in at any hour we are open and there will be
+            a table. For four or more, or for a birthday, call first. The form above
+            reaches us too.</p>
           </div></div>
         </details>
 
@@ -3885,23 +3917,12 @@
             <span class="faq__sign" aria-hidden="true"></span>
           </summary>
           <div class="faq__a"><div class="faq__a-inner">
-            <p>An all-day carte rather than one cuisine: breakfast and brunch, bites, soups,
-            sandwiches, burgers, loaded fries, salads, wings, chicken, steaks, curries,
-            seafood, pasta and pizza &mdash; then eight courses of dessert and fourteen of
-            drinks. Two hundred and ninety-five dishes in total.</p>
-          </div></div>
-        </details>
-
-        <details class="faq__item">
-          <summary class="faq__q">
-            <span class="faq__q-text">Is there anything only one branch has?</span>
-            <span class="faq__sign" aria-hidden="true"></span>
-          </summary>
-          <div class="faq__a"><div class="faq__a-inner">
-            <p>Yes. The <strong>Mombasa Special</strong> course &mdash; mutton, fish and
-            chicken mandi, Mombasa biriyani, Swahili pilau, chicken tikka, lamb chops and
-            mutton kabab &mdash; is served at City Mall and is not on the Nairobi carte.
-            The fish mandi is lunch only.</p>
+            <p>Middle Eastern, and more precisely than that phrase usually means. Yemeni and
+            Gulf rice cooked under a lid &mdash; mandi, hanith, zurbian, madhabi. Levantine
+            mezze and grills &mdash; hummus, mutabal, fatoush, shish tauk, kofta. Egyptian
+            plates &mdash; fuul, shakshuka, kebda, adas. Mishkaki, which is the coast's own.
+            And beside all of it, pizza, burgers, pasta and a full coffee bar, because the
+            sign over the door says <em>fast food and cafe</em> as well.</p>
           </div></div>
         </details>
 
@@ -3911,12 +3932,12 @@
             <span class="faq__sign" aria-hidden="true"></span>
           </summary>
           <div class="faq__a"><div class="faq__a-inner">
-            <p>A good many: samosas and spring rolls, the paneer loaded fries, a vegetable
-            burger, five salads, the vegetable curry, margherita and vegetable pizzas, and
-            a pasta section. Both branches list themselves as vegetarian friendly and
-            Mombasa also lists gluten-free options; Nairobi does not.
-            <strong>Vegan we cannot confirm here for either branch.</strong> For an allergy,
-            please call the branch rather than guessing from this page.</p>
+            <p>A good many, and they are countable off the carte: falafel three ways, fuul,
+            adas, fasuolia, hummus, mutabal, labanies taboula, cucumber yoghurt, four
+            salads, the vegetable pizza, grilled vegetables, mashed potatoes and five
+            kinds of chips. <strong>Vegan and gluten-free are not confirmed for this
+            kitchen</strong> and neither is published anywhere, so anything to do with an
+            allergy should go to a phone call rather than to this page.</p>
           </div></div>
         </details>
 
@@ -3926,9 +3947,10 @@
             <span class="faq__sign" aria-hidden="true"></span>
           </summary>
           <div class="faq__a"><div class="faq__a-inner">
-            <p>Both rooms do birthdays and group tables regularly &mdash; it is most of what
-            the reviews are about. <strong>Neither branch publishes a private room or a
-            capacity</strong>, so call and ask rather than taking a number from here.</p>
+            <p>The room does group tables and birthdays regularly &mdash; reviewers mention an
+            upstairs with its own setup. <strong>La Pranzo publishes no private room and
+            no capacity</strong>, so call and ask rather than taking a number from
+            here.</p>
           </div></div>
         </details>
       </div>
@@ -3964,13 +3986,13 @@
       </svg>
       <div class="reserve__frame">
         <picture>
-          <source type="image/avif" sizes="(max-width: 1000px) 100.7vw, 62.4vw"
-                  srcset="assets/img/r/reserve-interior-650.avif 650w, assets/img/r/reserve-interior-770.avif 770w, assets/img/r/reserve-interior-930.avif 930w, assets/img/r/reserve-interior-1160.avif 1160w, assets/img/r/reserve-interior-1400.avif 1400w">
-          <source type="image/webp" sizes="(max-width: 1000px) 100.7vw, 62.4vw"
-                  srcset="assets/img/r/reserve-interior-650.webp 650w, assets/img/r/reserve-interior-1400.webp 1400w">
+          <source type="image/avif" sizes="(max-width: 1000px) 101vw, 62.6vw"
+                  srcset="assets/img/r/reserve-interior-640.avif 640w, assets/img/r/reserve-interior-770.avif 770w, assets/img/r/reserve-interior-920.avif 920w, assets/img/r/reserve-interior-1150.avif 1150w, assets/img/r/reserve-interior-1400.avif 1400w">
+          <source type="image/webp" sizes="(max-width: 1000px) 101vw, 62.6vw"
+                  srcset="assets/img/r/reserve-interior-640.webp 640w, assets/img/r/reserve-interior-1400.webp 1400w">
           <img class="reserve__img" src="assets/img/reserve-interior.jpg"
              width="1400" height="1576"
-             alt="A laid table in a light-filled dining room, plates and glasses set for a meal."
+             alt="A laid table seen from above: grilled kofta, chips and dips on a patterned cloth."
              loading="lazy" decoding="async" fetchpriority="low">
         </picture>
       </div>
@@ -3983,12 +4005,12 @@
 
       <hr class="reserve__rule" aria-hidden="true">
 
-      <p class="reserve__body">Walk in any hour of the day and there will be a table.
+      <p class="reserve__body">Walk in any hour we are open and there will be a table.
         Bring six of you, or come for a birthday, and a kitchen would rather know.
-        Tell us when, where and how many &mdash; the rest is arranged from there.</p>
+        Tell us when and how many &mdash; the rest is arranged from there.</p>
 
       <a class="reserve__cta"
-         href="https://wa.me/254705000275?text=Hello%20Crave%20%E2%80%94%20I%E2%80%99d%20like%20to%20book%20a%20table.%0A%0AName%3A%0ABranch%20(Mombasa%20or%20Nairobi)%3A%0ADate%3A%0ATime%3A%0ANumber%20of%20guests%3A%0A%0AThank%20you."
+         href="https://wa.me/254768818833?text=Hello%20La%20Pranzo%20%E2%80%94%20I%E2%80%99d%20like%20to%20book%20a%20table.%0A%0AName%3A%0ADate%3A%0ATime%3A%0ANumber%20of%20guests%3A%0A%0AThank%20you."
          target="_blank" rel="noopener">
         <span class="reserve__ctalbl">Reserve now</span>
         <svg class="reserve__arrow" viewBox="0 0 24 14" aria-hidden="true" focusable="false">
@@ -4005,31 +4027,29 @@
             <path d="M12 7.1V12l3.4 2"/>
           </svg>
           <span class="reserve__metalbl">Opening hours</span>
-          <!-- RESEARCHED 2026-09-28 from both branches' claimed TripAdvisor
-               listings, and NOT YET CONFIRMED BY THE CLIENT. Both open at
-               06:00 and neither closes on any day of the week; they close at
-               DIFFERENT times — Mombasa midnight, Nairobi 01:00.
+          <!-- RESEARCHED 2026-09-30, and NOT YET CONFIRMED BY THE CLIENT.
+               africabz gives 12:00–23:00 daily and Google corroborates the
+               noon open. No source contradicts either, and no source is the
+               restaurant.
 
-               This block is byte-copied to four pages, so it cannot carry a
-               closing time without asserting one branch's hours as the whole
-               house's. The six o'clock open and the seven-day week are true
-               of both, which is why they are what stand here; the exact
-               closing times live in the location bands and the FAQ on
-               contact.html, where they are allowed to differ.
+               THIS LINE CAN NOW CARRY A CLOSING TIME, AND WHAT CHANGED IS
+               NOT THE BLOCK. The constraint was never the copy — it was that
+               Crave had two branches closing at two different hours, so a
+               block byte-copied to four pages could not name one without
+               asserting it as the whole house's. La Pranzo has one branch,
+               so the entire fact fits and the hedge is retired rather than
+               reworded.
 
-               Keep it in step with that FAQ answer. It is the same claim made
-               twice on one page and the pair has drifted apart before.
+               Keep it in step with the location band and the FAQ answer on
+               contact.html. It is the same claim made three times on one
+               site, and that set has drifted before.
 
-               eatout.co.ke says 07:00–22:00 and contradicts both listings.
-               Crave's own menu carries a "Breakfast (6AM – 12PM)" section,
-               which is what settles it in favour of the listings.
-
-               Two lines, not three. The copy column is an aspect-locked block
-               of 48.1u of measured ink, verified to fit one screen from
-               1000x700 to 2560x1440; a third line changes that height and the
-               fit has to be re-solved. Both lines here are no longer than the
-               ones they replace, so the fit can only improve. -->
-          <span class="reserve__metaval">Every day<br>From 6 in the morning</span>
+               Two lines, not three. The copy column is an aspect-locked
+               block of 48.1u of measured ink, verified to fit one screen
+               from 1000x700 to 2560x1440; a third line changes that height
+               and the fit has to be re-solved. Both lines here are shorter
+               than the ones they replace, so the fit can only improve. -->
+          <span class="reserve__metaval">Every day<br>Noon until eleven</span>
         </li>
         <li class="reserve__metaitem">
           <svg class="reserve__icon" viewBox="0 0 24 24" aria-hidden="true" focusable="false">
@@ -4037,7 +4057,7 @@
             <circle cx="12" cy="10.6" r="2.4"/>
           </svg>
           <span class="reserve__metalbl">Location</span>
-          <span class="reserve__metaval">Mombasa &amp; Nairobi<br>Kenya</span>
+          <span class="reserve__metaval">Haile Selassie Road<br>Mombasa</span>
         </li>
       </ul>
     </div>
@@ -4048,7 +4068,7 @@
 <footer class="ending">
   <!-- Decorative repeat of the hero's h1. Hidden from assistive tech so the
        brand name is not announced twice on the way out. -->
-  <p class="ending__mark" aria-hidden="true">CRAVE</p>
+  <p class="ending__mark" aria-hidden="true">LA PRANZO</p>
 
   <!-- Five links, not three. Locations and Reservations were added on
        2026-08-26: both are places a reader actually wants to reach from the
@@ -4059,11 +4079,11 @@
     <a class="ending__link" href="menu.html">Menu</a>
     <a class="ending__link" href="about.html">About</a>
     <a class="ending__link" href="contact.html">Contact</a>
-    <a class="ending__link" href="contact.html#locations">Locations</a>
+    <a class="ending__link" href="contact.html#locations">Location</a>
     <a class="ending__link" href="#reserve">Reservations</a>
   </nav>
 
-  <p class="ending__note">&copy; 2026 Crave</p>
+  <p class="ending__note">&copy; 2026 La Pranzo &amp; Al-Diwan</p>
 </footer>
 
 <script>

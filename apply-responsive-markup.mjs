@@ -40,8 +40,8 @@ const manifest = JSON.parse(readFileSync('img-manifest.json', 'utf8'));
              before their turn. */
 const POLICY = {
   'index.html': {
-    'assets/img/crave-hero.jpg': { mode: 'eager', priority: 'high', preload: true },
-    'assets/img/crave-counter.jpg': { mode: 'lazy' },
+    'assets/img/lp-hero.jpg': { mode: 'eager', priority: 'high', preload: true },
+    'assets/img/lp-counter.jpg': { mode: 'lazy' },
     'assets/img/platter-plate.webp': { mode: 'lazy' },
     'assets/img/reserve-interior.jpg': { mode: 'lazy' },
     '*gallery*': { mode: 'warm', warm: '.beyond' },
@@ -54,7 +54,7 @@ const POLICY = {
        The PRELOAD goes on menu-grill, and which frame carries it is measured
        rather than assumed. It sat on crave-hero — index.html's hero, carried
        across with the policy — where it is the SMALLEST of the four frames:
-       151px on a phone against menu-seafood's 189. So the page spent its one
+       151px on a phone against menu-platter's 189. So the page spent its one
        high-priority fetch on a frame that is not the LCP, and the frame that
        is waited its turn behind three others. Chrome reports the LCP element
        here as menu-grill: not the largest by area, because the entrance runs
@@ -62,29 +62,28 @@ const POLICY = {
        first with real area. Re-measure with a throttled profile before
        moving this — the answer is not the one geometry predicts. */
     'assets/img/menu-grill.jpg': { mode: 'eager', priority: 'high', preload: true },
-    'assets/img/crave-hero.jpg': { mode: 'eager' },
-    'assets/img/menu-breakfast.jpg': { mode: 'eager' },
-    'assets/img/menu-seafood.jpg': { mode: 'eager' },
+    'assets/img/lp-hero.jpg': { mode: 'eager' },
+    'assets/img/menu-arabic.jpg': { mode: 'eager' },
+    'assets/img/menu-platter.jpg': { mode: 'eager' },
     'assets/img/reserve-interior.jpg': { mode: 'lazy' },
   },
   'about.html': {
     'assets/img/about-opening.jpg': { mode: 'eager', priority: 'high', preload: true },
     'assets/img/about-plate.jpg': { mode: 'lazy' },
-    'assets/img/about-ch1-morning.jpg': { mode: 'warm', warm: '.chapters' },
-    'assets/img/about-ch2-coast.jpg': { mode: 'warm', warm: '.chapters' },
-    'assets/img/about-ch3-counter.jpg': { mode: 'warm', warm: '.chapters' },
+    'assets/img/about-ch1-fire.jpg': { mode: 'warm', warm: '.chapters' },
+    'assets/img/about-ch2-rice.jpg': { mode: 'warm', warm: '.chapters' },
+    'assets/img/about-ch3-sweet.jpg': { mode: 'warm', warm: '.chapters' },
     'assets/img/about-ch4-table.jpg': { mode: 'warm', warm: '.chapters' },
     'assets/img/about-ex1-coffee.jpg': { mode: 'warm', warm: '.experience' },
     'assets/img/about-ex2-grill.jpg': { mode: 'warm', warm: '.experience' },
     'assets/img/about-ex3-sweet.jpg': { mode: 'warm', warm: '.experience' },
-    'assets/img/about-ic1-late.jpg': { mode: 'warm', warm: '.reunion' },
-    'assets/img/about-ic2-late.jpg': { mode: 'warm', warm: '.reunion' },
+    'assets/img/about-dw1-room.jpg': { mode: 'warm', warm: '.diwan' },
+    'assets/img/about-dw2-room.jpg': { mode: 'warm', warm: '.diwan' },
     'assets/img/reserve-interior.jpg': { mode: 'lazy' },
   },
   'contact.html': {
     'assets/img/contact-hero.jpg': { mode: 'eager', priority: 'high', preload: true },
     'assets/img/locale-mombasa.jpg': { mode: 'warm', warm: '.locale--mombasa' },
-    'assets/img/locale-nairobi.jpg': { mode: 'warm', warm: '.locale--nairobi' },
     'assets/img/reserve-interior.jpg': { mode: 'lazy' },
   },
 };

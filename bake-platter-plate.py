@@ -8,9 +8,10 @@ Reproduce, from the project root:
     python3 bake-platter-plate.py $SRC/hi-10802299.jpg /tmp/crave-out/platter-plate.png
     node bake-png-to-webp.mjs /tmp/crave-out/platter-plate.png assets/img/platter-plate.webp 0.92
 
-Pexels 10802299: a round plate of grilled prawns seen from directly overhead on
-a plain pale wooden board. The seafood platter is the top of Crave's carte at
-KSh 9,500 and the first item its Google listing badges "Popular".
+Pexels 32986475: a round decorated metal platter of rice and lamb seen from
+directly overhead on a plain pale ground. Mandi is on La Pranzo's board three
+ways in mutton and six in chicken, and the mix grilled platter above it is the
+most expensive thing the kitchen sells.
 
 THIS SOURCE WAS CHOSEN FOR ITS GEOMETRY, NOT ITS FOOD. Four overhead seafood
 frames were rendered side by side; three had the plate held in a hand, shot at
@@ -37,10 +38,21 @@ that the finished element TURNS:
     border rather than from a colour threshold on the plate, so the boundary is
     the real one, and it is then eroded by 2px before feathering.
 
-THE GROUND THRESHOLD IS PER SOURCE. This board is pale wood at L 190-230 and
-carries visible grain, so the luminance floor is 190 rather than the 196 the
-previous frame's white surface wanted. Measure it before changing the source:
-the failure mode is a flood that leaks through the rim and eats the plate.
+THE GROUND THRESHOLD IS PER SOURCE, AND THE FIRST CANDIDATE HERE PROVED IT
+THE HARD WAY. Pexels 7426867 — the mandi platter that ships as about-plate —
+is geometrically perfect for this job: round, centred, overhead, margin all
+round. It is shot on DARK wood, so the test inverts, and swept against the
+ellipse fit the best it ever scored was 0.947 at L<90/sat<65. The reason is
+the failure this docstring already warned about: the plate's rim is a thin
+metal ring that falls into SHADOW along its lower edge, the shadow reads as
+ground, and the flood walks through the rim and eats the plate. A dark ground
+under a dark-rimmed plate has no boundary to find.
+
+This source is on a pale ground (edge mean L 229), so the test runs the
+original way round. Swept at the working resolution: L>190/sat<26 scores fill
+0.991 and ry/rx 0.9757. Measure before changing the source, and prefer a PALE
+plain ground over a handsome dark one — the cutout needs separation at the
+rim, not atmosphere.
 
 A pale plate centre reads as ground to any brightness test — it is bright and
 desaturated, exactly like the surface. It survives only because the rim encloses
@@ -66,12 +78,13 @@ a = np.asarray(im).astype(int)
 H, W, _ = a.shape
 mx, mn = a.max(2), a.min(2)
 L = 0.2126 * a[:, :, 0] + 0.7152 * a[:, :, 1] + 0.0722 * a[:, :, 2]
-# SOLVED, NOT CHOSEN. The floor and the saturation ceiling were swept together
-# against the ellipse fit below: L>190/sat<26, which the previous frame's white
-# surface wanted, scored fill 0.710 here and ry/rx 0.657 — a silhouette that is
-# not a plate. This board is pale wood with visible grain, so more of it has to
-# be admitted as ground. L>170/sat<40 scores 0.981.
-ground = (L > 170) & ((mx - mn) < 40)
+# SOLVED, NOT CHOSEN. Swept together against the ellipse fit below at the
+# working resolution: L>190/sat<26 scores fill 0.991 and ry/rx 0.9757. Loosening
+# the saturation ceiling to 40 drops the fill to 0.961 — the platter's painted
+# rim pattern starts being admitted as ground. The floor is insensitive here
+# (150 through 196 all score 0.98+) because the ground is a clean pale sweep;
+# the CEILING is the term that matters on a decorated plate.
+ground = (L > 190) & ((mx - mn) < 26)
 
 # CLOSE THE GROUND BEFORE FLOODING. The grain leaves speckles of not-ground
 # scattered over the board, and a chain of them BRIDGES the plate to the frame
@@ -104,9 +117,9 @@ while q:
             reached[ny, nx] = True; q.append((ny, nx))
 obj = ~reached
 
-# The plate component. This frame holds one plate and it is centred; the dark
-# pixels' centroid measures (0.494, 0.514) of the frame.
-seed = (int(H * 0.514), int(W * 0.494))
+# The plate component. This frame holds one plate and it is near-centred; the
+# fitted bounding box centres on (0.487, 0.481) of the frame.
+seed = (int(H * 0.481), int(W * 0.487))
 assert obj[seed], "seed landed on ground — check the source frame"
 lab = np.zeros(obj.shape, bool); q = deque([seed]); lab[seed] = True
 while q:

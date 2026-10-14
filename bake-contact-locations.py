@@ -75,10 +75,23 @@ SRC, OUT = sys.argv[1], sys.argv[2]
 
 # id, stem, expected size, contrast, saturation, warm, vignette, aim
 FRAMES = [
+    # THE BAND MOVES FOR THE FIRST TIME IN THREE REBRANDS, 112 -> 75.
+    # This frame survived Li's and Crave untouched because an open-air daylight
+    # city photograph was already lit like those rooms. The site's ground went
+    # near-black on 2026-09-30 and it is now the brightest thing on the whole
+    # site, which reads as a hole punched in the page rather than as a window.
+    #
+    # PULLING IT DOWN ALSO HELPS THE CARDS, which is the part worth keeping.
+    # The band always had a hard floor from the composition rather than from
+    # taste: the marker cards laid over it are near-white, and a card on a sky
+    # above ~170 has a 1.4:1 edge and dissolves. At 112 the card zone measured
+    # 151; at 75 there is far more room under it, and the vignette that used to
+    # be doing that work alone can come down from 0.30 to 0.22.
     dict(id='13418220', stem='locale-mombasa', expect=(2657, 1800),
-         gain=1.10, sat=0.62, warm=0.055, vig=0.30, aim=112),
-    dict(id='9833516',  stem='locale-nairobi', expect=(2700, 1800),
-         gain=1.12, sat=0.66, warm=0.050, vig=0.38, aim=114),
+         gain=1.10, sat=0.62, warm=0.055, vig=0.22, aim=75),
+    # NAIROBI IS DELETED, not disabled. La Pranzo has one branch, contact.html
+    # carries one band, and a bake entry for a frame no page references is how
+    # an orphan ends up in assets/img/ and in the responsive ladder.
 ]
 
 OUT_W = 2000        # renders at ~1233px at 1440, so 2000 covers a 1.6x display

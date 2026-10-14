@@ -1,7 +1,7 @@
 {
   "assets/img/about-opening.jpg": {
     "src": "assets/img/about-opening.jpg",
-    "sizes": "104.7vw",
+    "sizes": "104.6vw",
     "sizesByPage": {},
     "width": 2400,
     "height": 1800,
@@ -10,45 +10,40 @@
       {
         "w": 1070,
         "file": "assets/img/r/about-opening-1070.avif",
-        "bytes": 76601
+        "bytes": 108815
       },
       {
         "w": 1290,
         "file": "assets/img/r/about-opening-1290.avif",
-        "bytes": 102279
+        "bytes": 133382
       },
       {
         "w": 1540,
         "file": "assets/img/r/about-opening-1540.avif",
-        "bytes": 134627
-      },
-      {
-        "w": 1930,
-        "file": "assets/img/r/about-opening-1930.avif",
-        "bytes": 187806
+        "bytes": 152515
       },
       {
         "w": 2400,
         "file": "assets/img/r/about-opening-2400.avif",
-        "bytes": 193687
+        "bytes": 164835
       }
     ],
     "webp": [
       {
         "w": 1070,
         "file": "assets/img/r/about-opening-1070.webp",
-        "bytes": 102556
+        "bytes": 179166
       },
       {
         "w": 2400,
         "file": "assets/img/r/about-opening-2400.webp",
-        "bytes": 310514
+        "bytes": 308540
       }
     ]
   },
   "assets/img/contact-hero.jpg": {
     "src": "assets/img/contact-hero.jpg",
-    "sizes": "106.6vw",
+    "sizes": "106.7vw",
     "sizesByPage": {},
     "width": 2000,
     "height": 1333,
@@ -57,83 +52,80 @@
       {
         "w": 1090,
         "file": "assets/img/r/contact-hero-1090.avif",
-        "bytes": 93276
+        "bytes": 17769
       },
       {
         "w": 1310,
         "file": "assets/img/r/contact-hero-1310.avif",
-        "bytes": 127234
+        "bytes": 20680
       },
       {
         "w": 2000,
         "file": "assets/img/r/contact-hero-2000.avif",
-        "bytes": 159833
+        "bytes": 20842
       }
     ],
     "webp": [
       {
         "w": 1090,
         "file": "assets/img/r/contact-hero-1090.webp",
-        "bytes": 117668
+        "bytes": 28782
       },
       {
         "w": 2000,
         "file": "assets/img/r/contact-hero-2000.webp",
-        "bytes": 321034
+        "bytes": 52048
+      }
+    ],
+    "avifMeta": [
+      {
+        "w": 1090,
+        "crf": 26,
+        "psnr": 43.6,
+        "maxd": 23,
+        "dMean": 0.09
+      },
+      {
+        "w": 1310,
+        "crf": 30,
+        "psnr": 43.45,
+        "maxd": 28,
+        "dMean": 0.093
+      },
+      {
+        "w": 1570,
+        "crf": 30,
+        "psnr": 44,
+        "maxd": 33,
+        "dMean": 0.092
+      },
+      {
+        "w": 2000,
+        "crf": 34,
+        "psnr": 43.3,
+        "maxd": 34,
+        "dMean": 0.085
+      }
+    ],
+    "webpMeta": [
+      {
+        "w": 1090,
+        "q": 0.78,
+        "psnr": 43.24,
+        "maxd": 23,
+        "dMean": 0.102
+      },
+      {
+        "w": 2000,
+        "q": 0.7,
+        "psnr": 43.9,
+        "maxd": 30,
+        "dMean": 0.117
       }
     ]
   },
   "assets/img/locale-mombasa.jpg": {
     "src": "assets/img/locale-mombasa.jpg",
-    "sizes": "85.4vw",
-    "sizesByPage": {},
-    "width": 2000,
-    "height": 1125,
-    "role": "feature",
-    "avif": [
-      {
-        "w": 880,
-        "file": "assets/img/r/locale-mombasa-880.avif",
-        "bytes": 143021
-      },
-      {
-        "w": 1050,
-        "file": "assets/img/r/locale-mombasa-1050.avif",
-        "bytes": 202903
-      },
-      {
-        "w": 1260,
-        "file": "assets/img/r/locale-mombasa-1260.avif",
-        "bytes": 288786
-      },
-      {
-        "w": 1570,
-        "file": "assets/img/r/locale-mombasa-1570.avif",
-        "bytes": 432405
-      },
-      {
-        "w": 2000,
-        "file": "assets/img/r/locale-mombasa-2000.avif",
-        "bytes": 623834
-      }
-    ],
-    "webp": [
-      {
-        "w": 880,
-        "file": "assets/img/r/locale-mombasa-880.webp",
-        "bytes": 157304
-      },
-      {
-        "w": 2000,
-        "file": "assets/img/r/locale-mombasa-2000.webp",
-        "bytes": 722282
-      }
-    ],
-    "avifSkipped": "no smaller than the original",
-    "webpSkipped": "no smaller than the original"
-  },
-  "assets/img/locale-nairobi.jpg": {
-    "src": "assets/img/locale-nairobi.jpg",
     "sizes": "85.3vw",
     "sizesByPage": {},
     "width": 2000,
@@ -142,49 +134,50 @@
     "avif": [
       {
         "w": 880,
-        "file": "assets/img/r/locale-nairobi-880.avif",
-        "bytes": 101919
+        "file": "assets/img/r/locale-mombasa-880.avif",
+        "bytes": 134288
       },
       {
         "w": 1050,
-        "file": "assets/img/r/locale-nairobi-1050.avif",
-        "bytes": 141589
+        "file": "assets/img/r/locale-mombasa-1050.avif",
+        "bytes": 189894
       },
       {
         "w": 1260,
-        "file": "assets/img/r/locale-nairobi-1260.avif",
-        "bytes": 197047
+        "file": "assets/img/r/locale-mombasa-1260.avif",
+        "bytes": 269947
       },
       {
         "w": 1570,
-        "file": "assets/img/r/locale-nairobi-1570.avif",
-        "bytes": 285002
+        "file": "assets/img/r/locale-mombasa-1570.avif",
+        "bytes": 403937
       },
       {
         "w": 2000,
-        "file": "assets/img/r/locale-nairobi-2000.avif",
-        "bytes": 316620
+        "file": "assets/img/r/locale-mombasa-2000.avif",
+        "bytes": 580856
       }
     ],
     "webp": [
       {
         "w": 880,
-        "file": "assets/img/r/locale-nairobi-880.webp",
-        "bytes": 114384
+        "file": "assets/img/r/locale-mombasa-880.webp",
+        "bytes": 148890
       },
       {
         "w": 2000,
-        "file": "assets/img/r/locale-nairobi-2000.webp",
-        "bytes": 466724
+        "file": "assets/img/r/locale-mombasa-2000.webp",
+        "bytes": 687690
       }
     ],
+    "avifSkipped": "no smaller than the original",
     "webpSkipped": "no smaller than the original"
   },
-  "assets/img/crave-hero.jpg": {
-    "src": "assets/img/crave-hero.jpg",
-    "sizes": "101.7vw",
+  "assets/img/lp-hero.jpg": {
+    "src": "assets/img/lp-hero.jpg",
+    "sizes": "101.6vw",
     "sizesByPage": {
-      "/": "101.7vw",
+      "/": "101.6vw",
       "/menu.html": "(max-width: 900px) 41.2vw, 15.5vw"
     },
     "width": 1717,
@@ -193,56 +186,55 @@
     "avif": [
       {
         "w": 290,
-        "file": "assets/img/r/crave-hero-290.avif",
-        "bytes": 16157
+        "file": "assets/img/r/lp-hero-290.avif",
+        "bytes": 18013
       },
       {
-        "w": 430,
-        "file": "assets/img/r/crave-hero-430.avif",
-        "bytes": 29941
+        "w": 360,
+        "file": "assets/img/r/lp-hero-360.avif",
+        "bytes": 24559
       },
       {
         "w": 520,
-        "file": "assets/img/r/crave-hero-520.avif",
-        "bytes": 40311
+        "file": "assets/img/r/lp-hero-520.avif",
+        "bytes": 44058
       },
       {
         "w": 700,
-        "file": "assets/img/r/crave-hero-700.avif",
-        "bytes": 65471
+        "file": "assets/img/r/lp-hero-700.avif",
+        "bytes": 70070
       },
       {
         "w": 1040,
-        "file": "assets/img/r/crave-hero-1040.avif",
-        "bytes": 126383
+        "file": "assets/img/r/lp-hero-1040.avif",
+        "bytes": 99369
       },
       {
         "w": 1250,
-        "file": "assets/img/r/crave-hero-1250.avif",
-        "bytes": 169777
+        "file": "assets/img/r/lp-hero-1250.avif",
+        "bytes": 130216
       },
       {
         "w": 1717,
-        "file": "assets/img/r/crave-hero-1717.avif",
-        "bytes": 191190
+        "file": "assets/img/r/lp-hero-1717.avif",
+        "bytes": 191609
       }
     ],
     "webp": [
       {
         "w": 290,
-        "file": "assets/img/r/crave-hero-290.webp",
-        "bytes": 19124
+        "file": "assets/img/r/lp-hero-290.webp",
+        "bytes": 21468
       },
       {
         "w": 1717,
-        "file": "assets/img/r/crave-hero-1717.webp",
-        "bytes": 341558
+        "file": "assets/img/r/lp-hero-1717.webp",
+        "bytes": 270498
       }
-    ],
-    "webpSkipped": "no smaller than the original"
+    ]
   },
-  "assets/img/crave-counter.jpg": {
-    "src": "assets/img/crave-counter.jpg",
+  "assets/img/lp-counter.jpg": {
+    "src": "assets/img/lp-counter.jpg",
     "sizes": "(max-width: 1200px) 85.6vw, 56.9vw",
     "sizesByPage": {},
     "width": 1536,
@@ -251,43 +243,46 @@
     "avif": [
       {
         "w": 700,
-        "file": "assets/img/r/crave-counter-700.avif",
-        "bytes": 70254
-      },
-      {
-        "w": 840,
-        "file": "assets/img/r/crave-counter-840.avif",
-        "bytes": 94868
+        "file": "assets/img/r/lp-counter-700.avif",
+        "bytes": 16563
       },
       {
         "w": 1030,
-        "file": "assets/img/r/crave-counter-1030.avif",
-        "bytes": 133577
+        "file": "assets/img/r/lp-counter-1030.avif",
+        "bytes": 17256
       },
       {
         "w": 1230,
-        "file": "assets/img/r/crave-counter-1230.avif",
-        "bytes": 175466
+        "file": "assets/img/r/lp-counter-1230.avif",
+        "bytes": 19355
       },
       {
         "w": 1536,
-        "file": "assets/img/r/crave-counter-1536.avif",
-        "bytes": 179535
+        "file": "assets/img/r/lp-counter-1536.avif",
+        "bytes": 24277
       }
     ],
     "webp": [
       {
         "w": 700,
-        "file": "assets/img/r/crave-counter-700.webp",
-        "bytes": 80052
+        "file": "assets/img/r/lp-counter-700.webp",
+        "bytes": 24588
       },
       {
         "w": 1536,
-        "file": "assets/img/r/crave-counter-1536.webp",
-        "bytes": 288648
+        "file": "assets/img/r/lp-counter-1536.webp",
+        "bytes": 35666
       }
     ],
-    "webpSkipped": "no smaller than the original"
+    "avifMeta": [
+      {
+        "w": 840,
+        "crf": 22,
+        "psnr": 43.17,
+        "maxd": 13,
+        "dMean": 0.059
+      }
+    ]
   },
   "assets/img/about-plate.jpg": {
     "src": "assets/img/about-plate.jpg",
@@ -300,88 +295,83 @@
       {
         "w": 1020,
         "file": "assets/img/r/about-plate-1020.avif",
-        "bytes": 266092
+        "bytes": 196843
       },
       {
         "w": 1230,
         "file": "assets/img/r/about-plate-1230.avif",
-        "bytes": 371621
+        "bytes": 260333
       },
       {
         "w": 1536,
         "file": "assets/img/r/about-plate-1536.avif",
-        "bytes": 441121
+        "bytes": 318181
       }
     ],
     "webp": [
       {
         "w": 1020,
         "file": "assets/img/r/about-plate-1020.webp",
-        "bytes": 334378
+        "bytes": 256150
       },
       {
         "w": 1536,
         "file": "assets/img/r/about-plate-1536.webp",
-        "bytes": 685888
+        "bytes": 388838
       }
     ],
     "webpSkipped": "no smaller than the original"
   },
   "assets/img/reserve-interior.jpg": {
     "src": "assets/img/reserve-interior.jpg",
-    "sizes": "(max-width: 1000px) 101.9vw, 62.8vw",
-    "sizesByPage": {
-      "/": "(max-width: 1000px) 100.7vw, 62.4vw",
-      "/menu.html": "(max-width: 1000px) 101.9vw, 62.8vw",
-      "/about.html": "(max-width: 1000px) 101.1vw, 62.7vw",
-      "/contact.html": "(max-width: 1000px) 100.7vw, 62.5vw"
-    },
+    "sizes": "(max-width: 1000px) 101vw, 62.6vw",
+    "sizesByPage": {},
     "width": 1400,
     "height": 1576,
     "role": "hero",
     "avif": [
       {
-        "w": 650,
-        "file": "assets/img/r/reserve-interior-650.avif",
-        "bytes": 79866
+        "w": 640,
+        "file": "assets/img/r/reserve-interior-640.avif",
+        "bytes": 173770
       },
       {
         "w": 770,
         "file": "assets/img/r/reserve-interior-770.avif",
-        "bytes": 120159
+        "bytes": 236102
       },
       {
-        "w": 930,
-        "file": "assets/img/r/reserve-interior-930.avif",
-        "bytes": 176314
+        "w": 920,
+        "file": "assets/img/r/reserve-interior-920.avif",
+        "bytes": 306269
       },
       {
-        "w": 1160,
-        "file": "assets/img/r/reserve-interior-1160.avif",
-        "bytes": 250406
+        "w": 1150,
+        "file": "assets/img/r/reserve-interior-1150.avif",
+        "bytes": 335084
       },
       {
         "w": 1400,
         "file": "assets/img/r/reserve-interior-1400.avif",
-        "bytes": 252733
+        "bytes": 398445
       }
     ],
     "webp": [
       {
-        "w": 650,
-        "file": "assets/img/r/reserve-interior-650.webp",
-        "bytes": 114408
+        "w": 640,
+        "file": "assets/img/r/reserve-interior-640.webp",
+        "bytes": 209952
       },
       {
         "w": 1400,
         "file": "assets/img/r/reserve-interior-1400.webp",
-        "bytes": 331040
+        "bytes": 537390
       }
     ],
     "webpSkipped": "no smaller than the original"
   },
-  "assets/img/about-ic2-late.jpg": {
-    "src": "assets/img/about-ic2-late.jpg",
+  "assets/img/about-dw2-room.jpg": {
+    "src": "assets/img/about-dw2-room.jpg",
     "sizes": "(max-width: 390px) 88.9vw, (max-width: 600px) 91.7vw, (max-width: 1200px) 94.3vw, 32.6vw",
     "sizesByPage": {},
     "width": 1200,
@@ -390,41 +380,42 @@
     "avif": [
       {
         "w": 420,
-        "file": "assets/img/r/about-ic2-late-420.avif",
-        "bytes": 28690
+        "file": "assets/img/r/about-dw2-room-420.avif",
+        "bytes": 32938
       },
       {
         "w": 600,
-        "file": "assets/img/r/about-ic2-late-600.avif",
-        "bytes": 54057
+        "file": "assets/img/r/about-dw2-room-600.avif",
+        "bytes": 62669
       },
       {
         "w": 840,
-        "file": "assets/img/r/about-ic2-late-840.avif",
-        "bytes": 97476
+        "file": "assets/img/r/about-dw2-room-840.avif",
+        "bytes": 117148
       },
       {
         "w": 1200,
-        "file": "assets/img/r/about-ic2-late-1200.avif",
-        "bytes": 115334
+        "file": "assets/img/r/about-dw2-room-1200.avif",
+        "bytes": 150441
       }
     ],
     "webp": [
       {
         "w": 420,
-        "file": "assets/img/r/about-ic2-late-420.webp",
-        "bytes": 33542
+        "file": "assets/img/r/about-dw2-room-420.webp",
+        "bytes": 38774
       },
       {
         "w": 1200,
-        "file": "assets/img/r/about-ic2-late-1200.webp",
-        "bytes": 160180
+        "file": "assets/img/r/about-dw2-room-1200.webp",
+        "bytes": 250904
       }
-    ]
+    ],
+    "webpSkipped": "no smaller than the original"
   },
   "assets/img/platter-plate.webp": {
     "src": "assets/img/platter-plate.webp",
-    "sizes": "(max-width: 480px) 98.6vw, (max-width: 700px) 93.2vw, (max-width: 820px) 79.5vw, (max-width: 900px) 67.4vw, (max-width: 1000px) 62.1vw, (max-width: 1200px) 55.8vw, 48.2vw",
+    "sizes": "(max-width: 480px) 97.2vw, (max-width: 700px) 91.8vw, (max-width: 820px) 78.7vw, (max-width: 900px) 66.7vw, (max-width: 1000px) 61.3vw, (max-width: 1200px) 55.2vw, 47.7vw",
     "sizesByPage": {},
     "width": 1122,
     "height": 1122,
@@ -432,29 +423,29 @@
     "avif": [],
     "webp": [
       {
-        "w": 600,
-        "file": "assets/img/r/platter-plate-600.webp",
-        "bytes": 173648
+        "w": 590,
+        "file": "assets/img/r/platter-plate-590.webp",
+        "bytes": 129168
       },
       {
-        "w": 710,
-        "file": "assets/img/r/platter-plate-710.webp",
-        "bytes": 228460
+        "w": 700,
+        "file": "assets/img/r/platter-plate-700.webp",
+        "bytes": 168568
       },
       {
-        "w": 890,
-        "file": "assets/img/r/platter-plate-890.webp",
-        "bytes": 334726
+        "w": 880,
+        "file": "assets/img/r/platter-plate-880.webp",
+        "bytes": 181690
       },
       {
         "w": 1122,
         "file": "assets/img/r/platter-plate-1122.webp",
-        "bytes": 451760
+        "bytes": 252332
       }
     ]
   },
-  "assets/img/about-ch1-morning.jpg": {
-    "src": "assets/img/about-ch1-morning.jpg",
+  "assets/img/about-ch1-fire.jpg": {
+    "src": "assets/img/about-ch1-fire.jpg",
     "sizes": "(max-width: 600px) 62vw, (max-width: 700px) 51vw, (max-width: 900px) 48.9vw, (max-width: 1000px) 34vw, (max-width: 1800px) 20.5vw, 18.4vw",
     "sizesByPage": {},
     "width": 1100,
@@ -463,47 +454,47 @@
     "avif": [
       {
         "w": 260,
-        "file": "assets/img/r/about-ch1-morning-260.avif",
-        "bytes": 32053
+        "file": "assets/img/r/about-ch1-fire-260.avif",
+        "bytes": 36854
       },
       {
         "w": 340,
-        "file": "assets/img/r/about-ch1-morning-340.avif",
-        "bytes": 51171
+        "file": "assets/img/r/about-ch1-fire-340.avif",
+        "bytes": 56236
       },
       {
         "w": 510,
-        "file": "assets/img/r/about-ch1-morning-510.avif",
-        "bytes": 106407
+        "file": "assets/img/r/about-ch1-fire-510.avif",
+        "bytes": 102328
       },
       {
         "w": 690,
-        "file": "assets/img/r/about-ch1-morning-690.avif",
-        "bytes": 187671
+        "file": "assets/img/r/about-ch1-fire-690.avif",
+        "bytes": 157064
       },
       {
         "w": 820,
-        "file": "assets/img/r/about-ch1-morning-820.avif",
-        "bytes": 258177
+        "file": "assets/img/r/about-ch1-fire-820.avif",
+        "bytes": 196795
       }
     ],
     "webp": [
       {
         "w": 260,
-        "file": "assets/img/r/about-ch1-morning-260.webp",
-        "bytes": 35678
+        "file": "assets/img/r/about-ch1-fire-260.webp",
+        "bytes": 50216
       },
       {
         "w": 820,
-        "file": "assets/img/r/about-ch1-morning-820.webp",
-        "bytes": 287358
+        "file": "assets/img/r/about-ch1-fire-820.webp",
+        "bytes": 244302
       }
     ],
     "avifSkipped": "no smaller than the original",
     "webpSkipped": "no smaller than the original"
   },
-  "assets/img/about-ch2-coast.jpg": {
-    "src": "assets/img/about-ch2-coast.jpg",
+  "assets/img/about-ch2-rice.jpg": {
+    "src": "assets/img/about-ch2-rice.jpg",
     "sizes": "(max-width: 600px) 62vw, (max-width: 700px) 51vw, (max-width: 900px) 48.9vw, (max-width: 1000px) 34vw, (max-width: 1800px) 20.5vw, 18.4vw",
     "sizesByPage": {},
     "width": 1100,
@@ -512,45 +503,45 @@
     "avif": [
       {
         "w": 260,
-        "file": "assets/img/r/about-ch2-coast-260.avif",
-        "bytes": 19607
+        "file": "assets/img/r/about-ch2-rice-260.avif",
+        "bytes": 23328
       },
       {
         "w": 340,
-        "file": "assets/img/r/about-ch2-coast-340.avif",
-        "bytes": 21276
+        "file": "assets/img/r/about-ch2-rice-340.avif",
+        "bytes": 35234
       },
       {
         "w": 510,
-        "file": "assets/img/r/about-ch2-coast-510.avif",
-        "bytes": 33629
+        "file": "assets/img/r/about-ch2-rice-510.avif",
+        "bytes": 62236
       },
       {
         "w": 690,
-        "file": "assets/img/r/about-ch2-coast-690.avif",
-        "bytes": 48024
+        "file": "assets/img/r/about-ch2-rice-690.avif",
+        "bytes": 66946
       },
       {
         "w": 820,
-        "file": "assets/img/r/about-ch2-coast-820.avif",
-        "bytes": 58686
+        "file": "assets/img/r/about-ch2-rice-820.avif",
+        "bytes": 75856
       }
     ],
     "webp": [
       {
         "w": 260,
-        "file": "assets/img/r/about-ch2-coast-260.webp",
-        "bytes": 23048
+        "file": "assets/img/r/about-ch2-rice-260.webp",
+        "bytes": 27678
       },
       {
         "w": 820,
-        "file": "assets/img/r/about-ch2-coast-820.webp",
-        "bytes": 69746
+        "file": "assets/img/r/about-ch2-rice-820.webp",
+        "bytes": 108628
       }
     ]
   },
-  "assets/img/about-ch3-counter.jpg": {
-    "src": "assets/img/about-ch3-counter.jpg",
+  "assets/img/about-ch3-sweet.jpg": {
+    "src": "assets/img/about-ch3-sweet.jpg",
     "sizes": "(max-width: 600px) 62vw, (max-width: 700px) 51vw, (max-width: 900px) 48.9vw, (max-width: 1000px) 34vw, (max-width: 1800px) 20.5vw, 18.4vw",
     "sizesByPage": {},
     "width": 1100,
@@ -559,42 +550,44 @@
     "avif": [
       {
         "w": 260,
-        "file": "assets/img/r/about-ch3-counter-260.avif",
-        "bytes": 25053
+        "file": "assets/img/r/about-ch3-sweet-260.avif",
+        "bytes": 25327
       },
       {
         "w": 340,
-        "file": "assets/img/r/about-ch3-counter-340.avif",
-        "bytes": 35781
+        "file": "assets/img/r/about-ch3-sweet-340.avif",
+        "bytes": 40320
       },
       {
         "w": 510,
-        "file": "assets/img/r/about-ch3-counter-510.avif",
-        "bytes": 46197
+        "file": "assets/img/r/about-ch3-sweet-510.avif",
+        "bytes": 82467
       },
       {
         "w": 690,
-        "file": "assets/img/r/about-ch3-counter-690.avif",
-        "bytes": 63609
+        "file": "assets/img/r/about-ch3-sweet-690.avif",
+        "bytes": 138208
       },
       {
         "w": 820,
-        "file": "assets/img/r/about-ch3-counter-820.avif",
-        "bytes": 78410
+        "file": "assets/img/r/about-ch3-sweet-820.avif",
+        "bytes": 181485
       }
     ],
     "webp": [
       {
         "w": 260,
-        "file": "assets/img/r/about-ch3-counter-260.webp",
-        "bytes": 30788
+        "file": "assets/img/r/about-ch3-sweet-260.webp",
+        "bytes": 29596
       },
       {
         "w": 820,
-        "file": "assets/img/r/about-ch3-counter-820.webp",
-        "bytes": 123134
+        "file": "assets/img/r/about-ch3-sweet-820.webp",
+        "bytes": 209264
       }
-    ]
+    ],
+    "avifSkipped": "no smaller than the original",
+    "webpSkipped": "no smaller than the original"
   },
   "assets/img/about-ch4-table.jpg": {
     "src": "assets/img/about-ch4-table.jpg",
@@ -607,43 +600,41 @@
       {
         "w": 260,
         "file": "assets/img/r/about-ch4-table-260.avif",
-        "bytes": 23439
+        "bytes": 18672
       },
       {
         "w": 340,
         "file": "assets/img/r/about-ch4-table-340.avif",
-        "bytes": 38770
+        "bytes": 21256
       },
       {
         "w": 510,
         "file": "assets/img/r/about-ch4-table-510.avif",
-        "bytes": 87938
+        "bytes": 36442
       },
       {
         "w": 690,
         "file": "assets/img/r/about-ch4-table-690.avif",
-        "bytes": 161306
+        "bytes": 53918
       },
       {
         "w": 820,
         "file": "assets/img/r/about-ch4-table-820.avif",
-        "bytes": 219649
+        "bytes": 66695
       }
     ],
     "webp": [
       {
         "w": 260,
         "file": "assets/img/r/about-ch4-table-260.webp",
-        "bytes": 27382
+        "bytes": 22226
       },
       {
         "w": 820,
         "file": "assets/img/r/about-ch4-table-820.webp",
-        "bytes": 257980
+        "bytes": 98104
       }
-    ],
-    "avifSkipped": "no smaller than the original",
-    "webpSkipped": "no smaller than the original"
+    ]
   },
   "assets/img/about-ex1-coffee.jpg": {
     "src": "assets/img/about-ex1-coffee.jpg",
@@ -654,38 +645,44 @@
     "role": "feature",
     "avif": [
       {
+        "w": 260,
+        "file": "assets/img/r/about-ex1-coffee-260.avif",
+        "bytes": 35034
+      },
+      {
         "w": 370,
         "file": "assets/img/r/about-ex1-coffee-370.avif",
-        "bytes": 5532
+        "bytes": 60436
       },
       {
         "w": 450,
         "file": "assets/img/r/about-ex1-coffee-450.avif",
-        "bytes": 6744
+        "bytes": 79509
       },
       {
         "w": 890,
         "file": "assets/img/r/about-ex1-coffee-890.avif",
-        "bytes": 8950
+        "bytes": 144994
       },
       {
         "w": 1080,
         "file": "assets/img/r/about-ex1-coffee-1080.avif",
-        "bytes": 10959
+        "bytes": 174535
       }
     ],
     "webp": [
       {
         "w": 260,
         "file": "assets/img/r/about-ex1-coffee-260.webp",
-        "bytes": 7764
+        "bytes": 48310
       },
       {
         "w": 1080,
         "file": "assets/img/r/about-ex1-coffee-1080.webp",
-        "bytes": 31594
+        "bytes": 308066
       }
-    ]
+    ],
+    "webpSkipped": "no smaller than the original"
   },
   "assets/img/about-ex2-grill.jpg": {
     "src": "assets/img/about-ex2-grill.jpg",
@@ -698,34 +695,39 @@
       {
         "w": 260,
         "file": "assets/img/r/about-ex2-grill-260.avif",
-        "bytes": 17658
+        "bytes": 31976
       },
       {
         "w": 370,
         "file": "assets/img/r/about-ex2-grill-370.avif",
-        "bytes": 21259
+        "bytes": 54062
       },
       {
         "w": 450,
         "file": "assets/img/r/about-ex2-grill-450.avif",
-        "bytes": 27218
+        "bytes": 71423
+      },
+      {
+        "w": 890,
+        "file": "assets/img/r/about-ex2-grill-890.avif",
+        "bytes": 131277
       },
       {
         "w": 1080,
         "file": "assets/img/r/about-ex2-grill-1080.avif",
-        "bytes": 50165
+        "bytes": 152217
       }
     ],
     "webp": [
       {
         "w": 260,
         "file": "assets/img/r/about-ex2-grill-260.webp",
-        "bytes": 20606
+        "bytes": 35992
       },
       {
         "w": 1080,
         "file": "assets/img/r/about-ex2-grill-1080.webp",
-        "bytes": 91524
+        "bytes": 220712
       }
     ]
   },
@@ -740,44 +742,40 @@
       {
         "w": 260,
         "file": "assets/img/r/about-ex3-sweet-260.avif",
-        "bytes": 26039
+        "bytes": 34057
       },
       {
         "w": 370,
         "file": "assets/img/r/about-ex3-sweet-370.avif",
-        "bytes": 44514
+        "bytes": 61323
       },
       {
         "w": 450,
         "file": "assets/img/r/about-ex3-sweet-450.avif",
-        "bytes": 59389
-      },
-      {
-        "w": 890,
-        "file": "assets/img/r/about-ex3-sweet-890.avif",
-        "bytes": 110840
+        "bytes": 83659
       },
       {
         "w": 1080,
         "file": "assets/img/r/about-ex3-sweet-1080.avif",
-        "bytes": 133014
+        "bytes": 206265
       }
     ],
     "webp": [
       {
         "w": 260,
         "file": "assets/img/r/about-ex3-sweet-260.webp",
-        "bytes": 30016
+        "bytes": 37558
       },
       {
         "w": 1080,
         "file": "assets/img/r/about-ex3-sweet-1080.webp",
-        "bytes": 200114
+        "bytes": 340556
       }
-    ]
+    ],
+    "webpSkipped": "no smaller than the original"
   },
-  "assets/img/about-ic1-late.jpg": {
-    "src": "assets/img/about-ic1-late.jpg",
+  "assets/img/about-dw1-room.jpg": {
+    "src": "assets/img/about-dw1-room.jpg",
     "sizes": "(max-width: 390px) 88.9vw, (max-width: 600px) 91.7vw, (max-width: 1200px) 94.3vw, 22.7vw",
     "sizesByPage": {},
     "width": 1100,
@@ -786,49 +784,35 @@
     "avif": [
       {
         "w": 350,
-        "file": "assets/img/r/about-ic1-late-350.avif",
-        "bytes": 11487
+        "file": "assets/img/r/about-dw1-room-350.avif",
+        "bytes": 40698
       },
       {
         "w": 420,
-        "file": "assets/img/r/about-ic1-late-420.avif",
-        "bytes": 14522
+        "file": "assets/img/r/about-dw1-room-420.avif",
+        "bytes": 57082
       },
       {
         "w": 590,
-        "file": "assets/img/r/about-ic1-late-590.avif",
-        "bytes": 15864
-      },
-      {
-        "w": 900,
-        "file": "assets/img/r/about-ic1-late-900.avif",
-        "bytes": 25903
+        "file": "assets/img/r/about-dw1-room-590.avif",
+        "bytes": 105828
       },
       {
         "w": 1100,
-        "file": "assets/img/r/about-ic1-late-1100.avif",
-        "bytes": 35108
+        "file": "assets/img/r/about-dw1-room-1100.avif",
+        "bytes": 188999
       }
     ],
     "webp": [
       {
         "w": 350,
-        "file": "assets/img/r/about-ic1-late-350.webp",
-        "bytes": 15104
+        "file": "assets/img/r/about-dw1-room-350.webp",
+        "bytes": 51302
       },
       {
         "w": 1100,
-        "file": "assets/img/r/about-ic1-late-1100.webp",
-        "bytes": 54440
-      }
-    ],
-    "webpMeta": [
-      {
-        "w": 1100,
-        "q": 0.7,
-        "psnr": 42.04,
-        "maxd": 30,
-        "dMean": 0.18
+        "file": "assets/img/r/about-dw1-room-1100.webp",
+        "bytes": 283162
       }
     ]
   },
@@ -841,95 +825,49 @@
     "role": "feature",
     "avif": [
       {
-        "w": 350,
-        "file": "assets/img/r/menu-grill-350.avif",
-        "bytes": 18794
+        "w": 290,
+        "file": "assets/img/r/menu-grill-290.avif",
+        "bytes": 32219
+      },
+      {
+        "w": 360,
+        "file": "assets/img/r/menu-grill-360.avif",
+        "bytes": 44730
       },
       {
         "w": 430,
         "file": "assets/img/r/menu-grill-430.avif",
-        "bytes": 24541
+        "bytes": 59711
       },
       {
         "w": 520,
         "file": "assets/img/r/menu-grill-520.avif",
-        "bytes": 29805
+        "bytes": 85037
       },
       {
         "w": 700,
         "file": "assets/img/r/menu-grill-700.avif",
-        "bytes": 43374
+        "bytes": 142353
       }
     ],
     "webp": [
       {
         "w": 290,
         "file": "assets/img/r/menu-grill-290.webp",
-        "bytes": 26020
+        "bytes": 38102
       },
       {
         "w": 700,
         "file": "assets/img/r/menu-grill-700.webp",
-        "bytes": 65806
+        "bytes": 173550
       }
     ],
-    "avifMeta": [
-      {
-        "w": 290,
-        "crf": 14,
-        "psnr": 43.72,
-        "maxd": 11,
-        "dMean": 0.035
-      },
-      {
-        "w": 350,
-        "crf": 18,
-        "psnr": 41.7,
-        "maxd": 15,
-        "dMean": 0.037
-      },
-      {
-        "w": 430,
-        "crf": 18,
-        "psnr": 42.04,
-        "maxd": 20,
-        "dMean": 0.032
-      },
-      {
-        "w": 520,
-        "crf": 22,
-        "psnr": 41.71,
-        "maxd": 21,
-        "dMean": 0.042
-      },
-      {
-        "w": 700,
-        "crf": 22,
-        "psnr": 42.55,
-        "maxd": 19,
-        "dMean": 0.033
-      }
-    ],
-    "webpMeta": [
-      {
-        "w": 290,
-        "q": 0.9,
-        "psnr": 43.02,
-        "maxd": 10,
-        "dMean": 0.114
-      },
-      {
-        "w": 700,
-        "q": 0.86,
-        "psnr": 42.56,
-        "maxd": 15,
-        "dMean": 0.081
-      }
-    ]
+    "avifSkipped": "no smaller than the original",
+    "webpSkipped": "no smaller than the original"
   },
-  "assets/img/menu-breakfast.jpg": {
-    "src": "assets/img/menu-breakfast.jpg",
-    "sizes": "(max-width: 900px) 52.4vw, (max-width: 1440px) 21.8vw, 19.7vw",
+  "assets/img/menu-arabic.jpg": {
+    "src": "assets/img/menu-arabic.jpg",
+    "sizes": "(max-width: 900px) 52.4vw, (max-width: 1800px) 21.8vw, 19.7vw",
     "sizesByPage": {},
     "width": 900,
     "height": 1200,
@@ -937,100 +875,40 @@
     "avif": [
       {
         "w": 270,
-        "file": "assets/img/r/menu-breakfast-270.avif",
-        "bytes": 33914
+        "file": "assets/img/r/menu-arabic-270.avif",
+        "bytes": 22672
       },
       {
         "w": 360,
-        "file": "assets/img/r/menu-breakfast-360.avif",
-        "bytes": 58085
+        "file": "assets/img/r/menu-arabic-360.avif",
+        "bytes": 23830
       },
       {
         "w": 450,
-        "file": "assets/img/r/menu-breakfast-450.avif",
-        "bytes": 91221
-      },
-      {
-        "w": 650,
-        "file": "assets/img/r/menu-breakfast-650.avif",
-        "bytes": 189518
+        "file": "assets/img/r/menu-arabic-450.avif",
+        "bytes": 31124
       },
       {
         "w": 890,
-        "file": "assets/img/r/menu-breakfast-890.avif",
-        "bytes": 337269
+        "file": "assets/img/r/menu-arabic-890.avif",
+        "bytes": 42391
       }
     ],
     "webp": [
       {
         "w": 270,
-        "file": "assets/img/r/menu-breakfast-270.webp",
-        "bytes": 38322
+        "file": "assets/img/r/menu-arabic-270.webp",
+        "bytes": 27532
       },
       {
         "w": 890,
-        "file": "assets/img/r/menu-breakfast-890.webp",
-        "bytes": 390178
+        "file": "assets/img/r/menu-arabic-890.webp",
+        "bytes": 71748
       }
-    ],
-    "avifMeta": [
-      {
-        "w": 270,
-        "crf": 14,
-        "psnr": 42.31,
-        "maxd": 20,
-        "dMean": 0.097
-      },
-      {
-        "w": 360,
-        "crf": 14,
-        "psnr": 42.32,
-        "maxd": 10,
-        "dMean": 0.086
-      },
-      {
-        "w": 450,
-        "crf": 14,
-        "psnr": 42.23,
-        "maxd": 20,
-        "dMean": 0.08
-      },
-      {
-        "w": 650,
-        "crf": 14,
-        "psnr": 42.27,
-        "maxd": 19,
-        "dMean": 0.086
-      },
-      {
-        "w": 890,
-        "crf": 14,
-        "psnr": 42.36,
-        "maxd": 13,
-        "dMean": 0.087
-      }
-    ],
-    "webpMeta": [
-      {
-        "w": 270,
-        "q": 0.9,
-        "psnr": 41.78,
-        "maxd": 11,
-        "dMean": 0.205
-      },
-      {
-        "w": 890,
-        "q": 0.9,
-        "psnr": 41.84,
-        "maxd": 12,
-        "dMean": 0.207
-      }
-    ],
-    "avifSkipped": "no smaller than the original",
-    "webpSkipped": "no smaller than the original"
+    ]
   },
-  "assets/img/menu-seafood.jpg": {
-    "src": "assets/img/menu-seafood.jpg",
+  "assets/img/menu-platter.jpg": {
+    "src": "assets/img/menu-platter.jpg",
     "sizes": "(max-width: 900px) 56.9vw, (max-width: 1800px) 23.7vw, 21.4vw",
     "sizesByPage": {},
     "width": 900,
@@ -1039,98 +917,45 @@
     "avif": [
       {
         "w": 250,
-        "file": "assets/img/r/menu-seafood-250.avif",
-        "bytes": 12323
+        "file": "assets/img/r/menu-platter-250.avif",
+        "bytes": 34401
       },
       {
         "w": 390,
-        "file": "assets/img/r/menu-seafood-390.avif",
-        "bytes": 25360
+        "file": "assets/img/r/menu-platter-390.avif",
+        "bytes": 61343
       },
       {
         "w": 490,
-        "file": "assets/img/r/menu-seafood-490.avif",
-        "bytes": 37184
+        "file": "assets/img/r/menu-platter-490.avif",
+        "bytes": 81304
       },
       {
         "w": 710,
-        "file": "assets/img/r/menu-seafood-710.avif",
-        "bytes": 62527
+        "file": "assets/img/r/menu-platter-710.avif",
+        "bytes": 91137
       },
       {
         "w": 900,
-        "file": "assets/img/r/menu-seafood-900.avif",
-        "bytes": 86242
+        "file": "assets/img/r/menu-platter-900.avif",
+        "bytes": 107338
       }
     ],
     "webp": [
       {
         "w": 250,
-        "file": "assets/img/r/menu-seafood-250.webp",
-        "bytes": 19858
+        "file": "assets/img/r/menu-platter-250.webp",
+        "bytes": 38304
       },
       {
         "w": 900,
-        "file": "assets/img/r/menu-seafood-900.webp",
-        "bytes": 124426
-      }
-    ],
-    "avifMeta": [
-      {
-        "w": 250,
-        "crf": 18,
-        "psnr": 41.63,
-        "maxd": 14,
-        "dMean": 0.045
-      },
-      {
-        "w": 390,
-        "crf": 18,
-        "psnr": 41.74,
-        "maxd": 14,
-        "dMean": 0.056
-      },
-      {
-        "w": 490,
-        "crf": 18,
-        "psnr": 41.91,
-        "maxd": 16,
-        "dMean": 0.045
-      },
-      {
-        "w": 710,
-        "crf": 22,
-        "psnr": 41.6,
-        "maxd": 15,
-        "dMean": 0.047
-      },
-      {
-        "w": 900,
-        "crf": 22,
-        "psnr": 42.84,
-        "maxd": 14,
-        "dMean": 0.042
-      }
-    ],
-    "webpMeta": [
-      {
-        "w": 250,
-        "q": 0.9,
-        "psnr": 42.91,
-        "maxd": 10,
-        "dMean": 0.142
-      },
-      {
-        "w": 900,
-        "q": 0.86,
-        "psnr": 42.43,
-        "maxd": 15,
-        "dMean": 0.118
+        "file": "assets/img/r/menu-platter-900.webp",
+        "bytes": 165686
       }
     ]
   },
-  "assets/img/gallery/dish1-fries.jpg": {
-    "src": "assets/img/gallery/dish1-fries.jpg",
+  "assets/img/gallery/dish1-chips.jpg": {
+    "src": "assets/img/gallery/dish1-chips.jpg",
     "sizes": "(max-width: 480px) 71.2vw, (max-width: 600px) 61.6vw, (max-width: 900px) 49.3vw, (max-width: 1000px) 32.9vw, (max-width: 1200px) 30.6vw, (max-width: 1800px) 25.5vw, 21.2vw",
     "sizesByPage": {},
     "width": 856,
@@ -1139,98 +964,40 @@
     "avif": [
       {
         "w": 320,
-        "file": "assets/img/r/gallery/dish1-fries-320.avif",
-        "bytes": 17226
+        "file": "assets/img/r/gallery/dish1-chips-320.avif",
+        "bytes": 5091
       },
       {
         "w": 390,
-        "file": "assets/img/r/gallery/dish1-fries-390.avif",
-        "bytes": 23125
+        "file": "assets/img/r/gallery/dish1-chips-390.avif",
+        "bytes": 5761
       },
       {
         "w": 480,
-        "file": "assets/img/r/gallery/dish1-fries-480.avif",
-        "bytes": 31508
-      },
-      {
-        "w": 710,
-        "file": "assets/img/r/gallery/dish1-fries-710.avif",
-        "bytes": 51662
+        "file": "assets/img/r/gallery/dish1-chips-480.avif",
+        "bytes": 7152
       },
       {
         "w": 850,
-        "file": "assets/img/r/gallery/dish1-fries-850.avif",
-        "bytes": 65633
+        "file": "assets/img/r/gallery/dish1-chips-850.avif",
+        "bytes": 8666
       }
     ],
     "webp": [
       {
         "w": 320,
-        "file": "assets/img/r/gallery/dish1-fries-320.webp",
-        "bytes": 20474
+        "file": "assets/img/r/gallery/dish1-chips-320.webp",
+        "bytes": 7706
       },
       {
         "w": 850,
-        "file": "assets/img/r/gallery/dish1-fries-850.webp",
-        "bytes": 90502
-      }
-    ],
-    "avifMeta": [
-      {
-        "w": 320,
-        "crf": 18,
-        "psnr": 40.09,
-        "maxd": 17,
-        "dMean": 0.067
-      },
-      {
-        "w": 390,
-        "crf": 18,
-        "psnr": 40.14,
-        "maxd": 15,
-        "dMean": 0.066
-      },
-      {
-        "w": 480,
-        "crf": 18,
-        "psnr": 40.31,
-        "maxd": 15,
-        "dMean": 0.072
-      },
-      {
-        "w": 710,
-        "crf": 22,
-        "psnr": 40.12,
-        "maxd": 16,
-        "dMean": 0.065
-      },
-      {
-        "w": 850,
-        "crf": 22,
-        "psnr": 40.44,
-        "maxd": 16,
-        "dMean": 0.063
-      }
-    ],
-    "webpMeta": [
-      {
-        "w": 320,
-        "q": 0.86,
-        "psnr": 39.53,
-        "maxd": 15,
-        "dMean": 0.163
-      },
-      {
-        "w": 850,
-        "q": 0.86,
-        "psnr": 40.82,
-        "maxd": 15,
-        "dMean": 0.152
+        "file": "assets/img/r/gallery/dish1-chips-850.webp",
+        "bytes": 20518
       }
     ]
   },
-  "assets/img/gallery/dish2-prawns.jpg": {
-    "src": "assets/img/gallery/dish2-prawns.jpg",
+  "assets/img/gallery/dish2-mixgrill.jpg": {
+    "src": "assets/img/gallery/dish2-mixgrill.jpg",
     "sizes": "(max-width: 480px) 55.8vw, (max-width: 600px) 48.3vw, (max-width: 900px) 38.6vw, (max-width: 1200px) 25.8vw, (max-width: 1800px) 20vw, 16.6vw",
     "sizesByPage": {},
     "width": 671,
@@ -1239,93 +1006,45 @@
     "avif": [
       {
         "w": 250,
-        "file": "assets/img/r/gallery/dish2-prawns-250.avif",
-        "bytes": 8154
+        "file": "assets/img/r/gallery/dish2-mixgrill-250.avif",
+        "bytes": 25284
       },
       {
         "w": 310,
-        "file": "assets/img/r/gallery/dish2-prawns-310.avif",
-        "bytes": 11556
+        "file": "assets/img/r/gallery/dish2-mixgrill-310.avif",
+        "bytes": 34545
       },
       {
         "w": 380,
-        "file": "assets/img/r/gallery/dish2-prawns-380.avif",
-        "bytes": 16446
+        "file": "assets/img/r/gallery/dish2-mixgrill-380.avif",
+        "bytes": 36009
+      },
+      {
+        "w": 550,
+        "file": "assets/img/r/gallery/dish2-mixgrill-550.avif",
+        "bytes": 54528
       },
       {
         "w": 670,
-        "file": "assets/img/r/gallery/dish2-prawns-670.avif",
-        "bytes": 29460
+        "file": "assets/img/r/gallery/dish2-mixgrill-670.avif",
+        "bytes": 60990
       }
     ],
     "webp": [
       {
         "w": 250,
-        "file": "assets/img/r/gallery/dish2-prawns-250.webp",
-        "bytes": 11118
+        "file": "assets/img/r/gallery/dish2-mixgrill-250.webp",
+        "bytes": 26788
       },
       {
         "w": 670,
-        "file": "assets/img/r/gallery/dish2-prawns-670.webp",
-        "bytes": 45948
-      }
-    ],
-    "avifMeta": [
-      {
-        "w": 250,
-        "crf": 22,
-        "psnr": 40.68,
-        "maxd": 14,
-        "dMean": 0.051
-      },
-      {
-        "w": 310,
-        "crf": 22,
-        "psnr": 40.51,
-        "maxd": 14,
-        "dMean": 0.031
-      },
-      {
-        "w": 380,
-        "crf": 22,
-        "psnr": 40.72,
-        "maxd": 15,
-        "dMean": 0.049
-      },
-      {
-        "w": 550,
-        "crf": 22,
-        "psnr": 41.05,
-        "maxd": 16,
-        "dMean": 0.052
-      },
-      {
-        "w": 670,
-        "crf": 26,
-        "psnr": 39.64,
-        "maxd": 22,
-        "dMean": 0.043
-      }
-    ],
-    "webpMeta": [
-      {
-        "w": 250,
-        "q": 0.86,
-        "psnr": 40.8,
-        "maxd": 17,
-        "dMean": 0.167
-      },
-      {
-        "w": 670,
-        "q": 0.82,
-        "psnr": 40.16,
-        "maxd": 19,
-        "dMean": 0.101
+        "file": "assets/img/r/gallery/dish2-mixgrill-670.webp",
+        "bytes": 87468
       }
     ]
   },
-  "assets/img/gallery/dish7-steak.jpg": {
-    "src": "assets/img/gallery/dish7-steak.jpg",
+  "assets/img/gallery/dish7-shawarma.jpg": {
+    "src": "assets/img/gallery/dish7-shawarma.jpg",
     "sizes": "(max-width: 480px) 53vw, (max-width: 600px) 45.9vw, (max-width: 900px) 36.7vw, (max-width: 1200px) 24.5vw, (max-width: 1440px) 19vw, 15.8vw",
     "sizesByPage": {},
     "width": 637,
@@ -1334,90 +1053,43 @@
     "avif": [
       {
         "w": 240,
-        "file": "assets/img/r/gallery/dish7-steak-240.avif",
-        "bytes": 8834
+        "file": "assets/img/r/gallery/dish7-shawarma-240.avif",
+        "bytes": 14005
       },
       {
         "w": 290,
-        "file": "assets/img/r/gallery/dish7-steak-290.avif",
-        "bytes": 11500
+        "file": "assets/img/r/gallery/dish7-shawarma-290.avif",
+        "bytes": 19398
       },
       {
         "w": 360,
-        "file": "assets/img/r/gallery/dish7-steak-360.avif",
-        "bytes": 15453
+        "file": "assets/img/r/gallery/dish7-shawarma-360.avif",
+        "bytes": 27877
+      },
+      {
+        "w": 530,
+        "file": "assets/img/r/gallery/dish7-shawarma-530.avif",
+        "bytes": 51048
       },
       {
         "w": 637,
-        "file": "assets/img/r/gallery/dish7-steak-637.avif",
-        "bytes": 23525
+        "file": "assets/img/r/gallery/dish7-shawarma-637.avif",
+        "bytes": 59759
       }
     ],
     "webp": [
       {
         "w": 240,
-        "file": "assets/img/r/gallery/dish7-steak-240.webp",
-        "bytes": 12076
+        "file": "assets/img/r/gallery/dish7-shawarma-240.webp",
+        "bytes": 20606
       },
       {
         "w": 637,
-        "file": "assets/img/r/gallery/dish7-steak-637.webp",
-        "bytes": 33570
+        "file": "assets/img/r/gallery/dish7-shawarma-637.webp",
+        "bytes": 84512
       }
     ],
-    "avifMeta": [
-      {
-        "w": 240,
-        "crf": 22,
-        "psnr": 39.83,
-        "maxd": 14,
-        "dMean": 0.032
-      },
-      {
-        "w": 290,
-        "crf": 22,
-        "psnr": 40.07,
-        "maxd": 14,
-        "dMean": 0.026
-      },
-      {
-        "w": 360,
-        "crf": 22,
-        "psnr": 40.44,
-        "maxd": 16,
-        "dMean": 0.028
-      },
-      {
-        "w": 530,
-        "crf": 22,
-        "psnr": 41.23,
-        "maxd": 17,
-        "dMean": 0.037
-      },
-      {
-        "w": 637,
-        "crf": 26,
-        "psnr": 40.46,
-        "maxd": 22,
-        "dMean": 0.033
-      }
-    ],
-    "webpMeta": [
-      {
-        "w": 240,
-        "q": 0.86,
-        "psnr": 40.35,
-        "maxd": 13,
-        "dMean": 0.148
-      },
-      {
-        "w": 637,
-        "q": 0.78,
-        "psnr": 39.53,
-        "maxd": 20,
-        "dMean": 0.062
-      }
-    ]
+    "webpSkipped": "no smaller than the original"
   },
   "assets/img/gallery/dish6-wings.jpg": {
     "src": "assets/img/gallery/dish6-wings.jpg",
@@ -1430,80 +1102,34 @@
       {
         "w": 260,
         "file": "assets/img/r/gallery/dish6-wings-260.avif",
-        "bytes": 10075
+        "bytes": 9628
       },
       {
         "w": 320,
         "file": "assets/img/r/gallery/dish6-wings-320.avif",
-        "bytes": 13206
+        "bytes": 12666
       },
       {
         "w": 470,
         "file": "assets/img/r/gallery/dish6-wings-470.avif",
-        "bytes": 16467
+        "bytes": 22425
       },
       {
         "w": 560,
         "file": "assets/img/r/gallery/dish6-wings-560.avif",
-        "bytes": 18537
+        "bytes": 28253
       }
     ],
     "webp": [
       {
         "w": 260,
         "file": "assets/img/r/gallery/dish6-wings-260.webp",
-        "bytes": 11260
+        "bytes": 14420
       },
       {
         "w": 560,
         "file": "assets/img/r/gallery/dish6-wings-560.webp",
-        "bytes": 26904
-      }
-    ],
-    "avifMeta": [
-      {
-        "w": 260,
-        "crf": 22,
-        "psnr": 41.28,
-        "maxd": 13,
-        "dMean": 0.07
-      },
-      {
-        "w": 320,
-        "crf": 22,
-        "psnr": 41.47,
-        "maxd": 14,
-        "dMean": 0.038
-      },
-      {
-        "w": 470,
-        "crf": 26,
-        "psnr": 40.15,
-        "maxd": 22,
-        "dMean": 0.059
-      },
-      {
-        "w": 560,
-        "crf": 30,
-        "psnr": 39.67,
-        "maxd": 22,
-        "dMean": 0.046
-      }
-    ],
-    "webpMeta": [
-      {
-        "w": 260,
-        "q": 0.82,
-        "psnr": 39.65,
-        "maxd": 18,
-        "dMean": 0.128
-      },
-      {
-        "w": 560,
-        "q": 0.78,
-        "psnr": 39.91,
-        "maxd": 21,
-        "dMean": 0.136
+        "bytes": 33774
       }
     ]
   },
@@ -1518,80 +1144,39 @@
       {
         "w": 260,
         "file": "assets/img/r/gallery/dish5-burger-260.avif",
-        "bytes": 10822
+        "bytes": 11635
       },
       {
         "w": 320,
         "file": "assets/img/r/gallery/dish5-burger-320.avif",
-        "bytes": 14174
+        "bytes": 15523
+      },
+      {
+        "w": 470,
+        "file": "assets/img/r/gallery/dish5-burger-470.avif",
+        "bytes": 18685
       },
       {
         "w": 560,
         "file": "assets/img/r/gallery/dish5-burger-560.avif",
-        "bytes": 20040
+        "bytes": 22954
       }
     ],
     "webp": [
       {
         "w": 260,
         "file": "assets/img/r/gallery/dish5-burger-260.webp",
-        "bytes": 14922
+        "bytes": 14548
       },
       {
         "w": 560,
         "file": "assets/img/r/gallery/dish5-burger-560.webp",
-        "bytes": 35106
-      }
-    ],
-    "avifMeta": [
-      {
-        "w": 260,
-        "crf": 22,
-        "psnr": 39.96,
-        "maxd": 14,
-        "dMean": 0.115
-      },
-      {
-        "w": 320,
-        "crf": 22,
-        "psnr": 40.29,
-        "maxd": 20,
-        "dMean": 0.114
-      },
-      {
-        "w": 470,
-        "crf": 22,
-        "psnr": 41.09,
-        "maxd": 17,
-        "dMean": 0.124
-      },
-      {
-        "w": 560,
-        "crf": 26,
-        "psnr": 39.68,
-        "maxd": 26,
-        "dMean": 0.126
-      }
-    ],
-    "webpMeta": [
-      {
-        "w": 260,
-        "q": 0.86,
-        "psnr": 40.15,
-        "maxd": 14,
-        "dMean": 0.183
-      },
-      {
-        "w": 560,
-        "q": 0.82,
-        "psnr": 40.22,
-        "maxd": 17,
-        "dMean": 0.173
+        "bytes": 29112
       }
     ]
   },
-  "assets/img/gallery/dish3-pancakes.jpg": {
-    "src": "assets/img/gallery/dish3-pancakes.jpg",
+  "assets/img/gallery/dish3-basbousa.jpg": {
+    "src": "assets/img/gallery/dish3-basbousa.jpg",
     "sizes": "(max-width: 480px) 42.4vw, (max-width: 600px) 36.7vw, (max-width: 900px) 29.4vw, (max-width: 1200px) 19.6vw, (max-width: 1440px) 15.2vw, 12.6vw",
     "sizesByPage": {},
     "width": 510,
@@ -1600,86 +1185,40 @@
     "avif": [
       {
         "w": 240,
-        "file": "assets/img/r/gallery/dish3-pancakes-240.avif",
-        "bytes": 9597
+        "file": "assets/img/r/gallery/dish3-basbousa-240.avif",
+        "bytes": 14484
       },
       {
         "w": 290,
-        "file": "assets/img/r/gallery/dish3-pancakes-290.avif",
-        "bytes": 12184
+        "file": "assets/img/r/gallery/dish3-basbousa-290.avif",
+        "bytes": 20224
       },
       {
         "w": 420,
-        "file": "assets/img/r/gallery/dish3-pancakes-420.avif",
-        "bytes": 13602
+        "file": "assets/img/r/gallery/dish3-basbousa-420.avif",
+        "bytes": 36453
       },
       {
         "w": 510,
-        "file": "assets/img/r/gallery/dish3-pancakes-510.avif",
-        "bytes": 15936
+        "file": "assets/img/r/gallery/dish3-basbousa-510.avif",
+        "bytes": 43979
       }
     ],
     "webp": [
       {
         "w": 240,
-        "file": "assets/img/r/gallery/dish3-pancakes-240.webp",
-        "bytes": 11652
+        "file": "assets/img/r/gallery/dish3-basbousa-240.webp",
+        "bytes": 18090
       },
       {
         "w": 510,
-        "file": "assets/img/r/gallery/dish3-pancakes-510.webp",
-        "bytes": 22742
-      }
-    ],
-    "avifMeta": [
-      {
-        "w": 240,
-        "crf": 22,
-        "psnr": 40.54,
-        "maxd": 14,
-        "dMean": 0.048
-      },
-      {
-        "w": 290,
-        "crf": 22,
-        "psnr": 40.93,
-        "maxd": 15,
-        "dMean": 0.077
-      },
-      {
-        "w": 420,
-        "crf": 26,
-        "psnr": 39.74,
-        "maxd": 24,
-        "dMean": 0.047
-      },
-      {
-        "w": 510,
-        "crf": 30,
-        "psnr": 39.83,
-        "maxd": 26,
-        "dMean": 0.074
-      }
-    ],
-    "webpMeta": [
-      {
-        "w": 240,
-        "q": 0.82,
-        "psnr": 39.57,
-        "maxd": 16,
-        "dMean": 0.147
-      },
-      {
-        "w": 510,
-        "q": 0.74,
-        "psnr": 39.64,
-        "maxd": 22,
-        "dMean": 0.13
+        "file": "assets/img/r/gallery/dish3-basbousa-510.webp",
+        "bytes": 61190
       }
     ]
   },
-  "assets/img/gallery/dish8-cheesecake.jpg": {
-    "src": "assets/img/gallery/dish8-cheesecake.jpg",
+  "assets/img/gallery/dish8-milkshake.jpg": {
+    "src": "assets/img/gallery/dish8-milkshake.jpg",
     "sizes": "(max-width: 480px) 37.4vw, (max-width: 600px) 32.4vw, (max-width: 900px) 25.9vw, (max-width: 1200px) 17.3vw, (max-width: 1440px) 13.4vw, 11.2vw",
     "sizesByPage": {},
     "width": 450,
@@ -1688,69 +1227,35 @@
     "avif": [
       {
         "w": 250,
-        "file": "assets/img/r/gallery/dish8-cheesecake-250.avif",
-        "bytes": 3804
+        "file": "assets/img/r/gallery/dish8-milkshake-250.avif",
+        "bytes": 5815
+      },
+      {
+        "w": 370,
+        "file": "assets/img/r/gallery/dish8-milkshake-370.avif",
+        "bytes": 8928
       },
       {
         "w": 450,
-        "file": "assets/img/r/gallery/dish8-cheesecake-450.avif",
-        "bytes": 4770
+        "file": "assets/img/r/gallery/dish8-milkshake-450.avif",
+        "bytes": 11308
       }
     ],
     "webp": [
       {
         "w": 250,
-        "file": "assets/img/r/gallery/dish8-cheesecake-250.webp",
-        "bytes": 5216
+        "file": "assets/img/r/gallery/dish8-milkshake-250.webp",
+        "bytes": 8740
       },
       {
         "w": 450,
-        "file": "assets/img/r/gallery/dish8-cheesecake-450.webp",
-        "bytes": 10654
-      }
-    ],
-    "avifMeta": [
-      {
-        "w": 250,
-        "crf": 30,
-        "psnr": 40.05,
-        "maxd": 19,
-        "dMean": 0.076
-      },
-      {
-        "w": 370,
-        "crf": 30,
-        "psnr": 41.1,
-        "maxd": 20,
-        "dMean": 0.074
-      },
-      {
-        "w": 450,
-        "crf": 34,
-        "psnr": 39.77,
-        "maxd": 29,
-        "dMean": 0.09
-      }
-    ],
-    "webpMeta": [
-      {
-        "w": 250,
-        "q": 0.74,
-        "psnr": 39.59,
-        "maxd": 28,
-        "dMean": 0.123
-      },
-      {
-        "w": 450,
-        "q": 0.7,
-        "psnr": 41.03,
-        "maxd": 26,
-        "dMean": 0.146
+        "file": "assets/img/r/gallery/dish8-milkshake-450.webp",
+        "bytes": 15028
       }
     ]
   },
-  "assets/img/gallery/dish4-waffle.jpg": {
-    "src": "assets/img/gallery/dish4-waffle.jpg",
+  "assets/img/gallery/dish4-kunafa.jpg": {
+    "src": "assets/img/gallery/dish4-kunafa.jpg",
     "sizes": "(max-width: 480px) 37vw, (max-width: 600px) 32vw, (max-width: 900px) 25.6vw, (max-width: 1200px) 17.1vw, (max-width: 1440px) 13.2vw, 11vw",
     "sizesByPage": {},
     "width": 445,
@@ -1759,69 +1264,35 @@
     "avif": [
       {
         "w": 250,
-        "file": "assets/img/r/gallery/dish4-waffle-250.avif",
-        "bytes": 10957
+        "file": "assets/img/r/gallery/dish4-kunafa-250.avif",
+        "bytes": 12376
+      },
+      {
+        "w": 370,
+        "file": "assets/img/r/gallery/dish4-kunafa-370.avif",
+        "bytes": 15759
       },
       {
         "w": 445,
-        "file": "assets/img/r/gallery/dish4-waffle-445.avif",
-        "bytes": 16734
+        "file": "assets/img/r/gallery/dish4-kunafa-445.avif",
+        "bytes": 18493
       }
     ],
     "webp": [
       {
         "w": 250,
-        "file": "assets/img/r/gallery/dish4-waffle-250.webp",
-        "bytes": 13740
+        "file": "assets/img/r/gallery/dish4-kunafa-250.webp",
+        "bytes": 14064
       },
       {
         "w": 445,
-        "file": "assets/img/r/gallery/dish4-waffle-445.webp",
-        "bytes": 27478
-      }
-    ],
-    "avifMeta": [
-      {
-        "w": 250,
-        "crf": 22,
-        "psnr": 40.86,
-        "maxd": 17,
-        "dMean": 0.047
-      },
-      {
-        "w": 370,
-        "crf": 22,
-        "psnr": 41.26,
-        "maxd": 14,
-        "dMean": 0.053
-      },
-      {
-        "w": 445,
-        "crf": 30,
-        "psnr": 39.54,
-        "maxd": 27,
-        "dMean": 0.061
-      }
-    ],
-    "webpMeta": [
-      {
-        "w": 250,
-        "q": 0.86,
-        "psnr": 40.86,
-        "maxd": 13,
-        "dMean": 0.133
-      },
-      {
-        "w": 445,
-        "q": 0.82,
-        "psnr": 40.52,
-        "maxd": 17,
-        "dMean": 0.137
+        "file": "assets/img/r/gallery/dish4-kunafa-445.webp",
+        "bytes": 26230
       }
     ]
   },
-  "assets/img/gallery/dish9-shake.jpg": {
-    "src": "assets/img/gallery/dish9-shake.jpg",
+  "assets/img/gallery/dish9-masala.jpg": {
+    "src": "assets/img/gallery/dish9-masala.jpg",
     "sizes": "(max-width: 480px) 25.5vw, (max-width: 600px) 22vw, (max-width: 900px) 17.6vw, (max-width: 1200px) 11.7vw, 7.6vw",
     "sizesByPage": {},
     "width": 306,
@@ -1830,34 +1301,17 @@
     "avif": [
       {
         "w": 306,
-        "file": "assets/img/r/gallery/dish9-shake-306.avif",
-        "bytes": 7970
+        "file": "assets/img/r/gallery/dish9-masala-306.avif",
+        "bytes": 33918
       }
     ],
     "webp": [
       {
         "w": 306,
-        "file": "assets/img/r/gallery/dish9-shake-306.webp",
-        "bytes": 9242
+        "file": "assets/img/r/gallery/dish9-masala-306.webp",
+        "bytes": 46858
       }
     ],
-    "avifMeta": [
-      {
-        "w": 306,
-        "crf": 30,
-        "psnr": 41.69,
-        "maxd": 20,
-        "dMean": 0.047
-      }
-    ],
-    "webpMeta": [
-      {
-        "w": 306,
-        "q": 0.7,
-        "psnr": 39.78,
-        "maxd": 27,
-        "dMean": 0.14
-      }
-    ]
+    "webpSkipped": "no smaller than the original"
   }
 }

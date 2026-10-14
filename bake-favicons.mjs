@@ -1,34 +1,50 @@
-/* Bakes the site icon set from the Crave mark.
+/* Bakes the site icon set from the La Pranzo mark.
 
-   Reproduce:  node bake-favicons.mjs
+   Reproduce:  python3 make-lapranzo-mark.py && node bake-favicons.mjs
 
-   Two DIFFERENT drawings, which is the whole point of the script rather
-   than a single file scaled down:
+   TWO DIFFERENT DRAWINGS, which is the whole point of the script rather than
+   a single file scaled down:
 
-   - The SMALL mark (favicon.svg, favicon-16.png, favicon-32.png) is the
-     plaque alone, with its stroke thickened and the lettering dropped. The
-     real mark's stroke is 5.2 of 100, which at 16px lands at 0.83px, and its
-     lettering at well under a pixel — rendered that size the whole thing
-     collapses into a smear with a lighter middle. The small drawing takes the
-     stroke to 10.6/100, which is 1.7px at 16 and reads as a shape.
+   - The SMALL mark (favicon.svg, favicon-16.png, favicon-32.png) is a
+     SIMPLIFICATION, not the real ring shrunk, and it had to become one. The
+     emblem is an irregular Kufic ring of about twenty separate arms; its
+     median ink run is 39px of 1024, which is 0.61px at a 16px favicon. The
+     first attempt dilated the alpha to a median of 93px — the raster
+     equivalent of the stroke-thickening that saved Crave's plaque — and it
+     rendered as a white blob. A sweep of six dilations from 1 to 13 was
+     rendered at 32px and NONE of them read as a mark: past a point the arms
+     merge, and short of it they grey out. The information in this shape does
+     not survive to 16px by any amount of thickening.
+
+     So the small drawing keeps the emblem's STRUCTURE and drops its detail:
+     a ring broken into an upper and a lower arc, with the two dots the real
+     mark carries at top and bottom centre. Solved by rendering at 16, 32 and
+     64 rather than by eye at full size — stroke 13, gap 18 degrees, radius
+     31, dot 7 of a 100 unit box. It is a path, so favicon.svg is 700 bytes
+     rather than the 162KB an embedded 1024px raster made it.
 
    - The LARGE mark (apple-touch-icon, 192, 512) is the full artwork,
-     lettering and all, inset to 78% of the tile. iOS and Android both mask
-     these to a rounded shape or a circle, and the plaque spans 84% of its own
-     viewBox, so uninset it loses its tips to the mask.
+     LETTERING AND ALL, inset to 78% of the tile. iOS and Android both mask
+     these to a rounded shape or a circle, and an uninset ring loses its
+     outermost arms to the mask.
 
-     ITS LETTERING IS SET AS TYPE, not traced. brand_assets/crave-mark.svg
-     deliberately carries no letterforms — the mark is the plaque and CRAVE is
-     type beside it, which is what lets one path take currentColor and work at
-     any size. That is fine here because these three outputs are PNG: the font
-     dependency is baked away by the render. assets/favicon.svg ships as SVG
-     and therefore carries the small drawing, which needs no font at all.
+     ITS LETTERING IS THE REAL ARTWORK'S OWN, not type set over it. That is
+     the opposite of the build this replaces, where the mark carried no
+     letterforms and CRAVE was drawn with a <text> element in a named font.
+     La Pranzo's logo has its wordmark built into the emblem, so lifting the
+     letters out and re-setting them in Cormorant would be inventing a
+     lockup the brand does not have.
 
-   Both sit on the logo's OWN OPAQUE BLACK with the plaque in the ground
-   colour. That is the real artwork's polarity — a white plaque on black — and
-   it is the one place on this site where a black tile is correct rather than
-   a carried-over habit. On a transparent icon the plaque vanishes against a
-   dark browser tab.
+   BOTH SIT ON THE LOGO'S OWN OPAQUE BLACK with the mark in the ground colour.
+   That is the real artwork's polarity — a white ring on black — and it is now
+   the same polarity as the site itself, which it was not before. On a
+   transparent icon the ring vanishes against a dark browser tab.
+
+   THE MARK IS A RASTER, SO THE SVG EMBEDS IT. assets/favicon.svg carries the
+   bold PNG as a base64 <image> rather than a <path>. It is still the right
+   file to ship — a browser picks it for any size and it renders crisply well
+   past 32px — but it is no longer resolution-independent, and that is the
+   second thing vector artwork would buy. See make-lapranzo-mark.py.
 
    AN XML COMMENT MAY NOT CONTAIN A DOUBLE HYPHEN. Written the obvious way the
    SVG stops being well-formed and the browser shows a broken image with a
@@ -40,39 +56,56 @@
 import puppeteer from 'puppeteer';
 import { writeFileSync, readFileSync, statSync } from 'node:fs';
 
-const TILE = '#000000';   /* the logo's own ground, measured off it */
-const MARK = '#FBFAF7';   /* --ground. The logo's mark measures #FBFBFB */
+const TILE = '#000000';   /* the logo's own ground: measured rgb(22,22,22) at chroma 0.03 */
+const MARK = '#FBFAF7';   /* the logo's own mark:   measured rgb(246,246,244) at chroma 1.87 */
+
+const b64 = f => readFileSync(f).toString('base64');
+const FULL = b64('brand_assets/lapranzo-mark-full.png');
 
 /* ------------------------------------------------------------ the drawings */
 
-const SMALL = `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100" width="100" height="100" role="img" aria-label="Crave">
-<title>Crave</title>
-<rect width="100" height="100" fill="${TILE}"/>
-<path d="M50.6 25.95C60.929 25.95,68.037 32.159,69.045 32.45C69.717 32.643,72.417 32.267,73.841 32.513C76.689 33.005,78.885 35.081,79.19 35.508C81.095 38.178,80.261 38.645,81.957 40.989C82.265 41.415,83.309 41.659,83.801 42.008C87.369 44.542,87.49 47.29,87.49 49.4C87.49 51.511,87.369 54.258,83.801 56.792C83.309 57.141,82.265 57.385,81.957 57.811C80.261 60.155,81.095 60.622,79.19 63.292C78.885 63.719,76.689 65.795,73.841 66.287C72.417 66.533,69.717 66.157,69.045 66.35C68.037 66.641,60.929 72.85,50.6 72.85C40.271 72.85,33.163 66.641,32.155 66.35C31.483 66.157,28.783 66.533,27.359 66.287C24.511 65.795,22.315 63.719,22.01 63.292C20.105 60.622,20.939 60.155,19.244 57.811C18.935 57.385,17.891 57.141,17.399 56.792C13.831 54.258,13.71 51.511,13.71 49.4C13.71 47.29,13.831 44.542,17.399 42.008C17.891 41.659,18.935 41.415,19.244 40.989C20.939 38.645,20.105 38.178,22.01 35.508C22.315 35.081,24.511 33.005,27.359 32.513C28.783 32.267,31.483 32.643,32.155 32.45C33.163 32.159,40.271 25.95,50.6 25.95Z" fill="none" stroke="${MARK}" stroke-width="10.6" stroke-linejoin="round"/>
-</svg>`;
+/* The mark ships white in the PNG's own pixels, so it is recoloured here with
+   a feColorMatrix rather than by re-cutting the file: the alpha is the shape
+   and the fill is a decision. Flooding through the alpha keeps the antialiased
+   rim, which a hard threshold would staircase at 16px. */
+const tint = (id, hex) => {
+  const r = parseInt(hex.slice(1, 3), 16) / 255;
+  const g = parseInt(hex.slice(3, 5), 16) / 255;
+  const b = parseInt(hex.slice(5, 7), 16) / 255;
+  return `<filter id="${id}" x="0" y="0" width="100%" height="100%">
+<feColorMatrix type="matrix" values="0 0 0 0 ${r}  0 0 0 0 ${g}  0 0 0 0 ${b}  0 0 0 1 0"/>
+</filter>`;
+};
 
-/* The full mark, lifted from brand_assets/lis-mark.svg and inset. Its own
-   <title>/<desc> are dropped — an icon carries no accessible name of its
-   own — and the paths are untouched. */
-const markBody = readFileSync('brand_assets/crave-mark.svg', 'utf8')
-  .replace(/<\?xml[\s\S]*?\?>/, '')
-  .replace(/<svg[^>]*>/, '')
-  .replace(/<\/svg>\s*$/, '')
-  .replace(/<title>[\s\S]*?<\/title>/, '')
-  .replace(/<desc>[\s\S]*?<\/desc>/, '')
-  .trim();
+const INSET_LARGE = 0.78;   /* iOS and Android mask these to a circle */
 
-const INSET = 0.78;
-const off = (100 - 100 * INSET) / 2;
-const LARGE = `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100" width="100" height="100">
+/* Solved at 16, 32 and 64px, not chosen at full size. See the note above. */
+const SW = 13, GAP = 18, R = 31, DOT = 7;
+const px = (deg, s) => (50 + R * Math.cos(deg * Math.PI / 180)).toFixed(3);
+const py = (deg) => (50 + R * Math.sin(deg * Math.PI / 180)).toFixed(3);
+const SMALL = `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100" width="100" height="100" role="img" aria-label="La Pranzo">
+<title>La Pranzo</title>
 <rect width="100" height="100" fill="${TILE}"/>
-<g transform="translate(${off} ${off}) scale(${INSET})" color="${MARK}">
-${markBody}
-<text x="50.6" y="49.4" fill="${MARK}" font-family="Cormorant Garamond, Cormorant, Georgia, serif"
-      font-size="21" font-weight="400" letter-spacing="1.6"
-      text-anchor="middle" dominant-baseline="central" textLength="58" lengthAdjust="spacing">CRAVE</text>
+<g fill="none" stroke="${MARK}" stroke-width="${SW}" stroke-linecap="round">
+<path d="M${px(180 + GAP)} ${py(180 + GAP)}A${R} ${R} 0 0 1 ${px(-GAP)} ${py(-GAP)}"/>
+<path d="M${px(GAP)} ${py(GAP)}A${R} ${R} 0 0 1 ${px(180 - GAP)} ${py(180 - GAP)}"/>
 </g>
+<circle cx="50" cy="${50 - R}" r="${DOT}" fill="${TILE}" stroke="${MARK}" stroke-width="${(SW * 0.55).toFixed(2)}"/>
+<circle cx="50" cy="${50 + R}" r="${DOT}" fill="${TILE}" stroke="${MARK}" stroke-width="${(SW * 0.55).toFixed(2)}"/>
 </svg>`;
+
+const draw = (png, inset, label) => {
+  const off = (100 - 100 * inset) / 2;
+  return `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100" width="100" height="100" role="img" aria-label="${label}">
+<title>${label}</title>
+<defs>${tint('m', MARK)}</defs>
+<rect width="100" height="100" fill="${TILE}"/>
+<image x="${off}" y="${off}" width="${100 * inset}" height="${100 * inset}"
+       filter="url(#m)" href="data:image/png;base64,${png}"/>
+</svg>`;
+};
+
+const LARGE = draw(FULL, INSET_LARGE, 'La Pranzo');
 
 /* ------------------------------------------------------------------ render */
 
@@ -93,11 +126,11 @@ async function png(svg, size, out) {
 }
 
 writeFileSync('assets/favicon.svg', SMALL + '\n');
-console.log(`assets/favicon.svg           ${statSync('assets/favicon.svg').size}B  (small mark, scalable)`);
+console.log(`assets/favicon.svg           ${statSync('assets/favicon.svg').size}B  (small mark, a path)`);
 
 for (const [size, out, svg, note] of [
-  [16,  'assets/favicon-16.png',       SMALL, 'small mark'],
-  [32,  'assets/favicon-32.png',       SMALL, 'small mark'],
+  [16,  'assets/favicon-16.png',       SMALL, 'simplified ring'],
+  [32,  'assets/favicon-32.png',       SMALL, 'simplified ring'],
   [180, 'assets/apple-touch-icon.png', LARGE, 'full mark, 78% inset'],
   [192, 'assets/icon-192.png',         LARGE, 'full mark, 78% inset'],
   [512, 'assets/icon-512.png',         LARGE, 'full mark, 78% inset'],

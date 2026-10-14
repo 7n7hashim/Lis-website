@@ -200,18 +200,25 @@ for (const pos of list) {
     if (!r) continue;
     const m = await read(r[0], r[1], r[2], r[3]);
     if (!m) continue;
-    /* THE INK IS DARK NOW, and it was white until 2026-09-28. Left at white
-       this tool reports a bright bed as a triumph and a dark one as a failure,
-       which is exactly backwards for this hero — it would have passed a
-       black-floor crop at 18:1 and failed the one that shipped.
+    /* THE INK IS WHITE AGAIN as of 2026-09-30, having been white until
+       2026-09-28 and dark in between. This constant has now been wrong twice,
+       in both directions, and each time the symptom is the same: the tool
+       reports the WRONG KIND of bed as a triumph. Left dark against a dark
+       hero it would pass a black-floor crop at 18:1 and fail the one that
+       ships. A contrast tool whose ink does not match the page's ink is not
+       measuring the page.
 
        These are COMPOSITES, not the declared colours: the tagline is the ink
-       at .82 and the icons at .90, both over the bed, so each is mixed against
-       a representative bed of 250 rather than taken at face value. The
-       wordmark is the ink at full opacity. */
-    const ink = k === 'tagline' ? [57, 57, 55]
-              : k === 'social'  ? [38, 38, 36]
-              :                   [14, 14, 12];
+       at .82 and the icons at .90, both over the bed, so each is mixed
+       against a REPRESENTATIVE BED — and that figure flips with the
+       photography too. It was 250 for a daylight room; this hero's band is
+       62, so a 62 bed is what the alphas are composited over. The wordmark is
+       the ink at full opacity and needs no compositing either way. */
+    const BED = 62;
+    const over = (a) => [248, 247, 243].map(c => Math.round(c * a + BED * (1 - a)));
+    const ink = k === 'tagline' ? over(0.82)
+              : k === 'social'  ? over(0.90)
+              :                   [248, 247, 243];
     console.log(`    ${k.padEnd(8)} bed luma ${String(m.luma).padStart(5)}  peak ${String(m.peak).padStart(3)}` +
                 `   contrast ${String(ratio(m.rl, ink)).padStart(5)}:1` +
                 `   worst 12px tile ${String(ratio(m.worst, ink)).padStart(5)}:1 at ${m.wx},${m.wy}`);

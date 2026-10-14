@@ -3,10 +3,10 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
-<title>Crave — Satisfying Every Craving</title>
+<title>La Pranzo — Home of Middle Eastern Cuisine</title>
 <link rel="preload" as="image" type="image/avif"
-      imagesrcset="assets/img/r/crave-hero-290.avif 290w, assets/img/r/crave-hero-430.avif 430w, assets/img/r/crave-hero-520.avif 520w, assets/img/r/crave-hero-700.avif 700w, assets/img/r/crave-hero-1040.avif 1040w, assets/img/r/crave-hero-1250.avif 1250w, assets/img/r/crave-hero-1717.avif 1717w"
-      imagesizes="101.7vw" fetchpriority="high">
+      imagesrcset="assets/img/r/lp-hero-290.avif 290w, assets/img/r/lp-hero-360.avif 360w, assets/img/r/lp-hero-520.avif 520w, assets/img/r/lp-hero-700.avif 700w, assets/img/r/lp-hero-1040.avif 1040w, assets/img/r/lp-hero-1250.avif 1250w, assets/img/r/lp-hero-1717.avif 1717w"
+      imagesizes="101.6vw" fetchpriority="high">
 <!-- Site icon. Two drawings, not one file scaled: the SVG and the two small
      PNGs carry the plaque alone with its stroke thickened, because at 16px the
      mark's own 5.2/100 stroke lands at 0.83px and its lettering at well under
@@ -18,15 +18,15 @@
 <link rel="icon" href="assets/favicon-16.png" sizes="16x16" type="image/png">
 <link rel="apple-touch-icon" href="assets/apple-touch-icon.png">
 <link rel="manifest" href="assets/site.webmanifest">
-<meta name="theme-color" content="#FBFAF7">
-<meta name="description" content="Crave. An all-day cafe in Mombasa and Nairobi — open from six in the morning: breakfast, loaded fries, seafood from the coast, and a dessert counter worth the trip.">
+<meta name="theme-color" content="#0D0C0A">
+<meta name="description" content="La Pranzo &amp; Al-Diwan, Haile Selassie Road, Mombasa. Middle Eastern grill and cafe: mandi, mishkaki, shawarma and five kinds of kunafa, noon until eleven, every day.">
 
 <link rel="preload" as="font" type="font/woff2" crossorigin href="assets/fonts/cormorant-garamond-normal-300-400.woff2">
 <link rel="preload" as="font" type="font/woff2" crossorigin href="assets/fonts/jost-normal-300-400.woff2">
 
 <style>
   /* =====================================================================
-     PERFORMANCE — self-hosted type and the <picture> box tree.
+     PERFORMANCE — self-hosted type and the box tree.
      Added by the 2026-08-24 load-time pass; see apply-perf-shell.mjs for the
      reasoning behind every number in here. Nothing below changes a typeface,
      a weight, a size or a colour.
@@ -72,7 +72,7 @@
     line-gap-override: 0%;
   }
 
-  /* <picture> generates NO box. Several of these photographs are flex or
+  /* generates NO box. Several of these photographs are flex or
      grid items of their own parent — .beyond__track img is `flex: none` in
      a max-content row whose width the marquee's translate is a percentage
      of — and a wrapper would take that slot instead of the <img>. With
@@ -98,15 +98,15 @@
      browser picked, so a future re-bake with a different ladder cannot move
      the marquee.
      --------------------------------------------------------------------- */
-  .beyond__track img[src$="dish1-fries.jpg"] { aspect-ratio: 856 / 560; }
-  .beyond__track img[src$="dish2-prawns.jpg"] { aspect-ratio: 671 / 560; }
-  .beyond__track img[src$="dish3-pancakes.jpg"] { aspect-ratio: 510 / 560; }
-  .beyond__track img[src$="dish4-waffle.jpg"] { aspect-ratio: 445 / 560; }
+  .beyond__track img[src$="dish1-chips.jpg"] { aspect-ratio: 856 / 560; }
+  .beyond__track img[src$="dish2-mixgrill.jpg"] { aspect-ratio: 671 / 560; }
+  .beyond__track img[src$="dish3-basbousa.jpg"] { aspect-ratio: 510 / 560; }
+  .beyond__track img[src$="dish4-kunafa.jpg"] { aspect-ratio: 445 / 560; }
   .beyond__track img[src$="dish5-burger.jpg"] { aspect-ratio: 563 / 560; }
   .beyond__track img[src$="dish6-wings.jpg"] { aspect-ratio: 564 / 560; }
-  .beyond__track img[src$="dish7-steak.jpg"] { aspect-ratio: 637 / 560; }
-  .beyond__track img[src$="dish8-cheesecake.jpg"] { aspect-ratio: 450 / 560; }
-  .beyond__track img[src$="dish9-shake.jpg"] { aspect-ratio: 306 / 560; }
+  .beyond__track img[src$="dish7-shawarma.jpg"] { aspect-ratio: 637 / 560; }
+  .beyond__track img[src$="dish8-milkshake.jpg"] { aspect-ratio: 450 / 560; }
+  .beyond__track img[src$="dish9-masala.jpg"] { aspect-ratio: 306 / 560; }
 
   /* ---------------------------------------------------------------------
      Li's — hero
@@ -119,12 +119,12 @@
   :root {
     /* The one measured brand value that exists. #009E2F is the red read off
        the official logo.jpg; it clears 3:1 as a boundary and 4.29:1 on the
-       ground, and it is a DEVICE colour — it never sets type. --crave-green is
+       ground, and it is a DEVICE colour — it never sets type. --lp-yellow is
        that hue darkened until it carries text and fills: 6.51:1 on the
        ground, and white on it 7.49:1, which is what the locale pill needs. */
-    --brand-green: #009E2F;
-    --crave-green:    #2A6B41;
-    --ink:           #0E0E0C;
+    --brand-yellow: #FFCA2A;
+    --lp-yellow:    #FFCA2A;
+    --ink:           #F8F7F3;
 
     --gutter:      clamp(28px, 4.3vw, 72px);   /* mon, from the left edge  */
     --brand-inset: clamp(44px, 9.9vw, 168px);  /* wordmark, from the left  */
@@ -215,15 +215,15 @@
     pointer-events: none;
     background:
       linear-gradient(90deg,
-        rgba(251, 250, 247, 0.60) 0%,
-        rgba(251, 250, 247, 0.40) 30%,
-        rgba(251, 250, 247, 0.10) 62%,
-        rgba(251, 250, 247, 0.00) 100%),
+        rgba(13, 12, 10, 0.60) 0%,
+        rgba(13, 12, 10, 0.40) 30%,
+        rgba(13, 12, 10, 0.10) 62%,
+        rgba(13, 12, 10, 0.00) 100%),
       linear-gradient(180deg,
-        rgba(251, 250, 247, 0.34) 0%,
-        rgba(251, 250, 247, 0.00) 24%,
-        rgba(251, 250, 247, 0.00) 64%,
-        rgba(251, 250, 247, 0.38) 100%);
+        rgba(13, 12, 10, 0.34) 0%,
+        rgba(13, 12, 10, 0.00) 24%,
+        rgba(13, 12, 10, 0.00) 64%,
+        rgba(13, 12, 10, 0.38) 100%);
   }
 
   /* Grain, at the threshold of visibility — it exists to break up the
@@ -251,13 +251,18 @@
     width: var(--mark-size);
     height: var(--mark-size);
     color: var(--ink);
+    /* currentColor through a mask, so the raster behaves like the <path> it
+       replaces: one file, any colour, any ground. See the markup comment. */
+    background: currentColor;
+    -webkit-mask: url("brand_assets/lapranzo-mask-512.png") center / contain no-repeat;
+            mask: url("brand_assets/lapranzo-mask-512.png") center / contain no-repeat;
     opacity: 0.96;
     /* The plaque is a hairline at this size, so it gets a tight halo for edge
        separation plus a wide one to sit it into the room's light. Both are
        LIGHT, as the wordmark's shadows are, and for the same reason. */
     filter:
-      drop-shadow(0 1px 3px rgba(251, 250, 247, 0.70))
-      drop-shadow(0 2px 26px rgba(251, 250, 247, 0.80));
+      drop-shadow(0 1px 3px rgba(13, 12, 10, 0.70))
+      drop-shadow(0 2px 26px rgba(13, 12, 10, 0.80));
   }
 
   .hero__brand {
@@ -297,41 +302,49 @@
        which direction it works in is decided by the type's colour, not by
        habit. Under dark type a dark bed does the opposite of its job. */
     background: radial-gradient(64% 56% at 52% 50%,
-      rgba(251, 250, 247, 0.70) 0%,
-      rgba(251, 250, 247, 0.46) 50%,
-      rgba(251, 250, 247, 0.00) 82%);
+      rgba(13, 12, 10, 0.70) 0%,
+      rgba(13, 12, 10, 0.46) 50%,
+      rgba(13, 12, 10, 0.00) 82%);
   }
 
   .hero__name {
     margin: 0;
     font-family: "Cormorant Garamond", Cormorant, 'Cormorant Fallback', Georgia, serif;
     font-weight: 300;
-    /* RE-SOLVED 2026-09-28 for a five-glyph wordmark, and this time the
-       pressure runs the OTHER WAY. MISONO's six caps and LI'S's four narrow
-       ones both had to be pushed WIDER to reach the tagline; CRAVE's five
-       wide caps overshoot it. Measured, the ink is 3.462em of glyph before
-       any tracking at all — C, R, A, V and E are each ~0.69em — against
-       LI'S's 1.87em, because an apostrophe and an I are not letters in the
-       width sense. At the inherited 7.9vw / 0.29em CRAVE measured 36.5% of
-       the viewport against a tagline of 18.8%, and at 320px it ran 35px past
-       the right edge with the final E cut off. It did not cause a scrollbar,
-       because .hero clips — which is exactly why it was invisible.
+    /* RE-SOLVED 2026-09-30 for a NINE-glyph, two-word wordmark, and the
+       pressure runs the same way it did for CRAVE, only harder. Measured at
+       1440: LA PRANZO's ink is 6.80x the font-size where CRAVE's was 5.70
+       and LI'S's 2.03 — nine caps and a word space against five caps.
 
-       Size and tracking are still solved TOGETHER. The tracking comes DOWN
-       to 0.22em, between MISONO's 0.16 and LI'S's 0.29: five letters do not
-       need the extra air that four did, and CRAVE is a word rather than an
-       initialism. 4.33vw against that tracking puts the ink at 271px on a
-       1440 — the tagline's own 271px, which is the lockup the composition
-       was built on.
+       THE LOCKUP IS THE RULE, NOT THE SIZE. What the composition was built
+       on is the wordmark's ink matching the TAGLINE's ink, and the tagline
+       changed too: "Satisfying Every Craving" measured 246.7px at 1440 and
+       "Home of Middle Eastern Cuisine" measures 338.8px. So the target moved
+       out by 37% while the wordmark got 19% wider per em. Solving to CRAVE's
+       4.33vw would have run the mark to 425px against a 339px tagline.
 
-       The MINIMUM is set by 320px, not by taste: 3.5rem leaves 33px of slack
-       to the right edge there. Below that the wordmark is the first thing
-       that breaks. */
-    font-size: clamp(3.5rem, 4.33vw, 4.6rem);
+       Size and tracking are still solved TOGETHER, and the tracking comes
+       DOWN again: 0.29em for LI'S's four narrow caps, 0.22 for CRAVE's five
+       wide ones, 0.18 here. Nine glyphs carrying a word space do not need
+       the air that five did, and extra tracking on a two-word mark opens the
+       space between the words faster than it opens the letters.
+
+       3.40vw at 0.18em puts the ink at 333.3px on a 1440 against the
+       tagline's 338.8 — a lockup of 0.984, which is 5.5px on a 1440 and
+       closer than the eye resolves. 0.20em reaches 1.007 and was not taken:
+       a fraction over is worse than a fraction under here, because the
+       tagline is the longer STRING and should read as the wider line.
+
+       The MINIMUM is set by 320px, not by taste. The brand block is inset
+       44px there, so an ink of 6.80x the size has to stay under 243px to
+       keep the ~33px of right-edge slack CRAVE was given: 2.2rem. Below
+       that the wordmark is the first thing that breaks, and .hero CLIPS
+       rather than scrolling, which is exactly why it breaks invisibly. */
+    font-size: clamp(2.2rem, 3.4vw, 3.6rem);
     line-height: 1;
-    letter-spacing: 0.22em;
-    /* Indent-correct: tracking adds a trailing space after the final E. */
-    margin-right: -0.22em;
+    letter-spacing: 0.18em;
+    /* Indent-correct: tracking adds a trailing space after the final O. */
+    margin-right: -0.18em;
     color: var(--ink);
     /* Three layers, and all three are LIGHT now: a tight edge to separate the
        hairline serif from the floor, a mid halo, and a wide one so the type
@@ -339,9 +352,9 @@
        Cormorant at 300 over a photograph needs the separation whichever way
        round the contrast runs. */
     text-shadow:
-      0 1px 2px  rgba(251, 250, 247, 0.55),
-      0 4px 28px rgba(251, 250, 247, 0.65),
-      0 2px 70px rgba(251, 250, 247, 0.55);
+      0 1px 2px  rgba(13, 12, 10, 0.55),
+      0 4px 28px rgba(13, 12, 10, 0.65),
+      0 2px 70px rgba(13, 12, 10, 0.55);
   }
 
   .hero__tagline {
@@ -353,7 +366,7 @@
     letter-spacing: 0.34em;
     margin-right: -0.34em;
     text-transform: uppercase;
-    color: rgba(14, 14, 12, 0.82);
+    color: rgba(248, 247, 243, 0.82);
     text-shadow: 0 1px 16px rgba(11, 8, 6, 0.6);
   }
 
@@ -369,7 +382,7 @@
     place-items: center;
     width: clamp(20px, 1.45vw, 22px);
     height: clamp(20px, 1.45vw, 22px);
-    color: rgba(14, 14, 12, 0.90);
+    color: rgba(248, 247, 243, 0.90);
     border-radius: 3px;
     transition:
       color 260ms var(--ease-quiet),
@@ -389,7 +402,7 @@
   .hero__social a:focus-visible {
     outline: 1.5px solid rgba(255, 255, 255, 0.92);
     outline-offset: 7px;
-    box-shadow: 0 0 0 9px rgba(42, 107, 65, 0.30);
+    box-shadow: 0 0 0 9px rgba(255, 202, 42, 0.30);
   }
 
   /* --------------------------------------------------------- entrance */
@@ -550,9 +563,9 @@
       left: -58%;
       right: -58%;
       background: radial-gradient(68% 60% at 54% 50%,
-        rgba(251, 250, 247, 0.34) 0%,
-        rgba(251, 250, 247, 0.18) 52%,
-        rgba(251, 250, 247, 0.00) 84%);
+        rgba(13, 12, 10, 0.34) 0%,
+        rgba(13, 12, 10, 0.18) 52%,
+        rgba(13, 12, 10, 0.00) 84%);
     }
 
     /* INVERTED with the photography, and REWEIGHTED for what this frame
@@ -568,11 +581,11 @@
     .hero__wash {
       background:
         linear-gradient(180deg,
-          rgba(251, 250, 247, 0.10) 0%,
-          rgba(251, 250, 247, 0.06) 28%,
-          rgba(251, 250, 247, 0.30) 54%,
-          rgba(251, 250, 247, 0.52) 76%,
-          rgba(251, 250, 247, 0.62) 100%);
+          rgba(13, 12, 10, 0.10) 0%,
+          rgba(13, 12, 10, 0.06) 28%,
+          rgba(13, 12, 10, 0.30) 54%,
+          rgba(13, 12, 10, 0.52) 76%,
+          rgba(13, 12, 10, 0.62) 100%);
     }
   }
 
@@ -596,10 +609,10 @@
      ------------------------------------------------------------------- */
 
   :root {
-    --cream:       #FCFBF9;
-    --menu-ink:    #0E0E0C;  /* 14.79:1 on the ground                       */
-    --menu-body:   #57534C;  /*  5.93:1                                     */
-    --menu-accent: #2A6B41;  /*  6.51:1 — the deep red, from the logo hue   */
+    --cream:       #0F0E0B;
+    --menu-ink:    #F8F7F3;  /* 14.79:1 on the ground                       */
+    --menu-body:   #A79F91;  /*  5.93:1                                     */
+    --menu-accent: #FFCA2A;  /*  6.51:1 — the deep red, from the logo hue   */
   }
 
   /* Stacked is the base state; the reference's two-column composition starts
@@ -750,7 +763,7 @@
     /* Matches the file's own 2.162:1 so object-fit has nothing to crop and
        the whole boat shows on a phone too. */
     aspect-ratio: 2.162;
-    background: #EAE7E0;
+    background: #201E1A;
   }
 
   .menu__img {
@@ -1174,7 +1187,7 @@
     font-family: "Cormorant Garamond", Cormorant, 'Cormorant Fallback', Georgia, serif;
     font-weight: 400;
     /* The reference sets these in a semibold sans. A serif at the same optical
-       weight is what makes the section Crave's rather than any restaurant's:
+       weight is what makes the section La Pranzo's rather than any room's:
        it is the pairing the hero and the menu already run — Cormorant for
        anything named, Jost for anything explained. */
     font-size: clamp(0.95rem, 1.343vw, 1.85rem);
@@ -1294,8 +1307,8 @@
        to marks that state nothing — the rule under the eyebrow, the ring around
        the photograph. Anything a guest reads or clicks takes --menu-accent
        (4.8:1) or --res-gold, which clears 3:1 as a non-text boundary. */
-    --res-hair: #D8CFBC;
-    --res-gold: #7A6A48;
+    --res-hair: #2E2A22;
+    --res-gold: #9A8654;
 
     --res-eyebrow:  clamp(0.66rem, 2.85vw, 0.76rem);
     --res-title:    clamp(2.35rem, 11.9vw, 3.6rem);
@@ -1609,7 +1622,7 @@
     width: max(1px, 0.08vw);
     background: linear-gradient(to bottom,
       var(--res-hair) 6%,
-      rgba(216, 207, 188, 0) 92%);
+      rgba(46, 42, 34, 0) 92%);
   }
 
   .reserve__icon {
@@ -1833,25 +1846,28 @@
        runs to ~92% of the viewport, which is as large as it can be and
        still read as a word rather than as a cropped first and last letter.
        That 92% is the target --end-mark is solved against; see it above. */
-    /* RE-SOLVED 2026-09-28 for a five-glyph wordmark. CRAVE's five wide caps
-       are far wider than LI'S's four narrow ones — measured, ink is 3.816x
-       the font-size against LI'S's 2.026 — so at the inherited size it ran to
-       161% of the viewport and hung 48.6px off the right edge on a 1440.
-       Every term is scaled by 0.531, the clamp ends included, so the cap at
-       2560 still bites at the same fraction it always did.
+    /* RE-SOLVED 2026-09-30 for a NINE-glyph wordmark. LA PRANZO's ink is
+       6.731x the font-size against CRAVE's 4.10 and LI'S's 2.026, so at the
+       inherited size it ran to 150.8% of the viewport at 1440, 1280 and
+       1000 alike and hung 61% off the right edge. measure-endmark.mjs is
+       what prints that; it is the tool for this and it was run before and
+       after.
 
-       THE TARGET IS 85.5%, NOT THE 92% THE NOTE ABOVE ASPIRES TO. 92% is what
-       the block was designed for; 85.5% is what it has actually shipped at
-       every width below the clamp, measured off the previous build. Solving
-       to the comment rather than to the render would have made the mark 7.6%
-       larger than the one it replaces and called it a like-for-like swap.
+       EVERY TERM IS SCALED BY THE SAME 0.610, the clamp ends included, and
+       that is what makes it a like-for-like swap rather than a resize. The
+       vw term sets the 92% the block runs at below the cap; the rem ends
+       set where the cap bites and how far the mark tapers on a very wide
+       screen. Scaling only the middle term would have held 92% at 1440 and
+       left the mark at 94.7% of a 2560 — a cap that had stopped capping.
+       Measured after: 92.0% at 1440, 1280 and 1000, and 57.7% at 2560,
+       which is the same pair of numbers CRAVE shipped.
 
        MEASURE THE TEXT, NOT THE BOX. The mark is white-space: nowrap in a
        full-width block, so past 100% its border box stops growing and
        getBoundingClientRect() hands the viewport back: read that way, a mark
-       overflowing by 61% reported as a comfortable 93.2%. measure-endmark.mjs
+       overflowing by 51% reports as a comfortable 93%. measure-endmark.mjs
        uses a Range. Re-solve again if the string ever changes length. */
-    --end-mark:   clamp(4.94rem, 22.4vw, 22.5rem);
+    --end-mark:   clamp(3.01rem, 13.66vw, 13.72rem);
     /* The last 15% of height comes from the block, not the size — see
        .ending__mark. */
     --end-stretch: 1.15;
@@ -1892,7 +1908,7 @@
        step deepening across the height of this block — far too small to
        read as a band, just enough that the page settles rather than ending
        on the same flat value it has held for three sections. */
-    background: linear-gradient(180deg, var(--cream) 0%, #F5F2EC 100%);
+    background: linear-gradient(180deg, var(--cream) 0%, #1A1815 100%);
     color: var(--menu-ink);
     font-family: Jost, ui-sans-serif, system-ui, sans-serif;
     text-align: center;
@@ -1916,7 +1932,7 @@
     line-height: 0.653;
     letter-spacing: 0.16em;
     white-space: nowrap;
-    color: rgba(14, 14, 12, 0.045);
+    color: rgba(248, 247, 243, 0.045);
     user-select: none;
     /* Once the mark is as wide as the screen allows, height is the only
        axis left. A 1.15 vertical scale thickens Cormorant's horizontal
@@ -2009,7 +2025,7 @@
   .ending__link:focus-visible::after { transform: scaleX(1); }
 
   .ending__link:focus-visible {
-    outline: 1px solid var(--crave-green);
+    outline: 1px solid var(--lp-yellow);
     outline-offset: 4px;
     border-radius: 1px;
   }
@@ -2048,15 +2064,15 @@
      viewport, so there is almost nothing left to give here — 20vw is the
      same 92%, and anything past it starts cropping the first letter. The phone gets
      its height from the stretch instead, pushed a little harder because a
-     390px screen has proportionally more empty cream to fill. The 72svh
+     390px screen has proportionally more empty ground to fill. The 72svh
      minimum goes: on a phone the closing frame is as tall as its contents
      and no taller. */
   @media (max-width: 639px) {
     .ending {
-      /* Scaled by the same 2.12 as the desktop clamp when the wordmark went
-         from six glyphs to four. 20vw held MISONO at 92% of a phone; it held
-         LI'S at 43.6%. */
-      --end-mark: 22.5vw;
+      /* Scaled by the same 0.610 as the desktop clamp when the wordmark went
+         from five glyphs to nine. 22.5vw held CRAVE at 92% of a phone; it
+         held LA PRANZO at 151.4%. Measured after: 92.3%. */
+      --end-mark: 13.73vw;
       --end-stretch: 1.22;
       min-height: 0;
       padding-top: clamp(64px, 22vw, 108px);
@@ -2092,15 +2108,15 @@
     /* Warm ivory, 2026-08-26. It replaced a muted peach when the site
        became Li's: the peach reads pink beside a deep red, and the red
        is the accent the whole palette now turns on. */
-    --ground: #FBFAF7;
+    --ground: #0D0C0A;
 
     /* 1. Re-derived against the ivory on 2026-08-26, not carried across.
           The ink clears 14.79:1 and had the room; the other two were
           solved on this ground rather than adjusted from the old ones,
           which is the standing rule. The accent is now a deep red taken
           from the logo's own hue and darkened until it carries text. */
-    --menu-body:   #57534C;  /* 6.3:1 — the cream #57534C falls to 5.66 */
-    --menu-accent: #2A6B41;  /* 4.8:1 — the cream #2A6B41 falls to 4.47 */
+    --menu-body:   #A79F91;  /* 6.3:1 — the cream #57534C falls to 5.66 */
+    --menu-accent: #FFCA2A;  /* 4.8:1 — the cream #2A6B41 falls to 4.47 */
   }
 
   .menu,
@@ -2118,7 +2134,7 @@
         minimum applies, and on the button's dark hover it still reads
         at 7.8:1. */
   .reserve {
-    --res-gold: #7A6A48;
+    --res-gold: #9A8654;
   }
 
   /* 3. The closing gradient's tail is a literal, so --cream cannot reach
@@ -2128,7 +2144,7 @@
         which is what keeps all four feet on one colour. Body still reads
         5.78:1 on the tail and the accent 6.34:1. */
   .ending {
-    background: linear-gradient(180deg, var(--ground) 0%, #F2EFE8 100%);
+    background: linear-gradient(180deg, var(--ground) 0%, #1B1916 100%);
   }
 
   /* 4. The dish hairlines. Written as a literal because they are
@@ -2155,11 +2171,11 @@
 <body>
 
 <main>
-  <section class="hero" aria-labelledby="crave-name">
+  <section class="hero" aria-labelledby="lapranzo-name">
 
     <!--
-      PLACEHOLDER. Crave's own photography is not available at usable
-      resolution or licence; this is baked by bake-crave-photography.py.
+      PLACEHOLDER. La Pranzo's own photography is not available at usable
+      resolution or licence; this is baked by bake-lapranzo-photography.py.
       Whatever replaces it needs ONE property and no others: a bright room
       with its activity OFF centre, leaving the lower left calm enough to set
       a wordmark in.
@@ -2178,11 +2194,11 @@
         phone; the full frame is only 1.8x and visibly sharper for 300KB more.
       -->
       <picture>
-        <source type="image/avif" sizes="101.7vw"
-                srcset="assets/img/r/crave-hero-290.avif 290w, assets/img/r/crave-hero-430.avif 430w, assets/img/r/crave-hero-520.avif 520w, assets/img/r/crave-hero-700.avif 700w, assets/img/r/crave-hero-1040.avif 1040w, assets/img/r/crave-hero-1250.avif 1250w, assets/img/r/crave-hero-1717.avif 1717w">
-        <source type="image/webp" sizes="101.7vw"
-                srcset="assets/img/r/crave-hero-290.webp 290w, assets/img/r/crave-hero-1717.webp 1717w">
-        <img class="hero__img" src="assets/img/crave-hero.jpg" alt="" fetchpriority="high" decoding="sync" width="1717" height="1073" loading="eager">
+        <source type="image/avif" sizes="101.6vw"
+                srcset="assets/img/r/lp-hero-290.avif 290w, assets/img/r/lp-hero-360.avif 360w, assets/img/r/lp-hero-520.avif 520w, assets/img/r/lp-hero-700.avif 700w, assets/img/r/lp-hero-1040.avif 1040w, assets/img/r/lp-hero-1250.avif 1250w, assets/img/r/lp-hero-1717.avif 1717w">
+        <source type="image/webp" sizes="101.6vw"
+                srcset="assets/img/r/lp-hero-290.webp 290w, assets/img/r/lp-hero-1717.webp 1717w">
+        <img class="hero__img" src="assets/img/lp-hero.jpg" alt="A warm casual dining room: wicker pendant lights, plants and plain wooden tables, with people at the far end." fetchpriority="high" decoding="sync" width="1717" height="1073" loading="eager">
       </picture>
     </div>
 
@@ -2191,41 +2207,49 @@
     <div class="hero__grain"></div>
 
     <!--
-      The mark, redrawn from the official 320x320 logo.jpg (the only artwork
-      there is — an opaque black tile, measured ground #000000 and mark #FBFBFB,
-      ZERO CHROMA in either). It is the plaque and nothing else: the outline is
-      a least-squares Bezier fit of ONE traced quadrant, mirrored twice, worst
-      segment RMS 0.39px and mean boundary error 0.88px at the source's own
-      resolution. verify-mark.mjs is the check.
+      THE REAL ARTWORK, NOT A RECONSTRUCTION — and that is a change of method
+      rather than a change of file. Crave's plaque was four-fold symmetric, so
+      one quadrant could be traced, mirrored twice and checked back against the
+      original to a mean boundary error of 0.88px. La Pranzo's emblem is an
+      irregular Kufic ring with no symmetry to exploit and the only artwork
+      obtainable is 536x395, so nothing is fitted: make-lapranzo-mark.py
+      thresholds the real pixels and ships them.
 
-      The lettering is deliberately not in the file. The mark is the plaque and
-      CRAVE is set as type beside it, which is what lets this one path take
-      currentColor and work at any size on any ground.
-      IT IS A RECONSTRUCTION: verify against official artwork before launch.
-    -->
-    <svg class="hero__mark" viewBox="0 0 100 100" role="img" aria-label="Crave">
-      <path class="mark__plaque" d="M50.6 23.25C61.685 23.25,69.313 30.174,70.395 30.498C71.116 30.714,74.014 30.295,75.542 30.569C78.598 31.118,80.955 33.433,81.282 33.909C83.327 36.886,82.432 37.407,84.252 40.02C84.582 40.495,85.703 40.767,86.231 41.157C90.06 43.982,90.19 47.046,90.19 49.4C90.19 51.754,90.06 54.818,86.231 57.643C85.703 58.033,84.582 58.305,84.252 58.78C82.432 61.393,83.327 61.914,81.282 64.891C80.955 65.367,78.598 67.682,75.542 68.231C74.014 68.505,71.116 68.086,70.395 68.302C69.313 68.626,61.685 75.55,50.6 75.55C39.515 75.55,31.887 68.626,30.805 68.302C30.084 68.086,27.186 68.505,25.658 68.231C22.602 67.682,20.245 65.367,19.918 64.891C17.873 61.914,18.768 61.393,16.949 58.78C16.618 58.305,15.497 58.033,14.969 57.643C11.14 54.818,11.01 51.754,11.01 49.4C11.01 47.046,11.14 43.982,14.969 41.157C15.497 40.767,16.618 40.495,16.949 40.02C18.768 37.407,17.873 36.886,19.918 33.909C20.245 33.433,22.602 31.118,25.658 30.569C27.186 30.295,30.084 30.714,30.805 30.498C31.887 30.174,39.515 23.25,50.6 23.25Z" fill="none" stroke="currentColor"
-            stroke-width="5.2" stroke-linejoin="round"/>
-    </svg>
+      WHAT MAKES THAT AFFORDABLE IS THE DARK GROUND. The logo's own field is
+      black and so is this page, so the mark only has to be separated from its
+      tile rather than lifted off it and re-drawn.
+
+      IT IS MASKED, NOT PLACED, so it still takes currentColor exactly as the
+      path it replaces did — `background: currentColor` through a mask-image.
+      A plain <img> would have frozen it white and broken .touch__mon on
+      contact.html, which paints the same mark at 5% alpha.
+
+      The lettering is deliberately not in the file: at 72-124px the wordmark
+      inside the ring is under two pixels tall. LA PRANZO is set as type beside
+      it. brand_assets/lapranzo-mark-full.png keeps the lettered version for
+      the 180px-and-up icons.
+
+      ASK THE CLIENT FOR VECTOR ARTWORK.
+      -->
+      <span class="hero__mark" role="img" aria-label="La Pranzo"></span>
 
     <div class="hero__brand">
-      <h1 class="hero__name" id="crave-name">CRAVE</h1>
-      <p class="hero__tagline">Satisfying Every Craving</p>
+      <h1 class="hero__name" id="lapranzo-name">LA PRANZO</h1>
+      <p class="hero__tagline">Home of Middle Eastern Cuisine</p>
 
-      <!-- The three accounts Crave actually runs, read off its own digital
-           menu's socialMedia block on 2026-09-28. Crave has no X account, so
-           the slot Li's gave to X is Facebook here. -->
-      <nav class="hero__social" aria-label="Crave on social media">
-        <a href="https://www.instagram.com/crave_kenya" aria-label="Crave on Instagram" rel="noopener">
+      <!-- ONE ACCOUNT, AND THAT IS THE RESEARCH RATHER THAN A LAYOUT CHOICE.
+           Li's ran three, Crave ran three; La Pranzo publishes exactly one.
+           Its Google listing shows a single profile under "Profiles" and it
+           is Instagram; the Facebook result that turns up in search is a post
+           ABOUT the restaurant from somebody else's account, and the TikTok
+           results are discover pages rather than an account. Three icons here
+           would be two inventions. @lapranzoke, 13.6K followers, and the bio
+           this page's tagline is taken from word for word. -->
+      <nav class="hero__social" aria-label="La Pranzo on social media">
+        <a href="https://www.instagram.com/lapranzoke" aria-label="La Pranzo on Instagram" rel="noopener">
           <svg viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M12 2.16c3.2 0 3.58.01 4.85.07 1.17.05 1.8.25 2.23.41.56.22.96.48 1.38.9.42.42.68.82.9 1.38.16.42.36 1.06.41 2.23.06 1.27.07 1.65.07 4.85s-.01 3.58-.07 4.85c-.05 1.17-.25 1.8-.41 2.23-.22.56-.48.96-.9 1.38-.42.42-.82.68-1.38.9-.42.16-1.06.36-2.23.41-1.27.06-1.65.07-4.85.07s-3.58-.01-4.85-.07c-1.17-.05-1.8-.25-2.23-.41-.56-.22-.96-.48-1.38-.9-.42-.42-.68-.82-.9-1.38-.16-.42-.36-1.06-.41-2.23-.06-1.27-.07-1.65-.07-4.85s.01-3.58.07-4.85c.05-1.17.25-1.8.41-2.23.22-.56.48-.96.9-1.38.42-.42.82-.68 1.38-.9.42-.16 1.06-.36 2.23-.41C8.42 2.17 8.8 2.16 12 2.16M12 0C8.74 0 8.33.01 7.05.07c-1.28.06-2.15.26-2.91.56-.79.3-1.46.72-2.13 1.38C1.35 2.68.94 3.35.63 4.14c-.3.76-.5 1.63-.56 2.91C.01 8.33 0 8.74 0 12s.01 3.67.07 4.95c.06 1.28.26 2.15.56 2.91.31.79.72 1.46 1.38 2.13.67.67 1.34 1.08 2.13 1.38.76.3 1.63.5 2.91.56C8.33 23.99 8.74 24 12 24s3.67-.01 4.95-.07c1.28-.06 2.15-.26 2.91-.56.79-.3 1.46-.71 2.13-1.38.67-.67 1.08-1.34 1.38-2.13.3-.76.5-1.63.56-2.91.06-1.28.07-1.69.07-4.95s-.01-3.67-.07-4.95c-.06-1.28-.26-2.15-.56-2.91-.3-.79-.71-1.46-1.38-2.13C21.32 1.35 20.65.94 19.86.63c-.76-.3-1.63-.5-2.91-.56C15.67.01 15.26 0 12 0Z"/><path d="M12 5.84A6.16 6.16 0 1 0 18.16 12 6.16 6.16 0 0 0 12 5.84ZM12 16a4 4 0 1 1 4-4 4 4 0 0 1-4 4Z"/><circle cx="18.41" cy="5.59" r="1.44"/></svg>
         </a>
-        <a href="https://www.tiktok.com/@crave_kenya" aria-label="Crave on TikTok" rel="noopener">
-          <svg viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M16.44 0h-3.9v15.67a3.16 3.16 0 0 1-3.15 3.02 3.16 3.16 0 0 1-3.16-3.15 3.17 3.17 0 0 1 2.92-3.15V8.43a7.05 7.05 0 0 0-6.82 7.11A7.05 7.05 0 0 0 9.42 22.6a7.05 7.05 0 0 0 7.07-7.06V7.5a8.9 8.9 0 0 0 5.16 1.65V5.25a5.28 5.28 0 0 1-5.21-5.25Z"/></svg>
-        </a>
-        <a href="https://www.facebook.com/share/14HTmw3ezww/" aria-label="Crave on Facebook" rel="noopener">
-          <svg viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M24 12.07C24 5.4 18.63 0 12 0S0 5.4 0 12.07C0 18.1 4.39 23.1 10.13 24v-8.44H7.08v-3.49h3.05V9.41c0-3.02 1.79-4.69 4.53-4.69 1.31 0 2.68.24 2.68.24v2.97h-1.51c-1.49 0-1.96.93-1.96 1.89v2.25h3.33l-.53 3.49h-2.8V24C19.61 23.1 24 18.1 24 12.07Z"/></svg>
-        </a>
-      </nav>
+        </nav>
     </div>
 
   </section>
@@ -2234,35 +2258,35 @@
     <div class="menu__inner">
 
       <div class="menu__head">
-        <p class="menu__eyebrow">From Six in the Morning</p>
+        <p class="menu__eyebrow">From Noon Until Eleven</p>
 
         <!--
           The heading is the list of what the kitchen is known for, with the
           signature pulled out of it in italic — the reference's own
           structure. <em> carries that emphasis rather than leaving the
-          italic to CSS alone. Every one of the four is on Crave's real carte,
-          and all four are among the items Google and TripAdvisor reviewers
-          name most often.
+          italic to CSS alone. Every one of the four is on La Pranzo's real
+          carte, and between them they cover the whole spread of the room:
+          a Yemeni rice dish, a coast skewer, a sandwich and a dessert.
 
           The featured line sets the 1120px breakpoint (see the CSS). It has
-          held three strings before this: "Sushi &amp; Sashimi" at 14
+          held four strings before this: "Sushi &amp; Sashimi" at 14
           characters, which is what the two-column layout was measured
-          against, "Wagyu A5" at 8, and "Peking Duck" at 11. "Loaded Fries"
-          is 12 — inside the measured envelope, so the clearance still beats
-          the original. Re-measure only if it is renamed to something longer
-          than fourteen.
+          against, "Wagyu A5" at 8, "Peking Duck" at 11 and "Loaded Fries"
+          at 12. "Kunafa" is 6 — the shortest this line has ever carried, so
+          the clearance is the widest it has ever been. Re-measure only if it
+          is renamed to something longer than fourteen.
 
           THE SIGNATURE HERE IS NOT THE ONE THE FEATURE SECTION CARRIES, and
-          that is deliberate. Loaded fries are what Crave is known for every
-          day and what reviewers name first; the seafood platter below is the
-          showpiece. Putting the showpiece in both places spends the page's
-          one emphasis twice.
+          that is deliberate. Kunafa is what this kitchen is known for at the
+          end of a meal — five of them on one dessert board — and the mix
+          grilled platter below is the showpiece. Putting the showpiece in
+          both places spends the page's one emphasis twice.
         -->
         <h2 class="menu__list" id="menu-heading">
-          <span class="menu__item">Masala Chips</span>
-          <span class="menu__item">Glazed Wings</span>
-          <span class="menu__item">Pepper Steak</span>
-          <em class="menu__item menu__item--featured">Loaded Fries</em>
+          <span class="menu__item">Mandi</span>
+          <span class="menu__item">Mishkaki</span>
+          <span class="menu__item">Shawarma</span>
+          <em class="menu__item menu__item--featured">Kunafa</em>
         </h2>
       </div>
 
@@ -2289,20 +2313,20 @@
             -->
             <picture>
               <source type="image/avif" sizes="(max-width: 1200px) 85.6vw, 56.9vw"
-                      srcset="assets/img/r/crave-counter-700.avif 700w, assets/img/r/crave-counter-840.avif 840w, assets/img/r/crave-counter-1030.avif 1030w, assets/img/r/crave-counter-1230.avif 1230w, assets/img/r/crave-counter-1536.avif 1536w">
+                      srcset="assets/img/r/lp-counter-700.avif 700w, assets/img/r/lp-counter-1030.avif 1030w, assets/img/r/lp-counter-1230.avif 1230w, assets/img/r/lp-counter-1536.avif 1536w">
               <source type="image/webp" sizes="(max-width: 1200px) 85.6vw, 56.9vw"
-                      srcset="assets/img/r/crave-counter-700.webp 700w, assets/img/r/crave-counter-1536.webp 1536w">
+                      srcset="assets/img/r/lp-counter-700.webp 700w, assets/img/r/lp-counter-1536.webp 1536w">
               <img class="menu__img"
-                 src="assets/img/crave-counter.jpg"
-                 alt="A bright cafe in daylight: yellow tub chairs, tables by a tall window and hanging plants."
+                 src="assets/img/lp-counter.jpg"
+                 alt="A cook carving a shawarma spit."
                  width="1536" height="710" loading="lazy" decoding="async" fetchpriority="low">
             </picture>
           </div>
 
           <figcaption class="menu__caption">
-            The doors open at six, and for the first six hours the room belongs to
-            breakfast. Brunch takes over at eleven, and the rest of the carte runs
-            from then until the lights go off. Eighteen hours, one kitchen.
+            The doors open at noon and the grill is already lit, because the rice
+            has been on since long before that. Nineteen courses run from then
+            until eleven at night. Eleven hours, one kitchen, one room.
           </figcaption>
         </figure>
       </div>
@@ -2312,11 +2336,11 @@
 <section class="beyond" id="beyond" aria-labelledby="beyond-title">
 
     <div class="beyond__head">
-      <h2 class="beyond__title" id="beyond-title">A table for every hour</h2>
+      <h2 class="beyond__title" id="beyond-title">Everything on one carte</h2>
       <hr class="beyond__rule" aria-hidden="true">
-      <p class="beyond__copy">Breakfast at six, a working lunch, a plate of loaded fries at
-        four, and something from the dessert counter long after dark. Two hundred and sixty-two
-        things on one carte &mdash; because a day needs more than one kind of appetite.</p>
+      <p class="beyond__copy">Mandi under a lid, a burger, eighteen coffees and five kinds of
+        kunafa. A hundred and sixty-six things across nineteen courses &mdash; which is what it
+        takes to be the grill and the cafe at the same time.</p>
     </div>
 
     <div class="beyond__gal">
@@ -2327,9 +2351,9 @@
         CTA sits outside this element, or role="img" would swallow it.
 
         The nine are PLACEHOLDERS and every one of them is a dish that is
-        actually on Crave's carte: loaded fries, glazed wings, a stack of
-        pancakes, a waffle, a burger, masala chips, grilled prawns, a
-        freakshake and a slice of cheesecake. Their WIDTHS are the nine the
+        actually on La Pranzo's carte: la pranzo chips, chicken wings, a
+        stack of mini pancakes, kunafa, a beef burger, masala chips, a mixed
+        grill, a milkshake and basbousa. Their WIDTHS are the nine the
         row has always had, so
         .beyond__track keeps its measured width and the marquee's percentage
         translate is untouched; a replacement must keep its slot's width.
@@ -2338,66 +2362,66 @@
         without them, so the strip renders with holes on first paint and
         blank in a capture.
       -->
-      <div class="beyond__rows" role="img" aria-label="Dishes from the Crave kitchen">
+      <div class="beyond__rows" role="img" aria-label="Dishes from the La Pranzo kitchen">
 
         <div class="beyond__row beyond__row--a">
           <div class="beyond__track">
             <!-- copy 1 -->
             <picture>
               <source type="image/avif" sizes="(max-width: 480px) 25.5vw, (max-width: 600px) 22vw, (max-width: 900px) 17.6vw, (max-width: 1200px) 11.7vw, 7.6vw"
-                      srcset="assets/img/r/gallery/dish9-shake-306.avif 306w">
+                      srcset="assets/img/r/gallery/dish9-masala-306.avif 306w">
               <source type="image/webp" sizes="(max-width: 480px) 25.5vw, (max-width: 600px) 22vw, (max-width: 900px) 17.6vw, (max-width: 1200px) 11.7vw, 7.6vw"
-                      srcset="assets/img/r/gallery/dish9-shake-306.webp 306w">
-              <img src="assets/img/gallery/dish9-shake.jpg" alt="" width="306" height="560" loading="lazy" decoding="async" fetchpriority="low" data-warm=".beyond">
+                      srcset="assets/img/r/gallery/dish9-masala-306.webp 306w">
+              <img src="assets/img/gallery/dish9-masala.jpg" alt="" width="306" height="560" loading="lazy" decoding="async" fetchpriority="low" data-warm=".beyond">
             </picture>
             <picture>
               <source type="image/avif" sizes="(max-width: 480px) 55.8vw, (max-width: 600px) 48.3vw, (max-width: 900px) 38.6vw, (max-width: 1200px) 25.8vw, (max-width: 1800px) 20vw, 16.6vw"
-                      srcset="assets/img/r/gallery/dish2-prawns-250.avif 250w, assets/img/r/gallery/dish2-prawns-310.avif 310w, assets/img/r/gallery/dish2-prawns-380.avif 380w, assets/img/r/gallery/dish2-prawns-670.avif 670w">
+                      srcset="assets/img/r/gallery/dish2-mixgrill-250.avif 250w, assets/img/r/gallery/dish2-mixgrill-310.avif 310w, assets/img/r/gallery/dish2-mixgrill-380.avif 380w, assets/img/r/gallery/dish2-mixgrill-550.avif 550w, assets/img/r/gallery/dish2-mixgrill-670.avif 670w">
               <source type="image/webp" sizes="(max-width: 480px) 55.8vw, (max-width: 600px) 48.3vw, (max-width: 900px) 38.6vw, (max-width: 1200px) 25.8vw, (max-width: 1800px) 20vw, 16.6vw"
-                      srcset="assets/img/r/gallery/dish2-prawns-250.webp 250w, assets/img/r/gallery/dish2-prawns-670.webp 670w">
-              <img src="assets/img/gallery/dish2-prawns.jpg" alt="" width="671" height="560" loading="lazy" decoding="async" fetchpriority="low" data-warm=".beyond">
+                      srcset="assets/img/r/gallery/dish2-mixgrill-250.webp 250w, assets/img/r/gallery/dish2-mixgrill-670.webp 670w">
+              <img src="assets/img/gallery/dish2-mixgrill.jpg" alt="" width="671" height="560" loading="lazy" decoding="async" fetchpriority="low" data-warm=".beyond">
             </picture>
             <picture>
               <source type="image/avif" sizes="(max-width: 480px) 37vw, (max-width: 600px) 32vw, (max-width: 900px) 25.6vw, (max-width: 1200px) 17.1vw, (max-width: 1440px) 13.2vw, 11vw"
-                      srcset="assets/img/r/gallery/dish4-waffle-250.avif 250w, assets/img/r/gallery/dish4-waffle-445.avif 445w">
+                      srcset="assets/img/r/gallery/dish4-kunafa-250.avif 250w, assets/img/r/gallery/dish4-kunafa-370.avif 370w, assets/img/r/gallery/dish4-kunafa-445.avif 445w">
               <source type="image/webp" sizes="(max-width: 480px) 37vw, (max-width: 600px) 32vw, (max-width: 900px) 25.6vw, (max-width: 1200px) 17.1vw, (max-width: 1440px) 13.2vw, 11vw"
-                      srcset="assets/img/r/gallery/dish4-waffle-250.webp 250w, assets/img/r/gallery/dish4-waffle-445.webp 445w">
-              <img src="assets/img/gallery/dish4-waffle.jpg" alt="" width="445" height="560" loading="lazy" decoding="async" fetchpriority="low" data-warm=".beyond">
+                      srcset="assets/img/r/gallery/dish4-kunafa-250.webp 250w, assets/img/r/gallery/dish4-kunafa-445.webp 445w">
+              <img src="assets/img/gallery/dish4-kunafa.jpg" alt="" width="445" height="560" loading="lazy" decoding="async" fetchpriority="low" data-warm=".beyond">
             </picture>
             <picture>
               <source type="image/avif" sizes="(max-width: 480px) 53vw, (max-width: 600px) 45.9vw, (max-width: 900px) 36.7vw, (max-width: 1200px) 24.5vw, (max-width: 1440px) 19vw, 15.8vw"
-                      srcset="assets/img/r/gallery/dish7-steak-240.avif 240w, assets/img/r/gallery/dish7-steak-290.avif 290w, assets/img/r/gallery/dish7-steak-360.avif 360w, assets/img/r/gallery/dish7-steak-637.avif 637w">
+                      srcset="assets/img/r/gallery/dish7-shawarma-240.avif 240w, assets/img/r/gallery/dish7-shawarma-290.avif 290w, assets/img/r/gallery/dish7-shawarma-360.avif 360w, assets/img/r/gallery/dish7-shawarma-530.avif 530w, assets/img/r/gallery/dish7-shawarma-637.avif 637w">
               <source type="image/webp" sizes="(max-width: 480px) 53vw, (max-width: 600px) 45.9vw, (max-width: 900px) 36.7vw, (max-width: 1200px) 24.5vw, (max-width: 1440px) 19vw, 15.8vw"
-                      srcset="assets/img/r/gallery/dish7-steak-240.webp 240w, assets/img/r/gallery/dish7-steak-637.webp 637w">
-              <img src="assets/img/gallery/dish7-steak.jpg" alt="" width="637" height="560" loading="lazy" decoding="async" fetchpriority="low" data-warm=".beyond">
+                      srcset="assets/img/r/gallery/dish7-shawarma-240.webp 240w, assets/img/r/gallery/dish7-shawarma-637.webp 637w">
+              <img src="assets/img/gallery/dish7-shawarma.jpg" alt="" width="637" height="560" loading="lazy" decoding="async" fetchpriority="low" data-warm=".beyond">
             </picture>
             <picture>
               <source type="image/avif" sizes="(max-width: 480px) 71.2vw, (max-width: 600px) 61.6vw, (max-width: 900px) 49.3vw, (max-width: 1000px) 32.9vw, (max-width: 1200px) 30.6vw, (max-width: 1800px) 25.5vw, 21.2vw"
-                      srcset="assets/img/r/gallery/dish1-fries-320.avif 320w, assets/img/r/gallery/dish1-fries-390.avif 390w, assets/img/r/gallery/dish1-fries-480.avif 480w, assets/img/r/gallery/dish1-fries-710.avif 710w, assets/img/r/gallery/dish1-fries-850.avif 850w">
+                      srcset="assets/img/r/gallery/dish1-chips-320.avif 320w, assets/img/r/gallery/dish1-chips-390.avif 390w, assets/img/r/gallery/dish1-chips-480.avif 480w, assets/img/r/gallery/dish1-chips-850.avif 850w">
               <source type="image/webp" sizes="(max-width: 480px) 71.2vw, (max-width: 600px) 61.6vw, (max-width: 900px) 49.3vw, (max-width: 1000px) 32.9vw, (max-width: 1200px) 30.6vw, (max-width: 1800px) 25.5vw, 21.2vw"
-                      srcset="assets/img/r/gallery/dish1-fries-320.webp 320w, assets/img/r/gallery/dish1-fries-850.webp 850w">
-              <img src="assets/img/gallery/dish1-fries.jpg" alt="" width="856" height="560" loading="lazy" decoding="async" fetchpriority="low" data-warm=".beyond">
+                      srcset="assets/img/r/gallery/dish1-chips-320.webp 320w, assets/img/r/gallery/dish1-chips-850.webp 850w">
+              <img src="assets/img/gallery/dish1-chips.jpg" alt="" width="856" height="560" loading="lazy" decoding="async" fetchpriority="low" data-warm=".beyond">
             </picture>
             <picture>
               <source type="image/avif" sizes="(max-width: 480px) 46.8vw, (max-width: 600px) 40.5vw, (max-width: 900px) 32.4vw, (max-width: 1200px) 21.6vw, (max-width: 1440px) 16.8vw, 14vw"
-                      srcset="assets/img/r/gallery/dish5-burger-260.avif 260w, assets/img/r/gallery/dish5-burger-320.avif 320w, assets/img/r/gallery/dish5-burger-560.avif 560w">
+                      srcset="assets/img/r/gallery/dish5-burger-260.avif 260w, assets/img/r/gallery/dish5-burger-320.avif 320w, assets/img/r/gallery/dish5-burger-470.avif 470w, assets/img/r/gallery/dish5-burger-560.avif 560w">
               <source type="image/webp" sizes="(max-width: 480px) 46.8vw, (max-width: 600px) 40.5vw, (max-width: 900px) 32.4vw, (max-width: 1200px) 21.6vw, (max-width: 1440px) 16.8vw, 14vw"
                       srcset="assets/img/r/gallery/dish5-burger-260.webp 260w, assets/img/r/gallery/dish5-burger-560.webp 560w">
               <img src="assets/img/gallery/dish5-burger.jpg" alt="" width="563" height="560" loading="lazy" decoding="async" fetchpriority="low" data-warm=".beyond">
             </picture>
             <picture>
               <source type="image/avif" sizes="(max-width: 480px) 37.4vw, (max-width: 600px) 32.4vw, (max-width: 900px) 25.9vw, (max-width: 1200px) 17.3vw, (max-width: 1440px) 13.4vw, 11.2vw"
-                      srcset="assets/img/r/gallery/dish8-cheesecake-250.avif 250w, assets/img/r/gallery/dish8-cheesecake-450.avif 450w">
+                      srcset="assets/img/r/gallery/dish8-milkshake-250.avif 250w, assets/img/r/gallery/dish8-milkshake-370.avif 370w, assets/img/r/gallery/dish8-milkshake-450.avif 450w">
               <source type="image/webp" sizes="(max-width: 480px) 37.4vw, (max-width: 600px) 32.4vw, (max-width: 900px) 25.9vw, (max-width: 1200px) 17.3vw, (max-width: 1440px) 13.4vw, 11.2vw"
-                      srcset="assets/img/r/gallery/dish8-cheesecake-250.webp 250w, assets/img/r/gallery/dish8-cheesecake-450.webp 450w">
-              <img src="assets/img/gallery/dish8-cheesecake.jpg" alt="" width="450" height="560" loading="lazy" decoding="async" fetchpriority="low" data-warm=".beyond">
+                      srcset="assets/img/r/gallery/dish8-milkshake-250.webp 250w, assets/img/r/gallery/dish8-milkshake-450.webp 450w">
+              <img src="assets/img/gallery/dish8-milkshake.jpg" alt="" width="450" height="560" loading="lazy" decoding="async" fetchpriority="low" data-warm=".beyond">
             </picture>
             <picture>
               <source type="image/avif" sizes="(max-width: 480px) 42.4vw, (max-width: 600px) 36.7vw, (max-width: 900px) 29.4vw, (max-width: 1200px) 19.6vw, (max-width: 1440px) 15.2vw, 12.6vw"
-                      srcset="assets/img/r/gallery/dish3-pancakes-240.avif 240w, assets/img/r/gallery/dish3-pancakes-290.avif 290w, assets/img/r/gallery/dish3-pancakes-420.avif 420w, assets/img/r/gallery/dish3-pancakes-510.avif 510w">
+                      srcset="assets/img/r/gallery/dish3-basbousa-240.avif 240w, assets/img/r/gallery/dish3-basbousa-290.avif 290w, assets/img/r/gallery/dish3-basbousa-420.avif 420w, assets/img/r/gallery/dish3-basbousa-510.avif 510w">
               <source type="image/webp" sizes="(max-width: 480px) 42.4vw, (max-width: 600px) 36.7vw, (max-width: 900px) 29.4vw, (max-width: 1200px) 19.6vw, (max-width: 1440px) 15.2vw, 12.6vw"
-                      srcset="assets/img/r/gallery/dish3-pancakes-240.webp 240w, assets/img/r/gallery/dish3-pancakes-510.webp 510w">
-              <img src="assets/img/gallery/dish3-pancakes.jpg" alt="" width="510" height="560" loading="lazy" decoding="async" fetchpriority="low" data-warm=".beyond">
+                      srcset="assets/img/r/gallery/dish3-basbousa-240.webp 240w, assets/img/r/gallery/dish3-basbousa-510.webp 510w">
+              <img src="assets/img/gallery/dish3-basbousa.jpg" alt="" width="510" height="560" loading="lazy" decoding="async" fetchpriority="low" data-warm=".beyond">
             </picture>
             <picture>
               <source type="image/avif" sizes="(max-width: 480px) 46.9vw, (max-width: 600px) 40.6vw, (max-width: 900px) 32.5vw, (max-width: 1200px) 21.7vw, (max-width: 1440px) 16.8vw, 14vw"
@@ -2409,59 +2433,59 @@
             <!-- copy 2 -->
             <picture>
               <source type="image/avif" sizes="(max-width: 480px) 25.5vw, (max-width: 600px) 22vw, (max-width: 900px) 17.6vw, (max-width: 1200px) 11.7vw, 7.6vw"
-                      srcset="assets/img/r/gallery/dish9-shake-306.avif 306w">
+                      srcset="assets/img/r/gallery/dish9-masala-306.avif 306w">
               <source type="image/webp" sizes="(max-width: 480px) 25.5vw, (max-width: 600px) 22vw, (max-width: 900px) 17.6vw, (max-width: 1200px) 11.7vw, 7.6vw"
-                      srcset="assets/img/r/gallery/dish9-shake-306.webp 306w">
-              <img src="assets/img/gallery/dish9-shake.jpg" alt="" width="306" height="560" loading="lazy" decoding="async" fetchpriority="low" data-warm=".beyond">
+                      srcset="assets/img/r/gallery/dish9-masala-306.webp 306w">
+              <img src="assets/img/gallery/dish9-masala.jpg" alt="" width="306" height="560" loading="lazy" decoding="async" fetchpriority="low" data-warm=".beyond">
             </picture>
             <picture>
               <source type="image/avif" sizes="(max-width: 480px) 55.8vw, (max-width: 600px) 48.3vw, (max-width: 900px) 38.6vw, (max-width: 1200px) 25.8vw, (max-width: 1800px) 20vw, 16.6vw"
-                      srcset="assets/img/r/gallery/dish2-prawns-250.avif 250w, assets/img/r/gallery/dish2-prawns-310.avif 310w, assets/img/r/gallery/dish2-prawns-380.avif 380w, assets/img/r/gallery/dish2-prawns-670.avif 670w">
+                      srcset="assets/img/r/gallery/dish2-mixgrill-250.avif 250w, assets/img/r/gallery/dish2-mixgrill-310.avif 310w, assets/img/r/gallery/dish2-mixgrill-380.avif 380w, assets/img/r/gallery/dish2-mixgrill-550.avif 550w, assets/img/r/gallery/dish2-mixgrill-670.avif 670w">
               <source type="image/webp" sizes="(max-width: 480px) 55.8vw, (max-width: 600px) 48.3vw, (max-width: 900px) 38.6vw, (max-width: 1200px) 25.8vw, (max-width: 1800px) 20vw, 16.6vw"
-                      srcset="assets/img/r/gallery/dish2-prawns-250.webp 250w, assets/img/r/gallery/dish2-prawns-670.webp 670w">
-              <img src="assets/img/gallery/dish2-prawns.jpg" alt="" width="671" height="560" loading="lazy" decoding="async" fetchpriority="low" data-warm=".beyond">
+                      srcset="assets/img/r/gallery/dish2-mixgrill-250.webp 250w, assets/img/r/gallery/dish2-mixgrill-670.webp 670w">
+              <img src="assets/img/gallery/dish2-mixgrill.jpg" alt="" width="671" height="560" loading="lazy" decoding="async" fetchpriority="low" data-warm=".beyond">
             </picture>
             <picture>
               <source type="image/avif" sizes="(max-width: 480px) 37vw, (max-width: 600px) 32vw, (max-width: 900px) 25.6vw, (max-width: 1200px) 17.1vw, (max-width: 1440px) 13.2vw, 11vw"
-                      srcset="assets/img/r/gallery/dish4-waffle-250.avif 250w, assets/img/r/gallery/dish4-waffle-445.avif 445w">
+                      srcset="assets/img/r/gallery/dish4-kunafa-250.avif 250w, assets/img/r/gallery/dish4-kunafa-370.avif 370w, assets/img/r/gallery/dish4-kunafa-445.avif 445w">
               <source type="image/webp" sizes="(max-width: 480px) 37vw, (max-width: 600px) 32vw, (max-width: 900px) 25.6vw, (max-width: 1200px) 17.1vw, (max-width: 1440px) 13.2vw, 11vw"
-                      srcset="assets/img/r/gallery/dish4-waffle-250.webp 250w, assets/img/r/gallery/dish4-waffle-445.webp 445w">
-              <img src="assets/img/gallery/dish4-waffle.jpg" alt="" width="445" height="560" loading="lazy" decoding="async" fetchpriority="low" data-warm=".beyond">
+                      srcset="assets/img/r/gallery/dish4-kunafa-250.webp 250w, assets/img/r/gallery/dish4-kunafa-445.webp 445w">
+              <img src="assets/img/gallery/dish4-kunafa.jpg" alt="" width="445" height="560" loading="lazy" decoding="async" fetchpriority="low" data-warm=".beyond">
             </picture>
             <picture>
               <source type="image/avif" sizes="(max-width: 480px) 53vw, (max-width: 600px) 45.9vw, (max-width: 900px) 36.7vw, (max-width: 1200px) 24.5vw, (max-width: 1440px) 19vw, 15.8vw"
-                      srcset="assets/img/r/gallery/dish7-steak-240.avif 240w, assets/img/r/gallery/dish7-steak-290.avif 290w, assets/img/r/gallery/dish7-steak-360.avif 360w, assets/img/r/gallery/dish7-steak-637.avif 637w">
+                      srcset="assets/img/r/gallery/dish7-shawarma-240.avif 240w, assets/img/r/gallery/dish7-shawarma-290.avif 290w, assets/img/r/gallery/dish7-shawarma-360.avif 360w, assets/img/r/gallery/dish7-shawarma-530.avif 530w, assets/img/r/gallery/dish7-shawarma-637.avif 637w">
               <source type="image/webp" sizes="(max-width: 480px) 53vw, (max-width: 600px) 45.9vw, (max-width: 900px) 36.7vw, (max-width: 1200px) 24.5vw, (max-width: 1440px) 19vw, 15.8vw"
-                      srcset="assets/img/r/gallery/dish7-steak-240.webp 240w, assets/img/r/gallery/dish7-steak-637.webp 637w">
-              <img src="assets/img/gallery/dish7-steak.jpg" alt="" width="637" height="560" loading="lazy" decoding="async" fetchpriority="low" data-warm=".beyond">
+                      srcset="assets/img/r/gallery/dish7-shawarma-240.webp 240w, assets/img/r/gallery/dish7-shawarma-637.webp 637w">
+              <img src="assets/img/gallery/dish7-shawarma.jpg" alt="" width="637" height="560" loading="lazy" decoding="async" fetchpriority="low" data-warm=".beyond">
             </picture>
             <picture>
               <source type="image/avif" sizes="(max-width: 480px) 71.2vw, (max-width: 600px) 61.6vw, (max-width: 900px) 49.3vw, (max-width: 1000px) 32.9vw, (max-width: 1200px) 30.6vw, (max-width: 1800px) 25.5vw, 21.2vw"
-                      srcset="assets/img/r/gallery/dish1-fries-320.avif 320w, assets/img/r/gallery/dish1-fries-390.avif 390w, assets/img/r/gallery/dish1-fries-480.avif 480w, assets/img/r/gallery/dish1-fries-710.avif 710w, assets/img/r/gallery/dish1-fries-850.avif 850w">
+                      srcset="assets/img/r/gallery/dish1-chips-320.avif 320w, assets/img/r/gallery/dish1-chips-390.avif 390w, assets/img/r/gallery/dish1-chips-480.avif 480w, assets/img/r/gallery/dish1-chips-850.avif 850w">
               <source type="image/webp" sizes="(max-width: 480px) 71.2vw, (max-width: 600px) 61.6vw, (max-width: 900px) 49.3vw, (max-width: 1000px) 32.9vw, (max-width: 1200px) 30.6vw, (max-width: 1800px) 25.5vw, 21.2vw"
-                      srcset="assets/img/r/gallery/dish1-fries-320.webp 320w, assets/img/r/gallery/dish1-fries-850.webp 850w">
-              <img src="assets/img/gallery/dish1-fries.jpg" alt="" width="856" height="560" loading="lazy" decoding="async" fetchpriority="low" data-warm=".beyond">
+                      srcset="assets/img/r/gallery/dish1-chips-320.webp 320w, assets/img/r/gallery/dish1-chips-850.webp 850w">
+              <img src="assets/img/gallery/dish1-chips.jpg" alt="" width="856" height="560" loading="lazy" decoding="async" fetchpriority="low" data-warm=".beyond">
             </picture>
             <picture>
               <source type="image/avif" sizes="(max-width: 480px) 46.8vw, (max-width: 600px) 40.5vw, (max-width: 900px) 32.4vw, (max-width: 1200px) 21.6vw, (max-width: 1440px) 16.8vw, 14vw"
-                      srcset="assets/img/r/gallery/dish5-burger-260.avif 260w, assets/img/r/gallery/dish5-burger-320.avif 320w, assets/img/r/gallery/dish5-burger-560.avif 560w">
+                      srcset="assets/img/r/gallery/dish5-burger-260.avif 260w, assets/img/r/gallery/dish5-burger-320.avif 320w, assets/img/r/gallery/dish5-burger-470.avif 470w, assets/img/r/gallery/dish5-burger-560.avif 560w">
               <source type="image/webp" sizes="(max-width: 480px) 46.8vw, (max-width: 600px) 40.5vw, (max-width: 900px) 32.4vw, (max-width: 1200px) 21.6vw, (max-width: 1440px) 16.8vw, 14vw"
                       srcset="assets/img/r/gallery/dish5-burger-260.webp 260w, assets/img/r/gallery/dish5-burger-560.webp 560w">
               <img src="assets/img/gallery/dish5-burger.jpg" alt="" width="563" height="560" loading="lazy" decoding="async" fetchpriority="low" data-warm=".beyond">
             </picture>
             <picture>
               <source type="image/avif" sizes="(max-width: 480px) 37.4vw, (max-width: 600px) 32.4vw, (max-width: 900px) 25.9vw, (max-width: 1200px) 17.3vw, (max-width: 1440px) 13.4vw, 11.2vw"
-                      srcset="assets/img/r/gallery/dish8-cheesecake-250.avif 250w, assets/img/r/gallery/dish8-cheesecake-450.avif 450w">
+                      srcset="assets/img/r/gallery/dish8-milkshake-250.avif 250w, assets/img/r/gallery/dish8-milkshake-370.avif 370w, assets/img/r/gallery/dish8-milkshake-450.avif 450w">
               <source type="image/webp" sizes="(max-width: 480px) 37.4vw, (max-width: 600px) 32.4vw, (max-width: 900px) 25.9vw, (max-width: 1200px) 17.3vw, (max-width: 1440px) 13.4vw, 11.2vw"
-                      srcset="assets/img/r/gallery/dish8-cheesecake-250.webp 250w, assets/img/r/gallery/dish8-cheesecake-450.webp 450w">
-              <img src="assets/img/gallery/dish8-cheesecake.jpg" alt="" width="450" height="560" loading="lazy" decoding="async" fetchpriority="low" data-warm=".beyond">
+                      srcset="assets/img/r/gallery/dish8-milkshake-250.webp 250w, assets/img/r/gallery/dish8-milkshake-450.webp 450w">
+              <img src="assets/img/gallery/dish8-milkshake.jpg" alt="" width="450" height="560" loading="lazy" decoding="async" fetchpriority="low" data-warm=".beyond">
             </picture>
             <picture>
               <source type="image/avif" sizes="(max-width: 480px) 42.4vw, (max-width: 600px) 36.7vw, (max-width: 900px) 29.4vw, (max-width: 1200px) 19.6vw, (max-width: 1440px) 15.2vw, 12.6vw"
-                      srcset="assets/img/r/gallery/dish3-pancakes-240.avif 240w, assets/img/r/gallery/dish3-pancakes-290.avif 290w, assets/img/r/gallery/dish3-pancakes-420.avif 420w, assets/img/r/gallery/dish3-pancakes-510.avif 510w">
+                      srcset="assets/img/r/gallery/dish3-basbousa-240.avif 240w, assets/img/r/gallery/dish3-basbousa-290.avif 290w, assets/img/r/gallery/dish3-basbousa-420.avif 420w, assets/img/r/gallery/dish3-basbousa-510.avif 510w">
               <source type="image/webp" sizes="(max-width: 480px) 42.4vw, (max-width: 600px) 36.7vw, (max-width: 900px) 29.4vw, (max-width: 1200px) 19.6vw, (max-width: 1440px) 15.2vw, 12.6vw"
-                      srcset="assets/img/r/gallery/dish3-pancakes-240.webp 240w, assets/img/r/gallery/dish3-pancakes-510.webp 510w">
-              <img src="assets/img/gallery/dish3-pancakes.jpg" alt="" width="510" height="560" loading="lazy" decoding="async" fetchpriority="low" data-warm=".beyond">
+                      srcset="assets/img/r/gallery/dish3-basbousa-240.webp 240w, assets/img/r/gallery/dish3-basbousa-510.webp 510w">
+              <img src="assets/img/gallery/dish3-basbousa.jpg" alt="" width="510" height="560" loading="lazy" decoding="async" fetchpriority="low" data-warm=".beyond">
             </picture>
             <picture>
               <source type="image/avif" sizes="(max-width: 480px) 46.9vw, (max-width: 600px) 40.6vw, (max-width: 900px) 32.5vw, (max-width: 1200px) 21.7vw, (max-width: 1440px) 16.8vw, 14vw"
@@ -2473,59 +2497,59 @@
             <!-- copy 3 -->
             <picture>
               <source type="image/avif" sizes="(max-width: 480px) 25.5vw, (max-width: 600px) 22vw, (max-width: 900px) 17.6vw, (max-width: 1200px) 11.7vw, 7.6vw"
-                      srcset="assets/img/r/gallery/dish9-shake-306.avif 306w">
+                      srcset="assets/img/r/gallery/dish9-masala-306.avif 306w">
               <source type="image/webp" sizes="(max-width: 480px) 25.5vw, (max-width: 600px) 22vw, (max-width: 900px) 17.6vw, (max-width: 1200px) 11.7vw, 7.6vw"
-                      srcset="assets/img/r/gallery/dish9-shake-306.webp 306w">
-              <img src="assets/img/gallery/dish9-shake.jpg" alt="" width="306" height="560" loading="lazy" decoding="async" fetchpriority="low" data-warm=".beyond">
+                      srcset="assets/img/r/gallery/dish9-masala-306.webp 306w">
+              <img src="assets/img/gallery/dish9-masala.jpg" alt="" width="306" height="560" loading="lazy" decoding="async" fetchpriority="low" data-warm=".beyond">
             </picture>
             <picture>
               <source type="image/avif" sizes="(max-width: 480px) 55.8vw, (max-width: 600px) 48.3vw, (max-width: 900px) 38.6vw, (max-width: 1200px) 25.8vw, (max-width: 1800px) 20vw, 16.6vw"
-                      srcset="assets/img/r/gallery/dish2-prawns-250.avif 250w, assets/img/r/gallery/dish2-prawns-310.avif 310w, assets/img/r/gallery/dish2-prawns-380.avif 380w, assets/img/r/gallery/dish2-prawns-670.avif 670w">
+                      srcset="assets/img/r/gallery/dish2-mixgrill-250.avif 250w, assets/img/r/gallery/dish2-mixgrill-310.avif 310w, assets/img/r/gallery/dish2-mixgrill-380.avif 380w, assets/img/r/gallery/dish2-mixgrill-550.avif 550w, assets/img/r/gallery/dish2-mixgrill-670.avif 670w">
               <source type="image/webp" sizes="(max-width: 480px) 55.8vw, (max-width: 600px) 48.3vw, (max-width: 900px) 38.6vw, (max-width: 1200px) 25.8vw, (max-width: 1800px) 20vw, 16.6vw"
-                      srcset="assets/img/r/gallery/dish2-prawns-250.webp 250w, assets/img/r/gallery/dish2-prawns-670.webp 670w">
-              <img src="assets/img/gallery/dish2-prawns.jpg" alt="" width="671" height="560" loading="lazy" decoding="async" fetchpriority="low" data-warm=".beyond">
+                      srcset="assets/img/r/gallery/dish2-mixgrill-250.webp 250w, assets/img/r/gallery/dish2-mixgrill-670.webp 670w">
+              <img src="assets/img/gallery/dish2-mixgrill.jpg" alt="" width="671" height="560" loading="lazy" decoding="async" fetchpriority="low" data-warm=".beyond">
             </picture>
             <picture>
               <source type="image/avif" sizes="(max-width: 480px) 37vw, (max-width: 600px) 32vw, (max-width: 900px) 25.6vw, (max-width: 1200px) 17.1vw, (max-width: 1440px) 13.2vw, 11vw"
-                      srcset="assets/img/r/gallery/dish4-waffle-250.avif 250w, assets/img/r/gallery/dish4-waffle-445.avif 445w">
+                      srcset="assets/img/r/gallery/dish4-kunafa-250.avif 250w, assets/img/r/gallery/dish4-kunafa-370.avif 370w, assets/img/r/gallery/dish4-kunafa-445.avif 445w">
               <source type="image/webp" sizes="(max-width: 480px) 37vw, (max-width: 600px) 32vw, (max-width: 900px) 25.6vw, (max-width: 1200px) 17.1vw, (max-width: 1440px) 13.2vw, 11vw"
-                      srcset="assets/img/r/gallery/dish4-waffle-250.webp 250w, assets/img/r/gallery/dish4-waffle-445.webp 445w">
-              <img src="assets/img/gallery/dish4-waffle.jpg" alt="" width="445" height="560" loading="lazy" decoding="async" fetchpriority="low" data-warm=".beyond">
+                      srcset="assets/img/r/gallery/dish4-kunafa-250.webp 250w, assets/img/r/gallery/dish4-kunafa-445.webp 445w">
+              <img src="assets/img/gallery/dish4-kunafa.jpg" alt="" width="445" height="560" loading="lazy" decoding="async" fetchpriority="low" data-warm=".beyond">
             </picture>
             <picture>
               <source type="image/avif" sizes="(max-width: 480px) 53vw, (max-width: 600px) 45.9vw, (max-width: 900px) 36.7vw, (max-width: 1200px) 24.5vw, (max-width: 1440px) 19vw, 15.8vw"
-                      srcset="assets/img/r/gallery/dish7-steak-240.avif 240w, assets/img/r/gallery/dish7-steak-290.avif 290w, assets/img/r/gallery/dish7-steak-360.avif 360w, assets/img/r/gallery/dish7-steak-637.avif 637w">
+                      srcset="assets/img/r/gallery/dish7-shawarma-240.avif 240w, assets/img/r/gallery/dish7-shawarma-290.avif 290w, assets/img/r/gallery/dish7-shawarma-360.avif 360w, assets/img/r/gallery/dish7-shawarma-530.avif 530w, assets/img/r/gallery/dish7-shawarma-637.avif 637w">
               <source type="image/webp" sizes="(max-width: 480px) 53vw, (max-width: 600px) 45.9vw, (max-width: 900px) 36.7vw, (max-width: 1200px) 24.5vw, (max-width: 1440px) 19vw, 15.8vw"
-                      srcset="assets/img/r/gallery/dish7-steak-240.webp 240w, assets/img/r/gallery/dish7-steak-637.webp 637w">
-              <img src="assets/img/gallery/dish7-steak.jpg" alt="" width="637" height="560" loading="lazy" decoding="async" fetchpriority="low" data-warm=".beyond">
+                      srcset="assets/img/r/gallery/dish7-shawarma-240.webp 240w, assets/img/r/gallery/dish7-shawarma-637.webp 637w">
+              <img src="assets/img/gallery/dish7-shawarma.jpg" alt="" width="637" height="560" loading="lazy" decoding="async" fetchpriority="low" data-warm=".beyond">
             </picture>
             <picture>
               <source type="image/avif" sizes="(max-width: 480px) 71.2vw, (max-width: 600px) 61.6vw, (max-width: 900px) 49.3vw, (max-width: 1000px) 32.9vw, (max-width: 1200px) 30.6vw, (max-width: 1800px) 25.5vw, 21.2vw"
-                      srcset="assets/img/r/gallery/dish1-fries-320.avif 320w, assets/img/r/gallery/dish1-fries-390.avif 390w, assets/img/r/gallery/dish1-fries-480.avif 480w, assets/img/r/gallery/dish1-fries-710.avif 710w, assets/img/r/gallery/dish1-fries-850.avif 850w">
+                      srcset="assets/img/r/gallery/dish1-chips-320.avif 320w, assets/img/r/gallery/dish1-chips-390.avif 390w, assets/img/r/gallery/dish1-chips-480.avif 480w, assets/img/r/gallery/dish1-chips-850.avif 850w">
               <source type="image/webp" sizes="(max-width: 480px) 71.2vw, (max-width: 600px) 61.6vw, (max-width: 900px) 49.3vw, (max-width: 1000px) 32.9vw, (max-width: 1200px) 30.6vw, (max-width: 1800px) 25.5vw, 21.2vw"
-                      srcset="assets/img/r/gallery/dish1-fries-320.webp 320w, assets/img/r/gallery/dish1-fries-850.webp 850w">
-              <img src="assets/img/gallery/dish1-fries.jpg" alt="" width="856" height="560" loading="lazy" decoding="async" fetchpriority="low" data-warm=".beyond">
+                      srcset="assets/img/r/gallery/dish1-chips-320.webp 320w, assets/img/r/gallery/dish1-chips-850.webp 850w">
+              <img src="assets/img/gallery/dish1-chips.jpg" alt="" width="856" height="560" loading="lazy" decoding="async" fetchpriority="low" data-warm=".beyond">
             </picture>
             <picture>
               <source type="image/avif" sizes="(max-width: 480px) 46.8vw, (max-width: 600px) 40.5vw, (max-width: 900px) 32.4vw, (max-width: 1200px) 21.6vw, (max-width: 1440px) 16.8vw, 14vw"
-                      srcset="assets/img/r/gallery/dish5-burger-260.avif 260w, assets/img/r/gallery/dish5-burger-320.avif 320w, assets/img/r/gallery/dish5-burger-560.avif 560w">
+                      srcset="assets/img/r/gallery/dish5-burger-260.avif 260w, assets/img/r/gallery/dish5-burger-320.avif 320w, assets/img/r/gallery/dish5-burger-470.avif 470w, assets/img/r/gallery/dish5-burger-560.avif 560w">
               <source type="image/webp" sizes="(max-width: 480px) 46.8vw, (max-width: 600px) 40.5vw, (max-width: 900px) 32.4vw, (max-width: 1200px) 21.6vw, (max-width: 1440px) 16.8vw, 14vw"
                       srcset="assets/img/r/gallery/dish5-burger-260.webp 260w, assets/img/r/gallery/dish5-burger-560.webp 560w">
               <img src="assets/img/gallery/dish5-burger.jpg" alt="" width="563" height="560" loading="lazy" decoding="async" fetchpriority="low" data-warm=".beyond">
             </picture>
             <picture>
               <source type="image/avif" sizes="(max-width: 480px) 37.4vw, (max-width: 600px) 32.4vw, (max-width: 900px) 25.9vw, (max-width: 1200px) 17.3vw, (max-width: 1440px) 13.4vw, 11.2vw"
-                      srcset="assets/img/r/gallery/dish8-cheesecake-250.avif 250w, assets/img/r/gallery/dish8-cheesecake-450.avif 450w">
+                      srcset="assets/img/r/gallery/dish8-milkshake-250.avif 250w, assets/img/r/gallery/dish8-milkshake-370.avif 370w, assets/img/r/gallery/dish8-milkshake-450.avif 450w">
               <source type="image/webp" sizes="(max-width: 480px) 37.4vw, (max-width: 600px) 32.4vw, (max-width: 900px) 25.9vw, (max-width: 1200px) 17.3vw, (max-width: 1440px) 13.4vw, 11.2vw"
-                      srcset="assets/img/r/gallery/dish8-cheesecake-250.webp 250w, assets/img/r/gallery/dish8-cheesecake-450.webp 450w">
-              <img src="assets/img/gallery/dish8-cheesecake.jpg" alt="" width="450" height="560" loading="lazy" decoding="async" fetchpriority="low" data-warm=".beyond">
+                      srcset="assets/img/r/gallery/dish8-milkshake-250.webp 250w, assets/img/r/gallery/dish8-milkshake-450.webp 450w">
+              <img src="assets/img/gallery/dish8-milkshake.jpg" alt="" width="450" height="560" loading="lazy" decoding="async" fetchpriority="low" data-warm=".beyond">
             </picture>
             <picture>
               <source type="image/avif" sizes="(max-width: 480px) 42.4vw, (max-width: 600px) 36.7vw, (max-width: 900px) 29.4vw, (max-width: 1200px) 19.6vw, (max-width: 1440px) 15.2vw, 12.6vw"
-                      srcset="assets/img/r/gallery/dish3-pancakes-240.avif 240w, assets/img/r/gallery/dish3-pancakes-290.avif 290w, assets/img/r/gallery/dish3-pancakes-420.avif 420w, assets/img/r/gallery/dish3-pancakes-510.avif 510w">
+                      srcset="assets/img/r/gallery/dish3-basbousa-240.avif 240w, assets/img/r/gallery/dish3-basbousa-290.avif 290w, assets/img/r/gallery/dish3-basbousa-420.avif 420w, assets/img/r/gallery/dish3-basbousa-510.avif 510w">
               <source type="image/webp" sizes="(max-width: 480px) 42.4vw, (max-width: 600px) 36.7vw, (max-width: 900px) 29.4vw, (max-width: 1200px) 19.6vw, (max-width: 1440px) 15.2vw, 12.6vw"
-                      srcset="assets/img/r/gallery/dish3-pancakes-240.webp 240w, assets/img/r/gallery/dish3-pancakes-510.webp 510w">
-              <img src="assets/img/gallery/dish3-pancakes.jpg" alt="" width="510" height="560" loading="lazy" decoding="async" fetchpriority="low" data-warm=".beyond">
+                      srcset="assets/img/r/gallery/dish3-basbousa-240.webp 240w, assets/img/r/gallery/dish3-basbousa-510.webp 510w">
+              <img src="assets/img/gallery/dish3-basbousa.jpg" alt="" width="510" height="560" loading="lazy" decoding="async" fetchpriority="low" data-warm=".beyond">
             </picture>
             <picture>
               <source type="image/avif" sizes="(max-width: 480px) 46.9vw, (max-width: 600px) 40.6vw, (max-width: 900px) 32.5vw, (max-width: 1200px) 21.7vw, (max-width: 1440px) 16.8vw, 14vw"
@@ -2542,24 +2566,24 @@
             <!-- copy 1 -->
             <picture>
               <source type="image/avif" sizes="(max-width: 480px) 46.8vw, (max-width: 600px) 40.5vw, (max-width: 900px) 32.4vw, (max-width: 1200px) 21.6vw, (max-width: 1440px) 16.8vw, 14vw"
-                      srcset="assets/img/r/gallery/dish5-burger-260.avif 260w, assets/img/r/gallery/dish5-burger-320.avif 320w, assets/img/r/gallery/dish5-burger-560.avif 560w">
+                      srcset="assets/img/r/gallery/dish5-burger-260.avif 260w, assets/img/r/gallery/dish5-burger-320.avif 320w, assets/img/r/gallery/dish5-burger-470.avif 470w, assets/img/r/gallery/dish5-burger-560.avif 560w">
               <source type="image/webp" sizes="(max-width: 480px) 46.8vw, (max-width: 600px) 40.5vw, (max-width: 900px) 32.4vw, (max-width: 1200px) 21.6vw, (max-width: 1440px) 16.8vw, 14vw"
                       srcset="assets/img/r/gallery/dish5-burger-260.webp 260w, assets/img/r/gallery/dish5-burger-560.webp 560w">
               <img src="assets/img/gallery/dish5-burger.jpg" alt="" width="563" height="560" loading="lazy" decoding="async" fetchpriority="low" data-warm=".beyond">
             </picture>
             <picture>
               <source type="image/avif" sizes="(max-width: 480px) 37.4vw, (max-width: 600px) 32.4vw, (max-width: 900px) 25.9vw, (max-width: 1200px) 17.3vw, (max-width: 1440px) 13.4vw, 11.2vw"
-                      srcset="assets/img/r/gallery/dish8-cheesecake-250.avif 250w, assets/img/r/gallery/dish8-cheesecake-450.avif 450w">
+                      srcset="assets/img/r/gallery/dish8-milkshake-250.avif 250w, assets/img/r/gallery/dish8-milkshake-370.avif 370w, assets/img/r/gallery/dish8-milkshake-450.avif 450w">
               <source type="image/webp" sizes="(max-width: 480px) 37.4vw, (max-width: 600px) 32.4vw, (max-width: 900px) 25.9vw, (max-width: 1200px) 17.3vw, (max-width: 1440px) 13.4vw, 11.2vw"
-                      srcset="assets/img/r/gallery/dish8-cheesecake-250.webp 250w, assets/img/r/gallery/dish8-cheesecake-450.webp 450w">
-              <img src="assets/img/gallery/dish8-cheesecake.jpg" alt="" width="450" height="560" loading="lazy" decoding="async" fetchpriority="low" data-warm=".beyond">
+                      srcset="assets/img/r/gallery/dish8-milkshake-250.webp 250w, assets/img/r/gallery/dish8-milkshake-450.webp 450w">
+              <img src="assets/img/gallery/dish8-milkshake.jpg" alt="" width="450" height="560" loading="lazy" decoding="async" fetchpriority="low" data-warm=".beyond">
             </picture>
             <picture>
               <source type="image/avif" sizes="(max-width: 480px) 71.2vw, (max-width: 600px) 61.6vw, (max-width: 900px) 49.3vw, (max-width: 1000px) 32.9vw, (max-width: 1200px) 30.6vw, (max-width: 1800px) 25.5vw, 21.2vw"
-                      srcset="assets/img/r/gallery/dish1-fries-320.avif 320w, assets/img/r/gallery/dish1-fries-390.avif 390w, assets/img/r/gallery/dish1-fries-480.avif 480w, assets/img/r/gallery/dish1-fries-710.avif 710w, assets/img/r/gallery/dish1-fries-850.avif 850w">
+                      srcset="assets/img/r/gallery/dish1-chips-320.avif 320w, assets/img/r/gallery/dish1-chips-390.avif 390w, assets/img/r/gallery/dish1-chips-480.avif 480w, assets/img/r/gallery/dish1-chips-850.avif 850w">
               <source type="image/webp" sizes="(max-width: 480px) 71.2vw, (max-width: 600px) 61.6vw, (max-width: 900px) 49.3vw, (max-width: 1000px) 32.9vw, (max-width: 1200px) 30.6vw, (max-width: 1800px) 25.5vw, 21.2vw"
-                      srcset="assets/img/r/gallery/dish1-fries-320.webp 320w, assets/img/r/gallery/dish1-fries-850.webp 850w">
-              <img src="assets/img/gallery/dish1-fries.jpg" alt="" width="856" height="560" loading="lazy" decoding="async" fetchpriority="low" data-warm=".beyond">
+                      srcset="assets/img/r/gallery/dish1-chips-320.webp 320w, assets/img/r/gallery/dish1-chips-850.webp 850w">
+              <img src="assets/img/gallery/dish1-chips.jpg" alt="" width="856" height="560" loading="lazy" decoding="async" fetchpriority="low" data-warm=".beyond">
             </picture>
             <picture>
               <source type="image/avif" sizes="(max-width: 480px) 46.9vw, (max-width: 600px) 40.6vw, (max-width: 900px) 32.5vw, (max-width: 1200px) 21.7vw, (max-width: 1440px) 16.8vw, 14vw"
@@ -2570,60 +2594,60 @@
             </picture>
             <picture>
               <source type="image/avif" sizes="(max-width: 480px) 55.8vw, (max-width: 600px) 48.3vw, (max-width: 900px) 38.6vw, (max-width: 1200px) 25.8vw, (max-width: 1800px) 20vw, 16.6vw"
-                      srcset="assets/img/r/gallery/dish2-prawns-250.avif 250w, assets/img/r/gallery/dish2-prawns-310.avif 310w, assets/img/r/gallery/dish2-prawns-380.avif 380w, assets/img/r/gallery/dish2-prawns-670.avif 670w">
+                      srcset="assets/img/r/gallery/dish2-mixgrill-250.avif 250w, assets/img/r/gallery/dish2-mixgrill-310.avif 310w, assets/img/r/gallery/dish2-mixgrill-380.avif 380w, assets/img/r/gallery/dish2-mixgrill-550.avif 550w, assets/img/r/gallery/dish2-mixgrill-670.avif 670w">
               <source type="image/webp" sizes="(max-width: 480px) 55.8vw, (max-width: 600px) 48.3vw, (max-width: 900px) 38.6vw, (max-width: 1200px) 25.8vw, (max-width: 1800px) 20vw, 16.6vw"
-                      srcset="assets/img/r/gallery/dish2-prawns-250.webp 250w, assets/img/r/gallery/dish2-prawns-670.webp 670w">
-              <img src="assets/img/gallery/dish2-prawns.jpg" alt="" width="671" height="560" loading="lazy" decoding="async" fetchpriority="low" data-warm=".beyond">
+                      srcset="assets/img/r/gallery/dish2-mixgrill-250.webp 250w, assets/img/r/gallery/dish2-mixgrill-670.webp 670w">
+              <img src="assets/img/gallery/dish2-mixgrill.jpg" alt="" width="671" height="560" loading="lazy" decoding="async" fetchpriority="low" data-warm=".beyond">
             </picture>
             <picture>
               <source type="image/avif" sizes="(max-width: 480px) 42.4vw, (max-width: 600px) 36.7vw, (max-width: 900px) 29.4vw, (max-width: 1200px) 19.6vw, (max-width: 1440px) 15.2vw, 12.6vw"
-                      srcset="assets/img/r/gallery/dish3-pancakes-240.avif 240w, assets/img/r/gallery/dish3-pancakes-290.avif 290w, assets/img/r/gallery/dish3-pancakes-420.avif 420w, assets/img/r/gallery/dish3-pancakes-510.avif 510w">
+                      srcset="assets/img/r/gallery/dish3-basbousa-240.avif 240w, assets/img/r/gallery/dish3-basbousa-290.avif 290w, assets/img/r/gallery/dish3-basbousa-420.avif 420w, assets/img/r/gallery/dish3-basbousa-510.avif 510w">
               <source type="image/webp" sizes="(max-width: 480px) 42.4vw, (max-width: 600px) 36.7vw, (max-width: 900px) 29.4vw, (max-width: 1200px) 19.6vw, (max-width: 1440px) 15.2vw, 12.6vw"
-                      srcset="assets/img/r/gallery/dish3-pancakes-240.webp 240w, assets/img/r/gallery/dish3-pancakes-510.webp 510w">
-              <img src="assets/img/gallery/dish3-pancakes.jpg" alt="" width="510" height="560" loading="lazy" decoding="async" fetchpriority="low" data-warm=".beyond">
+                      srcset="assets/img/r/gallery/dish3-basbousa-240.webp 240w, assets/img/r/gallery/dish3-basbousa-510.webp 510w">
+              <img src="assets/img/gallery/dish3-basbousa.jpg" alt="" width="510" height="560" loading="lazy" decoding="async" fetchpriority="low" data-warm=".beyond">
             </picture>
             <picture>
               <source type="image/avif" sizes="(max-width: 480px) 25.5vw, (max-width: 600px) 22vw, (max-width: 900px) 17.6vw, (max-width: 1200px) 11.7vw, 7.6vw"
-                      srcset="assets/img/r/gallery/dish9-shake-306.avif 306w">
+                      srcset="assets/img/r/gallery/dish9-masala-306.avif 306w">
               <source type="image/webp" sizes="(max-width: 480px) 25.5vw, (max-width: 600px) 22vw, (max-width: 900px) 17.6vw, (max-width: 1200px) 11.7vw, 7.6vw"
-                      srcset="assets/img/r/gallery/dish9-shake-306.webp 306w">
-              <img src="assets/img/gallery/dish9-shake.jpg" alt="" width="306" height="560" loading="lazy" decoding="async" fetchpriority="low" data-warm=".beyond">
+                      srcset="assets/img/r/gallery/dish9-masala-306.webp 306w">
+              <img src="assets/img/gallery/dish9-masala.jpg" alt="" width="306" height="560" loading="lazy" decoding="async" fetchpriority="low" data-warm=".beyond">
             </picture>
             <picture>
               <source type="image/avif" sizes="(max-width: 480px) 53vw, (max-width: 600px) 45.9vw, (max-width: 900px) 36.7vw, (max-width: 1200px) 24.5vw, (max-width: 1440px) 19vw, 15.8vw"
-                      srcset="assets/img/r/gallery/dish7-steak-240.avif 240w, assets/img/r/gallery/dish7-steak-290.avif 290w, assets/img/r/gallery/dish7-steak-360.avif 360w, assets/img/r/gallery/dish7-steak-637.avif 637w">
+                      srcset="assets/img/r/gallery/dish7-shawarma-240.avif 240w, assets/img/r/gallery/dish7-shawarma-290.avif 290w, assets/img/r/gallery/dish7-shawarma-360.avif 360w, assets/img/r/gallery/dish7-shawarma-530.avif 530w, assets/img/r/gallery/dish7-shawarma-637.avif 637w">
               <source type="image/webp" sizes="(max-width: 480px) 53vw, (max-width: 600px) 45.9vw, (max-width: 900px) 36.7vw, (max-width: 1200px) 24.5vw, (max-width: 1440px) 19vw, 15.8vw"
-                      srcset="assets/img/r/gallery/dish7-steak-240.webp 240w, assets/img/r/gallery/dish7-steak-637.webp 637w">
-              <img src="assets/img/gallery/dish7-steak.jpg" alt="" width="637" height="560" loading="lazy" decoding="async" fetchpriority="low" data-warm=".beyond">
+                      srcset="assets/img/r/gallery/dish7-shawarma-240.webp 240w, assets/img/r/gallery/dish7-shawarma-637.webp 637w">
+              <img src="assets/img/gallery/dish7-shawarma.jpg" alt="" width="637" height="560" loading="lazy" decoding="async" fetchpriority="low" data-warm=".beyond">
             </picture>
             <picture>
               <source type="image/avif" sizes="(max-width: 480px) 37vw, (max-width: 600px) 32vw, (max-width: 900px) 25.6vw, (max-width: 1200px) 17.1vw, (max-width: 1440px) 13.2vw, 11vw"
-                      srcset="assets/img/r/gallery/dish4-waffle-250.avif 250w, assets/img/r/gallery/dish4-waffle-445.avif 445w">
+                      srcset="assets/img/r/gallery/dish4-kunafa-250.avif 250w, assets/img/r/gallery/dish4-kunafa-370.avif 370w, assets/img/r/gallery/dish4-kunafa-445.avif 445w">
               <source type="image/webp" sizes="(max-width: 480px) 37vw, (max-width: 600px) 32vw, (max-width: 900px) 25.6vw, (max-width: 1200px) 17.1vw, (max-width: 1440px) 13.2vw, 11vw"
-                      srcset="assets/img/r/gallery/dish4-waffle-250.webp 250w, assets/img/r/gallery/dish4-waffle-445.webp 445w">
-              <img src="assets/img/gallery/dish4-waffle.jpg" alt="" width="445" height="560" loading="lazy" decoding="async" fetchpriority="low" data-warm=".beyond">
+                      srcset="assets/img/r/gallery/dish4-kunafa-250.webp 250w, assets/img/r/gallery/dish4-kunafa-445.webp 445w">
+              <img src="assets/img/gallery/dish4-kunafa.jpg" alt="" width="445" height="560" loading="lazy" decoding="async" fetchpriority="low" data-warm=".beyond">
             </picture>
             <!-- copy 2 -->
             <picture>
               <source type="image/avif" sizes="(max-width: 480px) 46.8vw, (max-width: 600px) 40.5vw, (max-width: 900px) 32.4vw, (max-width: 1200px) 21.6vw, (max-width: 1440px) 16.8vw, 14vw"
-                      srcset="assets/img/r/gallery/dish5-burger-260.avif 260w, assets/img/r/gallery/dish5-burger-320.avif 320w, assets/img/r/gallery/dish5-burger-560.avif 560w">
+                      srcset="assets/img/r/gallery/dish5-burger-260.avif 260w, assets/img/r/gallery/dish5-burger-320.avif 320w, assets/img/r/gallery/dish5-burger-470.avif 470w, assets/img/r/gallery/dish5-burger-560.avif 560w">
               <source type="image/webp" sizes="(max-width: 480px) 46.8vw, (max-width: 600px) 40.5vw, (max-width: 900px) 32.4vw, (max-width: 1200px) 21.6vw, (max-width: 1440px) 16.8vw, 14vw"
                       srcset="assets/img/r/gallery/dish5-burger-260.webp 260w, assets/img/r/gallery/dish5-burger-560.webp 560w">
               <img src="assets/img/gallery/dish5-burger.jpg" alt="" width="563" height="560" loading="lazy" decoding="async" fetchpriority="low" data-warm=".beyond">
             </picture>
             <picture>
               <source type="image/avif" sizes="(max-width: 480px) 37.4vw, (max-width: 600px) 32.4vw, (max-width: 900px) 25.9vw, (max-width: 1200px) 17.3vw, (max-width: 1440px) 13.4vw, 11.2vw"
-                      srcset="assets/img/r/gallery/dish8-cheesecake-250.avif 250w, assets/img/r/gallery/dish8-cheesecake-450.avif 450w">
+                      srcset="assets/img/r/gallery/dish8-milkshake-250.avif 250w, assets/img/r/gallery/dish8-milkshake-370.avif 370w, assets/img/r/gallery/dish8-milkshake-450.avif 450w">
               <source type="image/webp" sizes="(max-width: 480px) 37.4vw, (max-width: 600px) 32.4vw, (max-width: 900px) 25.9vw, (max-width: 1200px) 17.3vw, (max-width: 1440px) 13.4vw, 11.2vw"
-                      srcset="assets/img/r/gallery/dish8-cheesecake-250.webp 250w, assets/img/r/gallery/dish8-cheesecake-450.webp 450w">
-              <img src="assets/img/gallery/dish8-cheesecake.jpg" alt="" width="450" height="560" loading="lazy" decoding="async" fetchpriority="low" data-warm=".beyond">
+                      srcset="assets/img/r/gallery/dish8-milkshake-250.webp 250w, assets/img/r/gallery/dish8-milkshake-450.webp 450w">
+              <img src="assets/img/gallery/dish8-milkshake.jpg" alt="" width="450" height="560" loading="lazy" decoding="async" fetchpriority="low" data-warm=".beyond">
             </picture>
             <picture>
               <source type="image/avif" sizes="(max-width: 480px) 71.2vw, (max-width: 600px) 61.6vw, (max-width: 900px) 49.3vw, (max-width: 1000px) 32.9vw, (max-width: 1200px) 30.6vw, (max-width: 1800px) 25.5vw, 21.2vw"
-                      srcset="assets/img/r/gallery/dish1-fries-320.avif 320w, assets/img/r/gallery/dish1-fries-390.avif 390w, assets/img/r/gallery/dish1-fries-480.avif 480w, assets/img/r/gallery/dish1-fries-710.avif 710w, assets/img/r/gallery/dish1-fries-850.avif 850w">
+                      srcset="assets/img/r/gallery/dish1-chips-320.avif 320w, assets/img/r/gallery/dish1-chips-390.avif 390w, assets/img/r/gallery/dish1-chips-480.avif 480w, assets/img/r/gallery/dish1-chips-850.avif 850w">
               <source type="image/webp" sizes="(max-width: 480px) 71.2vw, (max-width: 600px) 61.6vw, (max-width: 900px) 49.3vw, (max-width: 1000px) 32.9vw, (max-width: 1200px) 30.6vw, (max-width: 1800px) 25.5vw, 21.2vw"
-                      srcset="assets/img/r/gallery/dish1-fries-320.webp 320w, assets/img/r/gallery/dish1-fries-850.webp 850w">
-              <img src="assets/img/gallery/dish1-fries.jpg" alt="" width="856" height="560" loading="lazy" decoding="async" fetchpriority="low" data-warm=".beyond">
+                      srcset="assets/img/r/gallery/dish1-chips-320.webp 320w, assets/img/r/gallery/dish1-chips-850.webp 850w">
+              <img src="assets/img/gallery/dish1-chips.jpg" alt="" width="856" height="560" loading="lazy" decoding="async" fetchpriority="low" data-warm=".beyond">
             </picture>
             <picture>
               <source type="image/avif" sizes="(max-width: 480px) 46.9vw, (max-width: 600px) 40.6vw, (max-width: 900px) 32.5vw, (max-width: 1200px) 21.7vw, (max-width: 1440px) 16.8vw, 14vw"
@@ -2634,60 +2658,60 @@
             </picture>
             <picture>
               <source type="image/avif" sizes="(max-width: 480px) 55.8vw, (max-width: 600px) 48.3vw, (max-width: 900px) 38.6vw, (max-width: 1200px) 25.8vw, (max-width: 1800px) 20vw, 16.6vw"
-                      srcset="assets/img/r/gallery/dish2-prawns-250.avif 250w, assets/img/r/gallery/dish2-prawns-310.avif 310w, assets/img/r/gallery/dish2-prawns-380.avif 380w, assets/img/r/gallery/dish2-prawns-670.avif 670w">
+                      srcset="assets/img/r/gallery/dish2-mixgrill-250.avif 250w, assets/img/r/gallery/dish2-mixgrill-310.avif 310w, assets/img/r/gallery/dish2-mixgrill-380.avif 380w, assets/img/r/gallery/dish2-mixgrill-550.avif 550w, assets/img/r/gallery/dish2-mixgrill-670.avif 670w">
               <source type="image/webp" sizes="(max-width: 480px) 55.8vw, (max-width: 600px) 48.3vw, (max-width: 900px) 38.6vw, (max-width: 1200px) 25.8vw, (max-width: 1800px) 20vw, 16.6vw"
-                      srcset="assets/img/r/gallery/dish2-prawns-250.webp 250w, assets/img/r/gallery/dish2-prawns-670.webp 670w">
-              <img src="assets/img/gallery/dish2-prawns.jpg" alt="" width="671" height="560" loading="lazy" decoding="async" fetchpriority="low" data-warm=".beyond">
+                      srcset="assets/img/r/gallery/dish2-mixgrill-250.webp 250w, assets/img/r/gallery/dish2-mixgrill-670.webp 670w">
+              <img src="assets/img/gallery/dish2-mixgrill.jpg" alt="" width="671" height="560" loading="lazy" decoding="async" fetchpriority="low" data-warm=".beyond">
             </picture>
             <picture>
               <source type="image/avif" sizes="(max-width: 480px) 42.4vw, (max-width: 600px) 36.7vw, (max-width: 900px) 29.4vw, (max-width: 1200px) 19.6vw, (max-width: 1440px) 15.2vw, 12.6vw"
-                      srcset="assets/img/r/gallery/dish3-pancakes-240.avif 240w, assets/img/r/gallery/dish3-pancakes-290.avif 290w, assets/img/r/gallery/dish3-pancakes-420.avif 420w, assets/img/r/gallery/dish3-pancakes-510.avif 510w">
+                      srcset="assets/img/r/gallery/dish3-basbousa-240.avif 240w, assets/img/r/gallery/dish3-basbousa-290.avif 290w, assets/img/r/gallery/dish3-basbousa-420.avif 420w, assets/img/r/gallery/dish3-basbousa-510.avif 510w">
               <source type="image/webp" sizes="(max-width: 480px) 42.4vw, (max-width: 600px) 36.7vw, (max-width: 900px) 29.4vw, (max-width: 1200px) 19.6vw, (max-width: 1440px) 15.2vw, 12.6vw"
-                      srcset="assets/img/r/gallery/dish3-pancakes-240.webp 240w, assets/img/r/gallery/dish3-pancakes-510.webp 510w">
-              <img src="assets/img/gallery/dish3-pancakes.jpg" alt="" width="510" height="560" loading="lazy" decoding="async" fetchpriority="low" data-warm=".beyond">
+                      srcset="assets/img/r/gallery/dish3-basbousa-240.webp 240w, assets/img/r/gallery/dish3-basbousa-510.webp 510w">
+              <img src="assets/img/gallery/dish3-basbousa.jpg" alt="" width="510" height="560" loading="lazy" decoding="async" fetchpriority="low" data-warm=".beyond">
             </picture>
             <picture>
               <source type="image/avif" sizes="(max-width: 480px) 25.5vw, (max-width: 600px) 22vw, (max-width: 900px) 17.6vw, (max-width: 1200px) 11.7vw, 7.6vw"
-                      srcset="assets/img/r/gallery/dish9-shake-306.avif 306w">
+                      srcset="assets/img/r/gallery/dish9-masala-306.avif 306w">
               <source type="image/webp" sizes="(max-width: 480px) 25.5vw, (max-width: 600px) 22vw, (max-width: 900px) 17.6vw, (max-width: 1200px) 11.7vw, 7.6vw"
-                      srcset="assets/img/r/gallery/dish9-shake-306.webp 306w">
-              <img src="assets/img/gallery/dish9-shake.jpg" alt="" width="306" height="560" loading="lazy" decoding="async" fetchpriority="low" data-warm=".beyond">
+                      srcset="assets/img/r/gallery/dish9-masala-306.webp 306w">
+              <img src="assets/img/gallery/dish9-masala.jpg" alt="" width="306" height="560" loading="lazy" decoding="async" fetchpriority="low" data-warm=".beyond">
             </picture>
             <picture>
               <source type="image/avif" sizes="(max-width: 480px) 53vw, (max-width: 600px) 45.9vw, (max-width: 900px) 36.7vw, (max-width: 1200px) 24.5vw, (max-width: 1440px) 19vw, 15.8vw"
-                      srcset="assets/img/r/gallery/dish7-steak-240.avif 240w, assets/img/r/gallery/dish7-steak-290.avif 290w, assets/img/r/gallery/dish7-steak-360.avif 360w, assets/img/r/gallery/dish7-steak-637.avif 637w">
+                      srcset="assets/img/r/gallery/dish7-shawarma-240.avif 240w, assets/img/r/gallery/dish7-shawarma-290.avif 290w, assets/img/r/gallery/dish7-shawarma-360.avif 360w, assets/img/r/gallery/dish7-shawarma-530.avif 530w, assets/img/r/gallery/dish7-shawarma-637.avif 637w">
               <source type="image/webp" sizes="(max-width: 480px) 53vw, (max-width: 600px) 45.9vw, (max-width: 900px) 36.7vw, (max-width: 1200px) 24.5vw, (max-width: 1440px) 19vw, 15.8vw"
-                      srcset="assets/img/r/gallery/dish7-steak-240.webp 240w, assets/img/r/gallery/dish7-steak-637.webp 637w">
-              <img src="assets/img/gallery/dish7-steak.jpg" alt="" width="637" height="560" loading="lazy" decoding="async" fetchpriority="low" data-warm=".beyond">
+                      srcset="assets/img/r/gallery/dish7-shawarma-240.webp 240w, assets/img/r/gallery/dish7-shawarma-637.webp 637w">
+              <img src="assets/img/gallery/dish7-shawarma.jpg" alt="" width="637" height="560" loading="lazy" decoding="async" fetchpriority="low" data-warm=".beyond">
             </picture>
             <picture>
               <source type="image/avif" sizes="(max-width: 480px) 37vw, (max-width: 600px) 32vw, (max-width: 900px) 25.6vw, (max-width: 1200px) 17.1vw, (max-width: 1440px) 13.2vw, 11vw"
-                      srcset="assets/img/r/gallery/dish4-waffle-250.avif 250w, assets/img/r/gallery/dish4-waffle-445.avif 445w">
+                      srcset="assets/img/r/gallery/dish4-kunafa-250.avif 250w, assets/img/r/gallery/dish4-kunafa-370.avif 370w, assets/img/r/gallery/dish4-kunafa-445.avif 445w">
               <source type="image/webp" sizes="(max-width: 480px) 37vw, (max-width: 600px) 32vw, (max-width: 900px) 25.6vw, (max-width: 1200px) 17.1vw, (max-width: 1440px) 13.2vw, 11vw"
-                      srcset="assets/img/r/gallery/dish4-waffle-250.webp 250w, assets/img/r/gallery/dish4-waffle-445.webp 445w">
-              <img src="assets/img/gallery/dish4-waffle.jpg" alt="" width="445" height="560" loading="lazy" decoding="async" fetchpriority="low" data-warm=".beyond">
+                      srcset="assets/img/r/gallery/dish4-kunafa-250.webp 250w, assets/img/r/gallery/dish4-kunafa-445.webp 445w">
+              <img src="assets/img/gallery/dish4-kunafa.jpg" alt="" width="445" height="560" loading="lazy" decoding="async" fetchpriority="low" data-warm=".beyond">
             </picture>
             <!-- copy 3 -->
             <picture>
               <source type="image/avif" sizes="(max-width: 480px) 46.8vw, (max-width: 600px) 40.5vw, (max-width: 900px) 32.4vw, (max-width: 1200px) 21.6vw, (max-width: 1440px) 16.8vw, 14vw"
-                      srcset="assets/img/r/gallery/dish5-burger-260.avif 260w, assets/img/r/gallery/dish5-burger-320.avif 320w, assets/img/r/gallery/dish5-burger-560.avif 560w">
+                      srcset="assets/img/r/gallery/dish5-burger-260.avif 260w, assets/img/r/gallery/dish5-burger-320.avif 320w, assets/img/r/gallery/dish5-burger-470.avif 470w, assets/img/r/gallery/dish5-burger-560.avif 560w">
               <source type="image/webp" sizes="(max-width: 480px) 46.8vw, (max-width: 600px) 40.5vw, (max-width: 900px) 32.4vw, (max-width: 1200px) 21.6vw, (max-width: 1440px) 16.8vw, 14vw"
                       srcset="assets/img/r/gallery/dish5-burger-260.webp 260w, assets/img/r/gallery/dish5-burger-560.webp 560w">
               <img src="assets/img/gallery/dish5-burger.jpg" alt="" width="563" height="560" loading="lazy" decoding="async" fetchpriority="low" data-warm=".beyond">
             </picture>
             <picture>
               <source type="image/avif" sizes="(max-width: 480px) 37.4vw, (max-width: 600px) 32.4vw, (max-width: 900px) 25.9vw, (max-width: 1200px) 17.3vw, (max-width: 1440px) 13.4vw, 11.2vw"
-                      srcset="assets/img/r/gallery/dish8-cheesecake-250.avif 250w, assets/img/r/gallery/dish8-cheesecake-450.avif 450w">
+                      srcset="assets/img/r/gallery/dish8-milkshake-250.avif 250w, assets/img/r/gallery/dish8-milkshake-370.avif 370w, assets/img/r/gallery/dish8-milkshake-450.avif 450w">
               <source type="image/webp" sizes="(max-width: 480px) 37.4vw, (max-width: 600px) 32.4vw, (max-width: 900px) 25.9vw, (max-width: 1200px) 17.3vw, (max-width: 1440px) 13.4vw, 11.2vw"
-                      srcset="assets/img/r/gallery/dish8-cheesecake-250.webp 250w, assets/img/r/gallery/dish8-cheesecake-450.webp 450w">
-              <img src="assets/img/gallery/dish8-cheesecake.jpg" alt="" width="450" height="560" loading="lazy" decoding="async" fetchpriority="low" data-warm=".beyond">
+                      srcset="assets/img/r/gallery/dish8-milkshake-250.webp 250w, assets/img/r/gallery/dish8-milkshake-450.webp 450w">
+              <img src="assets/img/gallery/dish8-milkshake.jpg" alt="" width="450" height="560" loading="lazy" decoding="async" fetchpriority="low" data-warm=".beyond">
             </picture>
             <picture>
               <source type="image/avif" sizes="(max-width: 480px) 71.2vw, (max-width: 600px) 61.6vw, (max-width: 900px) 49.3vw, (max-width: 1000px) 32.9vw, (max-width: 1200px) 30.6vw, (max-width: 1800px) 25.5vw, 21.2vw"
-                      srcset="assets/img/r/gallery/dish1-fries-320.avif 320w, assets/img/r/gallery/dish1-fries-390.avif 390w, assets/img/r/gallery/dish1-fries-480.avif 480w, assets/img/r/gallery/dish1-fries-710.avif 710w, assets/img/r/gallery/dish1-fries-850.avif 850w">
+                      srcset="assets/img/r/gallery/dish1-chips-320.avif 320w, assets/img/r/gallery/dish1-chips-390.avif 390w, assets/img/r/gallery/dish1-chips-480.avif 480w, assets/img/r/gallery/dish1-chips-850.avif 850w">
               <source type="image/webp" sizes="(max-width: 480px) 71.2vw, (max-width: 600px) 61.6vw, (max-width: 900px) 49.3vw, (max-width: 1000px) 32.9vw, (max-width: 1200px) 30.6vw, (max-width: 1800px) 25.5vw, 21.2vw"
-                      srcset="assets/img/r/gallery/dish1-fries-320.webp 320w, assets/img/r/gallery/dish1-fries-850.webp 850w">
-              <img src="assets/img/gallery/dish1-fries.jpg" alt="" width="856" height="560" loading="lazy" decoding="async" fetchpriority="low" data-warm=".beyond">
+                      srcset="assets/img/r/gallery/dish1-chips-320.webp 320w, assets/img/r/gallery/dish1-chips-850.webp 850w">
+              <img src="assets/img/gallery/dish1-chips.jpg" alt="" width="856" height="560" loading="lazy" decoding="async" fetchpriority="low" data-warm=".beyond">
             </picture>
             <picture>
               <source type="image/avif" sizes="(max-width: 480px) 46.9vw, (max-width: 600px) 40.6vw, (max-width: 900px) 32.5vw, (max-width: 1200px) 21.7vw, (max-width: 1440px) 16.8vw, 14vw"
@@ -2698,38 +2722,38 @@
             </picture>
             <picture>
               <source type="image/avif" sizes="(max-width: 480px) 55.8vw, (max-width: 600px) 48.3vw, (max-width: 900px) 38.6vw, (max-width: 1200px) 25.8vw, (max-width: 1800px) 20vw, 16.6vw"
-                      srcset="assets/img/r/gallery/dish2-prawns-250.avif 250w, assets/img/r/gallery/dish2-prawns-310.avif 310w, assets/img/r/gallery/dish2-prawns-380.avif 380w, assets/img/r/gallery/dish2-prawns-670.avif 670w">
+                      srcset="assets/img/r/gallery/dish2-mixgrill-250.avif 250w, assets/img/r/gallery/dish2-mixgrill-310.avif 310w, assets/img/r/gallery/dish2-mixgrill-380.avif 380w, assets/img/r/gallery/dish2-mixgrill-550.avif 550w, assets/img/r/gallery/dish2-mixgrill-670.avif 670w">
               <source type="image/webp" sizes="(max-width: 480px) 55.8vw, (max-width: 600px) 48.3vw, (max-width: 900px) 38.6vw, (max-width: 1200px) 25.8vw, (max-width: 1800px) 20vw, 16.6vw"
-                      srcset="assets/img/r/gallery/dish2-prawns-250.webp 250w, assets/img/r/gallery/dish2-prawns-670.webp 670w">
-              <img src="assets/img/gallery/dish2-prawns.jpg" alt="" width="671" height="560" loading="lazy" decoding="async" fetchpriority="low" data-warm=".beyond">
+                      srcset="assets/img/r/gallery/dish2-mixgrill-250.webp 250w, assets/img/r/gallery/dish2-mixgrill-670.webp 670w">
+              <img src="assets/img/gallery/dish2-mixgrill.jpg" alt="" width="671" height="560" loading="lazy" decoding="async" fetchpriority="low" data-warm=".beyond">
             </picture>
             <picture>
               <source type="image/avif" sizes="(max-width: 480px) 42.4vw, (max-width: 600px) 36.7vw, (max-width: 900px) 29.4vw, (max-width: 1200px) 19.6vw, (max-width: 1440px) 15.2vw, 12.6vw"
-                      srcset="assets/img/r/gallery/dish3-pancakes-240.avif 240w, assets/img/r/gallery/dish3-pancakes-290.avif 290w, assets/img/r/gallery/dish3-pancakes-420.avif 420w, assets/img/r/gallery/dish3-pancakes-510.avif 510w">
+                      srcset="assets/img/r/gallery/dish3-basbousa-240.avif 240w, assets/img/r/gallery/dish3-basbousa-290.avif 290w, assets/img/r/gallery/dish3-basbousa-420.avif 420w, assets/img/r/gallery/dish3-basbousa-510.avif 510w">
               <source type="image/webp" sizes="(max-width: 480px) 42.4vw, (max-width: 600px) 36.7vw, (max-width: 900px) 29.4vw, (max-width: 1200px) 19.6vw, (max-width: 1440px) 15.2vw, 12.6vw"
-                      srcset="assets/img/r/gallery/dish3-pancakes-240.webp 240w, assets/img/r/gallery/dish3-pancakes-510.webp 510w">
-              <img src="assets/img/gallery/dish3-pancakes.jpg" alt="" width="510" height="560" loading="lazy" decoding="async" fetchpriority="low" data-warm=".beyond">
+                      srcset="assets/img/r/gallery/dish3-basbousa-240.webp 240w, assets/img/r/gallery/dish3-basbousa-510.webp 510w">
+              <img src="assets/img/gallery/dish3-basbousa.jpg" alt="" width="510" height="560" loading="lazy" decoding="async" fetchpriority="low" data-warm=".beyond">
             </picture>
             <picture>
               <source type="image/avif" sizes="(max-width: 480px) 25.5vw, (max-width: 600px) 22vw, (max-width: 900px) 17.6vw, (max-width: 1200px) 11.7vw, 7.6vw"
-                      srcset="assets/img/r/gallery/dish9-shake-306.avif 306w">
+                      srcset="assets/img/r/gallery/dish9-masala-306.avif 306w">
               <source type="image/webp" sizes="(max-width: 480px) 25.5vw, (max-width: 600px) 22vw, (max-width: 900px) 17.6vw, (max-width: 1200px) 11.7vw, 7.6vw"
-                      srcset="assets/img/r/gallery/dish9-shake-306.webp 306w">
-              <img src="assets/img/gallery/dish9-shake.jpg" alt="" width="306" height="560" loading="lazy" decoding="async" fetchpriority="low" data-warm=".beyond">
+                      srcset="assets/img/r/gallery/dish9-masala-306.webp 306w">
+              <img src="assets/img/gallery/dish9-masala.jpg" alt="" width="306" height="560" loading="lazy" decoding="async" fetchpriority="low" data-warm=".beyond">
             </picture>
             <picture>
               <source type="image/avif" sizes="(max-width: 480px) 53vw, (max-width: 600px) 45.9vw, (max-width: 900px) 36.7vw, (max-width: 1200px) 24.5vw, (max-width: 1440px) 19vw, 15.8vw"
-                      srcset="assets/img/r/gallery/dish7-steak-240.avif 240w, assets/img/r/gallery/dish7-steak-290.avif 290w, assets/img/r/gallery/dish7-steak-360.avif 360w, assets/img/r/gallery/dish7-steak-637.avif 637w">
+                      srcset="assets/img/r/gallery/dish7-shawarma-240.avif 240w, assets/img/r/gallery/dish7-shawarma-290.avif 290w, assets/img/r/gallery/dish7-shawarma-360.avif 360w, assets/img/r/gallery/dish7-shawarma-530.avif 530w, assets/img/r/gallery/dish7-shawarma-637.avif 637w">
               <source type="image/webp" sizes="(max-width: 480px) 53vw, (max-width: 600px) 45.9vw, (max-width: 900px) 36.7vw, (max-width: 1200px) 24.5vw, (max-width: 1440px) 19vw, 15.8vw"
-                      srcset="assets/img/r/gallery/dish7-steak-240.webp 240w, assets/img/r/gallery/dish7-steak-637.webp 637w">
-              <img src="assets/img/gallery/dish7-steak.jpg" alt="" width="637" height="560" loading="lazy" decoding="async" fetchpriority="low" data-warm=".beyond">
+                      srcset="assets/img/r/gallery/dish7-shawarma-240.webp 240w, assets/img/r/gallery/dish7-shawarma-637.webp 637w">
+              <img src="assets/img/gallery/dish7-shawarma.jpg" alt="" width="637" height="560" loading="lazy" decoding="async" fetchpriority="low" data-warm=".beyond">
             </picture>
             <picture>
               <source type="image/avif" sizes="(max-width: 480px) 37vw, (max-width: 600px) 32vw, (max-width: 900px) 25.6vw, (max-width: 1200px) 17.1vw, (max-width: 1440px) 13.2vw, 11vw"
-                      srcset="assets/img/r/gallery/dish4-waffle-250.avif 250w, assets/img/r/gallery/dish4-waffle-445.avif 445w">
+                      srcset="assets/img/r/gallery/dish4-kunafa-250.avif 250w, assets/img/r/gallery/dish4-kunafa-370.avif 370w, assets/img/r/gallery/dish4-kunafa-445.avif 445w">
               <source type="image/webp" sizes="(max-width: 480px) 37vw, (max-width: 600px) 32vw, (max-width: 900px) 25.6vw, (max-width: 1200px) 17.1vw, (max-width: 1440px) 13.2vw, 11vw"
-                      srcset="assets/img/r/gallery/dish4-waffle-250.webp 250w, assets/img/r/gallery/dish4-waffle-445.webp 445w">
-              <img src="assets/img/gallery/dish4-waffle.jpg" alt="" width="445" height="560" loading="lazy" decoding="async" fetchpriority="low" data-warm=".beyond">
+                      srcset="assets/img/r/gallery/dish4-kunafa-250.webp 250w, assets/img/r/gallery/dish4-kunafa-445.webp 445w">
+              <img src="assets/img/gallery/dish4-kunafa.jpg" alt="" width="445" height="560" loading="lazy" decoding="async" fetchpriority="low" data-warm=".beyond">
             </picture>
           </div>
         </div>
@@ -2745,7 +2769,7 @@
 
     <div class="dish__head">
       <p class="dish__eyebrow">The Signature</p>
-      <h2 class="dish__title" id="dish-title">Seafood Platter</h2>
+      <h2 class="dish__title" id="dish-title">Mix Grilled Platter</h2>
     </div>
 
     <div class="dish__inner">
@@ -2753,9 +2777,9 @@
       <figure class="dish__fig">
         <!--
           PLACEHOLDER — cut out by bake-platter-plate.py. The seafood platter is
-          the top of Crave's carte at KSh 9,500, the first item Google lists
-          under "Popular", and the dish that carries the one thing both
-          branches say about themselves: the seafood comes from the coast.
+          the top of La Pranzo's carte at KSh 2,500 for the full platter and
+          1,500 for the half — the most expensive thing the kitchen sells,
+          and the one dish that puts four of its own skewers on one plate.
 
           THREE THINGS DECIDE WHETHER THE FILE WORKS, and all three are about
           the fact that this element TURNS. The plate's centre must be the
@@ -2770,48 +2794,48 @@
           replacing this file.
         -->
         <picture>
-          <source type="image/webp" sizes="(max-width: 480px) 98.6vw, (max-width: 700px) 93.2vw, (max-width: 820px) 79.5vw, (max-width: 900px) 67.4vw, (max-width: 1000px) 62.1vw, (max-width: 1200px) 55.8vw, 48.2vw"
-                  srcset="assets/img/r/platter-plate-600.webp 600w, assets/img/r/platter-plate-710.webp 710w, assets/img/r/platter-plate-890.webp 890w, assets/img/r/platter-plate-1122.webp 1122w">
+          <source type="image/webp" sizes="(max-width: 480px) 97.2vw, (max-width: 700px) 91.8vw, (max-width: 820px) 78.7vw, (max-width: 900px) 66.7vw, (max-width: 1000px) 61.3vw, (max-width: 1200px) 55.2vw, 47.7vw"
+                  srcset="assets/img/r/platter-plate-590.webp 590w, assets/img/r/platter-plate-700.webp 700w, assets/img/r/platter-plate-880.webp 880w, assets/img/r/platter-plate-1122.webp 1122w">
           <img class="dish__plate"
              src="assets/img/platter-plate.webp"
-             alt="A round plate of grilled prawns seen from directly overhead, filling the plate to its rim."
+             alt="A round platter of rice and lamb seen from directly overhead, filling the plate to its rim."
              width="1122" height="1122" loading="lazy" decoding="async" fetchpriority="low">
         </picture>
       </figure>
 
       <div class="dish__col dish__col--a">
         <div class="dish__block">
-          <h3 class="dish__label">Lobster</h3>
-          <p class="dish__note">Split, grilled in the shell and served with the meat
-            loosened but left where it was. The shell is what keeps it from drying out,
-            which is why it arrives still in one.</p>
+          <h3 class="dish__label">Kofta Kebab</h3>
+          <p class="dish__note">Minced, spiced and pressed onto the skewer by hand, so it
+            cooks in the shape of the hand that made it. On the carte on its own as well,
+            as a plate, which is how you find out how much of the platter is this.</p>
         </div>
 
         <hr class="dish__rule" aria-hidden="true">
 
         <div class="dish__block">
-          <h3 class="dish__label">Fish</h3>
-          <p class="dish__note">Whole fillets, grilled rather than battered, so the
-            flesh stays in flakes instead of turning to a single slab. Lemon on the
-            side and nothing else on it.</p>
+          <h3 class="dish__label">Shish Tauk</h3>
+          <p class="dish__note">Chicken, marinated and then grilled fast so the outside
+            takes colour before the inside has time to dry. The kitchen sells it three
+            ways &mdash; as a plate, in a sandwich, and here.</p>
         </div>
       </div>
 
       <div class="dish__col dish__col--b">
         <div class="dish__block">
-          <h3 class="dish__label">Prawns</h3>
-          <p class="dish__note">Butterflied and cooked fast and hot. Shell on, because
-            the shell is where most of the flavour is and because a platter is a dish
-            you are meant to use your hands on.</p>
+          <h3 class="dish__label">Mishkaki</h3>
+          <p class="dish__note">The coast's own skewer, and the one item on this platter
+            that belongs to Mombasa rather than to the Gulf. A platter is a dish you are
+            meant to use your hands on, and this is the part that proves it.</p>
         </div>
 
         <hr class="dish__rule" aria-hidden="true">
 
         <div class="dish__block">
-          <h3 class="dish__label">The Coast</h3>
-          <p class="dish__note">Crave's Nairobi kitchen says its seafood comes up from
-            Mombasa, where the first branch is. Six hundred kilometres inland, that is
-            the whole difference between this platter and any other.</p>
+          <h3 class="dish__label">The Sides</h3>
+          <p class="dish__note">Every meal is served with side of your choice &mdash; the
+            menu's own line, on its own board. Seven of them, from plain chips to the
+            house chips, which is the thing most people here order first.</p>
         </div>
       </div>
 
@@ -2823,16 +2847,20 @@
        docs/superpowers/specs/2026-08-15-reservation-redesign-design.md
 
        TO CONFIRM WITH THE CLIENT — all of these together, before launch:
-         · the wa.me number is +254 705 000275, Crave's MOMBASA line, from
-           its own Instagram bio and its TripAdvisor listing. It is a real
-           number, but WHETHER IT TAKES WHATSAPP IS UNVERIFIED — the button
-           says "Opens WhatsApp" and would be a dead end if it does not.
-           Mombasa rather than Nairobi because Mombasa is the original and
-           the block has to choose one; the message asks which branch.
+         · the wa.me number is +254 768 818833, which is the ONLY number
+           La Pranzo publishes — the same one appears on its Google listing,
+           in its Instagram bio and on its own site. It is a real number, but
+           WHETHER IT TAKES WHATSAPP IS UNVERIFIED — the button says "Opens
+           WhatsApp" and would be a dead end if it does not.
+           The prefilled message no longer asks which branch, because there
+           is only one. That is four fewer fields for a guest to fill in and
+           it came free with the research.
          · the hours: researched, not supplied. See the note on the item.
-         · "Mombasa & Nairobi" is right, and in that order — Crave's own
-           Facebook announced Kilimani as the new branch. This is the one
-           claim in the block that public sources actually settle.
+         · "Haile Selassie Road" is the road every source gives; its own site
+           adds "next to Ola petrol station" and the Google listing adds that
+           the unit is inside United Meat Supplies. The road alone is what
+           stands here, because the block is byte-copied to four pages and
+           the finding-it detail belongs on the location band.
        Photograph: PLACEHOLDER, Pexels 14262704. Pexels Licence — commercial
        use, no attribution required.
        ==================================================================== -->
@@ -2865,13 +2893,13 @@
       </svg>
       <div class="reserve__frame">
         <picture>
-          <source type="image/avif" sizes="(max-width: 1000px) 100.7vw, 62.4vw"
-                  srcset="assets/img/r/reserve-interior-650.avif 650w, assets/img/r/reserve-interior-770.avif 770w, assets/img/r/reserve-interior-930.avif 930w, assets/img/r/reserve-interior-1160.avif 1160w, assets/img/r/reserve-interior-1400.avif 1400w">
-          <source type="image/webp" sizes="(max-width: 1000px) 100.7vw, 62.4vw"
-                  srcset="assets/img/r/reserve-interior-650.webp 650w, assets/img/r/reserve-interior-1400.webp 1400w">
+          <source type="image/avif" sizes="(max-width: 1000px) 101vw, 62.6vw"
+                  srcset="assets/img/r/reserve-interior-640.avif 640w, assets/img/r/reserve-interior-770.avif 770w, assets/img/r/reserve-interior-920.avif 920w, assets/img/r/reserve-interior-1150.avif 1150w, assets/img/r/reserve-interior-1400.avif 1400w">
+          <source type="image/webp" sizes="(max-width: 1000px) 101vw, 62.6vw"
+                  srcset="assets/img/r/reserve-interior-640.webp 640w, assets/img/r/reserve-interior-1400.webp 1400w">
           <img class="reserve__img" src="assets/img/reserve-interior.jpg"
              width="1400" height="1576"
-             alt="A laid table in a light-filled dining room, plates and glasses set for a meal."
+             alt="A laid table seen from above: grilled kofta, chips and dips on a patterned cloth."
              loading="lazy" decoding="async" fetchpriority="low">
         </picture>
       </div>
@@ -2884,12 +2912,12 @@
 
       <hr class="reserve__rule" aria-hidden="true">
 
-      <p class="reserve__body">Walk in any hour of the day and there will be a table.
+      <p class="reserve__body">Walk in any hour we are open and there will be a table.
         Bring six of you, or come for a birthday, and a kitchen would rather know.
-        Tell us when, where and how many &mdash; the rest is arranged from there.</p>
+        Tell us when and how many &mdash; the rest is arranged from there.</p>
 
       <a class="reserve__cta"
-         href="https://wa.me/254705000275?text=Hello%20Crave%20%E2%80%94%20I%E2%80%99d%20like%20to%20book%20a%20table.%0A%0AName%3A%0ABranch%20(Mombasa%20or%20Nairobi)%3A%0ADate%3A%0ATime%3A%0ANumber%20of%20guests%3A%0A%0AThank%20you."
+         href="https://wa.me/254768818833?text=Hello%20La%20Pranzo%20%E2%80%94%20I%E2%80%99d%20like%20to%20book%20a%20table.%0A%0AName%3A%0ADate%3A%0ATime%3A%0ANumber%20of%20guests%3A%0A%0AThank%20you."
          target="_blank" rel="noopener">
         <span class="reserve__ctalbl">Reserve now</span>
         <svg class="reserve__arrow" viewBox="0 0 24 14" aria-hidden="true" focusable="false">
@@ -2906,31 +2934,29 @@
             <path d="M12 7.1V12l3.4 2"/>
           </svg>
           <span class="reserve__metalbl">Opening hours</span>
-          <!-- RESEARCHED 2026-09-28 from both branches' claimed TripAdvisor
-               listings, and NOT YET CONFIRMED BY THE CLIENT. Both open at
-               06:00 and neither closes on any day of the week; they close at
-               DIFFERENT times — Mombasa midnight, Nairobi 01:00.
+          <!-- RESEARCHED 2026-09-30, and NOT YET CONFIRMED BY THE CLIENT.
+               africabz gives 12:00–23:00 daily and Google corroborates the
+               noon open. No source contradicts either, and no source is the
+               restaurant.
 
-               This block is byte-copied to four pages, so it cannot carry a
-               closing time without asserting one branch's hours as the whole
-               house's. The six o'clock open and the seven-day week are true
-               of both, which is why they are what stand here; the exact
-               closing times live in the location bands and the FAQ on
-               contact.html, where they are allowed to differ.
+               THIS LINE CAN NOW CARRY A CLOSING TIME, AND WHAT CHANGED IS
+               NOT THE BLOCK. The constraint was never the copy — it was that
+               Crave had two branches closing at two different hours, so a
+               block byte-copied to four pages could not name one without
+               asserting it as the whole house's. La Pranzo has one branch,
+               so the entire fact fits and the hedge is retired rather than
+               reworded.
 
-               Keep it in step with that FAQ answer. It is the same claim made
-               twice on one page and the pair has drifted apart before.
+               Keep it in step with the location band and the FAQ answer on
+               contact.html. It is the same claim made three times on one
+               site, and that set has drifted before.
 
-               eatout.co.ke says 07:00–22:00 and contradicts both listings.
-               Crave's own menu carries a "Breakfast (6AM – 12PM)" section,
-               which is what settles it in favour of the listings.
-
-               Two lines, not three. The copy column is an aspect-locked block
-               of 48.1u of measured ink, verified to fit one screen from
-               1000x700 to 2560x1440; a third line changes that height and the
-               fit has to be re-solved. Both lines here are no longer than the
-               ones they replace, so the fit can only improve. -->
-          <span class="reserve__metaval">Every day<br>From 6 in the morning</span>
+               Two lines, not three. The copy column is an aspect-locked
+               block of 48.1u of measured ink, verified to fit one screen
+               from 1000x700 to 2560x1440; a third line changes that height
+               and the fit has to be re-solved. Both lines here are shorter
+               than the ones they replace, so the fit can only improve. -->
+          <span class="reserve__metaval">Every day<br>Noon until eleven</span>
         </li>
         <li class="reserve__metaitem">
           <svg class="reserve__icon" viewBox="0 0 24 24" aria-hidden="true" focusable="false">
@@ -2938,7 +2964,7 @@
             <circle cx="12" cy="10.6" r="2.4"/>
           </svg>
           <span class="reserve__metalbl">Location</span>
-          <span class="reserve__metaval">Mombasa &amp; Nairobi<br>Kenya</span>
+          <span class="reserve__metaval">Haile Selassie Road<br>Mombasa</span>
         </li>
       </ul>
     </div>
@@ -2950,7 +2976,7 @@
 <footer class="ending">
   <!-- Decorative repeat of the hero's h1. Hidden from assistive tech so the
        brand name is not announced twice on the way out. -->
-  <p class="ending__mark" aria-hidden="true">CRAVE</p>
+  <p class="ending__mark" aria-hidden="true">LA PRANZO</p>
 
   <!-- Five links, not three. Locations and Reservations were added on
        2026-08-26: both are places a reader actually wants to reach from the
@@ -2961,11 +2987,11 @@
     <a class="ending__link" href="menu.html">Menu</a>
     <a class="ending__link" href="about.html">About</a>
     <a class="ending__link" href="contact.html">Contact</a>
-    <a class="ending__link" href="contact.html#locations">Locations</a>
+    <a class="ending__link" href="contact.html#locations">Location</a>
     <a class="ending__link" href="#reserve">Reservations</a>
   </nav>
 
-  <p class="ending__note">&copy; 2026 Crave</p>
+  <p class="ending__note">&copy; 2026 La Pranzo &amp; Al-Diwan</p>
 </footer>
 
 <script>

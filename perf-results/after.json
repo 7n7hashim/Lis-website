@@ -2,188 +2,183 @@
   {
     "path": "/",
     "profile": "desktop",
-    "total": 374973,
-    "count": 19,
+    "total": 550703,
+    "count": 20,
     "byKind": {
-      "other": 33314,
-      "img:avif": 245481,
+      "other": 34942,
+      "img:avif": 358976,
       "font": 88720,
-      "img:legacy": 7458
+      "img:legacy": 68065
     },
-    "loadMs": 75,
+    "loadMs": 60,
     "lcp": 0,
     "lcpEl": "",
     "cls": 0,
-    "fcp": 176,
+    "fcp": 164,
     "longTasks": 0,
     "tbt": 0,
-    "ttfb": 4,
+    "ttfb": 5,
     "domContentLoaded": 49
   },
   {
     "path": "/menu.html",
     "profile": "desktop",
-    "total": 215727,
+    "total": 250603,
     "count": 11,
     "byKind": {
-      "other": 27561,
-      "img:avif": 115880,
+      "other": 29412,
+      "img:avif": 136333,
       "font": 64828,
-      "img:legacy": 7458
+      "img:legacy": 20030
     },
-    "loadMs": 51,
-    "lcp": 1812,
+    "loadMs": 53,
+    "lcp": 1816,
     "lcpEl": "SPAN",
     "cls": 0,
-    "fcp": 112,
+    "fcp": 100,
     "longTasks": 0,
     "tbt": 0,
-    "ttfb": 2,
-    "domContentLoaded": 45,
+    "ttfb": 3,
+    "domContentLoaded": 47,
     "lcpAll": [
-      "1812 SPAN"
+      "1816 SPAN"
     ]
   },
   {
     "path": "/about.html",
     "profile": "desktop",
-    "total": 331066,
+    "total": 636610,
     "count": 11,
     "byKind": {
-      "other": 55178,
-      "img:avif": 179710,
+      "other": 56696,
+      "img:avif": 471164,
       "font": 88720,
-      "img:legacy": 7458
+      "img:legacy": 20030
     },
-    "loadMs": 74,
+    "loadMs": 70,
+    "lcp": 0,
+    "lcpEl": "",
+    "cls": 0,
+    "fcp": 132,
+    "longTasks": 0,
+    "tbt": 0,
+    "ttfb": 2,
+    "domContentLoaded": 69
+  },
+  {
+    "path": "/contact.html",
+    "profile": "desktop",
+    "total": 475519,
+    "count": 11,
+    "byKind": {
+      "other": 51371,
+      "img:avif": 291255,
+      "font": 64828,
+      "img:legacy": 68065
+    },
+    "loadMs": 79,
     "lcp": 0,
     "lcpEl": "",
     "cls": 0,
     "fcp": 140,
     "longTasks": 0,
     "tbt": 0,
-    "ttfb": 2,
-    "domContentLoaded": 72
-  },
-  {
-    "path": "/contact.html",
-    "profile": "desktop",
-    "total": 489838,
-    "count": 10,
-    "byKind": {
-      "other": 51504,
-      "img:avif": 366048,
-      "font": 64828,
-      "img:legacy": 7458
-    },
-    "loadMs": 75,
-    "lcp": 0,
-    "lcpEl": "",
-    "cls": 0,
-    "fcp": 136,
-    "longTasks": 0,
-    "tbt": 0,
     "ttfb": 3,
-    "domContentLoaded": 67
+    "domContentLoaded": 73
   },
   {
     "path": "/",
     "profile": "mobile",
-    "total": 728612,
+    "total": 630071,
     "count": 20,
     "byKind": {
-      "other": 33314,
-      "img:avif": 496918,
-      "font": 88720,
-      "img:legacy": 7458,
-      "img:webp": 102202
+      "other": 34942,
+      "img:avif": 438344,
+      "img:legacy": 68065,
+      "font": 88720
     },
-    "loadMs": 942,
-    "lcp": 848,
+    "loadMs": 3105,
+    "lcp": 964,
     "lcpEl": "hero__name",
-    "cls": 0.0059,
+    "cls": 0.0039,
     "fcp": 480,
     "longTasks": 0,
     "tbt": 0,
     "ttfb": 2,
-    "domContentLoaded": 312,
+    "domContentLoaded": 319,
     "lcpAll": [
-      "848 hero__name"
+      "964 hero__name"
     ]
   },
   {
     "path": "/menu.html",
     "profile": "mobile",
-    "total": 432219,
+    "total": 377823,
     "count": 11,
     "byKind": {
-      "other": 27561,
-      "img:avif": 332372,
+      "other": 29412,
+      "img:avif": 263553,
       "font": 64828,
-      "img:legacy": 7458
+      "img:legacy": 20030
     },
-    "loadMs": 2245,
-    "lcp": 2288,
+    "loadMs": 1912,
+    "lcp": 1960,
     "lcpEl": "frame__img",
     "cls": 0.0083,
-    "fcp": 456,
+    "fcp": 460,
     "longTasks": 0,
     "tbt": 0,
-    "ttfb": 2,
-    "domContentLoaded": 281,
+    "ttfb": 3,
+    "domContentLoaded": 290,
     "lcpAll": [
-      "472 SPAN",
-      "1024 frame__img",
-      "1772 frame__img",
-      "2288 frame__img"
+      "476 SPAN",
+      "1528 frame__img",
+      "1960 frame__img"
     ]
   },
   {
     "path": "/about.html",
     "profile": "mobile",
-    "total": 303676,
+    "total": 559629,
     "count": 11,
     "byKind": {
-      "other": 55178,
-      "img:avif": 152320,
+      "other": 56696,
+      "img:avif": 394183,
       "font": 88720,
-      "img:legacy": 7458
+      "img:legacy": 20030
     },
-    "loadMs": 1584,
-    "lcp": 880,
+    "loadMs": 2743,
+    "lcp": 868,
     "lcpEl": "topbar__brand",
     "cls": 0,
-    "fcp": 696,
+    "fcp": 684,
     "longTasks": 0,
     "tbt": 0,
-    "ttfb": 2,
-    "domContentLoaded": 726,
+    "ttfb": 3,
+    "domContentLoaded": 720,
     "lcpAll": [
-      "880 topbar__brand"
+      "868 topbar__brand"
     ]
   },
   {
     "path": "/contact.html",
     "profile": "mobile",
-    "total": 529177,
+    "total": 395304,
     "count": 11,
     "byKind": {
-      "other": 51504,
-      "img:avif": 405387,
-      "font": 64828,
-      "img:legacy": 7458
+      "other": 51371,
+      "img:avif": 211040,
+      "img:legacy": 68065,
+      "font": 64828
     },
-    "loadMs": 2663,
-    "lcp": 836,
-    "lcpEl": "topbar__brand",
+    "loadMs": 1055,
+    "lcp": 0,
+    "lcpEl": "",
     "cls": 0,
-    "fcp": 668,
+    "fcp": 984,
     "longTasks": 0,
     "tbt": 0,
-    "ttfb": 5,
-    "domContentLoaded": 676,
-    "lcpAll": [
-      "836 topbar__brand"
-    ]
+    "ttfb": 7,
+    "domContentLoaded": 1040
   }
 ]

@@ -1,9 +1,9 @@
 {
-  "name": "misono",
+  "name": "lapranzo",
   "version": "0.1.0",
   "private": true,
   "type": "module",
-  "description": "Li's Chinese Restaurant \u2014 Nairobi & Mombasa",
+  "description": "La Pranzo & Al-Diwan \u2014 Middle Eastern grill and cafe, Mombasa",
   "scripts": {
     "dev": "node serve.mjs",
     "build": "node build.mjs",

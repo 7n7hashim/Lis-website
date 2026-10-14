@@ -61,8 +61,18 @@ try {
       c.getContext('2d').drawImage(img, 0, 0);
       const ctx = c.getContext('2d');
 
-      // Sample the darkest row within +-2px of each rule's reported y, since
-      // a 1px line lands across two device rows when its y is fractional.
+      /* Sample the row of GREATEST CONTRAST against the ground within +-2px
+         of each rule's reported y, since a 1px line lands across two device
+         rows when its y is fractional.
+
+         THIS USED TO TAKE THE DARKEST ROW, which was right for a gold rule on
+         an ivory page and silently wrong the moment the ground inverted on
+         2026-09-30: on a near-black page the darkest row is the BACKGROUND,
+         so all four rules reported lum 13 — the ground's own luminance — and
+         a perfectly visible underline read as invisible. Picking the row
+         furthest from the ground finds the rule whichever way round the page
+         is, which is the same correction the cap scan in verify-locale.mjs
+         needed on the same day. */
       const out = [];
       for (const f of document.querySelectorAll('.field__rule')) {
         const r = f.getBoundingClientRect();
@@ -73,7 +83,9 @@ try {
           if (y < 0 || y >= c.height) continue;
           const d = ctx.getImageData(x, y, 1, 1).data;
           const lum = 0.2126 * d[0] + 0.7152 * d[1] + 0.0722 * d[2];
-          if (!best || lum < best.lum) best = { lum, rgb: [d[0], d[1], d[2]], y };
+          const groundLum = 0.2126 * 13 + 0.7152 * 12 + 0.0722 * 10;
+          const away = Math.abs(lum - groundLum);
+          if (!best || away > best.away) best = { lum, away, rgb: [d[0], d[1], d[2]], y };
         }
         out.push({
           label: f.previousElementSibling.previousElementSibling.textContent.trim(),
@@ -84,7 +96,7 @@ try {
       return out;
     }, Buffer.from(shot).toString('base64'));
 
-    console.log('\nfield rules, sampled from the rendered PNG at their darkest row');
+    console.log('\nfield rules, sampled from the rendered PNG at the row furthest from the ground');
     console.log('   (all four share one class; any difference here is subpixel coverage)');
     for (const p of painted) {
       console.log(`    ${p.label.padEnd(8)} css-top ${String(p.top).padStart(7)}`

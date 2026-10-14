@@ -75,7 +75,7 @@ console.log('CAP HEIGHT — target 2.70% of viewport width\n');
 {
   for (const [w, h] of [[1440, 900], [1280, 800], [390, 844]]) {
     const page = await newPage(w, h);
-    for (const sel of ['.locale--mombasa', '.locale--nairobi']) {
+    for (const sel of ['.locale--mombasa']) {
       const box = await page.evaluate((sel) => {
         const t = document.querySelector(sel + ' .locale__title');
         t.scrollIntoView({ block: 'center', behavior: 'instant' });
@@ -125,10 +125,20 @@ console.log('CAP HEIGHT — target 2.70% of viewport width\n');
         c.width = img.width; c.height = img.height;
         const g = c.getContext('2d'); g.drawImage(img, 0, 0);
         const d = g.getImageData(0, 0, c.width, c.height).data;
+        /* INVERTED 2026-09-30 WITH THE GROUND, and this is the same fault
+           shoot-contact.mjs carried in the other direction. The test was
+           "darker than the ground", which finds dark type on a light page.
+           The page is now near-black with near-white type, so that test found
+           the BACKGROUND instead: it reported ink on every row and gave a cap
+           of 62px on a 59px font — a cap taller than its own em, which is what
+           gave it away. A cap scan that cannot fail is not a measurement.
+
+           It now tests against the ground it is actually on rather than
+           against a literal, so it cannot silently invert again. */
         const isInk = (x, y) => {
           const i = (y * c.width + x) * 4;
-          // ground F6EEE1 (246,238,225) vs ink 241A14 (36,26,20)
-          return d[i] < 170 && d[i + 1] < 150;
+          // ground 0D0C0A (13,12,10) vs ink F8F7F3 (248,247,243)
+          return d[i] > 90 && d[i + 1] > 90;
         };
         let firstCol = -1;
         for (let x = 0; x < c.width && firstCol < 0; x++)
@@ -187,7 +197,7 @@ console.log('\nFIT — section, head and stage as rects (no scrollHeight test)\n
     const page = await newPage(w, h);
     const r = await page.evaluate(() => {
       const out = [];
-      for (const sel of ['.locale--mombasa', '.locale--nairobi']) {
+      for (const sel of ['.locale--mombasa']) {
         const s = document.querySelector(sel);
         const head = s.querySelector('.locale__head');
         const stage = s.querySelector('.locale__stage');

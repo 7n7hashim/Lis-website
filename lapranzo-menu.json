@@ -1,0 +1,226 @@
+{
+  "place": {
+    "name": "La Pranzo & Al-Diwan",
+    "shortName": "La Pranzo",
+    "strapline": "Fast Food & Cafe",
+    "tagline": "Home of Middle Eastern Cuisine",
+    "currency": "KES",
+    "currencySymbol": "KSh",
+    "phone": "+254 768 818833",
+    "instagram": "lapranzoke",
+    "address": "Haile Selassie Road, next to Ola petrol station, Mombasa 80100",
+    "hours": "12:00-23:00 daily"
+  },
+  "source": {
+    "read": "2026-09-30",
+    "from": "https://la-pranzo-al-diwan.odoo.com",
+    "how": "Twelve menu boards published as images on the restaurant's own Odoo site, linked from its Instagram bio. Transcribed by reading the boards. NOT an API: see the note in build-carte.mjs.",
+    "boards": 12
+  },
+  "courses": [
+    { "name": "Starters", "board": "starters-sides", "items": [
+      { "name": "Fatoush Salad", "price": 350 },
+      { "name": "Mutabal", "price": 400 },
+      { "name": "Hummus", "price": 350 },
+      { "name": "Labanies Taboula", "price": 400 },
+      { "name": "Arabic Salad", "price": 250 },
+      { "name": "Greek Salad", "price": 400 },
+      { "name": "Chicken Salad", "price": 500 },
+      { "name": "La Pranzo Salad", "price": 850 },
+      { "name": "Cucumber Yoghurt", "price": 200 }
+    ]},
+    { "name": "Side Dishes", "board": "starters-sides", "items": [
+      { "name": "Plain Chips", "price": 200 },
+      { "name": "Masala Chips", "price": 250 },
+      { "name": "Cheese Nachos Chips", "price": 500 },
+      { "name": "Mixed Cheese Chips", "price": 550 },
+      { "name": "La Pranzo Chips", "price": 650 },
+      { "name": "Mashed Potatoes", "price": 250 },
+      { "name": "Grilled Vegetables", "price": 250 }
+    ]},
+    { "name": "Pizza", "board": "pizza-burgers", "note": "Medium and large.", "items": [
+      { "name": "Chicken Pizza", "price": [900, 1100] },
+      { "name": "Beef Pizza", "price": [900, 1100] },
+      { "name": "Vegetable Pizza", "price": [700, 900] },
+      { "name": "Margherita Pizza", "price": [800, 1000] },
+      { "name": "La Pranzo Pizza", "price": [1100, 1300] },
+      { "name": "Hotdog Pizza", "price": [900, 1100] },
+      { "name": "Tuna Pizza", "price": [900, 1100] }
+    ]},
+    { "name": "Burgers", "board": "pizza-burgers", "items": [
+      { "name": "Beef Burger (Single)", "price": 650 },
+      { "name": "Beef Burger (Double)", "price": 1000 },
+      { "name": "Beef Burger (Triple)", "price": 1200 },
+      { "name": "Beef Burger (Heart Attack)", "price": 1500 },
+      { "name": "Chicken Crunchy Burger (Single)", "price": 650 },
+      { "name": "Chicken Crunchy Burger (Double)", "price": 1000 },
+      { "name": "Chicken Crunchy Burger (Triple)", "price": 1200 },
+      { "name": "Mini Burger", "price": 450 }
+    ]},
+    { "name": "Main Course", "board": "main-course", "note": "Every meal is served with side of your choice.", "items": [
+      { "name": "Chicken Wings", "price": 600 },
+      { "name": "Mishkaki Plate", "price": 700 },
+      { "name": "Shish Tauk Plate", "price": 700 },
+      { "name": "Grilled Chicken Plate", "price": 800 },
+      { "name": "Grilled Chicken with Lemon Sauce", "price": 850 },
+      { "name": "Chicken Pousin", "price": 800 },
+      { "name": "Chicken Musahab (Half)", "price": 850 },
+      { "name": "Grilled T-bone Steak Plate", "price": 850 },
+      { "name": "Kofta Kebab Plate", "price": 750 },
+      { "name": "Chicken Kebab", "price": 750 },
+      { "name": "Chicken Finger Plate", "price": 650 },
+      { "name": "Fish Finger Plate", "price": 650 },
+      { "name": "Mix Grilled Platter (Half)", "price": 1500 },
+      { "name": "Mix Grilled Platter (Full)", "price": 2500 }
+    ]},
+    { "name": "Sandwiches", "board": "sandwiches-falafel", "items": [
+      { "name": "Shawarma", "price": 350 },
+      { "name": "Fajta Chicken", "price": 450 },
+      { "name": "Fajta Beef", "price": 400 },
+      { "name": "Kebab", "price": 350 },
+      { "name": "Shish Tauk", "price": 350 },
+      { "name": "Kebda", "price": 350 },
+      { "name": "Zinger", "price": 600 },
+      { "name": "Turkish Kebab", "price": 600 },
+      { "name": "Turkish Shish Tauk", "price": 600 }
+    ]},
+    { "name": "Falafel", "board": "sandwiches-falafel", "items": [
+      { "name": "Falafel Plate", "price": 500 },
+      { "name": "Sandwich Falafel", "price": 200 },
+      { "name": "Sandwich Falafel with Eggs", "price": 300 }
+    ]},
+    { "name": "Mutton Rice", "board": "rice-pasta", "items": [
+      { "name": "Mandi", "price": 800 },
+      { "name": "Zurbian", "price": 800 },
+      { "name": "Hanith", "price": 800 }
+    ]},
+    { "name": "Chicken Rice", "board": "rice-pasta", "items": [
+      { "name": "Mandi (Brest)", "price": 800 },
+      { "name": "Mandi (Legs)", "price": 780 },
+      { "name": "Hanith (Brest)", "price": 800 },
+      { "name": "Hanith (Legs)", "price": 780 },
+      { "name": "Madhabi (Brest)", "price": 800 },
+      { "name": "Madhabi (Legs)", "price": 780 }
+    ]},
+    { "name": "Pasta", "board": "rice-pasta", "items": [
+      { "name": "Beef pasta", "price": 550 },
+      { "name": "Chicken pasta", "price": 550 }
+    ]},
+    { "name": "Arabic Dishes", "board": "arabic-dishes", "items": [
+      { "name": "Fahasa plate", "price": 800 },
+      { "name": "Fasuolia plate", "price": 550 },
+      { "name": "Fuul plate", "price": 550 },
+      { "name": "Kebda plate", "price": 800 },
+      { "name": "Akdat beef", "price": 800 },
+      { "name": "Akdat chicken", "price": 800 },
+      { "name": "Adas plate", "price": 500 },
+      { "name": "Egg plate", "price": 600 },
+      { "name": "Shakshuka", "price": 550 }
+    ]},
+    { "name": "Dessert", "board": "dessert", "items": [
+      { "name": "Kunafa plain", "price": 600 },
+      { "name": "Kunafa Chocolate", "price": 650 },
+      { "name": "Kunafa Lotus", "price": 700 },
+      { "name": "Kunafa Caramel", "price": 700 },
+      { "name": "Kunafa Pistachio", "price": 800 },
+      { "name": "Maasoub (Full)", "price": 550 },
+      { "name": "Arika (Full)", "price": 550 },
+      { "name": "Maasoub (Half)", "price": 300 },
+      { "name": "Arika (Half)", "price": 300 },
+      { "name": "Basbousa", "price": 200 },
+      { "name": "Basbousa Toffee", "price": 300 },
+      { "name": "Wafal", "price": 500 },
+      { "name": "Mini pancke", "price": 500 }
+    ]},
+    { "name": "Hot Drinks", "board": "hot-drinks", "items": [
+      { "name": "Espresso", "price": 150 },
+      { "name": "Espresso D", "price": 250 },
+      { "name": "Lungo", "price": 250 },
+      { "name": "Americano", "price": 350 },
+      { "name": "Cortado", "price": 350 },
+      { "name": "white Mocha", "price": 400 },
+      { "name": "Hazelnut Latte", "price": 400 },
+      { "name": "Macchiato", "price": 250 },
+      { "name": "Tea lapranzo", "price": 100 },
+      { "name": "Cappuccino", "price": 300 },
+      { "name": "Latte", "price": 350 },
+      { "name": "Mocha", "price": 400 },
+      { "name": "Flat white", "price": 300 },
+      { "name": "Vanilla Latte", "price": 300 },
+      { "name": "Spanish Latte", "price": 300 },
+      { "name": "Caramel Latte", "price": 300 },
+      { "name": "Caramel Macchiato", "price": 300 },
+      { "name": "Milk Tea", "price": 150 }
+    ]},
+    { "name": "Frappucino", "board": "frappucino-icecoffee", "items": [
+      { "name": "Chocolate", "price": 400 },
+      { "name": "Caramel", "price": 400 },
+      { "name": "Vanilla", "price": 400 },
+      { "name": "Hazel", "price": 400 },
+      { "name": "Oreo", "price": 400 },
+      { "name": "Mocha", "price": 400 },
+      { "name": "White", "price": 400 },
+      { "name": "Snickers", "price": 400 },
+      { "name": "La Pranzo", "price": 400 }
+    ]},
+    { "name": "Ice Coffee", "board": "frappucino-icecoffee", "items": [
+      { "name": "Iced Cappucino", "price": 300 },
+      { "name": "Iced Caramel", "price": 300 },
+      { "name": "Iced Macciato", "price": 300 },
+      { "name": "Iced Vanilla Lattee", "price": 300 },
+      { "name": "Iced Mocha", "price": 300 },
+      { "name": "Iced Americano", "price": 300 }
+    ]},
+    { "name": "Milkshakes", "board": "milkshakes", "note": "To mix flavour of your choice.", "items": [
+      { "name": "Vanilla", "price": 350 },
+      { "name": "Caramel", "price": 350 },
+      { "name": "Chocolate", "price": 350 },
+      { "name": "Oreo", "price": 350 },
+      { "name": "Strawberry", "price": 350 },
+      { "name": "Mango", "price": 350 },
+      { "name": "Dark Chocolate", "price": 350 },
+      { "name": "Hazel Nut", "price": 350 },
+      { "name": "Nutella Avocado", "price": 350 },
+      { "name": "Galaxy", "price": 350 },
+      { "name": "Snickers", "price": 350 },
+      { "name": "Lotus", "price": 400 },
+      { "name": "La Pranzo", "price": 400 }
+    ]},
+    { "name": "Fresh Juices", "board": "juices-slushes", "items": [
+      { "name": "Orange Juice", "price": 250 },
+      { "name": "Mango Juice", "price": 250 },
+      { "name": "Watermelon Juice", "price": 200 },
+      { "name": "Pineapple Juice", "price": 200 },
+      { "name": "Lemon Juice", "price": 200 },
+      { "name": "Lemon Mint Juice", "price": 200 },
+      { "name": "Carrot Juice", "price": 200 },
+      { "name": "Cocktail Juice", "price": 250 },
+      { "name": "Strawberry Juice", "price": 350 },
+      { "name": "La Pranzo Mocktail", "price": 300 },
+      { "name": "Avocado Juice", "price": 250 },
+      { "name": "Fakhfahina", "price": 450 }
+    ]},
+    { "name": "Slushes", "board": "juices-slushes", "items": [
+      { "name": "Orange Slush", "price": 250 },
+      { "name": "Pineapple Slush", "price": 250 },
+      { "name": "Watermelon Slush", "price": 250 },
+      { "name": "Passion Slush", "price": 250 },
+      { "name": "Vision Slush", "price": 250 }
+    ]},
+    { "name": "Mojitos", "board": "mojitos", "note": "Every one of these is non-alcoholic.", "items": [
+      { "name": "Lemon Mojito", "price": 350 },
+      { "name": "Strawberry Mojito", "price": 350 },
+      { "name": "Peach Mojito", "price": 350 },
+      { "name": "Mango Mojito", "price": 350 },
+      { "name": "Grape Mojito", "price": 350 },
+      { "name": "Orange Mojito", "price": 350 },
+      { "name": "Pineapple Mojito", "price": 350 },
+      { "name": "Passion Mojito", "price": 350 },
+      { "name": "Sunshine Mojito", "price": 350 },
+      { "name": "Green Mountain Mojito", "price": 350 },
+      { "name": "Blueberry Mojito", "price": 350 },
+      { "name": "Kiwi Mojito", "price": 350 },
+      { "name": "Blue Lagoon Mojito", "price": 350 }
+    ]}
+  ]
+}
