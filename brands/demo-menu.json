@@ -1,0 +1,467 @@
+{
+  "place": {
+    "name": "Your Restaurant",
+    "shortName": "Your Restaurant",
+    "strapline": "Kitchen & Coffee House",
+    "tagline": "A Table Worth Keeping",
+    "currency": "KES",
+    "currencySymbol": "KSh",
+    "phone": "+254 7XX XXX XXX",
+    "instagram": "yourhandle",
+    "address": "Your Street, Your City",
+    "hours": "12:00-23:00 daily"
+  },
+  "source": {
+    "kind": "placeholder",
+    "note": "INVENTED PLACEHOLDER DATA. Nothing here is researched and nothing here is a real restaurant's menu. A deliberately GENERAL casual carte — burgers, wood-fired pizza, grills, pasta, breakfast, desserts, coffee — at plausible Kenyan prices, so a prospect of any cuisine can picture their own menu in its place. Replace the whole file with the prospect's real menu.",
+    "read": "n/a"
+  },
+  "signatures": [
+    [
+      "House Smash Burger",
+      950,
+      "Two smashed patties, cheese, pickles and the house sauce. Put your own signature dish here — the one your regulars order without looking at the menu."
+    ],
+    [
+      "Wood-Fired Garden Pizza",
+      1100,
+      "Peppers, courgette, olives and tomato on a crust blistered in the oven. Large at 1,450."
+    ],
+    [
+      "House Mixed Grill",
+      2400,
+      "Steak, chicken, sausages and wings off the charcoal on one tray, with chips and two sides. Half at 1,400."
+    ],
+    [
+      "Brownie Sundae",
+      650,
+      "Warm brownie, two scoops and hot chocolate sauce, which is how most tables here finish."
+    ]
+  ],
+  "courses": [
+    {
+      "name": "Breakfast",
+      "items": [
+        {
+          "name": "Full Breakfast",
+          "price": 950
+        },
+        {
+          "name": "Pancake Stack",
+          "price": 650
+        },
+        {
+          "name": "Belgian Waffles",
+          "price": 700
+        },
+        {
+          "name": "Eggs Your Way",
+          "price": 450
+        },
+        {
+          "name": "French Toast",
+          "price": 550
+        },
+        {
+          "name": "Avocado Toast",
+          "price": 600
+        }
+      ],
+      "note": "Served until noon."
+    },
+    {
+      "name": "Starters",
+      "items": [
+        {
+          "name": "Chicken Wings (6 pc)",
+          "price": 650
+        },
+        {
+          "name": "Garlic Bread",
+          "price": 300
+        },
+        {
+          "name": "Loaded Nachos",
+          "price": 750
+        },
+        {
+          "name": "Mozzarella Sticks",
+          "price": 600
+        },
+        {
+          "name": "Samosa (2 pc)",
+          "price": 200
+        },
+        {
+          "name": "Soup of the Day",
+          "price": 400
+        },
+        {
+          "name": "Onion Rings",
+          "price": 400
+        }
+      ]
+    },
+    {
+      "name": "Salads",
+      "items": [
+        {
+          "name": "Garden Salad",
+          "price": 450
+        },
+        {
+          "name": "Chicken Caesar",
+          "price": 750
+        },
+        {
+          "name": "Greek Salad",
+          "price": 650
+        },
+        {
+          "name": "Avocado Salad",
+          "price": 550
+        },
+        {
+          "name": "Tuna Salad",
+          "price": 800
+        }
+      ]
+    },
+    {
+      "name": "Burgers",
+      "items": [
+        {
+          "name": "Classic Beef Burger",
+          "price": 800
+        },
+        {
+          "name": "Cheeseburger",
+          "price": 900
+        },
+        {
+          "name": "House Smash Burger",
+          "price": 950
+        },
+        {
+          "name": "Crispy Chicken Burger",
+          "price": 850
+        },
+        {
+          "name": "Mushroom Swiss Burger",
+          "price": 950
+        },
+        {
+          "name": "Veggie Burger",
+          "price": 750
+        },
+        {
+          "name": "Double Stack",
+          "price": 1300
+        }
+      ],
+      "note": "Every burger is served with chips."
+    },
+    {
+      "name": "Pizza",
+      "items": [
+        {
+          "name": "Margherita",
+          "price": [
+            850,
+            1150
+          ]
+        },
+        {
+          "name": "Garden Vegetable",
+          "price": [
+            1100,
+            1450
+          ]
+        },
+        {
+          "name": "BBQ Chicken",
+          "price": [
+            1150,
+            1500
+          ]
+        },
+        {
+          "name": "Four Cheese",
+          "price": [
+            1100,
+            1450
+          ]
+        },
+        {
+          "name": "Chicken Tikka",
+          "price": [
+            1150,
+            1500
+          ]
+        },
+        {
+          "name": "Mushroom & Truffle",
+          "price": [
+            1200,
+            1550
+          ]
+        }
+      ],
+      "note": "Medium and large."
+    },
+    {
+      "name": "From the Grill",
+      "items": [
+        {
+          "name": "Sirloin Steak",
+          "price": 1600
+        },
+        {
+          "name": "T-Bone Steak",
+          "price": 1900
+        },
+        {
+          "name": "Grilled Half Chicken",
+          "price": 950
+        },
+        {
+          "name": "Full Chicken",
+          "price": 1700
+        },
+        {
+          "name": "Lamb Chops",
+          "price": 1500
+        },
+        {
+          "name": "Beef Sausages",
+          "price": 650
+        },
+        {
+          "name": "Grilled Fish Fillet",
+          "price": 1200
+        },
+        {
+          "name": "Mixed Grill (Half)",
+          "price": 1400
+        }
+      ],
+      "note": "Every meal is served with a side of your choice."
+    },
+    {
+      "name": "Chicken",
+      "items": [
+        {
+          "name": "Fried Chicken (3 pc)",
+          "price": 750
+        },
+        {
+          "name": "Chicken Tenders",
+          "price": 700
+        },
+        {
+          "name": "Peri-Peri Chicken",
+          "price": 950
+        },
+        {
+          "name": "Honey Garlic Wings",
+          "price": 700
+        }
+      ]
+    },
+    {
+      "name": "Pasta",
+      "items": [
+        {
+          "name": "Spaghetti Bolognese",
+          "price": 800
+        },
+        {
+          "name": "Penne Arrabbiata",
+          "price": 700
+        },
+        {
+          "name": "Chicken Alfredo",
+          "price": 900
+        },
+        {
+          "name": "Creamy Mushroom Penne",
+          "price": 800
+        },
+        {
+          "name": "Seafood Linguine",
+          "price": 1250
+        }
+      ]
+    },
+    {
+      "name": "Sandwiches & Wraps",
+      "items": [
+        {
+          "name": "Club Sandwich",
+          "price": 750
+        },
+        {
+          "name": "Steak Sandwich",
+          "price": 950
+        },
+        {
+          "name": "Chicken Wrap",
+          "price": 700
+        },
+        {
+          "name": "Grilled Cheese",
+          "price": 500
+        },
+        {
+          "name": "Tuna Melt",
+          "price": 650
+        }
+      ]
+    },
+    {
+      "name": "Sides",
+      "items": [
+        {
+          "name": "Chips",
+          "price": 300
+        },
+        {
+          "name": "Masala Chips",
+          "price": 400
+        },
+        {
+          "name": "Sweet Potato Fries",
+          "price": 400
+        },
+        {
+          "name": "Wedges",
+          "price": 400
+        },
+        {
+          "name": "Coleslaw",
+          "price": 250
+        },
+        {
+          "name": "Steamed Vegetables",
+          "price": 300
+        },
+        {
+          "name": "Side Salad",
+          "price": 250
+        }
+      ]
+    },
+    {
+      "name": "Desserts",
+      "items": [
+        {
+          "name": "Brownie Sundae",
+          "price": 650
+        },
+        {
+          "name": "New York Cheesecake",
+          "price": 550
+        },
+        {
+          "name": "Chocolate Fudge Cake",
+          "price": 500
+        },
+        {
+          "name": "Ice Cream (2 scoops)",
+          "price": 350
+        },
+        {
+          "name": "Apple Crumble",
+          "price": 500
+        },
+        {
+          "name": "Fruit Salad",
+          "price": 400
+        },
+        {
+          "name": "Sundae",
+          "price": 450
+        }
+      ]
+    },
+    {
+      "name": "Coffee & Tea",
+      "items": [
+        {
+          "name": "Espresso",
+          "price": 200
+        },
+        {
+          "name": "Americano",
+          "price": 250
+        },
+        {
+          "name": "Cappuccino",
+          "price": 300
+        },
+        {
+          "name": "Latte",
+          "price": 320
+        },
+        {
+          "name": "Flat White",
+          "price": 320
+        },
+        {
+          "name": "Mocha",
+          "price": 350
+        },
+        {
+          "name": "Hot Chocolate",
+          "price": 350
+        },
+        {
+          "name": "Kenyan Tea",
+          "price": 150
+        },
+        {
+          "name": "Iced Latte",
+          "price": 380
+        }
+      ]
+    },
+    {
+      "name": "Shakes & Juices",
+      "items": [
+        {
+          "name": "Vanilla Shake",
+          "price": 450
+        },
+        {
+          "name": "Chocolate Shake",
+          "price": 480
+        },
+        {
+          "name": "Strawberry Shake",
+          "price": 480
+        },
+        {
+          "name": "Cookies & Cream Shake",
+          "price": 550
+        },
+        {
+          "name": "Passion Juice",
+          "price": 300
+        },
+        {
+          "name": "Mango Juice",
+          "price": 300
+        },
+        {
+          "name": "Fresh Lemonade",
+          "price": 300
+        },
+        {
+          "name": "Iced Tea",
+          "price": 300
+        }
+      ],
+      "note": "Every one of these is non-alcoholic."
+    }
+  ]
+}

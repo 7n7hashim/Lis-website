@@ -1,0 +1,104 @@
+{
+  "id": "demo",
+  "label": "Your Restaurant — the neutral demo brand sent to prospects (renamed from Mezani 2026-10-19)",
+  "demo": true,
+  "identity": {
+    "wordmark": "YOUR RESTAURANT",
+    "shortName": "Your Restaurant",
+    "slug": "yourrestaurant",
+    "closingWord": "Karibu",
+    "tagline": "A Table Worth Keeping",
+    "strapline": "Kitchen &amp; Coffee House",
+    "instagram": "yourhandle",
+    "instagramUrl": "https://www.instagram.com/",
+    "phoneDisplay": "+254 712 345678",
+    "phoneE164": "254XXXXXXXXX",
+    "telHref": "tel:+254XXXXXXXXX",
+    "street": "Your Street",
+    "city": "Your City",
+    "maskUrl": "brand_assets/demo-mark-512.png"
+  },
+  "palette": {
+    "accent": "#F1CAAB",
+    "amber": "#984E16",
+    "resGold": "#A78062",
+    "resHair": "#312922"
+  },
+  "wordmarkType": {
+    "heroSize": "--wm-size:     clamp(1.35rem, 1.5vw, 1.59rem);",
+    "heroTrack": "--wm-track:    0.12em;",
+    "endMark": "--end-mark:   clamp(1.76rem, 7.99vw, 8.03rem);",
+    "endMarkMobile": "--end-mark: 7.99vw;"
+  },
+  "pages": {
+    "index.html": {
+      "title": "Your Restaurant — A Table Worth Keeping",
+      "description": "A demonstration restaurant website. Every name, number and price on it is a placeholder, ready to be replaced with yours."
+    },
+    "menu.html": {
+      "title": "Your Restaurant — The Menu",
+      "description": "A demonstration carte, laid out course by course with prices in shillings. The structure is real; the dishes are placeholders for yours."
+    },
+    "about.html": {
+      "title": "Your Restaurant — More Than a Kitchen",
+      "description": "A demonstration restaurant website: the story page, the numbers, the rooms. All copy is placeholder text ready for your own."
+    },
+    "contact.html": {
+      "title": "Your Restaurant — We Are at Your Service",
+      "description": "A demonstration contact page: hours, location, a working enquiry form and eight answered questions. Every detail is a placeholder for yours."
+    }
+  },
+  "blocks": {
+    "closing.title": "The Room<br>You Are Welcomed Into.",
+    "closing.body": "Karibu is the first word a guest hears in this city, and it is\n          said before anyone asks what you came for. It is a promise about the room rather\n          than about the food &mdash; that there is a chair, that something hot is already\n          coming, and that nobody is counting how long you stay. It is the harder of the\n          two promises, which is why it is the one worth putting on the wall.",
+    "about.opening": "One room, on a street your regulars already know. The carte",
+    "about.carte": "runs to eighty-four things across thirteen courses &mdash;",
+    "locale.body": "One room, downtown, a few doors from the corner your regulars\n      turn at. This paragraph is where the room gets described &mdash; how long people stay,\n      what they come back for, what the street is like at eight in the evening. It is the\n      first block to rewrite, because it is the one a guest reads to decide whether this is\n      their kind of place.",
+    "faq.where.a": "One room, downtown. Your Street, <strong>next to the landmark\n            everyone navigates by</strong>, Your City 00100.",
+    "menu.display1": "<span>From Chips</span>",
+    "menu.display2": "<span>to Sundae</span>",
+    "figures.dishes": "data-to=\"84\">84</span>",
+    "figures.courses": "data-to=\"13\">13</span>",
+    "locale.cardTitle": "Your Landmark",
+    "index.ticker": "          <span class=\"menu__item\">Burgers</span>\n          <span class=\"menu__item\">Pizza</span>\n          <span class=\"menu__item\">Steaks</span>\n          <em class=\"menu__item menu__item--featured\">Sundaes</em>",
+    "index.caption": "            The doors open at noon and the grill is already lit, because the dough\n            has been proving since long before that. Thirteen courses run from then\n            until eleven at night. Eleven hours, one kitchen, one room.",
+    "index.beyond": "      <p class=\"beyond__copy\">Burgers off the flat-top, pizza from the oven, nine coffees and\n        something sweet at the end of it. Eighty-four things across thirteen courses &mdash; which\n        is what it takes to be the grill and the cafe at the same time.</p>",
+    "menu.carteNote": "          Everything here is on from noon until eleven, seven days a week. Thirteen\n          courses and eighty-four dishes, and not one alcoholic drink among them\n          &mdash; every shake and juice on the last board is non-alcoholic, and the\n          board says so itself.",
+    "about.stmt": "            a charcoal grill, a wood-fired oven, a burger counter, a coffee bar\n            and a sweet counter. What it is not is a restaurant that",
+    "about.ch1.lede": "            <p class=\"ch__lede\">Nothing on the main course is cooked in a pan. Steaks, burgers, lamb chops, sausages, a whole chicken &mdash; all of it goes over heat, which is the one method that leaves a cook nowhere to hide. Eight dishes on that board and every one of them is finished by the same fire.</p>",
+    "about.ch1.n1": "<dt>Eight off the grill</dt>\n                <dd>From beef sausages at 650 shillings to the full mixed grill at 2,400, which is the most expensive thing the kitchen sells.</dd>",
+    "about.ch2.lede": "            <p class=\"ch__lede\">Six pizzas, every one through a wood-fired oven running at four hundred degrees, where a base is done in ninety seconds and the crust blisters before the cheese has finished melting. It is the fastest thing this kitchen does and the one that has to be lit before the doors open.</p>",
+    "about.ch2.n1": "<dt>Six on the board</dt>\n                <dd>From a margherita at 850 shillings to mushroom and truffle at 1,550, each in two sizes. The price difference is the topping, not the cooking.</dd>",
+    "about.ch2.n2": "                <dd>The dough is made the day before and left to prove overnight, which is the one step that cannot be hurried and the one a guest can taste.</dd>",
+    "about.ch3.head": "            <h3 class=\"ch__head\">Seven Ways to Finish</h3>",
+    "about.ch3.lede": "            <p class=\"ch__lede\">Cheesecake, brownie, fudge cake, a sundae. Most kitchens treat the last course as an afterthought; this one keeps seven on the board, next to an apple crumble, ice cream and a fruit salad. A warm brownie under cold ice cream is not a thing you can hold back and reheat.</p>",
+    "about.ch3.n1": "<dt>Seven on the board</dt>\n                <dd>A brownie sundae, New York cheesecake, chocolate fudge cake, apple crumble, a plain sundae, two scoops of ice cream and a fruit salad.</dd>",
+    "about.ch3.n2": "<dt>350 to 650 shillings</dt>\n                <dd>From two scoops of ice cream to the brownie sundae. Cheaper than the grill and, going by what people photograph, the reason a good many of them came.</dd>",
+    "about.ex1": "              <p class=\"ex-card__body\">Steaks, burgers, lamb chops and a whole\n                chicken, cooked over heat rather than in a pan. Eight dishes on one\n                board is not a section &mdash; it is what the kitchen is built around.</p>",
+    "about.ex3": "              <p class=\"ex-card__body\">Seven of them, from two scoops of ice cream to\n                the brownie sundae. It is open as long as the kitchen is, which is why\n                the room is still full at eleven at night.</p>",
+    "faq.alcohol.a": "            <p><strong>No.</strong> There is not one alcoholic drink among the\n            eighty-four things on this carte. <strong>Every shake and juice is\n            non-alcoholic</strong> &mdash; vanilla, chocolate, strawberry, passion, mango and\n            the rest &mdash; and the board says so under its own heading. What there\n            is instead is a coffee bar: nine hot and iced, four shakes, and a fresh\n            lemonade that most tables order before they have looked at the food.</p>",
+    "faq.halal.rest": "            kitchen is a grill and a pizza oven, and there is no pork on any of the thirteen\n            courses &mdash; but that is an observation about a menu, not a statement from",
+    "faq.cuisine.a": "            <p>A grill and a pizza oven first, and a coffee bar beside them. Burgers off\n            the flat-top &mdash; seven of them, from a classic beef to a double stack. Pizza\n            from the wood-fired oven &mdash; six, in two sizes. Steaks, chops and a mixed\n            grill off the charcoal. Pasta, sandwiches, wraps, and breakfast until noon.\n            And beside all of it, desserts, shakes and a full coffee bar, because the\n            sign over the door says <em>kitchen and coffee house</em> as well.</p>",
+    "faq.veg.a": "            <p>A good many, and they are countable off the carte: the veggie burger,\n            the margherita, garden and four-cheese pizzas, penne arrabbiata, creamy\n            mushroom penne, three salads, grilled cheese, pancakes and waffles, and\n            four kinds of chips. <strong>Vegan and gluten-free are not confirmed for this",
+    "ending.note": "&copy; 2026 Your Restaurant",
+    "manifest.name": "\"name\": \"Your Restaurant\"",
+    "manifest.shortName": "\"short_name\": \"Your Restaurant\"",
+    "dish.title": "<h2 class=\"dish__title\" id=\"dish-title\">Wood-Fired Pizza</h2>",
+    "dish.l1": "<h3 class=\"dish__label\">The Dough</h3>",
+    "dish.n1": "<p class=\"dish__note\">Made the day before and left to prove overnight, so it\n            stretches by hand rather than under a rolling pin. The step nobody\n            sees, and the one the crust depends on.</p>",
+    "dish.l2": "<h3 class=\"dish__label\">The Sauce</h3>",
+    "dish.n2": "<p class=\"dish__note\">Tomatoes cooked down slowly with garlic and a little oil,\n            then spread thin so the base stays crisp underneath. The kitchen uses the\n            same sauce on the pasta, and it shows in both.</p>",
+    "dish.l3": "<h3 class=\"dish__label\">The Toppings</h3>",
+    "dish.n3": "<p class=\"dish__note\">Peppers, courgette, olives and cherry tomatoes, cut thick\n            enough to hold their shape in the heat. A pizza is a dish you are\n            meant to use your hands on, and this is the part that proves it.</p>",
+    "dish.l4": "<h3 class=\"dish__label\">The Fire</h3>",
+    "dish.n4": "<p class=\"dish__note\">A wood-fired oven at four hundred degrees, which finishes\n            a pizza in ninety seconds and blisters the crust before the cheese has\n            time to split. That char at the edge is what you are tasting.</p>",
+    "about.ch2.label": "<p class=\"ch__label\">Chapter II &mdash; The oven</p>",
+    "about.ch2.head": "<h3 class=\"ch__head\">Fired at Four Hundred</h3>",
+    "about.ch2.dt2": "<dt>Proved overnight</dt>",
+    "about.ch4.dd": "<dd>Noon until eleven at night. Lunch runs into the afternoon and the afternoon into dinner, and nobody is brought the bill before they ask for it.</dd>",
+    "about.exCoffee": "<p class=\"ex-card__body\">Nine on the board, from a 150-shilling Kenyan tea\n                to an iced latte. A kitchen that also runs a proper coffee bar is doing\n                two jobs, and this one prices both.</p>",
+    "menu.cap.hero": "<figcaption class=\"frame__caption\">The Room</figcaption>",
+    "menu.cap.pizza": "<figcaption class=\"frame__caption\">The Oven</figcaption>",
+    "menu.cap.steak": "<figcaption class=\"frame__caption\">The Charcoal</figcaption>"
+  }
+}

@@ -1,0 +1,104 @@
+{
+  "id": "lapranzo",
+  "label": "La Pranzo & Al-Diwan — the real client build (Mombasa)",
+  "demo": false,
+  "identity": {
+    "wordmark": "LA PRANZO",
+    "shortName": "La Pranzo",
+    "slug": "lapranzo",
+    "closingWord": "Al-Diwan",
+    "tagline": "Home of Middle Eastern Cuisine",
+    "strapline": "Fast Food &amp; Cafe",
+    "instagram": "lapranzoke",
+    "instagramUrl": "https://www.instagram.com/lapranzoke",
+    "phoneDisplay": "+254 768 818833",
+    "phoneE164": "254768818833",
+    "telHref": "tel:+254768818833",
+    "street": "Haile Selassie Road",
+    "city": "Mombasa",
+    "maskUrl": "brand_assets/lapranzo-mask-512.png"
+  },
+  "palette": {
+    "accent": "#FFCA2A",
+    "amber": "#7A5E0E",
+    "resGold": "#9A8654",
+    "resHair": "#2E2A22"
+  },
+  "wordmarkType": {
+    "heroSize": "--wm-size:     clamp(2.2rem, 3.4vw, 3.6rem);",
+    "heroTrack": "--wm-track:    0.18em;",
+    "endMark": "--end-mark:   clamp(3.01rem, 13.66vw, 13.72rem);",
+    "endMarkMobile": "--end-mark: 13.73vw;"
+  },
+  "pages": {
+    "index.html": {
+      "title": "La Pranzo — Home of Middle Eastern Cuisine",
+      "description": "La Pranzo &amp; Al-Diwan, Haile Selassie Road, Mombasa. Middle Eastern grill and cafe: mandi, mishkaki, shawarma and five kinds of kunafa, noon until eleven, every day."
+    },
+    "menu.html": {
+      "title": "La Pranzo — The Menu",
+      "description": "The La Pranzo carte — 166 dishes across 19 courses: mandi and hanith, mishkaki and kofta, shawarma, pizza, five kunafas and eighteen coffees. Haile Selassie Road, Mombasa."
+    },
+    "about.html": {
+      "title": "La Pranzo — More Than a Grill",
+      "description": "La Pranzo &amp; Al-Diwan on Haile Selassie Road, Mombasa. A Middle Eastern grill and cafe open noon until eleven, every day."
+    },
+    "contact.html": {
+      "title": "La Pranzo — We Are at Your Service",
+      "description": "Contact La Pranzo &amp; Al-Diwan — Haile Selassie Road, next to the Ola station, Mombasa. Open noon until eleven, seven days a week. +254 768 818833."
+    }
+  },
+  "blocks": {
+    "closing.title": "The Room<br>You Are Received In.",
+    "closing.body": "A diwan is not a dining room. It is the long low room a\n          household keeps for receiving people in &mdash; cushions down both walls, coffee\n          arriving whether you asked or not, and nobody counting how long you stay. Half\n          the name over this door is that word, which is a promise about the room rather\n          than about the food, and it is the harder of the two to keep.",
+    "about.opening": "One room, on Haile Selassie Road, next to the Ola station. The carte",
+    "about.carte": "runs to a hundred and sixty-six things across nineteen courses &mdash;",
+    "locale.body": "One room, downtown, on Haile Selassie Road next to the Ola\n      station. Google rates it 4.7 across three hundred and twenty-three reviews, and\n      reports that people spend anywhere from twenty-five minutes to three hours here\n      &mdash; which is a wide spread for a place that calls itself a fast food and\n      cafe.",
+    "faq.where.a": "One room, downtown. Haile Selassie Road, <strong>next to the Ola petrol\n            station</strong>, in the United Meat Supplies building, Mombasa 80100.",
+    "menu.display1": "<span>From Mandi</span>",
+    "menu.display2": "<span>to Kunafa</span>",
+    "figures.dishes": "data-to=\"166\">166</span>",
+    "figures.courses": "data-to=\"19\">19</span>",
+    "locale.cardTitle": "Next to Ola",
+    "index.ticker": "          <span class=\"menu__item\">Mandi</span>\n          <span class=\"menu__item\">Mishkaki</span>\n          <span class=\"menu__item\">Shawarma</span>\n          <em class=\"menu__item menu__item--featured\">Kunafa</em>",
+    "index.caption": "            The doors open at noon and the grill is already lit, because the rice\n            has been on since long before that. Nineteen courses run from then\n            until eleven at night. Eleven hours, one kitchen, one room.",
+    "index.beyond": "      <p class=\"beyond__copy\">Mandi under a lid, a burger, eighteen coffees and five kinds of\n        kunafa. A hundred and sixty-six things across nineteen courses &mdash; which is what it\n        takes to be the grill and the cafe at the same time.</p>",
+    "menu.carteNote": "          Everything here is on from noon until eleven, seven days a week. Nineteen\n          courses and a hundred and sixty-six dishes, and not one alcoholic drink\n          among them &mdash; the thirteen mojitos are mocktails, and so is everything\n          on the juice board.",
+    "about.stmt": "            a charcoal grill, rice cooked under a lid, a sandwich counter, eighteen\n            coffees and five kinds of kunafa. What it is not is a restaurant that",
+    "about.ch1.lede": "            <p class=\"ch__lede\">Nothing on the main course is cooked in a pan. Mishkaki, kofta, shish tauk, chicken pousin, a T-bone, a whole half chicken &mdash; all of it goes over heat, which is the one method that leaves a cook nowhere to hide. Fourteen dishes on that board and every one of them is finished by the same fire.</p>",
+    "about.ch1.n1": "                <dt>Fourteen off the grill</dt>\n                <dd>From chicken wings at 600 shillings to the full mixed platter at 2,500, which is the most expensive thing the kitchen sells.</dd>",
+    "about.ch2.lede": "            <p class=\"ch__lede\">Mandi, hanith, zurbian, madhabi. Four Yemeni and Gulf rice dishes, where the meat goes in above the rice and everything that comes off it during the hours it cooks goes into the grain below. It is the slowest thing this kitchen does and the one that has to be started before the doors open.</p>",
+    "about.ch2.n1": "                <dt>Nine rice dishes</dt>\n                <dd>Three in mutton at 800 shillings, six in chicken &mdash; breast or legs, at 800 and 780. The price difference is the cut, not the cooking.</dd>",
+    "about.ch2.n2": "                <dd>Mandi is the pot it steams in, hanith the way it is hung, zurbian the spicing and madhabi the finish over coals. Four names, one cut of meat.</dd>",
+    "about.ch3.head": "            <h3 class=\"ch__head\">Five Kinds of Kunafa</h3>",
+    "about.ch3.lede": "            <p class=\"ch__lede\">Plain, chocolate, lotus, caramel, pistachio. Most kitchens that serve kunafa serve one; this one keeps five on the board, next to maasoub and arika in half and full, basbousa plain and toffee, and a waffle. Shredded pastry over hot cheese is not a thing you can hold back and reheat.</p>",
+    "about.ch3.n1": "                <dt>Thirteen on the board</dt>\n                <dd>Five kunafas, maasoub and arika in two sizes each, two basbousas, a waffle and a plate of mini pancakes.</dd>",
+    "about.ch3.n2": "                <dt>200 to 800 shillings</dt>\n                <dd>From a basbousa to the pistachio kunafa. Cheaper than the grill and, going by what people photograph, the reason a good many of them came.</dd>",
+    "about.ex1": "              <p class=\"ex-card__body\">Mishkaki, kofta, shish tauk, a T-bone and a whole\n                chicken, cooked over heat rather than in a pan. Fourteen dishes on one\n                board is not a section &mdash; it is what the kitchen is built around.</p>",
+    "about.ex3": "              <p class=\"ex-card__body\">Thirteen of them, from a 200-shilling basbousa to\n                the pistachio kunafa. It is open as long as the kitchen is, which is why\n                the room is still full at eleven at night.</p>",
+    "faq.alcohol.a": "            <p><strong>No.</strong> There is not one alcoholic drink among the hundred and\n            sixty-six things on this carte. <strong>The thirteen mojitos are\n            mocktails</strong> &mdash; lemon, passion, blue lagoon, green mountain and\n            the rest &mdash; and so is everything on the juice board, including the one\n            called a Cocktail Juice. What there is instead is a coffee bar: eighteen hot,\n            nine frappuccinos, six iced, and thirteen milkshakes beside them.</p>",
+    "faq.halal.rest": "            kitchen is Middle Eastern, and there is no pork on any of the nineteen\n            courses &mdash; but that is an observation about a menu, not a statement from",
+    "faq.cuisine.a": "            <p>Middle Eastern, and more precisely than that phrase usually means. Yemeni and\n            Gulf rice cooked under a lid &mdash; mandi, hanith, zurbian, madhabi. Levantine\n            mezze and grills &mdash; hummus, mutabal, fatoush, shish tauk, kofta. Egyptian\n            plates &mdash; fuul, shakshuka, kebda, adas. Mishkaki, which is the coast's own.\n            And beside all of it, pizza, burgers, pasta and a full coffee bar, because the\n            sign over the door says <em>fast food and cafe</em> as well.</p>",
+    "faq.veg.a": "            <p>A good many, and they are countable off the carte: falafel three ways, fuul,\n            adas, fasuolia, hummus, mutabal, labanies taboula, cucumber yoghurt, four\n            salads, the vegetable pizza, grilled vegetables, mashed potatoes and five\n            kinds of chips. <strong>Vegan and gluten-free are not confirmed for this",
+    "ending.note": "&copy; 2026 La Pranzo &amp; Al-Diwan",
+    "manifest.name": "\"name\": \"La Pranzo & Al-Diwan\"",
+    "manifest.shortName": "\"short_name\": \"La Pranzo\"",
+    "dish.title": "<h2 class=\"dish__title\" id=\"dish-title\">Mix Grilled Platter</h2>",
+    "dish.l1": "<h3 class=\"dish__label\">Kofta Kebab</h3>",
+    "dish.n1": "<p class=\"dish__note\">Minced, spiced and pressed onto the skewer by hand, so it\n            cooks in the shape of the hand that made it. On the carte on its own as well,\n            as a plate, which is how you find out how much of the platter is this.</p>",
+    "dish.l2": "<h3 class=\"dish__label\">Shish Tauk</h3>",
+    "dish.n2": "<p class=\"dish__note\">Chicken, marinated and then grilled fast so the outside\n            takes colour before the inside has time to dry. The kitchen sells it three\n            ways &mdash; as a plate, in a sandwich, and here.</p>",
+    "dish.l3": "<h3 class=\"dish__label\">Mishkaki</h3>",
+    "dish.n3": "<p class=\"dish__note\">The coast's own skewer, and the one item on this platter\n            that belongs to Mombasa rather than to the Gulf. A platter is a dish you are\n            meant to use your hands on, and this is the part that proves it.</p>",
+    "dish.l4": "<h3 class=\"dish__label\">The Sides</h3>",
+    "dish.n4": "<p class=\"dish__note\">Every meal is served with side of your choice &mdash; the\n            menu's own line, on its own board. Seven of them, from plain chips to the\n            house chips, which is the thing most people here order first.</p>",
+    "about.ch2.label": "<p class=\"ch__label\">Chapter II &mdash; The rice</p>",
+    "about.ch2.head": "<h3 class=\"ch__head\">Cooked Under the Lid</h3>",
+    "about.ch2.dt2": "<dt>Named for the method</dt>",
+    "about.ch4.dd": "<dd>Noon until eleven at night. Google reports people typically spend anywhere from twenty-five minutes to three hours here, which is a wide spread for one room.</dd>",
+    "about.exCoffee": "<p class=\"ex-card__body\">Eighteen hot coffees, nine frappuccinos and six\n                iced, from a 150-shilling espresso to a hazelnut latte. A grill that also\n                runs a proper coffee bar is doing two jobs, and this one prices both.</p>",
+    "menu.cap.hero": "<figcaption class=\"frame__caption\">The Grill</figcaption>",
+    "menu.cap.pizza": "<figcaption class=\"frame__caption\">Arabic Plates</figcaption>",
+    "menu.cap.steak": "<figcaption class=\"frame__caption\">The Platter</figcaption>"
+  }
+}
