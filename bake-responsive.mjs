@@ -64,6 +64,40 @@ const ROLES = {
    on the darkest. A coarse grid + binary search finds the cheapest rung that
    clears the floor in three encodes rather than seven. */
 const CRF_GRID = [10, 14, 18, 22, 26, 30, 34];
+
+/* PER-IMAGE DENOISE, applied to the REFERENCE at rung size, 2026-10-19.
+
+   A PSNR floor cannot tell sensor noise from detail, so a frame carrying fine
+   grain is forced to CRF 14 on every rung to keep noise nobody can see.
+   contact-hero ran 72-203K where its predecessor ran 18-21K, at the SAME
+   floor, for exactly that reason. Denoising the reference first lets the
+   floor be met on the picture rather than on the grain.
+
+   The floor is NOT lowered and nothing is denoised blindly. Each entry was
+   tested at the rung a 390px phone downloads, and kept only where the saving
+   is large AND the denoise alone moves the image less than ~50dB:
+
+     contact-hero  nlmeans 1.5   103.0K -> 21.5K   (denoise alone 44.2dB)
+     lp-counter    nlmeans 1.0    62.6K -> 32.6K   (48.1dB)
+     about-plate   nlmeans 1.0   103.9K -> 62.7K   (49.1dB)
+
+   REJECTED, all under 10% because their weight is real texture rather than
+   grain: lp-hero, locale-mombasa, menu-steak (re-sourced instead), the
+   fire, the grill, the dining room and about-opening. Denoising those would
+   trade visible detail for a few kilobytes.
+
+   contact-hero was also judged by eye at 1:1: the grain on the cup and
+   saucer is gone and the latte art, edges and hands are unchanged. It sits
+   under a dark bed with the page heading over it.
+
+   The <img src> JPEG fallback is untouched, so the original survives for any
+   browser without AVIF/WebP. Delete the image's rungs (and its TMP refs)
+   after changing an entry: the bake keys on filename and will not notice. */
+const DENOISE = {
+  'assets/img/contact-hero.jpg': 'nlmeans=s=1.5:p=5:r=9',
+  'assets/img/lp-counter.jpg':   'nlmeans=s=1.0:p=5:r=9',
+  'assets/img/about-plate.jpg':  'nlmeans=s=1.0:p=5:r=9',
+};
 const WEBP_GRID = [0.94, 0.90, 0.86, 0.82, 0.78, 0.74, 0.70];
 
 const ROLE_OF = {
@@ -282,7 +316,7 @@ for (const j of jobs) {
     const refPng = join(TMP, `${stem.replace(/\//g, '_')}-${w}.png`);
     if (FORCE || !existsSync(refPng)) {
       sh('ffmpeg', ['-y', '-v', 'error', '-i', j.src, '-vf',
-        `scale=${w}:${h}:flags=lanczos${alpha ? ',format=rgba' : ''}`, refPng]);
+        `scale=${w}:${h}:flags=lanczos${DENOISE[j.src] ? ',' + DENOISE[j.src] : ''}${alpha ? ',format=rgba' : ''}`, refPng]);
     }
 
     /* Binary search the grid for the CHEAPEST setting that still clears the

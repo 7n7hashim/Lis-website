@@ -115,6 +115,18 @@ those rooms. On a near-black page it is the brightest thing on the site and
 reads as a hole. Pulling it down also HELPS the near-white marker cards laid
 over it, whose hard floor was always that the sky under a card must not
 approach the card's own luminance.
+
+DEMO RE-SOURCE, 2026-10-19 (branch demo-template). Eighteen frames were swapped
+for general-restaurant subjects — burgers, pizza, steak, desserts, coffee, bright
+rooms — because the demo brand is sent to restaurants of every kind and the
+previous set read Middle Eastern on sight (kunafa, basbousa, baklava, a shawarma
+spit, kebab skewers, a mandi platter, a dallah pour, two majlis rooms). Stems
+that NAMED the old dish were renamed with it; a file called dish4-kunafa holding
+pancakes is a small lie the next person pays for. Rejected at full size for
+content: 8743942 (falafel and shawarma wraps), 16014748 (a Coca-Cola can),
+244407 (a coffee-chain logo on the saucer), 9814590 (a Heinz bottle), 1889574
+(a cafe logo on cup and apron), 9765176 (KAKU branding), and pepperoni/ham/bacon
+frames, which would contradict the FAQ's no-pork answer.
 """
 import os, sys
 from PIL import Image, ImageEnhance, ImageFilter
@@ -193,10 +205,10 @@ F = [
  #   rotisserie is the one piece of equipment a guest sees from the street, and
  #   it sits dead centre of the stadium's full-height middle. It is also the
  #   only candidate that says "Middle Eastern" without a caption.
- dict(id='35255190', stem='lp-counter', w=1536, h=710, ax=.5, ay=.5,
+ dict(id='38138831', stem='lp-counter', w=1536, h=710, ax=.5, ay=.5,
       lift=0, gain=1.04, sat=0.94, warm=(1.03,1.00,0.97), vig=0.10, aim=70),
  #   needs: a LAID TABLE under warm light, behind the gourd clip.
- dict(id='34492425', stem='reserve-interior', w=1400, h=1576, ax=.5, ay=.5,
+ dict(id='29935341', stem='reserve-interior', w=1400, h=1576, ax=.5, ay=.5,
       lift=0, gain=1.04, sat=0.96, warm=(1.03,1.00,0.97), vig=0.12, aim=68),
  # ---- about -----------------------------------------------------------------
  #   THE MAKING RATHER THAN THE MADE — the brief for this slot, unchanged
@@ -204,13 +216,13 @@ F = [
  dict(id='27685507', stem='about-opening', w=2400, h=1800, ax=.5, ay=.5,
       lift=0, gain=1.06, sat=0.94, warm=(1.03,1.00,0.97), vig=0.14, aim=65),
  #   Full bleed, nothing over it. The mandi platter: rice, chicken, lemon.
- dict(id='7426867', stem='about-plate', w=1536, h=1024, ax=.5, ay=.5,
+ dict(id='12932512', stem='about-plate', w=1536, h=1024, ax=.5, ay=.5,
       lift=0, gain=1.08, sat=0.98, warm=(1.02,1.00,0.98), vig=0.16, aim=55),
  #   Chapter I - the fire. Kofta on skewers over open charcoal.
- dict(id='31249644', stem='about-ch1-fire', w=1100, h=1466, ax=.5, ay=.5,
+ dict(id='7995520', stem='about-ch1-fire', w=1100, h=1466, ax=.5, ay=.5,
       lift=0, gain=1.04, sat=0.98, warm=(1.03,1.00,0.97), vig=0.10, aim=72),
  #   Chapter II - the rice. Cooked under the lid.
- dict(id='4224304', stem='about-ch2-rice', w=1100, h=1466, ax=.5, ay=.5,
+ dict(id='3343625', stem='about-ch2-oven', w=1100, h=1466, ax=.5, ay=.5,
       lift=0, gain=1.04, sat=0.96, warm=(1.03,1.00,0.97), vig=0.10, aim=72),
  #   Chapter III - the sweet. Luqaimat-style fried dough in syrup, close.
  #   REPLACED: 6262168, a kunafa on a WHITE plate, pinned the gamma at its 3.2
@@ -218,41 +230,49 @@ F = [
  #   top-light has no shadow for a dark band to live in. That frame is not
  #   wasted; it is bright and even, which is exactly what a marquee tile wants,
  #   so it moved to gallery/dish4 and took the 95 band instead.
- dict(id='7406887', stem='about-ch3-sweet', w=1100, h=1466, ax=.5, ay=.5,
+ dict(id='4051734', stem='about-ch3-sweet', w=1100, h=1466, ax=.5, ay=.5,
       lift=0, gain=1.04, sat=0.98, warm=(1.02,1.00,0.98), vig=0.10, aim=72),
  #   Chapter IV - the table. People at it, which is the chapter's whole point.
  dict(id='5990698', stem='about-ch4-table', w=1100, h=1466, ax=.5, ay=.44,
       lift=0, gain=1.04, sat=0.94, warm=(1.03,1.00,0.97), vig=0.10, aim=72),
- dict(id='32148345', stem='about-ex1-coffee', w=1100, h=1467, ax=.5, ay=.5,
+ dict(id='14689179', stem='about-ex1-coffee', w=1100, h=1467, ax=.5, ay=.5,
       lift=0, gain=1.02, sat=0.96, warm=(1.03,1.00,0.97), vig=0.08, aim=80),
  dict(id='37030068', stem='about-ex2-grill', w=1100, h=1467, ax=.5, ay=.5,
       lift=0, gain=1.02, sat=0.98, warm=(1.03,1.00,0.97), vig=0.08, aim=80),
- dict(id='37315443', stem='about-ex3-sweet', w=1100, h=1467, ax=.5, ay=.5,
+ dict(id='20081528', stem='about-ex3-sweet', w=1100, h=1467, ax=.5, ay=.5,
       lift=0, gain=1.02, sat=0.98, warm=(1.02,1.00,0.98), vig=0.08, aim=80),
  #   THE DIWAN PAIR. 130, against the 55-80 everything around them sits at.
  #   This is the page's closing beat and it is about the room a household
  #   receives guests in. A dark frame here would be re-grading the subject
  #   away, exactly as a bright one would have on the build before this.
- dict(id='18285958', stem='about-dw1-room', w=1100, h=1466, ax=.5, ay=.5,
+ dict(id='3952060', stem='about-dw1-room', w=1100, h=1466, ax=.5, ay=.5,
       lift=0, gain=0.98, sat=0.96, warm=(1.02,1.00,0.98), vig=0.06, aim=130),
  #   the only landscape frame on the site, and that is what stops the pair
  #   reading as a pair rather than as two depth planes.
- dict(id='33122349', stem='about-dw2-room', w=1200, h=900, ax=.5, ay=.5,
+ dict(id='14590691', stem='about-dw2-room', w=1200, h=900, ax=.5, ay=.5,
       lift=0, gain=0.98, sat=0.94, warm=(1.02,1.00,0.98), vig=0.06, aim=130),
  # ---- menu.html's opening frames --------------------------------------------
  # DEDICATED FILES, not the marquee tiles. The tiles are 560px tall, built for
  # a marquee, and these frames paint into a 3:4 portrait slot needing up to
  # 683 device px. At 900x1200 they paint at x0.7 and under.
- dict(id='36169141', stem='menu-grill', w=900, h=1200, ax=.5, ay=.5,
+ dict(id='12325070', stem='menu-burger', w=900, h=1200, ax=.5, ay=.5,
       lift=0, gain=1.04, sat=0.98, warm=(1.03,1.00,0.97), vig=0.10, aim=72),
  #   REPLACED: 34492425, which is reserve-interior's own source. The reserve
  #   block is byte-copied onto menu.html, so that frame was about to appear
  #   TWICE on one page, once in the opening composition and once three
  #   sections down. Reuse across distant pages is fine here and the site has
  #   always done it; reuse within a page is not.
- dict(id='19141541', stem='menu-arabic', w=900, h=1200, ax=.5, ay=.5,
+ dict(id='35017345', stem='menu-pizza', w=900, h=1200, ax=.5, ay=.5,
       lift=0, gain=1.02, sat=0.96, warm=(1.02,1.00,0.98), vig=0.10, aim=72),
- dict(id='33233601', stem='menu-platter', w=900, h=1200, ax=.5, ay=.5,
+ #   menu-steak RE-SOURCED 2026-10-19 FOR WEIGHT, not for content. 27643024
+#   (steak on a cast-iron plate with fries and padron peppers) was the
+#   heaviest thing on the menu page — 118K at its 710 rung, all genuine
+#   texture: denoise bought 1%. And it was the page's LCP, because the four
+#   floats paint within 80px^2 of each other and the browser crowns whichever
+#   is fractionally largest WHEN IT LANDS. 38285871, steak-frites on a white
+#   plate against black, clears the same 41.5dB floor at 24K: 4.5x lighter.
+#   ay=.6 because the source is taller than the slot and the plate sits low.
+dict(id='38285871', stem='menu-steak', w=900, h=1200, ax=.5, ay=.6,
       lift=0, gain=1.02, sat=0.96, warm=(1.02,1.00,0.98), vig=0.10, aim=72),
  # ---- contact ---------------------------------------------------------------
  #   REPLACED 2026-10-01 FOR CONTENT, NOT FOR LEVEL. 18912369 was a
@@ -280,7 +300,7 @@ F = [
  #   five-second test that settles it before a bake.
  #
  #   NO VIGNETTE, and see the docstring: third rebrand, third reason.
- dict(id='5988437', stem='contact-hero', w=2000, h=1333, ax=.5, ay=.5,
+ dict(id='14110994', stem='contact-hero', w=2000, h=1333, ax=.5, ay=.5,
       lift=0, gain=1.04, sat=0.92, warm=(1.03,1.00,0.97), vig=0.00, aim=60),
  # ---- the marquee ------------------------------------------------------------
  # Widths are the nine the row already had. Keeping them means .beyond__track
@@ -288,7 +308,7 @@ F = [
  # Every one of these nine is a dish that is actually on La Pranzo's boards.
  dict(id='5779487',  stem='gallery/dish1-chips',     w=856, h=560, ax=.5, ay=.5,
       lift=0, gain=1.04, sat=1.00, warm=(1.03,1.00,0.97), vig=0.06, aim=95),
- dict(id='33233601', stem='gallery/dish2-mixgrill',  w=671, h=560, ax=.5, ay=.5,
+ dict(id='16203831', stem='gallery/dish2-pizza',  w=671, h=560, ax=.5, ay=.5,
       lift=0, gain=1.02, sat=1.00, warm=(1.02,1.00,0.98), vig=0.06, aim=95),
  #   REPLACED TWICE, and the second one is the lesson. 10879643 pinned at
  #   gamma 3.20 (161.4 against 95) — a pale plate under a window — so it was
@@ -298,12 +318,12 @@ F = [
  #   dark band. Checking the source mean first (120 and under for a 95 band)
  #   is a five-second test that saves a bake. This is basbousa in its own pan,
  #   which is on the board at 200, and it starts at 78.
- dict(id='36707708', stem='gallery/dish3-basbousa',  w=510, h=560, ax=.5, ay=.5,
+ dict(id='38495630', stem='gallery/dish3-cheesecake',  w=510, h=560, ax=.5, ay=.5,
       lift=0, gain=1.02, sat=0.98, warm=(1.03,1.00,0.97), vig=0.06, aim=95),
  #   REPLACED: 17255884 pinned at the gamma FLOOR (42.3 against 95) and was
  #   shot on a saturated red seamless — the only pure red anywhere on a site
  #   whose one colour is #FFCA2A. Two reasons, either sufficient.
- dict(id='6262168',  stem='gallery/dish4-kunafa',    w=445, h=560, ax=.5, ay=.5,
+ dict(id='39850933',  stem='gallery/dish4-pancakes',    w=445, h=560, ax=.5, ay=.5,
       lift=0, gain=1.02, sat=1.00, warm=(1.02,1.00,0.98), vig=0.06, aim=95),
  dict(id='30500752', stem='gallery/dish5-burger',    w=563, h=560, ax=.5, ay=.5,
       lift=0, gain=1.04, sat=1.00, warm=(1.03,1.00,0.97), vig=0.06, aim=95),
@@ -312,7 +332,7 @@ F = [
  #   one job and it is to look like something you would order.
  dict(id='36989868', stem='gallery/dish6-wings',     w=564, h=560, ax=.5, ay=.5,
       lift=0, gain=1.02, sat=0.98, warm=(1.03,1.00,0.97), vig=0.06, aim=95),
- dict(id='37322776', stem='gallery/dish7-shawarma',  w=637, h=560, ax=.5, ay=.5,
+ dict(id='16845663', stem='gallery/dish7-sandwich',  w=637, h=560, ax=.5, ay=.5,
       lift=0, gain=1.02, sat=0.98, warm=(1.02,1.00,0.98), vig=0.06, aim=95),
  dict(id='14662100', stem='gallery/dish8-milkshake', w=450, h=560, ax=.5, ay=.5,
       lift=0, gain=1.02, sat=0.98, warm=(1.03,1.00,0.97), vig=0.06, aim=95),

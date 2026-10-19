@@ -14,7 +14,7 @@ const browser = await puppeteer.launch({ headless: 'new' });
 const page = await browser.newPage();
 
 for (const id of IDS) {
-  const url = `https://images.pexels.com/photos/${id}/pexels-photo-${id}.jpeg?auto=compress&cs=tinysrgb&h=1800`;
+  const url = `https://images.pexels.com/photos/${id}/pexels-photo-${id}.jpeg?auto=compress&cs=tinysrgb&h=${process.env.FETCH_H ?? 1800}`;  /* FETCH_H: the cutout wants more than 1800 */
   try {
     const res = await page.goto(url, { waitUntil: 'networkidle0', timeout: 45000 });
     const buf = await res.buffer();

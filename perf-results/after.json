@@ -2,183 +2,186 @@
   {
     "path": "/",
     "profile": "desktop",
-    "total": 550703,
+    "total": 454626,
     "count": 20,
     "byKind": {
-      "other": 34942,
-      "img:avif": 358976,
-      "font": 88720,
-      "img:legacy": 68065
+      "other": 13057,
+      "img:avif": 333691,
+      "font": 88801,
+      "img:legacy": 19077
     },
-    "loadMs": 60,
+    "loadMs": 179,
     "lcp": 0,
     "lcpEl": "",
     "cls": 0,
-    "fcp": 164,
+    "fcp": 288,
     "longTasks": 0,
     "tbt": 0,
-    "ttfb": 5,
-    "domContentLoaded": 49
+    "ttfb": 99,
+    "domContentLoaded": 134
   },
   {
     "path": "/menu.html",
     "profile": "desktop",
-    "total": 250603,
+    "total": 158834,
     "count": 11,
     "byKind": {
-      "other": 29412,
-      "img:avif": 136333,
-      "font": 64828,
-      "img:legacy": 20030
+      "other": 11495,
+      "img:avif": 76581,
+      "font": 64882,
+      "img:legacy": 5876
     },
-    "loadMs": 53,
-    "lcp": 1816,
+    "loadMs": 83,
+    "lcp": 1828,
     "lcpEl": "SPAN",
     "cls": 0,
-    "fcp": 100,
+    "fcp": 128,
     "longTasks": 0,
     "tbt": 0,
-    "ttfb": 3,
-    "domContentLoaded": 47,
+    "ttfb": 55,
+    "domContentLoaded": 65,
     "lcpAll": [
-      "1816 SPAN"
+      "1828 SPAN"
     ]
   },
   {
     "path": "/about.html",
     "profile": "desktop",
-    "total": 636610,
+    "total": 345952,
     "count": 11,
     "byKind": {
-      "other": 56696,
-      "img:avif": 471164,
-      "font": 88720,
-      "img:legacy": 20030
+      "other": 18316,
+      "img:avif": 232959,
+      "font": 88801,
+      "img:legacy": 5876
     },
-    "loadMs": 70,
+    "loadMs": 143,
     "lcp": 0,
     "lcpEl": "",
     "cls": 0,
-    "fcp": 132,
+    "fcp": 216,
     "longTasks": 0,
     "tbt": 0,
-    "ttfb": 2,
-    "domContentLoaded": 69
+    "ttfb": 97,
+    "domContentLoaded": 140
   },
   {
     "path": "/contact.html",
     "profile": "desktop",
-    "total": 475519,
+    "total": 397528,
     "count": 11,
     "byKind": {
-      "other": 51371,
-      "img:avif": 291255,
-      "font": 64828,
-      "img:legacy": 68065
+      "other": 15528,
+      "font": 64882,
+      "img:avif": 298041,
+      "img:legacy": 19077
     },
-    "loadMs": 79,
+    "loadMs": 123,
     "lcp": 0,
     "lcpEl": "",
     "cls": 0,
-    "fcp": 140,
+    "fcp": 188,
     "longTasks": 0,
     "tbt": 0,
-    "ttfb": 3,
-    "domContentLoaded": 73
+    "ttfb": 82,
+    "domContentLoaded": 119
   },
   {
     "path": "/",
     "profile": "mobile",
-    "total": 630071,
+    "total": 497038,
     "count": 20,
     "byKind": {
-      "other": 34942,
-      "img:avif": 438344,
-      "img:legacy": 68065,
-      "font": 88720
+      "other": 13057,
+      "img:avif": 376103,
+      "img:legacy": 19077,
+      "font": 88801
     },
-    "loadMs": 3105,
-    "lcp": 964,
+    "loadMs": 2640,
+    "lcp": 1028,
     "lcpEl": "hero__name",
-    "cls": 0.0039,
-    "fcp": 480,
+    "cls": 0.0036,
+    "fcp": 412,
     "longTasks": 0,
     "tbt": 0,
-    "ttfb": 2,
-    "domContentLoaded": 319,
+    "ttfb": 1,
+    "domContentLoaded": 213,
     "lcpAll": [
-      "964 hero__name"
+      "1028 hero__name"
     ]
   },
   {
     "path": "/menu.html",
     "profile": "mobile",
-    "total": 377823,
+    "total": 262168,
     "count": 11,
     "byKind": {
-      "other": 29412,
-      "img:avif": 263553,
-      "font": 64828,
-      "img:legacy": 20030
+      "other": 11495,
+      "img:avif": 179915,
+      "font": 64882,
+      "img:legacy": 5876
     },
-    "loadMs": 1912,
-    "lcp": 1960,
+    "loadMs": 1517,
+    "lcp": 1520,
     "lcpEl": "frame__img",
-    "cls": 0.0083,
-    "fcp": 460,
+    "cls": 0.0085,
+    "fcp": 404,
     "longTasks": 0,
     "tbt": 0,
-    "ttfb": 3,
-    "domContentLoaded": 290,
+    "ttfb": 2,
+    "domContentLoaded": 205,
     "lcpAll": [
-      "476 SPAN",
-      "1528 frame__img",
-      "1960 frame__img"
+      "420 SPAN",
+      "1152 frame__img",
+      "1520 frame__img"
     ]
   },
   {
     "path": "/about.html",
     "profile": "mobile",
-    "total": 559629,
+    "total": 310531,
     "count": 11,
     "byKind": {
-      "other": 56696,
-      "img:avif": 394183,
-      "font": 88720,
-      "img:legacy": 20030
+      "other": 18316,
+      "img:avif": 197538,
+      "font": 88801,
+      "img:legacy": 5876
     },
-    "loadMs": 2743,
-    "lcp": 868,
-    "lcpEl": "topbar__brand",
-    "cls": 0,
-    "fcp": 684,
-    "longTasks": 0,
-    "tbt": 0,
-    "ttfb": 3,
-    "domContentLoaded": 720,
+    "loadMs": 1703,
+    "lcp": 920,
+    "lcpEl": "opening__title",
+    "cls": 0.0004,
+    "fcp": 388,
+    "longTasks": 1,
+    "tbt": 31,
+    "ttfb": 2,
+    "domContentLoaded": 323,
     "lcpAll": [
-      "868 topbar__brand"
+      "920 opening__title"
     ]
   },
   {
     "path": "/contact.html",
     "profile": "mobile",
-    "total": 395304,
+    "total": 317475,
     "count": 11,
     "byKind": {
-      "other": 51371,
-      "img:avif": 211040,
-      "img:legacy": 68065,
-      "font": 64828
+      "other": 15528,
+      "img:avif": 217988,
+      "img:legacy": 19077,
+      "font": 64882
     },
-    "loadMs": 1055,
-    "lcp": 0,
-    "lcpEl": "",
+    "loadMs": 1754,
+    "lcp": 912,
+    "lcpEl": "topbar__brand",
     "cls": 0,
-    "fcp": 984,
-    "longTasks": 0,
-    "tbt": 0,
-    "ttfb": 7,
-    "domContentLoaded": 1040
+    "fcp": 380,
+    "longTasks": 1,
+    "tbt": 39,
+    "ttfb": 3,
+    "domContentLoaded": 318,
+    "lcpAll": [
+      "912 topbar__brand"
+    ]
   }
 ]

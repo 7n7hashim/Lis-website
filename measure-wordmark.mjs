@@ -10,7 +10,10 @@ await p.setViewport({ width: W, height: H, deviceScaleFactor: 1 });
 await p.goto('http://localhost:3001/', { waitUntil: 'networkidle0' });
 await p.evaluate(() => document.fonts.ready);
 
-const ink = await p.evaluate(() => {
+/* TRACKS / VWS override the grid: a long name needs sizes well under 2.4vw. */
+const TRS_IN = (process.env.TRACKS ?? '0.14,0.16,0.18,0.20,0.22').split(',').map(Number);
+const VWS_IN = (process.env.VWS ?? '2.4,2.6,2.8,3.0,3.2,3.4').split(',').map(Number);
+const ink = await p.evaluate((TRS, VWS) => {
   // measure the ink of a run of text at a given size/tracking with canvas,
   // which gives actualBoundingBox rather than the layout box (tracking adds
   // a trailing space to the layout box and that is not ink).
@@ -27,16 +30,22 @@ const ink = await p.evaluate(() => {
   const J  = `Jost, system-ui, sans-serif`;
   const tagEl = document.querySelector('.hero__tagline');
   const cs = getComputedStyle(tagEl);
+  /* THE WORDMARK IS READ OFF THE PAGE, NOT HARDCODED. It was 'LA PRANZO'
+     as a literal until 2026-10-19, which is the same bug shoot-hero-mobile's
+     ink constant has had twice: a tool carrying the previous brand's string
+     reports confident numbers about a wordmark the page does not have. */
+  const markEl = document.querySelector('.hero__name');
+  const MARK = markEl.textContent.trim();
   const tagPx = parseFloat(cs.fontSize), tagTrack = parseFloat(cs.letterSpacing) / tagPx;
   const tagText = tagEl.textContent.trim().toUpperCase();
   const tagInk = measure(tagText, tagPx, tagTrack, cs.fontWeight, J);
 
-  const out = { vw: innerWidth, tagText, tagPx: +tagPx.toFixed(2), tagInk: +tagInk.toFixed(1),
+  const out = { vw: innerWidth, mark: MARK, tagText, tagPx: +tagPx.toFixed(2), tagInk: +tagInk.toFixed(1),
                 tagPct: +(100 * tagInk / innerWidth).toFixed(2), rows: [] };
-  for (const track of [0.14, 0.16, 0.18, 0.20, 0.22]) {
-    for (const vw of [2.4, 2.6, 2.8, 3.0, 3.2, 3.4]) {
+  for (const track of TRS) {
+    for (const vw of VWS) {
       const px = innerWidth * vw / 100;
-      const w = measure('LA PRANZO', px, track, 300, CG);
+      const w = measure(MARK, px, track, 300, CG);
       out.rows.push({ track, vw, px: +px.toFixed(1), ink: +w.toFixed(1),
                       pct: +(100 * w / innerWidth).toFixed(2),
                       vsTag: +(w / tagInk).toFixed(3) });
@@ -45,8 +54,9 @@ const ink = await p.evaluate(() => {
   // and what CRAVE measured at the shipped settings, as the control
   out.craveControl = +measure('CRAVE', innerWidth * 4.33 / 100, 0.22, 300, CG).toFixed(1);
   return out;
-});
-console.log(`viewport ${ink.vw}   tagline "${ink.tagText}" ${ink.tagPx}px  ink ${ink.tagInk}px (${ink.tagPct}% vw)`);
+}, TRS_IN, VWS_IN);
+console.log(`viewport ${ink.vw}   wordmark "${ink.mark}" (${ink.mark.length} glyphs)`);
+console.log(`tagline "${ink.tagText}" ${ink.tagPx}px  ink ${ink.tagInk}px (${ink.tagPct}% vw)`);
 console.log(`CRAVE at the shipped 4.33vw / 0.22em measured ${ink.craveControl}px\n`);
 console.log('track   vw     px     ink    %vw   ink/tagline');
 for (const r of ink.rows)

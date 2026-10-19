@@ -3,7 +3,7 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
-<title>La Pranzo — More Than a Grill</title>
+<title>Your Restaurant — More Than a Kitchen</title>
 <link rel="preload" as="image" type="image/avif"
       imagesrcset="assets/img/r/about-opening-1070.avif 1070w, assets/img/r/about-opening-1290.avif 1290w, assets/img/r/about-opening-1540.avif 1540w, assets/img/r/about-opening-2400.avif 2400w"
       imagesizes="104.6vw" fetchpriority="high">
@@ -18,7 +18,7 @@
 <link rel="apple-touch-icon" href="assets/apple-touch-icon.png">
 <link rel="manifest" href="assets/site.webmanifest">
 <meta name="theme-color" content="#0D0C0A">
-<meta name="description" content="La Pranzo &amp; Al-Diwan on Haile Selassie Road, Mombasa. A Middle Eastern grill and cafe open noon until eleven, every day.">
+<meta name="description" content="A demonstration restaurant website: the story page, the numbers, the rooms. All copy is placeholder text ready for your own.">
 
 <link rel="preload" as="font" type="font/woff2" crossorigin href="assets/fonts/cormorant-garamond-normal-300-400.woff2">
 <link rel="preload" as="font" type="font/woff2" crossorigin href="assets/fonts/jost-normal-300-400.woff2">
@@ -154,10 +154,10 @@
        this section is a photograph, and the sections that sit on the peach
        have not been built. */
     /* The measured logo red. A DEVICE colour: it draws the mark and
-       never sets type. --lp-yellow is the same hue darkened to carry
+       never sets type. --brand-accent is the same hue darkened to carry
        text and fills — 6.51:1 on the ground, white on it 7.49:1. */
-    --brand-yellow: #FFCA2A;
-    --lp-yellow:    #FFCA2A;
+    --brand-device: #F1CAAB;
+    --brand-accent:    #F1CAAB;
     --ink:           #F8F7F3;
 
     /* The site's ground and its two inks on it, brought over from
@@ -175,7 +175,7 @@
     --ground:      #0D0C0A;
     --menu-ink:    #F8F7F3;  /* 14.79:1 on the ground                       */
     --menu-body:   #A79F91;  /*  5.93:1                                     */
-    --menu-accent: #FFCA2A;  /*  6.51:1 — the deep red, from the logo hue   */
+    --menu-accent: #F1CAAB;  /*  6.51:1 — the deep red, from the logo hue   */
 
     /* Superseded as a colour and still load-bearing as a name: the two
        transplanted blocks at the foot of this file take their ground from
@@ -194,7 +194,7 @@
        back to SVG's default fill and came out black on the peach. Nothing
        errored and nothing logged. Check :root actually carries a token
        before using it in a role this page has not used before. */
-    --res-gold:    #9A8654;  /*  3.26:1 — non-text boundary only */
+    --res-gold:    #A78062;  /*  3.26:1 — non-text boundary only */
 
     /* 2.4% of the reference's width, at both ends. */
     --open-inset: clamp(20px, 2.4vw, 40px);
@@ -2172,7 +2172,7 @@
      Colour: the reference's line is #F2B68D, which measures under 1.6:1 on
      this site's peach and simply disappears. --res-gold is the token for a
      non-text boundary and carries the same warmth at 3.26:1. Its badge is
-     a deep oxblood; --lp-yellow takes that slot instead — it is the one
+     a deep oxblood; --brand-accent takes that slot instead — it is the one
      measured brand value on this site and, until now, the only token that
      had never been given anything to do.
      ===================================================================== */
@@ -2317,7 +2317,7 @@
     width: 15.1%;                   /* 45/298 */
     aspect-ratio: 1;
     border-radius: 50%;
-    background: var(--lp-yellow);
+    background: var(--brand-accent);
     /* THE ONE PLACE THE INVERSION BITES. This was #fff on a green, 7.7:1.
        White on #FFCA2A is 1.43:1 — the yellow is a dark-ground colour and a
        fill made of it is a LIGHT field, so its type takes the ground. */
@@ -2913,8 +2913,8 @@
        to marks that state nothing — the rule under the eyebrow, the ring around
        the photograph. Anything a guest reads or clicks takes --menu-accent
        (4.8:1) or --res-gold, which clears 3:1 as a non-text boundary. */
-    --res-hair: #2E2A22;
-    --res-gold: #9A8654;
+    --res-hair: #312922;
+    --res-gold: #A78062;
 
     --res-eyebrow:  clamp(0.66rem, 2.85vw, 0.76rem);
     --res-title:    clamp(2.35rem, 11.9vw, 3.6rem);
@@ -3473,7 +3473,7 @@
        getBoundingClientRect() hands the viewport back: read that way, a mark
        overflowing by 51% reports as a comfortable 93%. measure-endmark.mjs
        uses a Range. Re-solve again if the string ever changes length. */
-    --end-mark:   clamp(3.01rem, 13.66vw, 13.72rem);
+    --end-mark:   clamp(1.76rem, 7.99vw, 8.03rem);
     /* The last 15% of height comes from the block, not the size — see
        .ending__mark. */
     --end-stretch: 1.15;
@@ -3631,7 +3631,7 @@
   .ending__link:focus-visible::after { transform: scaleX(1); }
 
   .ending__link:focus-visible {
-    outline: 1px solid var(--lp-yellow);
+    outline: 1px solid var(--brand-accent);
     outline-offset: 4px;
     border-radius: 1px;
   }
@@ -3678,7 +3678,7 @@
       /* Scaled by the same 0.610 as the desktop clamp when the wordmark went
          from five glyphs to nine. 22.5vw held CRAVE at 92% of a phone; it
          held LA PRANZO at 151.4%. Measured after: 92.3%. */
-      --end-mark: 13.73vw;
+      --end-mark: 7.99vw;
       --end-stretch: 1.22;
       min-height: 0;
       padding-top: clamp(64px, 22vw, 108px);
@@ -3713,7 +3713,7 @@
         ever decorative here (the rule, the ring), so no minimum applies to
         it, and on the button's dark hover state it still reads at 7.8:1. */
   .reserve {
-    --res-gold: #9A8654;
+    --res-gold: #A78062;
   }
 
   /* 2. The closing gradient's tail is a literal, so --cream cannot reach it.
@@ -3777,7 +3777,7 @@
     <div class="opening__lift"></div>
 
     <header class="topbar">
-      <a class="topbar__brand" href="index.html">La Pranzo</a>
+      <a class="topbar__brand" href="index.html">Your Restaurant</a>
 
       <nav class="topbar__nav" aria-label="Primary">
         <a class="topbar__link" href="menu.html">Menu</a>
@@ -3837,10 +3837,10 @@
                nothing. Nothing here asserts a founding year, because none is
                published anywhere. -->
           <p class="stmt__copy">
-            One room, on Haile Selassie Road, next to the Ola station. The carte
-            runs to a hundred and sixty-six things across nineteen courses &mdash;
-            a charcoal grill, rice cooked under a lid, a sandwich counter, eighteen
-            coffees and five kinds of kunafa. What it is not is a restaurant that
+            One room, on a street your regulars already know. The carte
+            runs to eighty-four things across thirteen courses &mdash;
+            a charcoal grill, a wood-fired oven, a burger counter, a coffee bar
+            and a sweet counter. What it is not is a restaurant that
             does one of those well and the rest to fill a page.
           </p>
         </div>
@@ -3853,13 +3853,13 @@
     The plate. One frame, full bleed, nothing over it. Client-supplied; see
     the block at the foot of the <style> for the crop and quality reasoning.
   -->
-  <section class="plate" aria-label="A dish from the La Pranzo kitchen">
+  <section class="plate" aria-label="A dish from the Your Restaurant kitchen">
     <picture>
       <source type="image/avif" sizes="100vw"
-              srcset="assets/img/r/about-plate-1020.avif 1020w, assets/img/r/about-plate-1230.avif 1230w, assets/img/r/about-plate-1536.avif 1536w">
+              srcset="assets/img/r/about-plate-1230.avif 1230w, assets/img/r/about-plate-1536.avif 1536w">
       <source type="image/webp" sizes="100vw"
               srcset="assets/img/r/about-plate-1020.webp 1020w, assets/img/r/about-plate-1536.webp 1536w">
-      <img class="plate__img" src="assets/img/about-plate.jpg" alt="A large round platter of mandi seen from overhead: rice, lamb, lemon and tomato."
+      <img class="plate__img" src="assets/img/about-plate.jpg" alt="A burger on brown paper with chips, tomatoes and onion rings, seen from overhead on dark wood."
          loading="lazy" decoding="async" width="1536" height="1024" fetchpriority="low">
     </picture>
   </section>
@@ -3870,7 +3870,7 @@
     still sits on top. The finished numbers are in the markup — the script
     zeroes them only once it knows it can count them back up.
   -->
-  <section class="figures" aria-label="La Pranzo in numbers">
+  <section class="figures" aria-label="Your Restaurant in numbers">
     <!-- ALL FOUR ARE SOURCED, which reverses what stood here. The previous
          set (14 years, 50+ preparations, 12 seats, 9 courses) was invented
          outright, and two of them were checkable claims a guest could hold
@@ -3891,12 +3891,12 @@
 
       <div class="figure">
         <dt class="figure__label">Dishes on the carte</dt>
-        <dd class="figure__num"><span class="figure__val" data-to="166">166</span></dd>
+        <dd class="figure__num"><span class="figure__val" data-to="84">84</span></dd>
       </div>
 
       <div class="figure">
         <dt class="figure__label">Courses</dt>
-        <dd class="figure__num"><span class="figure__val" data-to="19">19</span></dd>
+        <dd class="figure__num"><span class="figure__val" data-to="13">13</span></dd>
       </div>
 
       <div class="figure">
@@ -3935,7 +3935,7 @@
       <div class="chapters__stage">
 
         <header class="chapters__mast">
-          <p class="chapters__eyebrow">A day at La Pranzo</p>
+          <p class="chapters__eyebrow">A day at Your Restaurant</p>
           <h2 id="chapters-title" class="chapters__title">The Way a Meal<br>Is Built</h2>
         </header>
 
@@ -3966,27 +3966,27 @@
                       srcset="assets/img/r/about-ch1-fire-260.avif 260w, assets/img/r/about-ch1-fire-340.avif 340w, assets/img/r/about-ch1-fire-510.avif 510w, assets/img/r/about-ch1-fire-690.avif 690w, assets/img/r/about-ch1-fire-820.avif 820w">
               <source type="image/webp" sizes="(max-width: 600px) 62vw, (max-width: 700px) 51vw, (max-width: 900px) 48.9vw, (max-width: 1000px) 34vw, (max-width: 1800px) 20.5vw, 18.4vw"
                       srcset="assets/img/r/about-ch1-fire-260.webp 260w, assets/img/r/about-ch1-fire-820.webp 820w">
-              <img class="ch-photo__img" src="assets/img/about-ch1-fire.jpg" alt="Kofta skewers laid across an open charcoal grill."
+              <img class="ch-photo__img" src="assets/img/about-ch1-fire.jpg" alt="A burger patty on the grill with flames coming up through the bars."
                  width="1100" height="1466" decoding="async" loading="lazy" fetchpriority="low" data-warm=".chapters">
             </picture>
           </figure>
           <figure class="ch-photo" style="--i:1">
             <picture>
               <source type="image/avif" sizes="(max-width: 600px) 62vw, (max-width: 700px) 51vw, (max-width: 900px) 48.9vw, (max-width: 1000px) 34vw, (max-width: 1800px) 20.5vw, 18.4vw"
-                      srcset="assets/img/r/about-ch2-rice-260.avif 260w, assets/img/r/about-ch2-rice-340.avif 340w, assets/img/r/about-ch2-rice-510.avif 510w, assets/img/r/about-ch2-rice-690.avif 690w, assets/img/r/about-ch2-rice-820.avif 820w">
+                      srcset="assets/img/r/about-ch2-oven-260.avif 260w, assets/img/r/about-ch2-oven-340.avif 340w, assets/img/r/about-ch2-oven-510.avif 510w, assets/img/r/about-ch2-oven-690.avif 690w, assets/img/r/about-ch2-oven-820.avif 820w">
               <source type="image/webp" sizes="(max-width: 600px) 62vw, (max-width: 700px) 51vw, (max-width: 900px) 48.9vw, (max-width: 1000px) 34vw, (max-width: 1800px) 20.5vw, 18.4vw"
-                      srcset="assets/img/r/about-ch2-rice-260.webp 260w, assets/img/r/about-ch2-rice-820.webp 820w">
-              <img class="ch-photo__img" src="assets/img/about-ch2-rice.jpg" alt="A bowl of rice cooked with chicken, herbs scattered over it."
+                      srcset="assets/img/r/about-ch2-oven-260.webp 260w, assets/img/r/about-ch2-oven-820.webp 820w">
+              <img class="ch-photo__img" src="assets/img/about-ch2-oven.jpg" alt="A pizza baking inside a wood-fired oven, the fire burning behind it."
                  width="1100" height="1466" decoding="async" loading="lazy" fetchpriority="low" data-warm=".chapters">
             </picture>
           </figure>
           <figure class="ch-photo" style="--i:2">
             <picture>
               <source type="image/avif" sizes="(max-width: 600px) 62vw, (max-width: 700px) 51vw, (max-width: 900px) 48.9vw, (max-width: 1000px) 34vw, (max-width: 1800px) 20.5vw, 18.4vw"
-                      srcset="assets/img/r/about-ch3-sweet-260.avif 260w, assets/img/r/about-ch3-sweet-340.avif 340w, assets/img/r/about-ch3-sweet-510.avif 510w, assets/img/r/about-ch3-sweet-690.avif 690w, assets/img/r/about-ch3-sweet-820.avif 820w">
+                      srcset="assets/img/r/about-ch3-sweet-260.avif 260w, assets/img/r/about-ch3-sweet-340.avif 340w, assets/img/r/about-ch3-sweet-510.avif 510w, assets/img/r/about-ch3-sweet-820.avif 820w">
               <source type="image/webp" sizes="(max-width: 600px) 62vw, (max-width: 700px) 51vw, (max-width: 900px) 48.9vw, (max-width: 1000px) 34vw, (max-width: 1800px) 20.5vw, 18.4vw"
                       srcset="assets/img/r/about-ch3-sweet-260.webp 260w, assets/img/r/about-ch3-sweet-820.webp 820w">
-              <img class="ch-photo__img" src="assets/img/about-ch3-sweet.jpg" alt="Golden fried dough balls in syrup, close and warm-lit."
+              <img class="ch-photo__img" src="assets/img/about-ch3-sweet.jpg" alt="A slice of cheesecake with berries on a dark plate."
                  width="1100" height="1466" decoding="async" loading="lazy" fetchpriority="low" data-warm=".chapters">
             </picture>
           </figure>
@@ -4004,11 +4004,11 @@
           <article class="ch-panel" style="--i:0">
             <p class="ch__label">Chapter I &mdash; The fire</p>
             <h3 class="ch__head">It Begins With Charcoal</h3>
-            <p class="ch__lede">Nothing on the main course is cooked in a pan. Mishkaki, kofta, shish tauk, chicken pousin, a T-bone, a whole half chicken &mdash; all of it goes over heat, which is the one method that leaves a cook nowhere to hide. Fourteen dishes on that board and every one of them is finished by the same fire.</p>
+            <p class="ch__lede">Nothing on the main course is cooked in a pan. Steaks, burgers, lamb chops, sausages, a whole chicken &mdash; all of it goes over heat, which is the one method that leaves a cook nowhere to hide. Eight dishes on that board and every one of them is finished by the same fire.</p>
             <dl class="ch__notes">
               <div class="ch__note">
-                <dt>Fourteen off the grill</dt>
-                <dd>From chicken wings at 600 shillings to the full mixed platter at 2,500, which is the most expensive thing the kitchen sells.</dd>
+<dt>Eight off the grill</dt>
+                <dd>From beef sausages at 650 shillings to the full mixed grill at 2,400, which is the most expensive thing the kitchen sells.</dd>
               </div>
               <div class="ch__note">
                 <dt>And a side with each</dt>
@@ -4018,33 +4018,33 @@
           </article>
 
           <article class="ch-panel" style="--i:1">
-            <p class="ch__label">Chapter II &mdash; The rice</p>
-            <h3 class="ch__head">Cooked Under the Lid</h3>
-            <p class="ch__lede">Mandi, hanith, zurbian, madhabi. Four Yemeni and Gulf rice dishes, where the meat goes in above the rice and everything that comes off it during the hours it cooks goes into the grain below. It is the slowest thing this kitchen does and the one that has to be started before the doors open.</p>
+            <p class="ch__label">Chapter II &mdash; The oven</p>
+            <h3 class="ch__head">Fired at Four Hundred</h3>
+            <p class="ch__lede">Six pizzas, every one through a wood-fired oven running at four hundred degrees, where a base is done in ninety seconds and the crust blisters before the cheese has finished melting. It is the fastest thing this kitchen does and the one that has to be lit before the doors open.</p>
             <dl class="ch__notes">
               <div class="ch__note">
-                <dt>Nine rice dishes</dt>
-                <dd>Three in mutton at 800 shillings, six in chicken &mdash; breast or legs, at 800 and 780. The price difference is the cut, not the cooking.</dd>
+<dt>Six on the board</dt>
+                <dd>From a margherita at 850 shillings to mushroom and truffle at 1,550, each in two sizes. The price difference is the topping, not the cooking.</dd>
               </div>
               <div class="ch__note">
-                <dt>Named for the method</dt>
-                <dd>Mandi is the pot it steams in, hanith the way it is hung, zurbian the spicing and madhabi the finish over coals. Four names, one cut of meat.</dd>
+                <dt>Proved overnight</dt>
+                <dd>The dough is made the day before and left to prove overnight, which is the one step that cannot be hurried and the one a guest can taste.</dd>
               </div>
             </dl>
           </article>
 
           <article class="ch-panel" style="--i:2">
             <p class="ch__label">Chapter III &mdash; The sweet</p>
-            <h3 class="ch__head">Five Kinds of Kunafa</h3>
-            <p class="ch__lede">Plain, chocolate, lotus, caramel, pistachio. Most kitchens that serve kunafa serve one; this one keeps five on the board, next to maasoub and arika in half and full, basbousa plain and toffee, and a waffle. Shredded pastry over hot cheese is not a thing you can hold back and reheat.</p>
+            <h3 class="ch__head">Seven Ways to Finish</h3>
+            <p class="ch__lede">Cheesecake, brownie, fudge cake, a sundae. Most kitchens treat the last course as an afterthought; this one keeps seven on the board, next to an apple crumble, ice cream and a fruit salad. A warm brownie under cold ice cream is not a thing you can hold back and reheat.</p>
             <dl class="ch__notes">
               <div class="ch__note">
-                <dt>Thirteen on the board</dt>
-                <dd>Five kunafas, maasoub and arika in two sizes each, two basbousas, a waffle and a plate of mini pancakes.</dd>
+<dt>Seven on the board</dt>
+                <dd>A brownie sundae, New York cheesecake, chocolate fudge cake, apple crumble, a plain sundae, two scoops of ice cream and a fruit salad.</dd>
               </div>
               <div class="ch__note">
-                <dt>200 to 800 shillings</dt>
-                <dd>From a basbousa to the pistachio kunafa. Cheaper than the grill and, going by what people photograph, the reason a good many of them came.</dd>
+<dt>350 to 650 shillings</dt>
+                <dd>From two scoops of ice cream to the brownie sundae. Cheaper than the grill and, going by what people photograph, the reason a good many of them came.</dd>
               </div>
             </dl>
           </article>
@@ -4056,7 +4056,7 @@
             <dl class="ch__notes">
               <div class="ch__note">
                 <dt>Eleven hours</dt>
-                <dd>Noon until eleven at night. Google reports people typically spend anywhere from twenty-five minutes to three hours here, which is a wide spread for one room.</dd>
+                <dd>Noon until eleven at night. Lunch runs into the afternoon and the afternoon into dinner, and nobody is brought the bill before they ask for it.</dd>
               </div>
               <div class="ch__note">
                 <dt>Seven days</dt>
@@ -4150,20 +4150,20 @@
             <figure class="ex-card__frame">
               <picture>
                 <source type="image/avif" sizes="(max-width: 600px) 88.9vw, (max-width: 700px) 72vw, (max-width: 820px) 61.7vw, (max-width: 900px) 52.7vw, (max-width: 1000px) 48vw, (max-width: 1200px) 43.2vw, 13.9vw"
-                        srcset="assets/img/r/about-ex1-coffee-260.avif 260w, assets/img/r/about-ex1-coffee-370.avif 370w, assets/img/r/about-ex1-coffee-450.avif 450w, assets/img/r/about-ex1-coffee-890.avif 890w, assets/img/r/about-ex1-coffee-1080.avif 1080w">
+                        srcset="assets/img/r/about-ex1-coffee-260.avif 260w, assets/img/r/about-ex1-coffee-450.avif 450w, assets/img/r/about-ex1-coffee-890.avif 890w, assets/img/r/about-ex1-coffee-1080.avif 1080w">
                 <source type="image/webp" sizes="(max-width: 600px) 88.9vw, (max-width: 700px) 72vw, (max-width: 820px) 61.7vw, (max-width: 900px) 52.7vw, (max-width: 1000px) 48vw, (max-width: 1200px) 43.2vw, 13.9vw"
                         srcset="assets/img/r/about-ex1-coffee-260.webp 260w, assets/img/r/about-ex1-coffee-1080.webp 1080w">
                 <img class="ex-card__img" src="assets/img/about-ex1-coffee.jpg"
                    width="1100" height="1467" decoding="async"
-                   alt="A small cup of coffee on a woven mat." loading="lazy" fetchpriority="low" data-warm=".experience">
+                   alt="A cappuccino with leaf latte art in a dark cup." loading="lazy" fetchpriority="low" data-warm=".experience">
               </picture>
               <span class="ex-card__badge" aria-hidden="true">01</span>
             </figure>
             <div class="ex-card__cap">
               <h3 class="ex-card__title">The Coffee Bar</h3>
-              <p class="ex-card__body">Eighteen hot coffees, nine frappuccinos and six
-                iced, from a 150-shilling espresso to a hazelnut latte. A grill that also
-                runs a proper coffee bar is doing two jobs, and this one prices both.</p>
+              <p class="ex-card__body">Nine on the board, from a 150-shilling Kenyan tea
+                to an iced latte. A kitchen that also runs a proper coffee bar is doing
+                two jobs, and this one prices both.</p>
             </div>
           </article>
 
@@ -4182,8 +4182,8 @@
             </figure>
             <div class="ex-card__cap">
               <h3 class="ex-card__title">The Grill</h3>
-              <p class="ex-card__body">Mishkaki, kofta, shish tauk, a T-bone and a whole
-                chicken, cooked over heat rather than in a pan. Fourteen dishes on one
+              <p class="ex-card__body">Steaks, burgers, lamb chops and a whole
+                chicken, cooked over heat rather than in a pan. Eight dishes on one
                 board is not a section &mdash; it is what the kitchen is built around.</p>
             </div>
           </article>
@@ -4197,14 +4197,14 @@
                         srcset="assets/img/r/about-ex3-sweet-260.webp 260w, assets/img/r/about-ex3-sweet-1080.webp 1080w">
                 <img class="ex-card__img" src="assets/img/about-ex3-sweet.jpg"
                    width="1100" height="1467" decoding="async"
-                   alt="A tray of baklava dusted with pistachio beside a copper pot." loading="lazy" fetchpriority="low" data-warm=".experience">
+                   alt="A waffle topped with ice cream and caramel on a blue plate." loading="lazy" fetchpriority="low" data-warm=".experience">
               </picture>
               <span class="ex-card__badge" aria-hidden="true">03</span>
             </figure>
             <div class="ex-card__cap">
               <h3 class="ex-card__title">The Sweet Counter</h3>
-              <p class="ex-card__body">Thirteen of them, from a 200-shilling basbousa to
-                the pistachio kunafa. It is open as long as the kitchen is, which is why
+              <p class="ex-card__body">Seven of them, from two scoops of ice cream to
+                the brownie sundae. It is open as long as the kitchen is, which is why
                 the room is still full at eleven at night.</p>
             </div>
           </article>
@@ -4218,8 +4218,8 @@
     <div class="diwan__inner">
 
       <div class="diwan__copy">
-        <p class="diwan__eyebrow">Al-Diwan</p>
-        <h2 id="diwan-title" class="diwan__title">The Room<br>You Are Received In.</h2>
+        <p class="diwan__eyebrow">Karibu</p>
+        <h2 id="diwan-title" class="diwan__title">The Room<br>You Are Welcomed Into.</h2>
         <hr class="diwan__rule">
         <!-- RENAMED FROM .reunion 2026-09-30, and this is the first time the
              closing beat has come from the restaurant's OWN NAME rather than
@@ -4240,11 +4240,11 @@
              Nothing in this paragraph is a service claim, which is
              deliberate: the version before last made two, and both needed
              checking. -->
-        <p class="diwan__body">A diwan is not a dining room. It is the long low room a
-          household keeps for receiving people in &mdash; cushions down both walls, coffee
-          arriving whether you asked or not, and nobody counting how long you stay. Half
-          the name over this door is that word, which is a promise about the room rather
-          than about the food, and it is the harder of the two to keep.</p>
+        <p class="diwan__body">Karibu is the first word a guest hears in this city, and it is
+          said before anyone asks what you came for. It is a promise about the room rather
+          than about the food &mdash; that there is a chair, that something hot is already
+          coming, and that nobody is counting how long you stay. It is the harder of the
+          two promises, which is why it is the one worth putting on the wall.</p>
       </div>
 
       <!-- Two planes, not two pictures. Neither is lazy: they share a
@@ -4255,24 +4255,24 @@
         <figure class="diwan__plate diwan__plate--back">
           <picture>
             <source type="image/avif" sizes="(max-width: 390px) 88.9vw, (max-width: 600px) 91.7vw, (max-width: 1200px) 94.3vw, 22.7vw"
-                    srcset="assets/img/r/about-dw1-room-350.avif 350w, assets/img/r/about-dw1-room-420.avif 420w, assets/img/r/about-dw1-room-590.avif 590w, assets/img/r/about-dw1-room-1100.avif 1100w">
+                    srcset="assets/img/r/about-dw1-room-350.avif 350w, assets/img/r/about-dw1-room-420.avif 420w, assets/img/r/about-dw1-room-590.avif 590w, assets/img/r/about-dw1-room-900.avif 900w, assets/img/r/about-dw1-room-1100.avif 1100w">
             <source type="image/webp" sizes="(max-width: 390px) 88.9vw, (max-width: 600px) 91.7vw, (max-width: 1200px) 94.3vw, 22.7vw"
                     srcset="assets/img/r/about-dw1-room-350.webp 350w, assets/img/r/about-dw1-room-1100.webp 1100w">
             <img class="diwan__img" src="assets/img/about-dw1-room.jpg"
                width="1100" height="1467" decoding="async"
-               alt="A majlis: cushions along the walls, a patterned carpet and drawn curtains." loading="lazy" fetchpriority="low" data-warm=".diwan">
+               alt="A bright dining room with pendant lights and people at a long wooden table." loading="lazy" fetchpriority="low" data-warm=".diwan">
           </picture>
         </figure>
 
         <figure class="diwan__plate diwan__plate--front">
           <picture>
             <source type="image/avif" sizes="(max-width: 390px) 88.9vw, (max-width: 600px) 91.7vw, (max-width: 1200px) 94.3vw, 32.6vw"
-                    srcset="assets/img/r/about-dw2-room-420.avif 420w, assets/img/r/about-dw2-room-600.avif 600w, assets/img/r/about-dw2-room-840.avif 840w, assets/img/r/about-dw2-room-1200.avif 1200w">
+                    srcset="assets/img/r/about-dw2-room-420.avif 420w, assets/img/r/about-dw2-room-600.avif 600w, assets/img/r/about-dw2-room-1010.avif 1010w, assets/img/r/about-dw2-room-1200.avif 1200w">
             <source type="image/webp" sizes="(max-width: 390px) 88.9vw, (max-width: 600px) 91.7vw, (max-width: 1200px) 94.3vw, 32.6vw"
                     srcset="assets/img/r/about-dw2-room-420.webp 420w, assets/img/r/about-dw2-room-1200.webp 1200w">
             <img class="diwan__img" src="assets/img/about-dw2-room.jpg"
                width="1100" height="825" decoding="async"
-               alt="An arched reception room with a low sofa, a rug and mashrabiya screens at the windows." loading="lazy" fetchpriority="low" data-warm=".diwan">
+               alt="A warm wood-panelled restaurant with round tables and diners in the evening light." loading="lazy" fetchpriority="low" data-warm=".diwan">
           </picture>
           <figcaption class="diwan__cap">Coffee arrives whether you asked or not.</figcaption>
         </figure>
@@ -4322,13 +4322,13 @@
       </svg>
       <div class="reserve__frame">
         <picture>
-          <source type="image/avif" sizes="(max-width: 1000px) 101vw, 62.6vw"
-                  srcset="assets/img/r/reserve-interior-640.avif 640w, assets/img/r/reserve-interior-770.avif 770w, assets/img/r/reserve-interior-920.avif 920w, assets/img/r/reserve-interior-1150.avif 1150w, assets/img/r/reserve-interior-1400.avif 1400w">
-          <source type="image/webp" sizes="(max-width: 1000px) 101vw, 62.6vw"
+          <source type="image/avif" sizes="(max-width: 1000px) 100.9vw, 62.6vw"
+                  srcset="assets/img/r/reserve-interior-770.avif 770w, assets/img/r/reserve-interior-920.avif 920w, assets/img/r/reserve-interior-1150.avif 1150w, assets/img/r/reserve-interior-1400.avif 1400w">
+          <source type="image/webp" sizes="(max-width: 1000px) 100.9vw, 62.6vw"
                   srcset="assets/img/r/reserve-interior-640.webp 640w, assets/img/r/reserve-interior-1400.webp 1400w">
           <img class="reserve__img" src="assets/img/reserve-interior.jpg"
              width="1400" height="1576"
-             alt="A laid table seen from above: grilled kofta, chips and dips on a patterned cloth."
+             alt="A laid table under warm light: sliders, chips, dips and a tall lemonade."
              loading="lazy" decoding="async" fetchpriority="low">
         </picture>
       </div>
@@ -4346,7 +4346,7 @@
         Tell us when and how many &mdash; the rest is arranged from there.</p>
 
       <a class="reserve__cta"
-         href="https://wa.me/254768818833?text=Hello%20La%20Pranzo%20%E2%80%94%20I%E2%80%99d%20like%20to%20book%20a%20table.%0A%0AName%3A%0ADate%3A%0ATime%3A%0ANumber%20of%20guests%3A%0A%0AThank%20you."
+         href="https://wa.me/254XXXXXXXXX?text=Hello%20La%20Pranzo%20%E2%80%94%20I%E2%80%99d%20like%20to%20book%20a%20table.%0A%0AName%3A%0ADate%3A%0ATime%3A%0ANumber%20of%20guests%3A%0A%0AThank%20you."
          target="_blank" rel="noopener">
         <span class="reserve__ctalbl">Reserve now</span>
         <svg class="reserve__arrow" viewBox="0 0 24 14" aria-hidden="true" focusable="false">
@@ -4393,7 +4393,7 @@
             <circle cx="12" cy="10.6" r="2.4"/>
           </svg>
           <span class="reserve__metalbl">Location</span>
-          <span class="reserve__metaval">Haile Selassie Road<br>Mombasa</span>
+          <span class="reserve__metaval">Your Street<br>Your City</span>
         </li>
       </ul>
     </div>
@@ -4405,7 +4405,7 @@
 <footer class="ending">
   <!-- Decorative repeat of the hero's h1. Hidden from assistive tech so the
        brand name is not announced twice on the way out. -->
-  <p class="ending__mark" aria-hidden="true">LA PRANZO</p>
+  <p class="ending__mark" aria-hidden="true">YOUR RESTAURANT</p>
 
   <!-- Five links, not three. Locations and Reservations were added on
        2026-08-26: both are places a reader actually wants to reach from the
@@ -4420,7 +4420,7 @@
     <a class="ending__link" href="#reserve">Reservations</a>
   </nav>
 
-  <p class="ending__note">&copy; 2026 La Pranzo &amp; Al-Diwan</p>
+  <p class="ending__note">&copy; 2026 Your Restaurant</p>
 </footer>
 
 <script>

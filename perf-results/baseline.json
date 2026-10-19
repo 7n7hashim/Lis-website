@@ -2,200 +2,187 @@
   {
     "path": "/",
     "profile": "desktop",
-    "total": 2068241,
+    "total": 472725,
     "count": 20,
     "byKind": {
-      "other": 97916,
-      "img:legacy": 1593698,
-      "img:webp": 287249,
-      "font-css": 1264,
-      "font": 88114
+      "other": 13047,
+      "img:avif": 351800,
+      "font": 88801,
+      "img:legacy": 19077
     },
-    "loadMs": 926,
-    "lcp": 940,
-    "lcpEl": "hero__name",
-    "cls": 0.0007,
-    "fcp": 740,
+    "loadMs": 89,
+    "lcp": 0,
+    "lcpEl": "",
+    "cls": 0,
+    "fcp": 192,
     "longTasks": 0,
     "tbt": 0,
-    "ttfb": 15,
-    "domContentLoaded": 76,
-    "lcpAll": [
-      "940 hero__name"
-    ]
+    "ttfb": 4,
+    "domContentLoaded": 87
   },
   {
     "path": "/menu.html",
     "profile": "desktop",
-    "total": 1414262,
-    "count": 10,
+    "total": 196631,
+    "count": 11,
     "byKind": {
-      "other": 83617,
-      "img:legacy": 978044,
-      "img:webp": 287249,
-      "font-css": 927,
-      "font": 64425
+      "other": 11503,
+      "img:avif": 114370,
+      "font": 64882,
+      "img:legacy": 5876
     },
-    "loadMs": 618,
-    "lcp": 2244,
+    "loadMs": 69,
+    "lcp": 1808,
     "lcpEl": "SPAN",
     "cls": 0,
-    "fcp": 480,
+    "fcp": 108,
     "longTasks": 0,
     "tbt": 0,
-    "ttfb": 8,
-    "domContentLoaded": 444,
+    "ttfb": 53,
+    "domContentLoaded": 63,
     "lcpAll": [
-      "644 flavors__eyebrow",
-      "2244 SPAN"
+      "1808 SPAN"
     ]
   },
   {
     "path": "/about.html",
     "profile": "desktop",
-    "total": 3017906,
-    "count": 19,
+    "total": 420244,
+    "count": 11,
     "byKind": {
-      "other": 195499,
-      "img:legacy": 2733377,
-      "font-css": 916,
-      "font": 88114
+      "other": 18319,
+      "img:avif": 307248,
+      "font": 88801,
+      "img:legacy": 5876
     },
-    "loadMs": 448,
-    "lcp": 452,
-    "lcpEl": "topbar__brand",
+    "loadMs": 126,
+    "lcp": 0,
+    "lcpEl": "",
     "cls": 0,
-    "fcp": 336,
+    "fcp": 192,
     "longTasks": 0,
     "tbt": 0,
-    "ttfb": 4,
-    "domContentLoaded": 284,
-    "lcpAll": [
-      "452 topbar__brand"
-    ]
+    "ttfb": 90,
+    "domContentLoaded": 123
   },
   {
     "path": "/contact.html",
     "profile": "desktop",
-    "total": 2154882,
-    "count": 10,
+    "total": 513123,
+    "count": 11,
     "byKind": {
-      "other": 183943,
-      "img:legacy": 1905598,
-      "font-css": 916,
-      "font": 64425
+      "other": 15508,
+      "img:avif": 413656,
+      "font": 64882,
+      "img:legacy": 19077
     },
-    "loadMs": 407,
-    "lcp": 468,
-    "lcpEl": "topbar__brand",
+    "loadMs": 123,
+    "lcp": 0,
+    "lcpEl": "",
     "cls": 0,
-    "fcp": 336,
+    "fcp": 196,
     "longTasks": 0,
     "tbt": 0,
-    "ttfb": 3,
-    "domContentLoaded": 287,
-    "lcpAll": [
-      "468 topbar__brand"
-    ]
+    "ttfb": 75,
+    "domContentLoaded": 116
   },
   {
     "path": "/",
     "profile": "mobile",
-    "total": 2067708,
-    "count": 19,
+    "total": 527554,
+    "count": 20,
     "byKind": {
-      "other": 97731,
-      "font-css": 916,
-      "img:legacy": 1593698,
-      "font": 88114,
-      "img:webp": 287249
+      "other": 13047,
+      "img:avif": 406629,
+      "img:legacy": 19077,
+      "font": 88801
     },
-    "loadMs": 10172,
-    "lcp": 1772,
+    "loadMs": 2784,
+    "lcp": 1024,
     "lcpEl": "hero__name",
-    "cls": 0.004,
-    "fcp": 640,
+    "cls": 0.0036,
+    "fcp": 404,
     "longTasks": 0,
     "tbt": 0,
-    "ttfb": 5,
-    "domContentLoaded": 649,
+    "ttfb": 2,
+    "domContentLoaded": 212,
     "lcpAll": [
-      "1772 hero__name"
+      "1024 hero__name"
     ]
   },
   {
     "path": "/menu.html",
     "profile": "mobile",
-    "total": 1414262,
-    "count": 10,
+    "total": 335806,
+    "count": 11,
     "byKind": {
-      "other": 83617,
-      "img:legacy": 978044,
-      "font-css": 927,
-      "img:webp": 287249,
-      "font": 64425
+      "other": 11503,
+      "img:avif": 253545,
+      "font": 64882,
+      "img:legacy": 5876
     },
-    "loadMs": 7047,
-    "lcp": 6400,
+    "loadMs": 1869,
+    "lcp": 1912,
     "lcpEl": "frame__img",
-    "cls": 0.0104,
-    "fcp": 1084,
+    "cls": 0.0085,
+    "fcp": 412,
     "longTasks": 0,
     "tbt": 0,
-    "ttfb": 3,
-    "domContentLoaded": 1056,
+    "ttfb": 2,
+    "domContentLoaded": 203,
     "lcpAll": [
-      "2120 SPAN",
-      "3036 frame__img",
-      "6400 frame__img"
+      "428 SPAN",
+      "1128 frame__img",
+      "1596 frame__img",
+      "1912 frame__img"
     ]
   },
   {
     "path": "/about.html",
     "profile": "mobile",
-    "total": 3017906,
-    "count": 19,
+    "total": 354469,
+    "count": 11,
     "byKind": {
-      "other": 195499,
-      "font-css": 916,
-      "img:legacy": 2733377,
-      "font": 88114
+      "other": 18319,
+      "img:avif": 241473,
+      "font": 88801,
+      "img:legacy": 5876
     },
-    "loadMs": 14641,
-    "lcp": 2224,
+    "loadMs": 1911,
+    "lcp": 920,
     "lcpEl": "opening__title",
     "cls": 0.0004,
-    "fcp": 1040,
-    "longTasks": 0,
-    "tbt": 0,
-    "ttfb": 2,
-    "domContentLoaded": 1217,
+    "fcp": 404,
+    "longTasks": 1,
+    "tbt": 37,
+    "ttfb": 4,
+    "domContentLoaded": 330,
     "lcpAll": [
-      "2224 opening__title"
+      "920 opening__title"
     ]
   },
   {
     "path": "/contact.html",
     "profile": "mobile",
-    "total": 2154882,
-    "count": 10,
+    "total": 395169,
+    "count": 11,
     "byKind": {
-      "other": 183943,
-      "img:legacy": 1905598,
-      "font-css": 916,
-      "font": 64425
+      "other": 15508,
+      "img:avif": 295702,
+      "img:legacy": 19077,
+      "font": 64882
     },
-    "loadMs": 10503,
-    "lcp": 2388,
-    "lcpEl": "hero__title",
-    "cls": 0.0004,
-    "fcp": 1488,
-    "longTasks": 0,
-    "tbt": 0,
-    "ttfb": 3,
-    "domContentLoaded": 2070,
+    "loadMs": 2118,
+    "lcp": 916,
+    "lcpEl": "topbar__brand",
+    "cls": 0,
+    "fcp": 400,
+    "longTasks": 1,
+    "tbt": 45,
+    "ttfb": 5,
+    "domContentLoaded": 327,
     "lcpAll": [
-      "2388 hero__title"
+      "916 topbar__brand"
     ]
   }
 ]

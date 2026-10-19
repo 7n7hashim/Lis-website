@@ -41,8 +41,15 @@ const H  = +(process.argv[3] || 900);
 const PS = (process.argv[4] || '0,0.25,0.5,0.75,1').split(',').map(Number);
 const WHICH = (process.argv[5] || 'both').toLowerCase();
 
-const SECTIONS = WHICH === 'both'
-  ? ['.locale--mombasa', '.locale--nairobi']
+/* ONE BAND SINCE 2026-09-30, and this tool did not get the message until
+   2026-10-19: .locale--nairobi was deleted with the second branch, so the
+   default 'both' asked for a section that is not on the page and died on a
+   null getBoundingClientRect — a crash that reads like a broken page rather
+   than like a stale argument. Any selector that is not present is now
+   skipped with a line saying so, so deleting a band never breaks the tool
+   again. */
+const WANTED = WHICH === 'both'
+  ? ['.locale--main', '.locale--nairobi']
   : [`.locale--${WHICH}`];
 
 const OUT = 'temporary screenshots';
@@ -53,6 +60,14 @@ const page = await browser.newPage();
 await page.setViewport({ width: W, height: H, deviceScaleFactor: 1 });
 await page.goto('http://localhost:3001/contact.html', { waitUntil: 'networkidle0' });
 await page.evaluate(() => document.fonts && document.fonts.ready);
+
+const SECTIONS = [];
+for (const sel of WANTED) {
+  const there = await page.evaluate((s) => !!document.querySelector(s), sel);
+  if (there) SECTIONS.push(sel);
+  else console.log(`skipping ${sel} — not on the page`);
+}
+if (!SECTIONS.length) { console.error('no locale section matched'); await browser.close(); process.exit(1); }
 
 /* A WARM PASS FIRST, and the reason is the whole shape of this tool.
 

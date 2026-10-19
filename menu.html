@@ -3,9 +3,9 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
-<title>La Pranzo — The Menu</title>
+<title>Your Restaurant — The Menu</title>
 <link rel="preload" as="image" type="image/avif"
-      imagesrcset="assets/img/r/menu-grill-290.avif 290w, assets/img/r/menu-grill-360.avif 360w, assets/img/r/menu-grill-430.avif 430w, assets/img/r/menu-grill-520.avif 520w, assets/img/r/menu-grill-700.avif 700w"
+      imagesrcset="assets/img/r/menu-burger-290.avif 290w, assets/img/r/menu-burger-360.avif 360w, assets/img/r/menu-burger-430.avif 430w, assets/img/r/menu-burger-520.avif 520w, assets/img/r/menu-burger-700.avif 700w"
       imagesizes="(max-width: 900px) 41.2vw, 15.5vw" fetchpriority="high">
 <!-- Site icon. Two drawings, not one file scaled: the SVG and the two small
      PNGs carry the mark reduced to the ring and the chopsticks, because the
@@ -18,7 +18,7 @@
 <link rel="apple-touch-icon" href="assets/apple-touch-icon.png">
 <link rel="manifest" href="assets/site.webmanifest">
 <meta name="theme-color" content="#0D0C0A">
-<meta name="description" content="The La Pranzo carte — 166 dishes across 19 courses: mandi and hanith, mishkaki and kofta, shawarma, pizza, five kunafas and eighteen coffees. Haile Selassie Road, Mombasa.">
+<meta name="description" content="A demonstration carte, laid out course by course with prices in shillings. The structure is real; the dishes are placeholders for yours.">
 
 <link rel="preload" as="font" type="font/woff2" crossorigin href="assets/fonts/cormorant-garamond-normal-300-400.woff2">
 <link rel="preload" as="font" type="font/woff2" crossorigin href="assets/fonts/jost-normal-300-400.woff2">
@@ -143,12 +143,12 @@
                              /* is overridden to --ground where it is used.  */
     --menu-ink:    #F8F7F3;  /* 14.79:1 on the ground                       */
     --menu-body:   #A79F91;  /*  5.93:1                                     */
-    --menu-accent: #FFCA2A;  /*  6.51:1 — the deep red, from the logo hue   */
+    --menu-accent: #F1CAAB;  /*  6.51:1 — the deep red, from the logo hue   */
     /* The measured logo red. A DEVICE colour: it draws the mark and
-       never sets type. --lp-yellow is the same hue darkened to carry
+       never sets type. --brand-accent is the same hue darkened to carry
        text and fills — 6.51:1 on the ground, white on it 7.49:1. */
-    --brand-yellow: #FFCA2A;
-    --lp-yellow:    #FFCA2A;
+    --brand-device: #F1CAAB;
+    --brand-accent:    #F1CAAB;
     --hairline:    rgba(248, 247, 243, 0.18);
 
     /* The one scale unit the whole composition is built from. Pure vw
@@ -404,7 +404,7 @@
      loudest thing on an ivory page and it pulls the eye straight off the
      type, which is the one job this composition has.
 
-     The crop is handled in the bake (bake-lis-photography.py, menu-platter,
+     The crop is handled in the bake (bake-lis-photography.py, menu-steak,
      900x1200 at mean 100) rather than here. What is left for CSS is the
      colour: saturation well down, a whisper of sepia to seat the orange
      against the warmth of the other three, and brightness off to hold the
@@ -813,8 +813,8 @@
        to marks that state nothing — the rule under the eyebrow, the ring around
        the photograph. Anything a guest reads or clicks takes --menu-accent
        (4.8:1) or --res-gold, which clears 3:1 as a non-text boundary. */
-    --res-hair: #2E2A22;
-    --res-gold: #9A8654;
+    --res-hair: #312922;
+    --res-gold: #A78062;
 
     --res-eyebrow:  clamp(0.66rem, 2.85vw, 0.76rem);
     --res-title:    clamp(2.35rem, 11.9vw, 3.6rem);
@@ -1373,7 +1373,7 @@
        getBoundingClientRect() hands the viewport back: read that way, a mark
        overflowing by 51% reports as a comfortable 93%. measure-endmark.mjs
        uses a Range. Re-solve again if the string ever changes length. */
-    --end-mark:   clamp(3.01rem, 13.66vw, 13.72rem);
+    --end-mark:   clamp(1.76rem, 7.99vw, 8.03rem);
     /* The last 15% of height comes from the block, not the size — see
        .ending__mark. */
     --end-stretch: 1.15;
@@ -1531,7 +1531,7 @@
   .ending__link:focus-visible::after { transform: scaleX(1); }
 
   .ending__link:focus-visible {
-    outline: 1px solid var(--lp-yellow);
+    outline: 1px solid var(--brand-accent);
     outline-offset: 4px;
     border-radius: 1px;
   }
@@ -1578,7 +1578,7 @@
       /* Scaled by the same 0.610 as the desktop clamp when the wordmark went
          from five glyphs to nine. 22.5vw held CRAVE at 92% of a phone; it
          held LA PRANZO at 151.4%. Measured after: 92.3%. */
-      --end-mark: 13.73vw;
+      --end-mark: 7.99vw;
       --end-stretch: 1.22;
       min-height: 0;
       padding-top: clamp(64px, 22vw, 108px);
@@ -1613,7 +1613,7 @@
         ever decorative here (the rule, the ring), so no minimum applies to
         it, and on the button's dark hover state it still reads at 7.8:1. */
   .reserve {
-    --res-gold: #9A8654;
+    --res-gold: #A78062;
   }
 
   /* 2. The closing gradient's tail is a literal, so --cream cannot reach it.
@@ -1664,8 +1664,8 @@
              carte — mandi three ways in mutton and six in chicken, kunafa
              in five. -->
         <h1 class="flavors__display" id="flavors-title">
-          <span>From Mandi</span>
-          <span>to Kunafa</span>
+          <span>From Chips</span>
+          <span>to Sundae</span>
         </h1>
       </div>
 
@@ -1685,7 +1685,7 @@
                width="900" height="1200" loading="eager" decoding="sync" fetchpriority="high">
           </picture>
         </div>
-        <figcaption class="frame__caption">The Grill</figcaption>
+        <figcaption class="frame__caption">The Room</figcaption>
       </figure>
 
       <!-- Upper-right. The dessert counter. The second warm anchor: the
@@ -1696,12 +1696,12 @@
         <div class="frame__plate">
           <picture>
             <source type="image/avif" sizes="(max-width: 900px) 41.2vw, 15.5vw"
-                    srcset="assets/img/r/menu-grill-290.avif 290w, assets/img/r/menu-grill-360.avif 360w, assets/img/r/menu-grill-430.avif 430w, assets/img/r/menu-grill-520.avif 520w, assets/img/r/menu-grill-700.avif 700w">
+                    srcset="assets/img/r/menu-burger-290.avif 290w, assets/img/r/menu-burger-360.avif 360w, assets/img/r/menu-burger-430.avif 430w, assets/img/r/menu-burger-520.avif 520w, assets/img/r/menu-burger-700.avif 700w">
             <source type="image/webp" sizes="(max-width: 900px) 41.2vw, 15.5vw"
-                    srcset="assets/img/r/menu-grill-290.webp 290w, assets/img/r/menu-grill-700.webp 700w">
+                    srcset="assets/img/r/menu-burger-290.webp 290w, assets/img/r/menu-burger-700.webp 700w">
             <img class="frame__img"
-               src="assets/img/menu-grill.jpg"
-               alt="Skewers over an open flame, shot close."
+               src="assets/img/menu-burger.jpg"
+               alt="A cheeseburger with lettuce and tomato against a dark background."
                width="900" height="1200" loading="eager" decoding="sync" fetchpriority="high">
           </picture>
         </div>
@@ -1716,16 +1716,16 @@
         <div class="frame__plate">
           <picture>
             <source type="image/avif" sizes="(max-width: 900px) 52.4vw, (max-width: 1800px) 21.8vw, 19.7vw"
-                    srcset="assets/img/r/menu-arabic-270.avif 270w, assets/img/r/menu-arabic-360.avif 360w, assets/img/r/menu-arabic-450.avif 450w, assets/img/r/menu-arabic-890.avif 890w">
+                    srcset="assets/img/r/menu-pizza-270.avif 270w, assets/img/r/menu-pizza-360.avif 360w, assets/img/r/menu-pizza-450.avif 450w, assets/img/r/menu-pizza-650.avif 650w, assets/img/r/menu-pizza-890.avif 890w">
             <source type="image/webp" sizes="(max-width: 900px) 52.4vw, (max-width: 1800px) 21.8vw, 19.7vw"
-                    srcset="assets/img/r/menu-arabic-270.webp 270w, assets/img/r/menu-arabic-890.webp 890w">
+                    srcset="assets/img/r/menu-pizza-270.webp 270w, assets/img/r/menu-pizza-890.webp 890w">
             <img class="frame__img"
-               src="assets/img/menu-arabic.jpg"
-               alt="A platter of rice and chicken with dishes of sauce around it."
+               src="assets/img/menu-pizza.jpg"
+               alt="A whole margherita pizza on a dark ground, one slice pulled away."
                width="900" height="1200" loading="eager" decoding="sync">
           </picture>
         </div>
-        <figcaption class="frame__caption">Arabic Plates</figcaption>
+        <figcaption class="frame__caption">The Oven</figcaption>
       </figure>
 
       <!-- Lower-right. Grilled prawns and lobster, close.
@@ -1735,16 +1735,16 @@
         <div class="frame__plate">
           <picture>
             <source type="image/avif" sizes="(max-width: 900px) 56.9vw, (max-width: 1800px) 23.7vw, 21.4vw"
-                    srcset="assets/img/r/menu-platter-250.avif 250w, assets/img/r/menu-platter-390.avif 390w, assets/img/r/menu-platter-490.avif 490w, assets/img/r/menu-platter-710.avif 710w, assets/img/r/menu-platter-900.avif 900w">
+                    srcset="assets/img/r/menu-steak-250.avif 250w, assets/img/r/menu-steak-390.avif 390w, assets/img/r/menu-steak-490.avif 490w, assets/img/r/menu-steak-900.avif 900w">
             <source type="image/webp" sizes="(max-width: 900px) 56.9vw, (max-width: 1800px) 23.7vw, 21.4vw"
-                    srcset="assets/img/r/menu-platter-250.webp 250w, assets/img/r/menu-platter-900.webp 900w">
+                    srcset="assets/img/r/menu-steak-250.webp 250w, assets/img/r/menu-steak-900.webp 900w">
             <img class="frame__img"
-               src="assets/img/menu-platter.jpg"
-               alt="Grilled kofta and chicken laid out overhead, herbs scattered over."
+               src="assets/img/menu-steak.jpg"
+               alt="A sliced steak with chips and greens on a dark plate."
                width="900" height="1200" loading="eager" decoding="sync">
           </picture>
         </div>
-        <figcaption class="frame__caption">The Platter</figcaption>
+        <figcaption class="frame__caption">The Charcoal</figcaption>
       </figure>
 
     </div>
@@ -1788,10 +1788,10 @@
 
              Prices are a menu and will move: re-read the source before launch. -->
         <p class="carte__note">
-          Everything here is on from noon until eleven, seven days a week. Nineteen
-          courses and a hundred and sixty-six dishes, and not one alcoholic drink
-          among them &mdash; the thirteen mojitos are mocktails, and so is everything
-          on the juice board.
+          Everything here is on from noon until eleven, seven days a week. Thirteen
+          courses and eighty-four dishes, and not one alcoholic drink among them
+          &mdash; every shake and juice on the last board is non-alcoholic, and the
+          board says so itself.
         </p>
       </header>
 
@@ -1800,24 +1800,55 @@
           <h3 class="course__name" id="course-signatures">Signatures</h3>
           <div class="course__list">
             <div class="dish">
-              <p class="dish__name">Mix Grilled Platter</p>
-              <p class="dish__price">KSh 2,500</p>
-              <p class="dish__note">The top of the carte and the table everyone else in the room is looking at. Half at 1,500.</p>
+              <p class="dish__name">House Smash Burger</p>
+              <p class="dish__price">KSh 950</p>
+              <p class="dish__note">Two smashed patties, cheese, pickles and the house sauce. Put your own signature dish here — the one your regulars order without looking at the menu.</p>
             </div>
             <div class="dish">
-              <p class="dish__name">La Pranzo Chips</p>
+              <p class="dish__name">Wood-Fired Garden Pizza</p>
+              <p class="dish__price">KSh 1,100</p>
+              <p class="dish__note">Peppers, courgette, olives and tomato on a crust blistered in the oven. Large at 1,450.</p>
+            </div>
+            <div class="dish">
+              <p class="dish__name">House Mixed Grill</p>
+              <p class="dish__price">KSh 2,400</p>
+              <p class="dish__note">Steak, chicken, sausages and wings off the charcoal on one tray, with chips and two sides. Half at 1,400.</p>
+            </div>
+            <div class="dish">
+              <p class="dish__name">Brownie Sundae</p>
               <p class="dish__price">KSh 650</p>
-              <p class="dish__note">The house chips. Seven things on this menu are named after the house and these are the ones reviewers name first.</p>
+              <p class="dish__note">Warm brownie, two scoops and hot chocolate sauce, which is how most tables here finish.</p>
+            </div>
+          </div>
+        </section>
+
+        <section class="course" aria-labelledby="course-breakfast">
+          <h3 class="course__name" id="course-breakfast">Breakfast</h3>
+          <p class="course__note">Served until noon.</p>
+          <div class="course__list">
+            <div class="dish">
+              <p class="dish__name">Full Breakfast</p>
+              <p class="dish__price">KSh 950</p>
             </div>
             <div class="dish">
-              <p class="dish__name">Mandi</p>
-              <p class="dish__price">KSh 800</p>
-              <p class="dish__note">Mutton, on rice cooked under it. Also chicken, breast or legs, and beside it zurbian, hanith and madhabi.</p>
+              <p class="dish__name">Pancake Stack</p>
+              <p class="dish__price">KSh 650</p>
             </div>
             <div class="dish">
-              <p class="dish__name">Kunafa Pistachio</p>
-              <p class="dish__price">KSh 800</p>
-              <p class="dish__note">The top of a board with five kunafas on it, which is four more than most kitchens attempt.</p>
+              <p class="dish__name">Belgian Waffles</p>
+              <p class="dish__price">KSh 700</p>
+            </div>
+            <div class="dish">
+              <p class="dish__name">Eggs Your Way</p>
+              <p class="dish__price">KSh 450</p>
+            </div>
+            <div class="dish">
+              <p class="dish__name">French Toast</p>
+              <p class="dish__price">KSh 550</p>
+            </div>
+            <div class="dish">
+              <p class="dish__name">Avocado Toast</p>
+              <p class="dish__price">KSh 600</p>
             </div>
           </div>
         </section>
@@ -1826,74 +1857,93 @@
           <h3 class="course__name" id="course-starters">Starters</h3>
           <div class="course__list">
             <div class="dish">
-              <p class="dish__name">Fatoush Salad</p>
-              <p class="dish__price">KSh 350</p>
+              <p class="dish__name">Chicken Wings (6 pc)</p>
+              <p class="dish__price">KSh 650</p>
             </div>
             <div class="dish">
-              <p class="dish__name">Mutabal</p>
-              <p class="dish__price">KSh 400</p>
+              <p class="dish__name">Garlic Bread</p>
+              <p class="dish__price">KSh 300</p>
             </div>
             <div class="dish">
-              <p class="dish__name">Hummus</p>
-              <p class="dish__price">KSh 350</p>
+              <p class="dish__name">Loaded Nachos</p>
+              <p class="dish__price">KSh 750</p>
             </div>
             <div class="dish">
-              <p class="dish__name">Labanies Taboula</p>
-              <p class="dish__price">KSh 400</p>
+              <p class="dish__name">Mozzarella Sticks</p>
+              <p class="dish__price">KSh 600</p>
             </div>
             <div class="dish">
-              <p class="dish__name">Arabic Salad</p>
-              <p class="dish__price">KSh 250</p>
-            </div>
-            <div class="dish">
-              <p class="dish__name">Greek Salad</p>
-              <p class="dish__price">KSh 400</p>
-            </div>
-            <div class="dish">
-              <p class="dish__name">Chicken Salad</p>
-              <p class="dish__price">KSh 500</p>
-            </div>
-            <div class="dish">
-              <p class="dish__name">La Pranzo Salad</p>
-              <p class="dish__price">KSh 850</p>
-            </div>
-            <div class="dish">
-              <p class="dish__name">Cucumber Yoghurt</p>
+              <p class="dish__name">Samosa (2 pc)</p>
               <p class="dish__price">KSh 200</p>
+            </div>
+            <div class="dish">
+              <p class="dish__name">Soup of the Day</p>
+              <p class="dish__price">KSh 400</p>
+            </div>
+            <div class="dish">
+              <p class="dish__name">Onion Rings</p>
+              <p class="dish__price">KSh 400</p>
             </div>
           </div>
         </section>
 
-        <section class="course" aria-labelledby="course-side-dishes">
-          <h3 class="course__name" id="course-side-dishes">Side Dishes</h3>
+        <section class="course" aria-labelledby="course-salads">
+          <h3 class="course__name" id="course-salads">Salads</h3>
           <div class="course__list">
             <div class="dish">
-              <p class="dish__name">Plain Chips</p>
-              <p class="dish__price">KSh 200</p>
+              <p class="dish__name">Garden Salad</p>
+              <p class="dish__price">KSh 450</p>
             </div>
             <div class="dish">
-              <p class="dish__name">Masala Chips</p>
-              <p class="dish__price">KSh 250</p>
+              <p class="dish__name">Chicken Caesar</p>
+              <p class="dish__price">KSh 750</p>
             </div>
             <div class="dish">
-              <p class="dish__name">Cheese Nachos Chips</p>
-              <p class="dish__price">KSh 500</p>
-            </div>
-            <div class="dish">
-              <p class="dish__name">Mixed Cheese Chips</p>
-              <p class="dish__price">KSh 550</p>
-            </div>
-            <div class="dish">
-              <p class="dish__name">La Pranzo Chips</p>
+              <p class="dish__name">Greek Salad</p>
               <p class="dish__price">KSh 650</p>
             </div>
             <div class="dish">
-              <p class="dish__name">Mashed Potatoes</p>
-              <p class="dish__price">KSh 250</p>
+              <p class="dish__name">Avocado Salad</p>
+              <p class="dish__price">KSh 550</p>
             </div>
             <div class="dish">
-              <p class="dish__name">Grilled Vegetables</p>
-              <p class="dish__price">KSh 250</p>
+              <p class="dish__name">Tuna Salad</p>
+              <p class="dish__price">KSh 800</p>
+            </div>
+          </div>
+        </section>
+
+        <section class="course" aria-labelledby="course-burgers">
+          <h3 class="course__name" id="course-burgers">Burgers</h3>
+          <p class="course__note">Every burger is served with chips.</p>
+          <div class="course__list">
+            <div class="dish">
+              <p class="dish__name">Classic Beef Burger</p>
+              <p class="dish__price">KSh 800</p>
+            </div>
+            <div class="dish">
+              <p class="dish__name">Cheeseburger</p>
+              <p class="dish__price">KSh 900</p>
+            </div>
+            <div class="dish">
+              <p class="dish__name">House Smash Burger</p>
+              <p class="dish__price">KSh 950</p>
+            </div>
+            <div class="dish">
+              <p class="dish__name">Crispy Chicken Burger</p>
+              <p class="dish__price">KSh 850</p>
+            </div>
+            <div class="dish">
+              <p class="dish__name">Mushroom Swiss Burger</p>
+              <p class="dish__price">KSh 950</p>
+            </div>
+            <div class="dish">
+              <p class="dish__name">Veggie Burger</p>
+              <p class="dish__price">KSh 750</p>
+            </div>
+            <div class="dish">
+              <p class="dish__name">Double Stack</p>
+              <p class="dish__price">KSh 1,300</p>
             </div>
           </div>
         </section>
@@ -1903,241 +1953,89 @@
           <p class="course__note">Medium and large.</p>
           <div class="course__list">
             <div class="dish">
-              <p class="dish__name">Chicken Pizza</p>
-              <p class="dish__price">KSh 900 &middot; 1,100</p>
+              <p class="dish__name">Margherita</p>
+              <p class="dish__price">KSh 850 &middot; 1,150</p>
             </div>
             <div class="dish">
-              <p class="dish__name">Beef Pizza</p>
-              <p class="dish__price">KSh 900 &middot; 1,100</p>
+              <p class="dish__name">Garden Vegetable</p>
+              <p class="dish__price">KSh 1,100 &middot; 1,450</p>
             </div>
             <div class="dish">
-              <p class="dish__name">Vegetable Pizza</p>
-              <p class="dish__price">KSh 700 &middot; 900</p>
+              <p class="dish__name">BBQ Chicken</p>
+              <p class="dish__price">KSh 1,150 &middot; 1,500</p>
             </div>
             <div class="dish">
-              <p class="dish__name">Margherita Pizza</p>
-              <p class="dish__price">KSh 800 &middot; 1,000</p>
+              <p class="dish__name">Four Cheese</p>
+              <p class="dish__price">KSh 1,100 &middot; 1,450</p>
             </div>
             <div class="dish">
-              <p class="dish__name">La Pranzo Pizza</p>
-              <p class="dish__price">KSh 1,100 &middot; 1,300</p>
+              <p class="dish__name">Chicken Tikka</p>
+              <p class="dish__price">KSh 1,150 &middot; 1,500</p>
             </div>
             <div class="dish">
-              <p class="dish__name">Hotdog Pizza</p>
-              <p class="dish__price">KSh 900 &middot; 1,100</p>
-            </div>
-            <div class="dish">
-              <p class="dish__name">Tuna Pizza</p>
-              <p class="dish__price">KSh 900 &middot; 1,100</p>
+              <p class="dish__name">Mushroom &amp; Truffle</p>
+              <p class="dish__price">KSh 1,200 &middot; 1,550</p>
             </div>
           </div>
         </section>
 
-        <section class="course" aria-labelledby="course-burgers">
-          <h3 class="course__name" id="course-burgers">Burgers</h3>
+        <section class="course" aria-labelledby="course-from-the-grill">
+          <h3 class="course__name" id="course-from-the-grill">From the Grill</h3>
+          <p class="course__note">Every meal is served with a side of your choice.</p>
           <div class="course__list">
             <div class="dish">
-              <p class="dish__name">Beef Burger (Single)</p>
-              <p class="dish__price">KSh 650</p>
+              <p class="dish__name">Sirloin Steak</p>
+              <p class="dish__price">KSh 1,600</p>
             </div>
             <div class="dish">
-              <p class="dish__name">Beef Burger (Double)</p>
-              <p class="dish__price">KSh 1,000</p>
+              <p class="dish__name">T-Bone Steak</p>
+              <p class="dish__price">KSh 1,900</p>
             </div>
             <div class="dish">
-              <p class="dish__name">Beef Burger (Triple)</p>
-              <p class="dish__price">KSh 1,200</p>
+              <p class="dish__name">Grilled Half Chicken</p>
+              <p class="dish__price">KSh 950</p>
             </div>
             <div class="dish">
-              <p class="dish__name">Beef Burger (Heart Attack)</p>
+              <p class="dish__name">Full Chicken</p>
+              <p class="dish__price">KSh 1,700</p>
+            </div>
+            <div class="dish">
+              <p class="dish__name">Lamb Chops</p>
               <p class="dish__price">KSh 1,500</p>
             </div>
             <div class="dish">
-              <p class="dish__name">Chicken Crunchy Burger (Single)</p>
+              <p class="dish__name">Beef Sausages</p>
               <p class="dish__price">KSh 650</p>
             </div>
             <div class="dish">
-              <p class="dish__name">Chicken Crunchy Burger (Double)</p>
-              <p class="dish__price">KSh 1,000</p>
-            </div>
-            <div class="dish">
-              <p class="dish__name">Chicken Crunchy Burger (Triple)</p>
+              <p class="dish__name">Grilled Fish Fillet</p>
               <p class="dish__price">KSh 1,200</p>
             </div>
             <div class="dish">
-              <p class="dish__name">Mini Burger</p>
-              <p class="dish__price">KSh 450</p>
+              <p class="dish__name">Mixed Grill (Half)</p>
+              <p class="dish__price">KSh 1,400</p>
             </div>
           </div>
         </section>
 
-        <section class="course" aria-labelledby="course-main-course">
-          <h3 class="course__name" id="course-main-course">Main Course</h3>
-          <p class="course__note">Every meal is served with side of your choice.</p>
+        <section class="course" aria-labelledby="course-chicken">
+          <h3 class="course__name" id="course-chicken">Chicken</h3>
           <div class="course__list">
             <div class="dish">
-              <p class="dish__name">Chicken Wings</p>
-              <p class="dish__price">KSh 600</p>
-            </div>
-            <div class="dish">
-              <p class="dish__name">Mishkaki Plate</p>
-              <p class="dish__price">KSh 700</p>
-            </div>
-            <div class="dish">
-              <p class="dish__name">Shish Tauk Plate</p>
-              <p class="dish__price">KSh 700</p>
-            </div>
-            <div class="dish">
-              <p class="dish__name">Grilled Chicken Plate</p>
-              <p class="dish__price">KSh 800</p>
-            </div>
-            <div class="dish">
-              <p class="dish__name">Grilled Chicken with Lemon Sauce</p>
-              <p class="dish__price">KSh 850</p>
-            </div>
-            <div class="dish">
-              <p class="dish__name">Chicken Pousin</p>
-              <p class="dish__price">KSh 800</p>
-            </div>
-            <div class="dish">
-              <p class="dish__name">Chicken Musahab (Half)</p>
-              <p class="dish__price">KSh 850</p>
-            </div>
-            <div class="dish">
-              <p class="dish__name">Grilled T-bone Steak Plate</p>
-              <p class="dish__price">KSh 850</p>
-            </div>
-            <div class="dish">
-              <p class="dish__name">Kofta Kebab Plate</p>
+              <p class="dish__name">Fried Chicken (3 pc)</p>
               <p class="dish__price">KSh 750</p>
             </div>
             <div class="dish">
-              <p class="dish__name">Chicken Kebab</p>
-              <p class="dish__price">KSh 750</p>
+              <p class="dish__name">Chicken Tenders</p>
+              <p class="dish__price">KSh 700</p>
             </div>
             <div class="dish">
-              <p class="dish__name">Chicken Finger Plate</p>
-              <p class="dish__price">KSh 650</p>
+              <p class="dish__name">Peri-Peri Chicken</p>
+              <p class="dish__price">KSh 950</p>
             </div>
             <div class="dish">
-              <p class="dish__name">Fish Finger Plate</p>
-              <p class="dish__price">KSh 650</p>
-            </div>
-            <div class="dish">
-              <p class="dish__name">Mix Grilled Platter (Half)</p>
-              <p class="dish__price">KSh 1,500</p>
-            </div>
-            <div class="dish">
-              <p class="dish__name">Mix Grilled Platter (Full)</p>
-              <p class="dish__price">KSh 2,500</p>
-            </div>
-          </div>
-        </section>
-
-        <section class="course" aria-labelledby="course-sandwiches">
-          <h3 class="course__name" id="course-sandwiches">Sandwiches</h3>
-          <div class="course__list">
-            <div class="dish">
-              <p class="dish__name">Shawarma</p>
-              <p class="dish__price">KSh 350</p>
-            </div>
-            <div class="dish">
-              <p class="dish__name">Fajta Chicken</p>
-              <p class="dish__price">KSh 450</p>
-            </div>
-            <div class="dish">
-              <p class="dish__name">Fajta Beef</p>
-              <p class="dish__price">KSh 400</p>
-            </div>
-            <div class="dish">
-              <p class="dish__name">Kebab</p>
-              <p class="dish__price">KSh 350</p>
-            </div>
-            <div class="dish">
-              <p class="dish__name">Shish Tauk</p>
-              <p class="dish__price">KSh 350</p>
-            </div>
-            <div class="dish">
-              <p class="dish__name">Kebda</p>
-              <p class="dish__price">KSh 350</p>
-            </div>
-            <div class="dish">
-              <p class="dish__name">Zinger</p>
-              <p class="dish__price">KSh 600</p>
-            </div>
-            <div class="dish">
-              <p class="dish__name">Turkish Kebab</p>
-              <p class="dish__price">KSh 600</p>
-            </div>
-            <div class="dish">
-              <p class="dish__name">Turkish Shish Tauk</p>
-              <p class="dish__price">KSh 600</p>
-            </div>
-          </div>
-        </section>
-
-        <section class="course" aria-labelledby="course-falafel">
-          <h3 class="course__name" id="course-falafel">Falafel</h3>
-          <div class="course__list">
-            <div class="dish">
-              <p class="dish__name">Falafel Plate</p>
-              <p class="dish__price">KSh 500</p>
-            </div>
-            <div class="dish">
-              <p class="dish__name">Sandwich Falafel</p>
-              <p class="dish__price">KSh 200</p>
-            </div>
-            <div class="dish">
-              <p class="dish__name">Sandwich Falafel with Eggs</p>
-              <p class="dish__price">KSh 300</p>
-            </div>
-          </div>
-        </section>
-
-        <section class="course" aria-labelledby="course-mutton-rice">
-          <h3 class="course__name" id="course-mutton-rice">Mutton Rice</h3>
-          <div class="course__list">
-            <div class="dish">
-              <p class="dish__name">Mandi</p>
-              <p class="dish__price">KSh 800</p>
-            </div>
-            <div class="dish">
-              <p class="dish__name">Zurbian</p>
-              <p class="dish__price">KSh 800</p>
-            </div>
-            <div class="dish">
-              <p class="dish__name">Hanith</p>
-              <p class="dish__price">KSh 800</p>
-            </div>
-          </div>
-        </section>
-
-        <section class="course" aria-labelledby="course-chicken-rice">
-          <h3 class="course__name" id="course-chicken-rice">Chicken Rice</h3>
-          <div class="course__list">
-            <div class="dish">
-              <p class="dish__name">Mandi (Brest)</p>
-              <p class="dish__price">KSh 800</p>
-            </div>
-            <div class="dish">
-              <p class="dish__name">Mandi (Legs)</p>
-              <p class="dish__price">KSh 780</p>
-            </div>
-            <div class="dish">
-              <p class="dish__name">Hanith (Brest)</p>
-              <p class="dish__price">KSh 800</p>
-            </div>
-            <div class="dish">
-              <p class="dish__name">Hanith (Legs)</p>
-              <p class="dish__price">KSh 780</p>
-            </div>
-            <div class="dish">
-              <p class="dish__name">Madhabi (Brest)</p>
-              <p class="dish__price">KSh 800</p>
-            </div>
-            <div class="dish">
-              <p class="dish__name">Madhabi (Legs)</p>
-              <p class="dish__price">KSh 780</p>
+              <p class="dish__name">Honey Garlic Wings</p>
+              <p class="dish__price">KSh 700</p>
             </div>
           </div>
         </section>
@@ -2146,154 +2044,132 @@
           <h3 class="course__name" id="course-pasta">Pasta</h3>
           <div class="course__list">
             <div class="dish">
-              <p class="dish__name">Beef pasta</p>
-              <p class="dish__price">KSh 550</p>
+              <p class="dish__name">Spaghetti Bolognese</p>
+              <p class="dish__price">KSh 800</p>
             </div>
             <div class="dish">
-              <p class="dish__name">Chicken pasta</p>
-              <p class="dish__price">KSh 550</p>
+              <p class="dish__name">Penne Arrabbiata</p>
+              <p class="dish__price">KSh 700</p>
+            </div>
+            <div class="dish">
+              <p class="dish__name">Chicken Alfredo</p>
+              <p class="dish__price">KSh 900</p>
+            </div>
+            <div class="dish">
+              <p class="dish__name">Creamy Mushroom Penne</p>
+              <p class="dish__price">KSh 800</p>
+            </div>
+            <div class="dish">
+              <p class="dish__name">Seafood Linguine</p>
+              <p class="dish__price">KSh 1,250</p>
             </div>
           </div>
         </section>
 
-        <section class="course" aria-labelledby="course-arabic-dishes">
-          <h3 class="course__name" id="course-arabic-dishes">Arabic Dishes</h3>
+        <section class="course" aria-labelledby="course-sandwiches-wraps">
+          <h3 class="course__name" id="course-sandwiches-wraps">Sandwiches &amp; Wraps</h3>
           <div class="course__list">
             <div class="dish">
-              <p class="dish__name">Fahasa plate</p>
-              <p class="dish__price">KSh 800</p>
+              <p class="dish__name">Club Sandwich</p>
+              <p class="dish__price">KSh 750</p>
             </div>
             <div class="dish">
-              <p class="dish__name">Fasuolia plate</p>
-              <p class="dish__price">KSh 550</p>
+              <p class="dish__name">Steak Sandwich</p>
+              <p class="dish__price">KSh 950</p>
             </div>
             <div class="dish">
-              <p class="dish__name">Fuul plate</p>
-              <p class="dish__price">KSh 550</p>
+              <p class="dish__name">Chicken Wrap</p>
+              <p class="dish__price">KSh 700</p>
             </div>
             <div class="dish">
-              <p class="dish__name">Kebda plate</p>
-              <p class="dish__price">KSh 800</p>
-            </div>
-            <div class="dish">
-              <p class="dish__name">Akdat beef</p>
-              <p class="dish__price">KSh 800</p>
-            </div>
-            <div class="dish">
-              <p class="dish__name">Akdat chicken</p>
-              <p class="dish__price">KSh 800</p>
-            </div>
-            <div class="dish">
-              <p class="dish__name">Adas plate</p>
+              <p class="dish__name">Grilled Cheese</p>
               <p class="dish__price">KSh 500</p>
             </div>
             <div class="dish">
-              <p class="dish__name">Egg plate</p>
-              <p class="dish__price">KSh 600</p>
-            </div>
-            <div class="dish">
-              <p class="dish__name">Shakshuka</p>
-              <p class="dish__price">KSh 550</p>
+              <p class="dish__name">Tuna Melt</p>
+              <p class="dish__price">KSh 650</p>
             </div>
           </div>
         </section>
 
-        <section class="course" aria-labelledby="course-dessert">
-          <h3 class="course__name" id="course-dessert">Dessert</h3>
+        <section class="course" aria-labelledby="course-sides">
+          <h3 class="course__name" id="course-sides">Sides</h3>
           <div class="course__list">
             <div class="dish">
-              <p class="dish__name">Kunafa plain</p>
-              <p class="dish__price">KSh 600</p>
+              <p class="dish__name">Chips</p>
+              <p class="dish__price">KSh 300</p>
             </div>
             <div class="dish">
-              <p class="dish__name">Kunafa Chocolate</p>
+              <p class="dish__name">Masala Chips</p>
+              <p class="dish__price">KSh 400</p>
+            </div>
+            <div class="dish">
+              <p class="dish__name">Sweet Potato Fries</p>
+              <p class="dish__price">KSh 400</p>
+            </div>
+            <div class="dish">
+              <p class="dish__name">Wedges</p>
+              <p class="dish__price">KSh 400</p>
+            </div>
+            <div class="dish">
+              <p class="dish__name">Coleslaw</p>
+              <p class="dish__price">KSh 250</p>
+            </div>
+            <div class="dish">
+              <p class="dish__name">Steamed Vegetables</p>
+              <p class="dish__price">KSh 300</p>
+            </div>
+            <div class="dish">
+              <p class="dish__name">Side Salad</p>
+              <p class="dish__price">KSh 250</p>
+            </div>
+          </div>
+        </section>
+
+        <section class="course" aria-labelledby="course-desserts">
+          <h3 class="course__name" id="course-desserts">Desserts</h3>
+          <div class="course__list">
+            <div class="dish">
+              <p class="dish__name">Brownie Sundae</p>
               <p class="dish__price">KSh 650</p>
             </div>
             <div class="dish">
-              <p class="dish__name">Kunafa Lotus</p>
-              <p class="dish__price">KSh 700</p>
-            </div>
-            <div class="dish">
-              <p class="dish__name">Kunafa Caramel</p>
-              <p class="dish__price">KSh 700</p>
-            </div>
-            <div class="dish">
-              <p class="dish__name">Kunafa Pistachio</p>
-              <p class="dish__price">KSh 800</p>
-            </div>
-            <div class="dish">
-              <p class="dish__name">Maasoub (Full)</p>
+              <p class="dish__name">New York Cheesecake</p>
               <p class="dish__price">KSh 550</p>
             </div>
             <div class="dish">
-              <p class="dish__name">Arika (Full)</p>
-              <p class="dish__price">KSh 550</p>
-            </div>
-            <div class="dish">
-              <p class="dish__name">Maasoub (Half)</p>
-              <p class="dish__price">KSh 300</p>
-            </div>
-            <div class="dish">
-              <p class="dish__name">Arika (Half)</p>
-              <p class="dish__price">KSh 300</p>
-            </div>
-            <div class="dish">
-              <p class="dish__name">Basbousa</p>
-              <p class="dish__price">KSh 200</p>
-            </div>
-            <div class="dish">
-              <p class="dish__name">Basbousa Toffee</p>
-              <p class="dish__price">KSh 300</p>
-            </div>
-            <div class="dish">
-              <p class="dish__name">Wafal</p>
+              <p class="dish__name">Chocolate Fudge Cake</p>
               <p class="dish__price">KSh 500</p>
             </div>
             <div class="dish">
-              <p class="dish__name">Mini pancke</p>
+              <p class="dish__name">Ice Cream (2 scoops)</p>
+              <p class="dish__price">KSh 350</p>
+            </div>
+            <div class="dish">
+              <p class="dish__name">Apple Crumble</p>
               <p class="dish__price">KSh 500</p>
+            </div>
+            <div class="dish">
+              <p class="dish__name">Fruit Salad</p>
+              <p class="dish__price">KSh 400</p>
+            </div>
+            <div class="dish">
+              <p class="dish__name">Sundae</p>
+              <p class="dish__price">KSh 450</p>
             </div>
           </div>
         </section>
 
-        <section class="course" aria-labelledby="course-hot-drinks">
-          <h3 class="course__name" id="course-hot-drinks">Hot Drinks</h3>
+        <section class="course" aria-labelledby="course-coffee-tea">
+          <h3 class="course__name" id="course-coffee-tea">Coffee &amp; Tea</h3>
           <div class="course__list">
             <div class="dish">
               <p class="dish__name">Espresso</p>
-              <p class="dish__price">KSh 150</p>
-            </div>
-            <div class="dish">
-              <p class="dish__name">Espresso D</p>
-              <p class="dish__price">KSh 250</p>
-            </div>
-            <div class="dish">
-              <p class="dish__name">Lungo</p>
-              <p class="dish__price">KSh 250</p>
+              <p class="dish__price">KSh 200</p>
             </div>
             <div class="dish">
               <p class="dish__name">Americano</p>
-              <p class="dish__price">KSh 350</p>
-            </div>
-            <div class="dish">
-              <p class="dish__name">Cortado</p>
-              <p class="dish__price">KSh 350</p>
-            </div>
-            <div class="dish">
-              <p class="dish__name">white Mocha</p>
-              <p class="dish__price">KSh 400</p>
-            </div>
-            <div class="dish">
-              <p class="dish__name">Hazelnut Latte</p>
-              <p class="dish__price">KSh 400</p>
-            </div>
-            <div class="dish">
-              <p class="dish__name">Macchiato</p>
               <p class="dish__price">KSh 250</p>
-            </div>
-            <div class="dish">
-              <p class="dish__name">Tea lapranzo</p>
-              <p class="dish__price">KSh 100</p>
             </div>
             <div class="dish">
               <p class="dish__name">Cappuccino</p>
@@ -2301,305 +2177,66 @@
             </div>
             <div class="dish">
               <p class="dish__name">Latte</p>
-              <p class="dish__price">KSh 350</p>
+              <p class="dish__price">KSh 320</p>
+            </div>
+            <div class="dish">
+              <p class="dish__name">Flat White</p>
+              <p class="dish__price">KSh 320</p>
             </div>
             <div class="dish">
               <p class="dish__name">Mocha</p>
-              <p class="dish__price">KSh 400</p>
+              <p class="dish__price">KSh 350</p>
             </div>
             <div class="dish">
-              <p class="dish__name">Flat white</p>
-              <p class="dish__price">KSh 300</p>
+              <p class="dish__name">Hot Chocolate</p>
+              <p class="dish__price">KSh 350</p>
             </div>
             <div class="dish">
-              <p class="dish__name">Vanilla Latte</p>
-              <p class="dish__price">KSh 300</p>
-            </div>
-            <div class="dish">
-              <p class="dish__name">Spanish Latte</p>
-              <p class="dish__price">KSh 300</p>
-            </div>
-            <div class="dish">
-              <p class="dish__name">Caramel Latte</p>
-              <p class="dish__price">KSh 300</p>
-            </div>
-            <div class="dish">
-              <p class="dish__name">Caramel Macchiato</p>
-              <p class="dish__price">KSh 300</p>
-            </div>
-            <div class="dish">
-              <p class="dish__name">Milk Tea</p>
+              <p class="dish__name">Kenyan Tea</p>
               <p class="dish__price">KSh 150</p>
             </div>
-          </div>
-        </section>
-
-        <section class="course" aria-labelledby="course-frappucino">
-          <h3 class="course__name" id="course-frappucino">Frappucino</h3>
-          <div class="course__list">
             <div class="dish">
-              <p class="dish__name">Chocolate</p>
-              <p class="dish__price">KSh 400</p>
-            </div>
-            <div class="dish">
-              <p class="dish__name">Caramel</p>
-              <p class="dish__price">KSh 400</p>
-            </div>
-            <div class="dish">
-              <p class="dish__name">Vanilla</p>
-              <p class="dish__price">KSh 400</p>
-            </div>
-            <div class="dish">
-              <p class="dish__name">Hazel</p>
-              <p class="dish__price">KSh 400</p>
-            </div>
-            <div class="dish">
-              <p class="dish__name">Oreo</p>
-              <p class="dish__price">KSh 400</p>
-            </div>
-            <div class="dish">
-              <p class="dish__name">Mocha</p>
-              <p class="dish__price">KSh 400</p>
-            </div>
-            <div class="dish">
-              <p class="dish__name">White</p>
-              <p class="dish__price">KSh 400</p>
-            </div>
-            <div class="dish">
-              <p class="dish__name">Snickers</p>
-              <p class="dish__price">KSh 400</p>
-            </div>
-            <div class="dish">
-              <p class="dish__name">La Pranzo</p>
-              <p class="dish__price">KSh 400</p>
+              <p class="dish__name">Iced Latte</p>
+              <p class="dish__price">KSh 380</p>
             </div>
           </div>
         </section>
 
-        <section class="course" aria-labelledby="course-ice-coffee">
-          <h3 class="course__name" id="course-ice-coffee">Ice Coffee</h3>
-          <div class="course__list">
-            <div class="dish">
-              <p class="dish__name">Iced Cappucino</p>
-              <p class="dish__price">KSh 300</p>
-            </div>
-            <div class="dish">
-              <p class="dish__name">Iced Caramel</p>
-              <p class="dish__price">KSh 300</p>
-            </div>
-            <div class="dish">
-              <p class="dish__name">Iced Macciato</p>
-              <p class="dish__price">KSh 300</p>
-            </div>
-            <div class="dish">
-              <p class="dish__name">Iced Vanilla Lattee</p>
-              <p class="dish__price">KSh 300</p>
-            </div>
-            <div class="dish">
-              <p class="dish__name">Iced Mocha</p>
-              <p class="dish__price">KSh 300</p>
-            </div>
-            <div class="dish">
-              <p class="dish__name">Iced Americano</p>
-              <p class="dish__price">KSh 300</p>
-            </div>
-          </div>
-        </section>
-
-        <section class="course" aria-labelledby="course-milkshakes">
-          <h3 class="course__name" id="course-milkshakes">Milkshakes</h3>
-          <p class="course__note">To mix flavour of your choice.</p>
-          <div class="course__list">
-            <div class="dish">
-              <p class="dish__name">Vanilla</p>
-              <p class="dish__price">KSh 350</p>
-            </div>
-            <div class="dish">
-              <p class="dish__name">Caramel</p>
-              <p class="dish__price">KSh 350</p>
-            </div>
-            <div class="dish">
-              <p class="dish__name">Chocolate</p>
-              <p class="dish__price">KSh 350</p>
-            </div>
-            <div class="dish">
-              <p class="dish__name">Oreo</p>
-              <p class="dish__price">KSh 350</p>
-            </div>
-            <div class="dish">
-              <p class="dish__name">Strawberry</p>
-              <p class="dish__price">KSh 350</p>
-            </div>
-            <div class="dish">
-              <p class="dish__name">Mango</p>
-              <p class="dish__price">KSh 350</p>
-            </div>
-            <div class="dish">
-              <p class="dish__name">Dark Chocolate</p>
-              <p class="dish__price">KSh 350</p>
-            </div>
-            <div class="dish">
-              <p class="dish__name">Hazel Nut</p>
-              <p class="dish__price">KSh 350</p>
-            </div>
-            <div class="dish">
-              <p class="dish__name">Nutella Avocado</p>
-              <p class="dish__price">KSh 350</p>
-            </div>
-            <div class="dish">
-              <p class="dish__name">Galaxy</p>
-              <p class="dish__price">KSh 350</p>
-            </div>
-            <div class="dish">
-              <p class="dish__name">Snickers</p>
-              <p class="dish__price">KSh 350</p>
-            </div>
-            <div class="dish">
-              <p class="dish__name">Lotus</p>
-              <p class="dish__price">KSh 400</p>
-            </div>
-            <div class="dish">
-              <p class="dish__name">La Pranzo</p>
-              <p class="dish__price">KSh 400</p>
-            </div>
-          </div>
-        </section>
-
-        <section class="course" aria-labelledby="course-fresh-juices">
-          <h3 class="course__name" id="course-fresh-juices">Fresh Juices</h3>
-          <div class="course__list">
-            <div class="dish">
-              <p class="dish__name">Orange Juice</p>
-              <p class="dish__price">KSh 250</p>
-            </div>
-            <div class="dish">
-              <p class="dish__name">Mango Juice</p>
-              <p class="dish__price">KSh 250</p>
-            </div>
-            <div class="dish">
-              <p class="dish__name">Watermelon Juice</p>
-              <p class="dish__price">KSh 200</p>
-            </div>
-            <div class="dish">
-              <p class="dish__name">Pineapple Juice</p>
-              <p class="dish__price">KSh 200</p>
-            </div>
-            <div class="dish">
-              <p class="dish__name">Lemon Juice</p>
-              <p class="dish__price">KSh 200</p>
-            </div>
-            <div class="dish">
-              <p class="dish__name">Lemon Mint Juice</p>
-              <p class="dish__price">KSh 200</p>
-            </div>
-            <div class="dish">
-              <p class="dish__name">Carrot Juice</p>
-              <p class="dish__price">KSh 200</p>
-            </div>
-            <div class="dish">
-              <p class="dish__name">Cocktail Juice</p>
-              <p class="dish__price">KSh 250</p>
-            </div>
-            <div class="dish">
-              <p class="dish__name">Strawberry Juice</p>
-              <p class="dish__price">KSh 350</p>
-            </div>
-            <div class="dish">
-              <p class="dish__name">La Pranzo Mocktail</p>
-              <p class="dish__price">KSh 300</p>
-            </div>
-            <div class="dish">
-              <p class="dish__name">Avocado Juice</p>
-              <p class="dish__price">KSh 250</p>
-            </div>
-            <div class="dish">
-              <p class="dish__name">Fakhfahina</p>
-              <p class="dish__price">KSh 450</p>
-            </div>
-          </div>
-        </section>
-
-        <section class="course" aria-labelledby="course-slushes">
-          <h3 class="course__name" id="course-slushes">Slushes</h3>
-          <div class="course__list">
-            <div class="dish">
-              <p class="dish__name">Orange Slush</p>
-              <p class="dish__price">KSh 250</p>
-            </div>
-            <div class="dish">
-              <p class="dish__name">Pineapple Slush</p>
-              <p class="dish__price">KSh 250</p>
-            </div>
-            <div class="dish">
-              <p class="dish__name">Watermelon Slush</p>
-              <p class="dish__price">KSh 250</p>
-            </div>
-            <div class="dish">
-              <p class="dish__name">Passion Slush</p>
-              <p class="dish__price">KSh 250</p>
-            </div>
-            <div class="dish">
-              <p class="dish__name">Vision Slush</p>
-              <p class="dish__price">KSh 250</p>
-            </div>
-          </div>
-        </section>
-
-        <section class="course" aria-labelledby="course-mojitos">
-          <h3 class="course__name" id="course-mojitos">Mojitos</h3>
+        <section class="course" aria-labelledby="course-shakes-juices">
+          <h3 class="course__name" id="course-shakes-juices">Shakes &amp; Juices</h3>
           <p class="course__note">Every one of these is non-alcoholic.</p>
           <div class="course__list">
             <div class="dish">
-              <p class="dish__name">Lemon Mojito</p>
-              <p class="dish__price">KSh 350</p>
+              <p class="dish__name">Vanilla Shake</p>
+              <p class="dish__price">KSh 450</p>
             </div>
             <div class="dish">
-              <p class="dish__name">Strawberry Mojito</p>
-              <p class="dish__price">KSh 350</p>
+              <p class="dish__name">Chocolate Shake</p>
+              <p class="dish__price">KSh 480</p>
             </div>
             <div class="dish">
-              <p class="dish__name">Peach Mojito</p>
-              <p class="dish__price">KSh 350</p>
+              <p class="dish__name">Strawberry Shake</p>
+              <p class="dish__price">KSh 480</p>
             </div>
             <div class="dish">
-              <p class="dish__name">Mango Mojito</p>
-              <p class="dish__price">KSh 350</p>
+              <p class="dish__name">Cookies &amp; Cream Shake</p>
+              <p class="dish__price">KSh 550</p>
             </div>
             <div class="dish">
-              <p class="dish__name">Grape Mojito</p>
-              <p class="dish__price">KSh 350</p>
+              <p class="dish__name">Passion Juice</p>
+              <p class="dish__price">KSh 300</p>
             </div>
             <div class="dish">
-              <p class="dish__name">Orange Mojito</p>
-              <p class="dish__price">KSh 350</p>
+              <p class="dish__name">Mango Juice</p>
+              <p class="dish__price">KSh 300</p>
             </div>
             <div class="dish">
-              <p class="dish__name">Pineapple Mojito</p>
-              <p class="dish__price">KSh 350</p>
+              <p class="dish__name">Fresh Lemonade</p>
+              <p class="dish__price">KSh 300</p>
             </div>
             <div class="dish">
-              <p class="dish__name">Passion Mojito</p>
-              <p class="dish__price">KSh 350</p>
-            </div>
-            <div class="dish">
-              <p class="dish__name">Sunshine Mojito</p>
-              <p class="dish__price">KSh 350</p>
-            </div>
-            <div class="dish">
-              <p class="dish__name">Green Mountain Mojito</p>
-              <p class="dish__price">KSh 350</p>
-            </div>
-            <div class="dish">
-              <p class="dish__name">Blueberry Mojito</p>
-              <p class="dish__price">KSh 350</p>
-            </div>
-            <div class="dish">
-              <p class="dish__name">Kiwi Mojito</p>
-              <p class="dish__price">KSh 350</p>
-            </div>
-            <div class="dish">
-              <p class="dish__name">Blue Lagoon Mojito</p>
-              <p class="dish__price">KSh 350</p>
+              <p class="dish__name">Iced Tea</p>
+              <p class="dish__price">KSh 300</p>
             </div>
           </div>
         </section>
@@ -2651,13 +2288,13 @@
       </svg>
       <div class="reserve__frame">
         <picture>
-          <source type="image/avif" sizes="(max-width: 1000px) 101vw, 62.6vw"
-                  srcset="assets/img/r/reserve-interior-640.avif 640w, assets/img/r/reserve-interior-770.avif 770w, assets/img/r/reserve-interior-920.avif 920w, assets/img/r/reserve-interior-1150.avif 1150w, assets/img/r/reserve-interior-1400.avif 1400w">
-          <source type="image/webp" sizes="(max-width: 1000px) 101vw, 62.6vw"
+          <source type="image/avif" sizes="(max-width: 1000px) 100.9vw, 62.6vw"
+                  srcset="assets/img/r/reserve-interior-770.avif 770w, assets/img/r/reserve-interior-920.avif 920w, assets/img/r/reserve-interior-1150.avif 1150w, assets/img/r/reserve-interior-1400.avif 1400w">
+          <source type="image/webp" sizes="(max-width: 1000px) 100.9vw, 62.6vw"
                   srcset="assets/img/r/reserve-interior-640.webp 640w, assets/img/r/reserve-interior-1400.webp 1400w">
           <img class="reserve__img" src="assets/img/reserve-interior.jpg"
              width="1400" height="1576"
-             alt="A laid table seen from above: grilled kofta, chips and dips on a patterned cloth."
+             alt="A laid table under warm light: sliders, chips, dips and a tall lemonade."
              loading="lazy" decoding="async" fetchpriority="low">
         </picture>
       </div>
@@ -2675,7 +2312,7 @@
         Tell us when and how many &mdash; the rest is arranged from there.</p>
 
       <a class="reserve__cta"
-         href="https://wa.me/254768818833?text=Hello%20La%20Pranzo%20%E2%80%94%20I%E2%80%99d%20like%20to%20book%20a%20table.%0A%0AName%3A%0ADate%3A%0ATime%3A%0ANumber%20of%20guests%3A%0A%0AThank%20you."
+         href="https://wa.me/254XXXXXXXXX?text=Hello%20La%20Pranzo%20%E2%80%94%20I%E2%80%99d%20like%20to%20book%20a%20table.%0A%0AName%3A%0ADate%3A%0ATime%3A%0ANumber%20of%20guests%3A%0A%0AThank%20you."
          target="_blank" rel="noopener">
         <span class="reserve__ctalbl">Reserve now</span>
         <svg class="reserve__arrow" viewBox="0 0 24 14" aria-hidden="true" focusable="false">
@@ -2722,7 +2359,7 @@
             <circle cx="12" cy="10.6" r="2.4"/>
           </svg>
           <span class="reserve__metalbl">Location</span>
-          <span class="reserve__metaval">Haile Selassie Road<br>Mombasa</span>
+          <span class="reserve__metaval">Your Street<br>Your City</span>
         </li>
       </ul>
     </div>
@@ -2733,7 +2370,7 @@
 <footer class="ending">
   <!-- Decorative repeat of the hero's h1. Hidden from assistive tech so the
        brand name is not announced twice on the way out. -->
-  <p class="ending__mark" aria-hidden="true">LA PRANZO</p>
+  <p class="ending__mark" aria-hidden="true">YOUR RESTAURANT</p>
 
   <!-- Five links, not three. Locations and Reservations were added on
        2026-08-26: both are places a reader actually wants to reach from the
@@ -2748,7 +2385,7 @@
     <a class="ending__link" href="#reserve">Reservations</a>
   </nav>
 
-  <p class="ending__note">&copy; 2026 La Pranzo &amp; Al-Diwan</p>
+  <p class="ending__note">&copy; 2026 Your Restaurant</p>
 </footer>
 
 <script>

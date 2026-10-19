@@ -60,7 +60,18 @@ const TILE = '#000000';   /* the logo's own ground: measured rgb(22,22,22) at ch
 const MARK = '#FBFAF7';   /* the logo's own mark:   measured rgb(246,246,244) at chroma 1.87 */
 
 const b64 = f => readFileSync(f).toString('base64');
-const FULL = b64('brand_assets/lapranzo-mark-full.png');
+
+/* PARAMETERISED 2026-10-19. The LARGE icons embed the artwork wholesale,
+   lettering and all, so pointing them at the client's file is pointing them
+   at the client's LOGOTYPE — which must not ship on a demo sent to other
+   restaurants. argv[2] is the artwork; argv[3] the label.
+     node bake-favicons.mjs                                       (client)
+     node bake-favicons.mjs brand_assets/demo-mark-512.png Mezani (demo)
+   The SMALL drawing is a path and needs no source: it is already a ring of
+   two arcs and two dots, which carries nothing brand-specific. */
+const ART   = process.argv[2] ?? 'brand_assets/lapranzo-mark-full.png';
+const LABEL = process.argv[3] ?? 'La Pranzo';
+const FULL  = b64(ART);
 
 /* ------------------------------------------------------------ the drawings */
 
@@ -105,7 +116,7 @@ const draw = (png, inset, label) => {
 </svg>`;
 };
 
-const LARGE = draw(FULL, INSET_LARGE, 'La Pranzo');
+const LARGE = draw(FULL, INSET_LARGE, LABEL);
 
 /* ------------------------------------------------------------------ render */
 

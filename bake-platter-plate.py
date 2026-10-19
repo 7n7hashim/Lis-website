@@ -84,7 +84,16 @@ L = 0.2126 * a[:, :, 0] + 0.7152 * a[:, :, 1] + 0.0722 * a[:, :, 2]
 # rim pattern starts being admitted as ground. The floor is insensitive here
 # (150 through 196 all score 0.98+) because the ground is a clean pale sweep;
 # the CEILING is the term that matters on a decorated plate.
-ground = (L > 190) & ((mx - mn) < 26)
+# Overridable per source, because a second source proved the comment above:
+# GROUND_L / GROUND_SAT. Defaults are the client plate's solved values.
+import os as _os
+GL = float(_os.environ.get('GROUND_L', 190)); GS = float(_os.environ.get('GROUND_SAT', 26))
+ground = (L > GL) & ((mx - mn) < GS)
+# GROUND_DARK=1 inverts the test for a plate on a DARK surface: ground is then
+# everything darker than GROUND_L, with no saturation term, because dark wood
+# is saturated brown. The flood and the fit are unchanged.
+if _os.environ.get('GROUND_DARK') == '1':
+    ground = L < GL
 
 # CLOSE THE GROUND BEFORE FLOODING. The grain leaves speckles of not-ground
 # scattered over the board, and a chain of them BRIDGES the plate to the frame

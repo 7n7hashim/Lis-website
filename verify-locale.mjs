@@ -75,7 +75,7 @@ console.log('CAP HEIGHT — target 2.70% of viewport width\n');
 {
   for (const [w, h] of [[1440, 900], [1280, 800], [390, 844]]) {
     const page = await newPage(w, h);
-    for (const sel of ['.locale--mombasa']) {
+    for (const sel of ['.locale--main']) {
       const box = await page.evaluate((sel) => {
         const t = document.querySelector(sel + ' .locale__title');
         t.scrollIntoView({ block: 'center', behavior: 'instant' });
@@ -197,7 +197,7 @@ console.log('\nFIT — section, head and stage as rects (no scrollHeight test)\n
     const page = await newPage(w, h);
     const r = await page.evaluate(() => {
       const out = [];
-      for (const sel of ['.locale--mombasa']) {
+      for (const sel of ['.locale--main']) {
         const s = document.querySelector(sel);
         const head = s.querySelector('.locale__head');
         const stage = s.querySelector('.locale__stage');
@@ -234,7 +234,7 @@ console.log('\nSEAM — .details ground against .locale ground\n');
   const page = await newPage(1440, 900);
   const seam = await page.evaluate(() => {
     const d = document.querySelector('.details');
-    const l = document.querySelector('.locale--mombasa');
+    const l = document.querySelector('.locale--main');
     const b = d.getBoundingClientRect();
     scrollTo({ top: b.bottom + scrollY - innerHeight / 2, behavior: 'instant' });
     return new Promise(r => requestAnimationFrame(() => {

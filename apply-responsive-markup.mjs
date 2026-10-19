@@ -51,27 +51,27 @@ const POLICY = {
        the measured LCP element. All four frames arrive together out of
        depth; a lazy one would arrive late into a two-second choreography.
 
-       The PRELOAD goes on menu-grill, and which frame carries it is measured
+       The PRELOAD goes on menu-burger, and which frame carries it is measured
        rather than assumed. It sat on crave-hero — index.html's hero, carried
        across with the policy — where it is the SMALLEST of the four frames:
-       151px on a phone against menu-platter's 189. So the page spent its one
+       151px on a phone against menu-steak's 189. So the page spent its one
        high-priority fetch on a frame that is not the LCP, and the frame that
        is waited its turn behind three others. Chrome reports the LCP element
-       here as menu-grill: not the largest by area, because the entrance runs
+       here as menu-burger: not the largest by area, because the entrance runs
        two seconds and LCP lands on whichever frame reaches full opacity
        first with real area. Re-measure with a throttled profile before
        moving this — the answer is not the one geometry predicts. */
-    'assets/img/menu-grill.jpg': { mode: 'eager', priority: 'high', preload: true },
+    'assets/img/menu-burger.jpg': { mode: 'eager', priority: 'high', preload: true },
     'assets/img/lp-hero.jpg': { mode: 'eager' },
-    'assets/img/menu-arabic.jpg': { mode: 'eager' },
-    'assets/img/menu-platter.jpg': { mode: 'eager' },
+    'assets/img/menu-pizza.jpg': { mode: 'eager' },
+    'assets/img/menu-steak.jpg': { mode: 'eager' },
     'assets/img/reserve-interior.jpg': { mode: 'lazy' },
   },
   'about.html': {
     'assets/img/about-opening.jpg': { mode: 'eager', priority: 'high', preload: true },
     'assets/img/about-plate.jpg': { mode: 'lazy' },
     'assets/img/about-ch1-fire.jpg': { mode: 'warm', warm: '.chapters' },
-    'assets/img/about-ch2-rice.jpg': { mode: 'warm', warm: '.chapters' },
+    'assets/img/about-ch2-oven.jpg': { mode: 'warm', warm: '.chapters' },
     'assets/img/about-ch3-sweet.jpg': { mode: 'warm', warm: '.chapters' },
     'assets/img/about-ch4-table.jpg': { mode: 'warm', warm: '.chapters' },
     'assets/img/about-ex1-coffee.jpg': { mode: 'warm', warm: '.experience' },
@@ -83,7 +83,7 @@ const POLICY = {
   },
   'contact.html': {
     'assets/img/contact-hero.jpg': { mode: 'eager', priority: 'high', preload: true },
-    'assets/img/locale-mombasa.jpg': { mode: 'warm', warm: '.locale--mombasa' },
+    'assets/img/locale-mombasa.jpg': { mode: 'warm', warm: '.locale--main' },
     'assets/img/reserve-interior.jpg': { mode: 'lazy' },
   },
 };

@@ -1,6 +1,6 @@
 {
-  "name": "La Pranzo & Al-Diwan",
-  "short_name": "La Pranzo",
+  "name": "Your Restaurant",
+  "short_name": "Your Restaurant",
   "start_url": "/",
   "display": "standalone",
   "background_color": "#0D0C0A",

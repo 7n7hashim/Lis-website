@@ -3,9 +3,9 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
-<title>La Pranzo — We Are at Your Service</title>
+<title>Your Restaurant — We Are at Your Service</title>
 <link rel="preload" as="image" type="image/avif"
-      imagesrcset="assets/img/r/contact-hero-1090.avif 1090w, assets/img/r/contact-hero-1310.avif 1310w, assets/img/r/contact-hero-2000.avif 2000w"
+      imagesrcset="assets/img/r/contact-hero-1090.avif 1090w, assets/img/r/contact-hero-1570.avif 1570w, assets/img/r/contact-hero-2000.avif 2000w"
       imagesizes="106.7vw" fetchpriority="high">
 <!-- Site icon. Two drawings, not one file scaled: the SVG and the two small
      PNGs carry the mark reduced to the ring and the chopsticks, because the
@@ -18,7 +18,7 @@
 <link rel="apple-touch-icon" href="assets/apple-touch-icon.png">
 <link rel="manifest" href="assets/site.webmanifest">
 <meta name="theme-color" content="#0D0C0A">
-<meta name="description" content="Contact La Pranzo &amp; Al-Diwan — Haile Selassie Road, next to the Ola station, Mombasa. Open noon until eleven, seven days a week. +254 768 818833.">
+<meta name="description" content="A demonstration contact page: hours, location, a working enquiry form and eight answered questions. Every detail is a placeholder for yours.">
 
 <link rel="preload" as="font" type="font/woff2" crossorigin href="assets/fonts/cormorant-garamond-normal-300-400.woff2">
 <link rel="preload" as="font" type="font/woff2" crossorigin href="assets/fonts/jost-normal-300-400.woff2">
@@ -166,10 +166,10 @@
        headroom to spend. Here everything does — EXCEPT on a light field,
        and there is still one: the locale band's marker cards are near-white
        over a photograph. --menu-accent measures 1.43:1 there. Anything set
-       on a card takes --ground (18.24) or --lp-amber (5.70). */
+       on a card takes --ground (18.24) or --brand-amber (5.70). */
     --menu-ink:    #F8F7F3;
     --menu-body:   #A79F91;
-    --menu-accent: #FFCA2A;
+    --menu-accent: #F1CAAB;
 
     /* NOT A COLOUR, and it must not be used as one. It is the name the
        transplanted reserve and ending blocks use for "my ground", and
@@ -195,29 +195,29 @@
        colour are the same colour for the first time. The names are kept
        apart because the ROLES are still two, and the next brand may need
        two values again. */
-    --brand-yellow: #FFCA2A;
-    --lp-yellow:    #FFCA2A;
+    --brand-device: #F1CAAB;
+    --brand-accent:    #F1CAAB;
 
     /* THE LIGHT-FIELD ESCAPE, and the only token on the site that exists for
        a ground the page does not have. The locale band's marker cards are
        near-white plates laid over a photograph; on one of those the accent
        is 1.43:1 and unusable. This is 5.70:1 there. It is NOT for use on
        --ground, where it measures 3.20 and is a boundary at best. */
-    --lp-amber:  #7A5E0E;
+    --brand-amber:  #984E16;
 
     /* Non-text boundary and small utility type, at 5.50:1 on the ground.
        Here it is a 1px rule on a photograph and the four field underlines,
        which are UI component boundaries under WCAG 1.4.11 and so carry a
        3:1 floor of their own. verify-touch.mjs samples them from the render
        rather than trusting the declaration. */
-    --res-gold:  #9A8654;
+    --res-gold:  #A78062;
 
     /* Decorative, and this page is still the only thing on the site that
        sets TYPE in it — a role the token is not scoped for, so it is
        measured per viewport rather than assumed. Against the painted bed
        under the eyebrow it clears AA; the reading is at the foot of this
        file, and it was re-taken after the ground inverted. */
-    --res-hair:  #2E2A22;
+    --res-hair:  #312922;
 
     /* 2.4% of about.html's reference width, at both ends. Carried, not
        re-derived: it is the same bar on the same kind of frame. */
@@ -1003,8 +1003,8 @@
     aspect-ratio: 1;
     color: rgba(248, 247, 243, 0.05);
     background: currentColor;
-    -webkit-mask: url("brand_assets/lapranzo-mask-512.png") center / contain no-repeat;
-            mask: url("brand_assets/lapranzo-mask-512.png") center / contain no-repeat;
+    -webkit-mask: url("brand_assets/demo-mark-512.png") center / contain no-repeat;
+            mask: url("brand_assets/demo-mark-512.png") center / contain no-repeat;
     transform: translate3d(0, calc((var(--drift) - 0.5) * 11svh), -120px);
   }
 
@@ -1042,7 +1042,7 @@
     text-transform: uppercase;
     /* NOT --menu-accent. #FFCA2A on this card is 1.43:1 — the accent is a
        dark-ground colour and this is the site's one light field. 5.70:1. */
-    color: var(--lp-amber);
+    color: var(--brand-amber);
   }
 
   .touch__eyebrow::after {
@@ -1255,7 +1255,7 @@
      rule already answers "which field am I in" for everyone else. Drawn
      outside the field so it never sits on the type. */
   .field__input:focus-visible + .field__rule {
-    outline: 1.5px solid var(--lp-yellow);
+    outline: 1.5px solid var(--brand-accent);
     outline-offset: 4px;
   }
 
@@ -1699,7 +1699,7 @@
   .details__value:active { transform: translateY(1px); }
 
   .details__value:focus-visible {
-    outline: 1.5px solid var(--lp-yellow);
+    outline: 1.5px solid var(--brand-accent);
     outline-offset: 6px;
     border-radius: 1px;
   }
@@ -2204,7 +2204,7 @@
     align-items: center;
     gap: calc(var(--lu) * 0.62);
     padding: calc(var(--lu) * 0.72) calc(var(--lu) * 1.15);
-    background: var(--lp-yellow);
+    background: var(--brand-accent);
     border-radius: 999px;
     box-shadow:
       0 1px 2px rgba(14, 14, 12, 0.22),
@@ -2642,8 +2642,8 @@
        to marks that state nothing — the rule under the eyebrow, the ring around
        the photograph. Anything a guest reads or clicks takes --menu-accent
        (4.8:1) or --res-gold, which clears 3:1 as a non-text boundary. */
-    --res-hair: #2E2A22;
-    --res-gold: #9A8654;
+    --res-hair: #312922;
+    --res-gold: #A78062;
 
     --res-eyebrow:  clamp(0.66rem, 2.85vw, 0.76rem);
     --res-title:    clamp(2.35rem, 11.9vw, 3.6rem);
@@ -3202,7 +3202,7 @@
        getBoundingClientRect() hands the viewport back: read that way, a mark
        overflowing by 51% reports as a comfortable 93%. measure-endmark.mjs
        uses a Range. Re-solve again if the string ever changes length. */
-    --end-mark:   clamp(3.01rem, 13.66vw, 13.72rem);
+    --end-mark:   clamp(1.76rem, 7.99vw, 8.03rem);
     /* The last 15% of height comes from the block, not the size — see
        .ending__mark. */
     --end-stretch: 1.15;
@@ -3360,7 +3360,7 @@
   .ending__link:focus-visible::after { transform: scaleX(1); }
 
   .ending__link:focus-visible {
-    outline: 1px solid var(--lp-yellow);
+    outline: 1px solid var(--brand-accent);
     outline-offset: 4px;
     border-radius: 1px;
   }
@@ -3407,7 +3407,7 @@
       /* Scaled by the same 0.610 as the desktop clamp when the wordmark went
          from five glyphs to nine. 22.5vw held CRAVE at 92% of a phone; it
          held LA PRANZO at 151.4%. Measured after: 92.3%. */
-      --end-mark: 13.73vw;
+      --end-mark: 7.99vw;
       --end-stretch: 1.22;
       min-height: 0;
       padding-top: clamp(64px, 22vw, 108px);
@@ -3453,7 +3453,7 @@
         element beats one on :root. Deleting this block because the token
         "is already correct globally" silently puts the cream value back. */
   .reserve {
-    --res-gold: #9A8654;
+    --res-gold: #A78062;
   }
 
   /* 2. The closing gradient's tail is a literal, so --cream cannot reach it.
@@ -3508,10 +3508,10 @@
   <div class="hero__media">
     <picture>
       <source type="image/avif" sizes="106.7vw"
-              srcset="assets/img/r/contact-hero-1090.avif 1090w, assets/img/r/contact-hero-1310.avif 1310w, assets/img/r/contact-hero-2000.avif 2000w">
+              srcset="assets/img/r/contact-hero-1090.avif 1090w, assets/img/r/contact-hero-1570.avif 1570w, assets/img/r/contact-hero-2000.avif 2000w">
       <source type="image/webp" sizes="106.7vw"
               srcset="assets/img/r/contact-hero-1090.webp 1090w, assets/img/r/contact-hero-2000.webp 2000w">
-      <img class="hero__img" src="assets/img/contact-hero.jpg" alt="Arabic coffee being poured from a long-spouted dallah into a cup."
+      <img class="hero__img" src="assets/img/contact-hero.jpg" alt="A cappuccino and a croissant being set down on a counter."
          fetchpriority="high" decoding="sync" width="2000" height="1333" loading="eager">
     </picture>
   </div>
@@ -3523,7 +3523,7 @@
   <div class="hero__lift"></div>
 
   <header class="topbar">
-    <a class="topbar__brand" href="index.html">La Pranzo</a>
+    <a class="topbar__brand" href="index.html">Your Restaurant</a>
 
     <nav class="topbar__nav" aria-label="Primary">
       <a class="topbar__link" href="menu.html">Menu</a>
@@ -3679,11 +3679,11 @@
   <ul class="details__list">
     <li class="details__item">
       <span class="details__label">Phone</span>
-      <a class="details__value" href="tel:+254768818833">+254 768 818833</a>
+      <a class="details__value" href="tel:+254XXXXXXXXX">+254 712 345678</a>
     </li>
     <li class="details__item">
       <span class="details__label">Instagram</span>
-      <a class="details__value" href="https://www.instagram.com/lapranzoke" rel="noopener">@lapranzoke</a>
+      <a class="details__value" href="https://www.instagram.com/" rel="noopener">@yourhandle</a>
     </li>
   </ul>
 </section>
@@ -3730,10 +3730,10 @@
      the new branch, so Mombasa came first; no year is published for either
      room. Do not reintroduce a year without a source.
      ==================================================================== -->
-<section class="locale locale--mombasa" id="locations" aria-labelledby="locale-mombasa-title">
+<section class="locale locale--main" id="locations" aria-labelledby="locale-main-title">
   <div class="locale__head">
     <p class="locale__eyebrow">The Location</p>
-    <h2 class="locale__title" id="locale-mombasa-title">Mombasa</h2>
+    <h2 class="locale__title" id="locale-main-title">Your City</h2>
     <!-- NO FOUNDING YEAR, for the third rebrand running. None is published
          anywhere for this room either.
 
@@ -3743,11 +3743,11 @@
          the unit sits inside United Meat Supplies. The landmark is what a
          guest actually navigates by on a road that long, so it is what the
          card carries and the postcode is what it leaves out. -->
-    <p class="locale__body">One room, downtown, on Haile Selassie Road next to the Ola
-      station. Google rates it 4.7 across three hundred and twenty-three reviews, and
-      reports that people spend anywhere from twenty-five minutes to three hours here
-      &mdash; which is a wide spread for a place that calls itself a fast food and
-      cafe.</p>
+    <p class="locale__body">One room, downtown, a few doors from the corner your regulars
+      turn at. This paragraph is where the room gets described &mdash; how long people stay,
+      what they come back for, what the street is like at eight in the evening. It is the
+      first block to rewrite, because it is the one a guest reads to decide whether this is
+      their kind of place.</p>
   </div>
 
   <div class="locale__stage">
@@ -3759,7 +3759,7 @@
         <source type="image/webp" sizes="85.3vw"
                 srcset="assets/img/r/locale-mombasa-880.webp 880w, assets/img/r/locale-mombasa-2000.webp 2000w">
         <img class="locale__img" src="assets/img/locale-mombasa.jpg" width="2000" height="1125"
-           alt="The Mombasa waterfront: white apartment buildings and palms on a green bluff above the water." loading="lazy" decoding="async" fetchpriority="low" data-warm=".locale--mombasa">
+           alt="A city waterfront: white apartment buildings and palms on a green bluff above the water." loading="lazy" decoding="async" fetchpriority="low" data-warm=".locale--main">
       </picture>
         <div class="locale__mark locale__mark--pill">
           <div class="locale__pill">
@@ -3774,7 +3774,7 @@
                     fill="none" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round"/>
               <circle cx="12" cy="10" r="2.4" fill="currentColor"/>
             </svg>
-            <span class="locale__pill-label">La Pranzo</span>
+            <span class="locale__pill-label">Your Restaurant</span>
           </div>
         </div>
 
@@ -3790,15 +3790,15 @@
       <div class="locale__mark locale__mark--a">
         <div class="locale__card">
           <p class="locale__card-eyebrow">Finding it</p>
-          <p class="locale__card-title">Next to Ola</p>
-          <p class="locale__card-note">Haile Selassie Road</p>
+          <p class="locale__card-title">Your Landmark</p>
+          <p class="locale__card-note">Your Street</p>
         </div>
       </div>
 
       <div class="locale__mark locale__mark--b">
         <div class="locale__card">
           <p class="locale__card-eyebrow">Call the room</p>
-          <p class="locale__card-title">+254 768 818833</p>
+          <p class="locale__card-title">+254 712 345678</p>
           <p class="locale__card-note">Every day, 12:00 &ndash; 23:00</p>
         </div>
       </div>
@@ -3847,12 +3847,12 @@
     <div class="faq__list">
         <details class="faq__item">
           <summary class="faq__q">
-            <span class="faq__q-text">Where is La Pranzo?</span>
+            <span class="faq__q-text">Where is Your Restaurant?</span>
             <span class="faq__sign" aria-hidden="true"></span>
           </summary>
           <div class="faq__a"><div class="faq__a-inner">
-            <p>One room, downtown. Haile Selassie Road, <strong>next to the Ola petrol
-            station</strong>, in the United Meat Supplies building, Mombasa 80100.
+            <p>One room, downtown. Your Street, <strong>next to the landmark
+            everyone navigates by</strong>, Your City 00100.
             There is no second branch.</p>
           </div></div>
         </details>
@@ -3875,12 +3875,12 @@
             <span class="faq__sign" aria-hidden="true"></span>
           </summary>
           <div class="faq__a"><div class="faq__a-inner">
-            <p><strong>No.</strong> There is not one alcoholic drink among the hundred and
-            sixty-six things on this carte. <strong>The thirteen mojitos are
-            mocktails</strong> &mdash; lemon, passion, blue lagoon, green mountain and
-            the rest &mdash; and so is everything on the juice board, including the one
-            called a Cocktail Juice. What there is instead is a coffee bar: eighteen hot,
-            nine frappuccinos, six iced, and thirteen milkshakes beside them.</p>
+            <p><strong>No.</strong> There is not one alcoholic drink among the
+            eighty-four things on this carte. <strong>Every shake and juice is
+            non-alcoholic</strong> &mdash; vanilla, chocolate, strawberry, passion, mango and
+            the rest &mdash; and the board says so under its own heading. What there
+            is instead is a coffee bar: nine hot and iced, four shakes, and a fresh
+            lemonade that most tables order before they have looked at the food.</p>
           </div></div>
         </details>
 
@@ -3891,9 +3891,9 @@
           </summary>
           <div class="faq__a"><div class="faq__a-inner">
             <p><strong>We cannot tell you from here, and would rather say so than guess.</strong>
-            La Pranzo publishes no halal certification anywhere, and none of its
+            Your Restaurant publishes no halal certification anywhere, and none of its
             listings carry one. What is on the carte is consistent with it &mdash; the
-            kitchen is Middle Eastern, and there is no pork on any of the nineteen
+            kitchen is a grill and a pizza oven, and there is no pork on any of the thirteen
             courses &mdash; but that is an observation about a menu, not a statement from
             the restaurant. <strong>Call and ask.</strong></p>
           </div></div>
@@ -3917,12 +3917,12 @@
             <span class="faq__sign" aria-hidden="true"></span>
           </summary>
           <div class="faq__a"><div class="faq__a-inner">
-            <p>Middle Eastern, and more precisely than that phrase usually means. Yemeni and
-            Gulf rice cooked under a lid &mdash; mandi, hanith, zurbian, madhabi. Levantine
-            mezze and grills &mdash; hummus, mutabal, fatoush, shish tauk, kofta. Egyptian
-            plates &mdash; fuul, shakshuka, kebda, adas. Mishkaki, which is the coast's own.
-            And beside all of it, pizza, burgers, pasta and a full coffee bar, because the
-            sign over the door says <em>fast food and cafe</em> as well.</p>
+            <p>A grill and a pizza oven first, and a coffee bar beside them. Burgers off
+            the flat-top &mdash; seven of them, from a classic beef to a double stack. Pizza
+            from the wood-fired oven &mdash; six, in two sizes. Steaks, chops and a mixed
+            grill off the charcoal. Pasta, sandwiches, wraps, and breakfast until noon.
+            And beside all of it, desserts, shakes and a full coffee bar, because the
+            sign over the door says <em>kitchen and coffee house</em> as well.</p>
           </div></div>
         </details>
 
@@ -3932,10 +3932,10 @@
             <span class="faq__sign" aria-hidden="true"></span>
           </summary>
           <div class="faq__a"><div class="faq__a-inner">
-            <p>A good many, and they are countable off the carte: falafel three ways, fuul,
-            adas, fasuolia, hummus, mutabal, labanies taboula, cucumber yoghurt, four
-            salads, the vegetable pizza, grilled vegetables, mashed potatoes and five
-            kinds of chips. <strong>Vegan and gluten-free are not confirmed for this
+            <p>A good many, and they are countable off the carte: the veggie burger,
+            the margherita, garden and four-cheese pizzas, penne arrabbiata, creamy
+            mushroom penne, three salads, grilled cheese, pancakes and waffles, and
+            four kinds of chips. <strong>Vegan and gluten-free are not confirmed for this
             kitchen</strong> and neither is published anywhere, so anything to do with an
             allergy should go to a phone call rather than to this page.</p>
           </div></div>
@@ -3948,7 +3948,7 @@
           </summary>
           <div class="faq__a"><div class="faq__a-inner">
             <p>The room does group tables and birthdays regularly &mdash; reviewers mention an
-            upstairs with its own setup. <strong>La Pranzo publishes no private room and
+            upstairs with its own setup. <strong>Your Restaurant publishes no private room and
             no capacity</strong>, so call and ask rather than taking a number from
             here.</p>
           </div></div>
@@ -3986,13 +3986,13 @@
       </svg>
       <div class="reserve__frame">
         <picture>
-          <source type="image/avif" sizes="(max-width: 1000px) 101vw, 62.6vw"
-                  srcset="assets/img/r/reserve-interior-640.avif 640w, assets/img/r/reserve-interior-770.avif 770w, assets/img/r/reserve-interior-920.avif 920w, assets/img/r/reserve-interior-1150.avif 1150w, assets/img/r/reserve-interior-1400.avif 1400w">
-          <source type="image/webp" sizes="(max-width: 1000px) 101vw, 62.6vw"
+          <source type="image/avif" sizes="(max-width: 1000px) 100.9vw, 62.6vw"
+                  srcset="assets/img/r/reserve-interior-770.avif 770w, assets/img/r/reserve-interior-920.avif 920w, assets/img/r/reserve-interior-1150.avif 1150w, assets/img/r/reserve-interior-1400.avif 1400w">
+          <source type="image/webp" sizes="(max-width: 1000px) 100.9vw, 62.6vw"
                   srcset="assets/img/r/reserve-interior-640.webp 640w, assets/img/r/reserve-interior-1400.webp 1400w">
           <img class="reserve__img" src="assets/img/reserve-interior.jpg"
              width="1400" height="1576"
-             alt="A laid table seen from above: grilled kofta, chips and dips on a patterned cloth."
+             alt="A laid table under warm light: sliders, chips, dips and a tall lemonade."
              loading="lazy" decoding="async" fetchpriority="low">
         </picture>
       </div>
@@ -4010,7 +4010,7 @@
         Tell us when and how many &mdash; the rest is arranged from there.</p>
 
       <a class="reserve__cta"
-         href="https://wa.me/254768818833?text=Hello%20La%20Pranzo%20%E2%80%94%20I%E2%80%99d%20like%20to%20book%20a%20table.%0A%0AName%3A%0ADate%3A%0ATime%3A%0ANumber%20of%20guests%3A%0A%0AThank%20you."
+         href="https://wa.me/254XXXXXXXXX?text=Hello%20La%20Pranzo%20%E2%80%94%20I%E2%80%99d%20like%20to%20book%20a%20table.%0A%0AName%3A%0ADate%3A%0ATime%3A%0ANumber%20of%20guests%3A%0A%0AThank%20you."
          target="_blank" rel="noopener">
         <span class="reserve__ctalbl">Reserve now</span>
         <svg class="reserve__arrow" viewBox="0 0 24 14" aria-hidden="true" focusable="false">
@@ -4057,7 +4057,7 @@
             <circle cx="12" cy="10.6" r="2.4"/>
           </svg>
           <span class="reserve__metalbl">Location</span>
-          <span class="reserve__metaval">Haile Selassie Road<br>Mombasa</span>
+          <span class="reserve__metaval">Your Street<br>Your City</span>
         </li>
       </ul>
     </div>
@@ -4068,7 +4068,7 @@
 <footer class="ending">
   <!-- Decorative repeat of the hero's h1. Hidden from assistive tech so the
        brand name is not announced twice on the way out. -->
-  <p class="ending__mark" aria-hidden="true">LA PRANZO</p>
+  <p class="ending__mark" aria-hidden="true">YOUR RESTAURANT</p>
 
   <!-- Five links, not three. Locations and Reservations were added on
        2026-08-26: both are places a reader actually wants to reach from the
@@ -4083,7 +4083,7 @@
     <a class="ending__link" href="#reserve">Reservations</a>
   </nav>
 
-  <p class="ending__note">&copy; 2026 La Pranzo &amp; Al-Diwan</p>
+  <p class="ending__note">&copy; 2026 Your Restaurant</p>
 </footer>
 
 <script>

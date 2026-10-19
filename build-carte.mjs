@@ -34,22 +34,27 @@
 */
 import fs from 'fs';
 
-const d = JSON.parse(fs.readFileSync('lapranzo-menu.json', 'utf8'));
+/* PARAMETERISED so the same generator serves a prospect's carte as well as
+   the client's. The menu file is argv[2]; the currency symbol and the opening
+   Signatures course now come out of that file rather than being hardcoded
+   here, because both are per-restaurant. Default stays the real client's, so
+   `node build-carte.mjs` is unchanged. */
+const MENU = process.argv[2] ?? 'lapranzo-menu.json';
+const d = JSON.parse(fs.readFileSync(MENU, 'utf8'));
+if (!Array.isArray(d.signatures) || !d.signatures.length)
+  { console.error(`${MENU}: no signatures[] \u2014 the opening course would be empty`); process.exit(1); }
+const SYM = d.place?.currencySymbol ?? 'KSh';
 
 const ESC = { '&': '&amp;', '<': '&lt;', '>': '&gt;' };
 const esc = s => s.replace(/[&<>]/g, c => ESC[c]).replace(/'/g, '&rsquo;');
 
-const money = p => 'KSh ' + [].concat(p).map(n => n.toLocaleString('en-US')).join(' &middot; ');
+const money = p => SYM + ' ' + [].concat(p).map(n => n.toLocaleString('en-US')).join(' &middot; ');
 
 const slug = s => s.toLowerCase().replace(/[^a-z0-9]+/g, '-').replace(/^-|-$/g, '');
 
-/* The wide opening course. Every price is the carte's own. */
-const SIG = [
-  ['Mix Grilled Platter', 2500, 'The top of the carte and the table everyone else in the room is looking at. Half at 1,500.'],
-  ['La Pranzo Chips', 650, 'The house chips. Seven things on this menu are named after the house and these are the ones reviewers name first.'],
-  ['Mandi', 800, 'Mutton, on rice cooked under it. Also chicken, breast or legs, and beside it zurbian, hanith and madhabi.'],
-  ['Kunafa Pistachio', 800, 'The top of a board with five kunafas on it, which is four more than most kitchens attempt.'],
-];
+/* The wide opening course, out of the data file. Every price is that
+   carte's own. */
+const SIG = d.signatures;
 
 let out = [], nDish = 0;
 
@@ -86,4 +91,4 @@ for (const c of d.courses) {
 }
 
 fs.writeFileSync('carte.generated.html', out.join('\n'));
-console.log(`${nDish} dishes across ${d.courses.length} courses -> carte.generated.html`);
+console.log(`${MENU}: ${nDish} dishes across ${d.courses.length} courses -> carte.generated.html`);
